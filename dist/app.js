@@ -1343,7 +1343,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState(initialState) {
+        function useState2(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1931,7 +1931,7 @@ var require_react_development = __commonJS({
         exports2.useMemo = useMemo;
         exports2.useReducer = useReducer;
         exports2.useRef = useRef;
-        exports2.useState = useState;
+        exports2.useState = useState2;
         exports2.version = ReactVersion;
       })();
     }
@@ -56156,7 +56156,7 @@ var require_wrap_ansi = __commonJS({
       }
       return words.slice(0, last).join(" ") + words.slice(last).join("");
     };
-    var exec = (string, columns, options = {}) => {
+    var exec2 = (string, columns, options = {}) => {
       if (options.trim !== false && string.trim() === "") {
         return "";
       }
@@ -56225,7 +56225,7 @@ var require_wrap_ansi = __commonJS({
       return ret;
     };
     module2.exports = (string, columns, options) => {
-      return String(string).normalize().replace(/\r\n/g, "\n").split("\n").map((line) => exec(line, columns, options)).join("\n");
+      return String(string).normalize().replace(/\r\n/g, "\n").split("\n").map((line) => exec2(line, columns, options)).join("\n");
     };
   }
 });
@@ -68783,7 +68783,7 @@ var require_backend = __commonJS({
               });
               return a;
             },
-            useState: function useState(a) {
+            useState: function useState2(a) {
               var b = C();
               a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
               x.push({
@@ -79044,7 +79044,7 @@ var require_react_router_development = __commonJS({
       }
       const is = typeof Object.is === "function" ? Object.is : isPolyfill;
       const {
-        useState,
+        useState: useState2,
         useEffect,
         useLayoutEffect,
         useDebugValue
@@ -79072,7 +79072,7 @@ var require_react_router_development = __commonJS({
         }
         const [{
           inst
-        }, forceUpdate] = useState({
+        }, forceUpdate] = useState2({
           inst: {
             value,
             getSnapshot
@@ -85359,6 +85359,60 @@ var require_build4 = __commonJS({
   }
 });
 
+// src/1/tasks/create_logical_volume.sh
+var require_create_logical_volume = __commonJS({
+  "src/1/tasks/create_logical_volume.sh"(exports2, module2) {
+    module2.exports = `#!/bin/bash
+swap_power=1.2
+root_partition_size='51G'
+
+function get_memtotal {
+  local a=\`grep MemTotal /proc/meminfo | sed 's/[^0-9]*//g'\`
+  echo $a
+  exit 0
+}
+
+function convert_kb_to_gb {
+  echo $1 | awk '{$1=$1/(1024^2); print $1}'
+}
+
+function get_memtotal_gb {
+  echo "$(convert_kb_to_gb $(get_memtotal))"
+}
+
+function get_swap_size {
+  #echo $(get_memtotal_gb)
+  #echo '$(get_memtotal_gb)'
+  #echo $((2 + $swap_power))
+  local s=\`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; printf "%3.0f", $1}'\`
+  s=\`echo $s | sed "s/ //"\`
+  echo "\${s}G" 
+}
+
+pvcreate /dev/mapper/cryptlvm                         
+vgcreate archlvm /dev/mapper/cryptlvm
+# vgchange -a n archlvm
+# vgremove archlvm
+  
+# Swap is a bit bigger than ram to enable hibernation
+lvcreate -L "$(get_swap_size)d" archlvm -n swap
+lvcreate -L "\${root_partition_size}" archlvm -n root
+lvcreate -l 100%FREE archlvm -n home
+  
+mkfs.ext4 /dev/archlvm/root
+mkfs.ext4 /dev/archlvm/home
+mkswap /dev/archlvm/swap
+`;
+  }
+});
+
+// src/1/tasks/test.txt
+var require_test = __commonJS({
+  "src/1/tasks/test.txt"(exports2, module2) {
+    module2.exports = "some test goes here\n";
+  }
+});
+
 // src/app.jsx
 var import_react4 = __toESM(require_react());
 var import_ink4 = __toESM(require_build2());
@@ -85383,7 +85437,7 @@ var package_default = {
   scripts: {
     "test:eslint": "eslint --ext .jsx,.js src/",
     "fix:eslint": "npm run test:eslint -- --fix",
-    build: "esbuild src/app.jsx --loader:.txt=text --bundle --platform=node --outfile=dist/app.js",
+    build: "esbuild src/app.jsx --loader:.txt=text --loader:.sh=text --bundle --platform=node --outfile=dist/app.js",
     start: "node ./dist/app.js",
     dev: "npm run build && npm run start",
     test: 'echo "Error: no test specified" && exit 1'
@@ -85395,6 +85449,7 @@ var package_default = {
     "ink-gradient": "^2.0.0",
     "ink-multi-select": "^2.0.0",
     "ink-select-input": "^4.2.1",
+    "prop-types": "^15.8.1",
     react: "^17.0.2",
     "react-router": "^6.6.1"
   },
@@ -85433,11 +85488,53 @@ function MainMenu() {
 }
 var MainMenu_default = MainMenu;
 
+// src/1/Menu.jsx
+var import_react3 = __toESM(require_react());
+var import_ink3 = __toESM(require_build2());
+
 // src/MultipleChoiceMenu.jsx
 var import_react2 = __toESM(require_react());
+var import_prop_types = __toESM(require_prop_types());
 var import_ink2 = __toESM(require_build2());
 var import_react_router2 = __toESM(require_main());
 var import_ink_multi_select = __toESM(require_build4());
+
+// src/runPayload.js
+var import_child_process = require("child_process");
+var runPayload = async (promisedImport, log) => {
+  const { default: script } = await promisedImport;
+  const proc = (0, import_child_process.exec)(`set -e; ${script}`, { shell: "/bin/bash" });
+  if (log) {
+    proc.stdout.on("data", (data) => {
+      log("OK", data);
+    });
+    proc.stderr.on("data", (data) => {
+      log("ERR", data.replace("/bin/bash: ", "").replace("\n", ""));
+    });
+    proc.on("error", (err2) => {
+      log("ERR", err2);
+    });
+    proc.on("exit", (code) => {
+      log(code, `Process exited with code ${code}`);
+    });
+  }
+  log("OK", "run successfully");
+  log(0, "run successfully");
+};
+var runPayload_default = runPayload;
+
+// src/getStatusColor.js
+var getStatusColor_default = (status) => {
+  if (status === "ERR")
+    return "red";
+  if (status === "OK")
+    return "green";
+  if (status === "0")
+    return "blue";
+  return "red";
+};
+
+// src/MultipleChoiceMenu.jsx
 function MultipleChoiceMenu({
   escapeToReturn,
   items
@@ -85450,34 +85547,52 @@ function MultipleChoiceMenu({
       }
     }
   });
-  const handleSubmit = (items2) => {
+  const [outputLines, setOutputLines] = (0, import_react2.useState)([]);
+  const appendOutputForScript = (scriptName) => (status, payload) => {
+    setOutputLines((state) => [
+      ...state,
+      {
+        scriptName,
+        status,
+        payload,
+        timestamp: Date.now()
+      }
+    ]);
   };
-  return /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " Press ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "blue" }, "Space"), " to select, ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "green" }, "Enter"), " to submit or ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "yellow" }, "Escape"), " to return to the previous menu."), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " "), /* @__PURE__ */ import_react2.default.createElement(import_ink_multi_select.default, { items, onSubmit: handleSubmit }));
+  const handleSubmit = async (submittedItems) => {
+    for (const item of submittedItems) {
+      const appendOutput = appendOutputForScript(item.label);
+      await runPayload_default(item.payload, appendOutput);
+    }
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Static, { items: outputLines }, (line) => /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { key: line.timestamp }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { backgroundColor: getStatusColor_default(line.status) }, ` ${String(line.status)}${" ".repeat(4 - String(line.status).length)}`), " ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { dimColor: true }, line.scriptName, ": "), line.payload))), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " Press ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "blue" }, "Space"), " to select, ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "green" }, "Enter"), " to submit or ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "yellow" }, "Escape"), " to return to the previous menu."), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " "), /* @__PURE__ */ import_react2.default.createElement(import_ink_multi_select.default, { items, onSubmit: handleSubmit }));
 }
+MultipleChoiceMenu.propTypes = {
+  escapeToReturn: import_prop_types.default.bool,
+  items: import_prop_types.default.arrayOf(import_prop_types.default.object).isRequired
+};
 MultipleChoiceMenu.defaultProps = {
   escapeToReturn: true
 };
 var MultipleChoiceMenu_default = MultipleChoiceMenu;
 
-// src/1/Menu.jsx
-var import_react3 = __toESM(require_react());
-var import_ink3 = __toESM(require_build2());
-
 // src/1/tasks/index.jsx
 var tasks_default = [
   {
-    label: "Set Up Disk partitions",
-    value: "1"
+    label: "create_logical_volume.sh",
+    value: "1",
+    payload: Promise.resolve().then(() => __toESM(require_create_logical_volume()))
   },
   {
     label: "Set Up Disk partitions",
-    value: "2"
+    value: "2",
+    payload: Promise.resolve().then(() => __toESM(require_test()))
   }
 ];
 
 // src/1/Menu.jsx
 function Menu() {
-  return /* @__PURE__ */ import_react3.default.createElement(import_ink3.Box, null, /* @__PURE__ */ import_react3.default.createElement(MultipleChoiceMenu_default, { items: tasks_default }));
+  return /* @__PURE__ */ import_react3.default.createElement(import_ink3.Box, { padding: "4" }, /* @__PURE__ */ import_react3.default.createElement(MultipleChoiceMenu_default, { items: tasks_default }));
 }
 var Menu_default = Menu;
 

@@ -6,7 +6,7 @@
   "scripts": {
     "test:eslint": "eslint --ext .jsx,.js src/",
     "fix:eslint": "npm run test:eslint -- --fix",
-    "build": "esbuild src/app.jsx --loader:.txt=text --bundle --platform=node --outfile=dist/app.js",
+    "build": "esbuild src/app.jsx --loader:.txt=text --loader:.sh=text --bundle --platform=node --outfile=dist/app.js",
     "start": "node ./dist/app.js",
     "dev": "npm run build && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"

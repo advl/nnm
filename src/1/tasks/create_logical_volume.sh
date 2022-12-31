@@ -24,7 +24,6 @@ function get_swap_size {
   s=`echo $s | sed "s/ //"`
   echo "${s}G" 
 }
-echo $(get_swap_size)
 
 pvcreate /dev/mapper/cryptlvm                         
 vgcreate archlvm /dev/mapper/cryptlvm
@@ -32,10 +31,10 @@ vgcreate archlvm /dev/mapper/cryptlvm
 # vgremove archlvm
   
 # Swap is a bit bigger than ram to enable hibernation
-lvcreate -L "$(get_swap_size)" archlvm -n swap
+lvcreate -L "$(get_swap_size)d" archlvm -n swap
 lvcreate -L "${root_partition_size}" archlvm -n root
 lvcreate -l 100%FREE archlvm -n home
   
-#mkfs.ext4 /dev/archlvm/root
-#mkfs.ext4 /dev/archlvm/home
-#mkswap /dev/archlvm/swap
+mkfs.ext4 /dev/archlvm/root
+mkfs.ext4 /dev/archlvm/home
+mkswap /dev/archlvm/swap
