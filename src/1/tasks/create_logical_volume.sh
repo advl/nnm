@@ -1,5 +1,6 @@
 #!/bin/bash
 swap_power=1.2
+root_partition_size='51G'
 
 function get_memtotal {
   local a=`grep MemTotal /proc/meminfo | sed 's/[^0-9]*//g'`
@@ -19,11 +20,9 @@ function get_swap_size {
   #echo $(get_memtotal_gb)
   #echo '$(get_memtotal_gb)'
   #echo $((2 + $swap_power))
-  local size=`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; printf "%3.0f", $a}'`
-  echo "$(size)G"
+  local s=`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; printf "%3.0f", $1}'`
+  echo "${s}G" 
 }
-
-echo $(get_swap_size)
 
 pvcreate /dev/mapper/cryptlvm                         
 vgcreate archlvm /dev/mapper/cryptlvm
@@ -31,8 +30,8 @@ vgcreate archlvm /dev/mapper/cryptlvm
 # vgremove archlvm
   
 # Swap is a bit bigger than ram to enable hibernation
-lvcreate -L `$(get_swap_size)` archlvm -n swap
-lvcreate -L 51G archlvm -n root
+lvcreate -L "$(get_swap_size)" archlvm -n swap
+lvcreate -L "$(root_partition_size)" archlvm -n root
 lvcreate -l 100%FREE archlvm -n home
   
 #mkfs.ext4 /dev/archlvm/root
