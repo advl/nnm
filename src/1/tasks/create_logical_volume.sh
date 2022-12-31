@@ -31,7 +31,7 @@ vgcreate archlvm /dev/mapper/cryptlvm
 # vgremove archlvm
   
 # Swap is a bit bigger than ram to enable hibernation
-lvcreate -L `$(get_swap_size)G` archlvm -n swap
+lvcreate -L `$(get_swap_size)` archlvm -n swap
 lvcreate -L 51G archlvm -n root
 lvcreate -l 100%FREE archlvm -n home
   
