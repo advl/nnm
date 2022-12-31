@@ -1,14 +1,16 @@
 import React from 'react'
-import { Box, Text, Spacer } from 'ink'
+import { Box, Text } from 'ink'
 import SelectInput from 'ink-select-input'
+import { useNavigate } from 'react-router'
 import Gradient from 'ink-gradient'
-import BigText from 'ink-big-text'
 import Logo from './logo.txt'
 import packageConf from '../package.json'
 
 function MainMenu() {
-  const handleSelect = (item) => {
+  const navigate = useNavigate()
 
+  const handleSelect = (item) => {
+    navigate(item.value)
   }
 
   const items = [

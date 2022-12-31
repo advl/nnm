@@ -13878,11 +13878,11 @@ var require_react_reconciler_development = __commonJS({
       module2.exports = function $$$reconciler($$$hostConfig) {
         var exports3 = {};
         "use strict";
-        var React3 = require_react();
+        var React5 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var tracing = require_tracing();
-        var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function warn(format) {
           {
             for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -16466,7 +16466,7 @@ var require_react_reconciler_development = __commonJS({
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React3.Component().refs;
+        var emptyRefsObject = new React5.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -74845,18 +74845,18 @@ var require_Box = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Box2 = react_1.forwardRef((_a2, ref) => {
+    var Box4 = react_1.forwardRef((_a2, ref) => {
       var { children } = _a2, style = __rest(_a2, ["children"]);
       const transformedStyle = Object.assign(Object.assign({}, style), { marginLeft: style.marginLeft || style.marginX || style.margin || 0, marginRight: style.marginRight || style.marginX || style.margin || 0, marginTop: style.marginTop || style.marginY || style.margin || 0, marginBottom: style.marginBottom || style.marginY || style.margin || 0, paddingLeft: style.paddingLeft || style.paddingX || style.padding || 0, paddingRight: style.paddingRight || style.paddingX || style.padding || 0, paddingTop: style.paddingTop || style.paddingY || style.padding || 0, paddingBottom: style.paddingBottom || style.paddingY || style.padding || 0 });
       return react_1.default.createElement("ink-box", { ref, style: transformedStyle }, children);
     });
-    Box2.displayName = "Box";
-    Box2.defaultProps = {
+    Box4.displayName = "Box";
+    Box4.defaultProps = {
       flexDirection: "row",
       flexGrow: 0,
       flexShrink: 1
     };
-    exports2.default = Box2;
+    exports2.default = Box4;
   }
 });
 
@@ -74871,7 +74871,7 @@ var require_Text = __commonJS({
     var react_1 = __importDefault(require_react());
     var chalk_1 = __importDefault(require_source());
     var colorize_1 = __importDefault(require_colorize());
-    var Text2 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
+    var Text3 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
       if (children === void 0 || children === null) {
         return null;
       }
@@ -74904,8 +74904,8 @@ var require_Text = __commonJS({
       };
       return react_1.default.createElement("ink-text", { style: { flexGrow: 0, flexShrink: 1, flexDirection: "row", textWrap: wrap }, internal_transform: transform }, children);
     };
-    Text2.displayName = "Text";
-    Text2.defaultProps = {
+    Text3.displayName = "Text";
+    Text3.defaultProps = {
       dimColor: false,
       bold: false,
       italic: false,
@@ -74913,7 +74913,7 @@ var require_Text = __commonJS({
       strikethrough: false,
       wrap: "wrap"
     };
-    exports2.default = Text2;
+    exports2.default = Text3;
   }
 });
 
@@ -75669,7 +75669,7 @@ var require_Static = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Static = (props) => {
+    var Static2 = (props) => {
       const { items, children: render2, style: customStyle } = props;
       const [index, setIndex] = react_1.useState(0);
       const itemsToRender = react_1.useMemo(() => {
@@ -75687,8 +75687,8 @@ var require_Static = __commonJS({
         style
       }, children);
     };
-    Static.displayName = "Static";
-    exports2.default = Static;
+    Static2.displayName = "Static";
+    exports2.default = Static2;
   }
 });
 
@@ -75737,9 +75737,9 @@ var require_Spacer = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importDefault(require_react());
     var Box_1 = __importDefault(require_Box());
-    var Spacer2 = () => react_1.default.createElement(Box_1.default, { flexGrow: 1 });
-    Spacer2.displayName = "Spacer";
-    exports2.default = Spacer2;
+    var Spacer = () => react_1.default.createElement(Box_1.default, { flexGrow: 1 });
+    Spacer.displayName = "Spacer";
+    exports2.default = Spacer;
   }
 });
 
@@ -75768,7 +75768,7 @@ var require_use_input = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = require_react();
     var use_stdin_1 = __importDefault(require_use_stdin());
-    var useInput = (inputHandler, options = {}) => {
+    var useInput2 = (inputHandler, options = {}) => {
       const { stdin, setRawMode, internal_exitOnCtrlC } = use_stdin_1.default();
       react_1.useEffect(() => {
         if (options.isActive === false) {
@@ -75830,7 +75830,7 @@ var require_use_input = __commonJS({
         };
       }, [options.isActive, stdin, internal_exitOnCtrlC, inputHandler]);
     };
-    exports2.default = useInput;
+    exports2.default = useInput2;
   }
 });
 
@@ -79002,7 +79002,7 @@ var require_react_router_development = __commonJS({
   "node_modules/react-router/dist/umd/react-router.development.js"(exports2, module2) {
     (function(global2, factory) {
       typeof exports2 === "object" && typeof module2 !== "undefined" ? factory(exports2, require_router_cjs(), require_react()) : typeof define === "function" && define.amd ? define(["exports", "@remix-run/router", "react"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.ReactRouter = {}, global2.RemixRouter, global2.React));
-    })(exports2, function(exports3, router, React3) {
+    })(exports2, function(exports3, router, React5) {
       "use strict";
       function _interopNamespace(e) {
         if (e && e.__esModule)
@@ -79024,7 +79024,7 @@ var require_react_router_development = __commonJS({
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React3);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React5);
       function _extends() {
         _extends = Object.assign ? Object.assign.bind() : function(target) {
           for (var i2 = 1; i2 < arguments.length; i2++) {
@@ -79209,7 +79209,7 @@ var require_react_router_development = __commonJS({
         } = useLocation();
         return React__namespace.useMemo(() => router.matchPath(pattern, pathname), [pathname, pattern]);
       }
-      function useNavigate() {
+      function useNavigate3() {
         !useInRouterContext() ? router.invariant(
           false,
           "useNavigate() may be used only in the context of a <Router> component."
@@ -79665,7 +79665,7 @@ var require_react_router_development = __commonJS({
         ) : void 0;
         router.warning(!React__namespace.useContext(NavigationContext).static, "<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.");
         let dataRouterState = React__namespace.useContext(DataRouterStateContext);
-        let navigate = useNavigate();
+        let navigate = useNavigate3();
         React__namespace.useEffect(() => {
           if (dataRouterState && dataRouterState.navigation.state !== "idle") {
             return;
@@ -80015,7 +80015,7 @@ var require_react_router_development = __commonJS({
       exports3.useLocation = useLocation;
       exports3.useMatch = useMatch;
       exports3.useMatches = useMatches;
-      exports3.useNavigate = useNavigate;
+      exports3.useNavigate = useNavigate3;
       exports3.useNavigation = useNavigation;
       exports3.useNavigationType = useNavigationType;
       exports3.useOutlet = useOutlet;
@@ -80920,10 +80920,10 @@ var require_Indicator = __commonJS({
   "node_modules/ink-select-input/build/Indicator.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React3 = require_react();
+    var React5 = require_react();
     var ink_1 = require_build2();
     var figures = require_figures();
-    var Indicator = ({ isSelected = false }) => React3.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React3.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React3.createElement(ink_1.Text, null, " "));
+    var Indicator = ({ isSelected = false }) => React5.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React5.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React5.createElement(ink_1.Text, null, " "));
     exports2.default = Indicator;
   }
 });
@@ -80933,9 +80933,9 @@ var require_Item = __commonJS({
   "node_modules/ink-select-input/build/Item.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React3 = require_react();
+    var React5 = require_react();
     var ink_1 = require_build2();
-    var Item = ({ isSelected = false, label }) => React3.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
+    var Item = ({ isSelected = false, label }) => React5.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
     exports2.default = Item;
   }
 });
@@ -80945,7 +80945,7 @@ var require_SelectInput = __commonJS({
   "node_modules/ink-select-input/build/SelectInput.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React3 = require_react();
+    var React5 = require_react();
     var react_1 = require_react();
     var isEqual = require_lodash2();
     var arrayRotate = require_arr_rotate();
@@ -81007,14 +81007,14 @@ var require_SelectInput = __commonJS({
         onHighlight
       ]), { isActive: isFocused });
       const slicedItems = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
-      return React3.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
+      return React5.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
         var _a2;
         const isSelected = index === selectedIndex;
-        return React3.createElement(
+        return React5.createElement(
           ink_1.Box,
           { key: (_a2 = item.key) !== null && _a2 !== void 0 ? _a2 : item.value },
-          React3.createElement(indicatorComponent, { isSelected }),
-          React3.createElement(itemComponent, { ...item, isSelected })
+          React5.createElement(indicatorComponent, { isSelected }),
+          React5.createElement(itemComponent, { ...item, isSelected })
         );
       }));
     }
@@ -84714,2421 +84714,662 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/cfonts/lib/Chalk.js
-var require_Chalk = __commonJS({
-  "node_modules/cfonts/lib/Chalk.js"(exports2, module2) {
+// node_modules/figures/node_modules/escape-string-regexp/index.js
+var require_escape_string_regexp4 = __commonJS({
+  "node_modules/figures/node_modules/escape-string-regexp/index.js"(exports2, module2) {
     "use strict";
-    var chalkOriginal = require_source();
-    var level = {
-      "0": 0,
-      "1": 1,
-      "2": 2,
-      "3": 3
+    var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+    module2.exports = function(str) {
+      if (typeof str !== "string") {
+        throw new TypeError("Expected a string");
+      }
+      return str.replace(matchOperatorsRe, "\\$&");
     };
-    var Chalk = new chalkOriginal.Instance({
-      ...process.env.FORCE_COLOR ? {
-        level: level[process.env.FORCE_COLOR]
-      } : null
+  }
+});
+
+// node_modules/figures/index.js
+var require_figures2 = __commonJS({
+  "node_modules/figures/index.js"(exports2, module2) {
+    "use strict";
+    var escapeStringRegexp = require_escape_string_regexp4();
+    var platform = process.platform;
+    var main = {
+      tick: "\u2714",
+      cross: "\u2716",
+      star: "\u2605",
+      square: "\u2587",
+      squareSmall: "\u25FB",
+      squareSmallFilled: "\u25FC",
+      play: "\u25B6",
+      circle: "\u25EF",
+      circleFilled: "\u25C9",
+      circleDotted: "\u25CC",
+      circleDouble: "\u25CE",
+      circleCircle: "\u24DE",
+      circleCross: "\u24E7",
+      circlePipe: "\u24BE",
+      circleQuestionMark: "?\u20DD",
+      bullet: "\u25CF",
+      dot: "\u2024",
+      line: "\u2500",
+      ellipsis: "\u2026",
+      pointer: "\u276F",
+      pointerSmall: "\u203A",
+      info: "\u2139",
+      warning: "\u26A0",
+      hamburger: "\u2630",
+      smiley: "\u32E1",
+      mustache: "\u0DF4",
+      heart: "\u2665",
+      arrowUp: "\u2191",
+      arrowDown: "\u2193",
+      arrowLeft: "\u2190",
+      arrowRight: "\u2192",
+      radioOn: "\u25C9",
+      radioOff: "\u25EF",
+      checkboxOn: "\u2612",
+      checkboxOff: "\u2610",
+      checkboxCircleOn: "\u24E7",
+      checkboxCircleOff: "\u24BE",
+      questionMarkPrefix: "?\u20DD",
+      oneHalf: "\xBD",
+      oneThird: "\u2153",
+      oneQuarter: "\xBC",
+      oneFifth: "\u2155",
+      oneSixth: "\u2159",
+      oneSeventh: "\u2150",
+      oneEighth: "\u215B",
+      oneNinth: "\u2151",
+      oneTenth: "\u2152",
+      twoThirds: "\u2154",
+      twoFifths: "\u2156",
+      threeQuarters: "\xBE",
+      threeFifths: "\u2157",
+      threeEighths: "\u215C",
+      fourFifths: "\u2158",
+      fiveSixths: "\u215A",
+      fiveEighths: "\u215D",
+      sevenEighths: "\u215E"
+    };
+    var win = {
+      tick: "\u221A",
+      cross: "\xD7",
+      star: "*",
+      square: "\u2588",
+      squareSmall: "[ ]",
+      squareSmallFilled: "[\u2588]",
+      play: "\u25BA",
+      circle: "( )",
+      circleFilled: "(*)",
+      circleDotted: "( )",
+      circleDouble: "( )",
+      circleCircle: "(\u25CB)",
+      circleCross: "(\xD7)",
+      circlePipe: "(\u2502)",
+      circleQuestionMark: "(?)",
+      bullet: "*",
+      dot: ".",
+      line: "\u2500",
+      ellipsis: "...",
+      pointer: ">",
+      pointerSmall: "\xBB",
+      info: "i",
+      warning: "\u203C",
+      hamburger: "\u2261",
+      smiley: "\u263A",
+      mustache: "\u250C\u2500\u2510",
+      heart: main.heart,
+      arrowUp: main.arrowUp,
+      arrowDown: main.arrowDown,
+      arrowLeft: main.arrowLeft,
+      arrowRight: main.arrowRight,
+      radioOn: "(*)",
+      radioOff: "( )",
+      checkboxOn: "[\xD7]",
+      checkboxOff: "[ ]",
+      checkboxCircleOn: "(\xD7)",
+      checkboxCircleOff: "( )",
+      questionMarkPrefix: "\uFF1F",
+      oneHalf: "1/2",
+      oneThird: "1/3",
+      oneQuarter: "1/4",
+      oneFifth: "1/5",
+      oneSixth: "1/6",
+      oneSeventh: "1/7",
+      oneEighth: "1/8",
+      oneNinth: "1/9",
+      oneTenth: "1/10",
+      twoThirds: "2/3",
+      twoFifths: "2/5",
+      threeQuarters: "3/4",
+      threeFifths: "3/5",
+      threeEighths: "3/8",
+      fourFifths: "4/5",
+      fiveSixths: "5/6",
+      fiveEighths: "5/8",
+      sevenEighths: "7/8"
+    };
+    if (platform === "linux") {
+      main.questionMarkPrefix = "?";
+    }
+    var figures = platform === "win32" ? win : main;
+    var fn = (str) => {
+      if (figures === main) {
+        return str;
+      }
+      Object.keys(main).forEach((key2) => {
+        if (main[key2] === figures[key2]) {
+          return;
+        }
+        str = str.replace(new RegExp(escapeStringRegexp(main[key2]), "g"), figures[key2]);
+      });
+      return str;
+    };
+    module2.exports = Object.assign(fn, figures);
+  }
+});
+
+// node_modules/ink-multi-select/build/indicator.js
+var require_indicator = __commonJS({
+  "node_modules/ink-multi-select/build/indicator.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
     });
-    module2.exports = exports2 = {
-      Chalk
-    };
-  }
-});
-
-// node_modules/cfonts/package.json
-var require_package = __commonJS({
-  "node_modules/cfonts/package.json"(exports2, module2) {
-    module2.exports = {
-      name: "cfonts",
-      description: "Sexy fonts for the console",
-      version: "2.10.1",
-      homepage: "https://github.com/dominikwilkowski/cfonts",
-      author: {
-        name: "Dominik Wilkowski",
-        email: "Hi@Dominik-Wilkowski.com",
-        url: "http://dominik-wilkowski.com/"
-      },
-      contributors: {
-        name: "Dominik Wilkowski",
-        email: "Hi@Dominik-Wilkowski.com",
-        url: "http://dominik-wilkowski.com/"
-      },
-      repository: {
-        type: "git",
-        url: "git://github.com/dominikwilkowski/cfonts.git"
-      },
-      bugs: {
-        url: "https://github.com/dominikwilkowski/cfonts/issues"
-      },
-      licenses: [
-        {
-          type: "GPL-2.0",
-          url: "https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE"
-        }
-      ],
-      engines: {
-        node: ">=10"
-      },
-      scripts: {
-        prepublish: "yarn build && yarn test",
-        test: "yarn build && yarn test:unit && yarn test:lint && yarn test:types && yarn test:fonts",
-        "test:fonts": "node ./test/fonttest.js",
-        "test:watch": "jest --watchAll --coverage",
-        "test:unit": "npx cross-env FORCE_COLOR=3 jest",
-        "test:types": "yarn types:clean && tsc -p tsconfig.json",
-        "test:lint": "eslint src/",
-        build: "yarn build:lib && yarn build:bin",
-        "build:bin": "npx mkdirp bin && mv lib/bin.js bin/index.js",
-        "build:lib": "npx mkdirp lib && babel src --out-dir lib",
-        "types:clean": "find lib/ -type f -name '*.d.ts' -exec rm {} +",
-        watch: "yarn build:lib && onchange 'src/**/*' -- yarn build:lib",
-        coveralls: "jest --coverage --coverageReporters=text-lcov | coveralls",
-        nuke: "rm -rf lib && rm -rf node_modules && rm yarn.lock"
-      },
-      devDependencies: {
-        "@babel/cli": "^7.17.6",
-        "@babel/core": "^7.17.8",
-        "@babel/preset-env": "^7.16.11",
-        "@types/node": "latest",
-        coveralls: "^3.1.1",
-        eslint: "^8.12.0",
-        "jest-cli": "^27.5.1",
-        onchange: "^7.1.0",
-        typescript: "^4.6.3"
-      },
-      peerDependencies: {},
-      dependencies: {
-        chalk: "^4",
-        "window-size": "^1.1.1"
-      },
-      jest: {
-        displayName: "CFonts",
-        testEnvironment: "node",
-        testRegex: "\\.spec.js$",
-        collectCoverageFrom: [
-          "src/*.js"
-        ],
-        setupFiles: [
-          "<rootDir>/test/env.js"
-        ],
-        coverageThreshold: {
-          global: {
-            branches: 95,
-            functions: 100,
-            lines: 95,
-            statements: 95
-          }
-        }
-      },
-      eslintConfig: {
-        env: {
-          node: true,
-          commonjs: true,
-          es6: true
-        },
-        extends: "eslint:recommended",
-        globals: {
-          Atomics: "readonly",
-          SharedArrayBuffer: "readonly"
-        },
-        parserOptions: {
-          ecmaVersion: 2018
-        },
-        rules: {
-          "no-async-promise-executor": "off",
-          "no-console": "off",
-          "no-unused-vars": [
-            "error",
-            {
-              argsIgnorePattern: "_"
-            }
-          ]
-        }
-      },
-      browserslist: [
-        "node >= 10"
-      ],
-      keywords: [
-        "font",
-        "banner",
-        "logo",
-        "CLI",
-        "console",
-        "ascii",
-        "pretty"
-      ],
-      files: [
-        "lib/*.js",
-        "bin/*",
-        "fonts/*"
-      ],
-      main: "lib/index.js",
-      bin: {
-        cfonts: "./bin/index.js"
-      },
-      license: "GPL-2.0"
-    };
-  }
-});
-
-// node_modules/cfonts/lib/constants.js
-var require_constants2 = __commonJS({
-  "node_modules/cfonts/lib/constants.js"(exports2, module2) {
-    "use strict";
-    var {
-      Chalk
-    } = require_Chalk();
-    var CHARS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "|", "!", "?", ".", "+", "-", "_", "=", "@", "#", "$", "%", "&", "(", ")", "/", ":", ";", ",", " ", "'", '"'];
-    var COLORS = {
-      system: "system",
-      black: "black",
-      red: "red",
-      green: "green",
-      yellow: "yellow",
-      blue: "blue",
-      magenta: "magenta",
-      cyan: "cyan",
-      white: "white",
-      gray: "gray",
-      redbright: "redBright",
-      greenbright: "greenBright",
-      yellowbright: "yellowBright",
-      bluebright: "blueBright",
-      magentabright: "magentaBright",
-      cyanbright: "cyanBright",
-      whitebright: "whiteBright"
-    };
-    var BGCOLORS = {
-      transparent: "transparent",
-      black: "black",
-      red: "red",
-      green: "green",
-      yellow: "yellow",
-      blue: "blue",
-      magenta: "magenta",
-      cyan: "cyan",
-      white: "white",
-      blackbright: "blackBright",
-      redbright: "redBright",
-      greenbright: "greenBright",
-      yellowbright: "yellowBright",
-      bluebright: "blueBright",
-      magentabright: "magentaBright",
-      cyanbright: "cyanBright",
-      whitebright: "whiteBright"
-    };
-    var GRADIENTCOLORS = {
-      transparent: "transparent",
-      black: "black",
-      red: "red",
-      green: "green",
-      yellow: "yellow",
-      blue: "blue",
-      magenta: "magenta",
-      cyan: "cyan",
-      white: "white"
-    };
-    var GRADIENTS = {
-      lgbt: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
-      lgbtq: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
-      pride: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
-      agender: ["#000000", "#b9b9b9", "#ffffff", "#b8f483", "#ffffff", "#b9b9b9", "#000000"],
-      aromantic: ["#3da542", "#a7d379", "#ffffff", "#a9a9a9", "#000000"],
-      asexual: ["#000000", "#a3a3a3", "#ffffff", "#800080"],
-      bisexual: ["#d60270", "#d60270", "#9b4f96", "#0038a8", "#0038a8"],
-      genderfluid: ["#ff75a2", "#ffffff", "#be18d6", "#000000", "#333ebd"],
-      genderqueer: ["#b57edc", "#ffffff", "#4a8123"],
-      intersex: ["#ffd800", "#ffd800", "#7902aa", "#ffd800", "#ffd800"],
-      lesbian: ["#d52d00", "#ff9a56", "#ffffff", "#d362a4", "#a30262"],
-      nonbinary: ["#fcf434", "#ffffff", "#9c5cd4", "#2c2c2c"],
-      pansexual: ["#ff218c", "#ffd800", "#21b1ff"],
-      polysexual: ["#f61cb9", "#07d569", "#1c92f6"],
-      transgender: ["#5bcefa", "#f5a9b8", "#ffffff", "#f5a9b8", "#5bcefa"]
-    };
-    var ALIGNMENT = ["left", "center", "right", "top", "bottom"];
-    var FONTFACES = {
-      console: "console",
-      block: "block",
-      simpleblock: "simpleBlock",
-      simple: "simple",
-      "3d": "3d",
-      simple3d: "simple3d",
-      chrome: "chrome",
-      huge: "huge",
-      shade: "shade",
-      slick: "slick",
-      grid: "grid",
-      pallet: "pallet",
-      tiny: "tiny"
-    };
-    var CLIOPTIONS = {
-      "--version": {
-        description: "Use to display the version of cfonts",
-        example: "--version",
-        short: "-v",
-        default: false
-      },
-      "--help": {
-        description: "Use to display this help",
-        example: "--help",
-        short: "-h",
-        default: false
-      },
-      "--font": {
-        description: "Use to define the font face",
-        example: `--font block ${Chalk.green(`( ${Object.keys(FONTFACES).map((font) => FONTFACES[font]).join(", ")} )`)}`,
-        short: "-f",
-        options: Object.keys(FONTFACES).map((color) => FONTFACES[color]),
-        default: "block"
-      },
-      "--colors": {
-        description: "Use to define the font color",
-        example: `--colors red ${Chalk.green(`( ${Object.keys(COLORS).map((color) => COLORS[color]).join(", ")}, #ff8800, hex-colors etc... )`)}`,
-        short: "-c",
-        options: true,
-        default: "system"
-      },
-      "--background": {
-        description: "Use to define background color",
-        example: `--background blue ${Chalk.green(`( ${Object.keys(BGCOLORS).map((bgcolor) => BGCOLORS[bgcolor]).join(", ")} )`)}`,
-        short: "-b",
-        options: Object.keys(BGCOLORS).map((color) => BGCOLORS[color]),
-        default: "transparent"
-      },
-      "--align": {
-        description: "Use to align your text output",
-        example: `--align ${Chalk.green(`( ${ALIGNMENT.join(", ")} )`)}`,
-        short: "-a",
-        options: ALIGNMENT,
-        default: "left"
-      },
-      "--letter-spacing": {
-        description: "Use to define your letter spacing",
-        example: "--letter-spacing 2",
-        short: "-l",
-        options: true,
-        default: void 0
-      },
-      "--line-height": {
-        description: "Use to define your line height",
-        example: "--line-height 5",
-        short: "-z",
-        options: true,
-        default: void 0
-      },
-      "--spaceless": {
-        description: "Use to disable the padding around your output",
-        example: "--spaceless",
-        short: "-s",
-        default: false
-      },
-      "--max-length": {
-        description: "Use to define the amount of maximum characters per line",
-        example: "--max-length 10",
-        short: "-m",
-        options: true,
-        default: 0
-      },
-      "--gradient": {
-        description: "Use to define a start and end color of a gradient",
-        example: "--gradient red,blue",
-        short: "-g",
-        options: true,
-        default: false
-      },
-      "--independent-gradient": {
-        description: "Use to define that a gradient is applied independently for each line",
-        example: "--gradient red,blue --independent-gradient",
-        short: "-i",
-        default: false
-      },
-      "--transition-gradient": {
-        description: "Use to define that a gradient is a transition between the colors",
-        example: "--gradient red,blue,green --transition-gradient",
-        short: "-t",
-        default: false
-      },
-      "--env": {
-        description: "Use to define what environment you run CFonts in.",
-        example: `--env ${Chalk.green('"node", "browser"')}`,
-        short: "-e",
-        options: true,
-        default: "node"
-      },
-      "--debug": {
-        description: "Use to enable debug mode",
-        example: "--debug",
-        short: "-d",
-        default: false
-      },
-      "--debug-level": {
-        description: "Use to define the debug level. The higher, the less debug infos",
-        example: "--debug-level 2",
-        short: "-x",
-        options: true,
-        default: 1
-      }
-    };
-    var PACKAGE = require_package();
-    var HEXTEST = RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
-    module2.exports = exports2 = {
-      CHARS,
-      COLORS,
-      BGCOLORS,
-      GRADIENTCOLORS,
-      GRADIENTS,
-      ALIGNMENT,
-      FONTFACES,
-      CLIOPTIONS,
-      PACKAGE,
-      HEXTEST
-    };
-  }
-});
-
-// node_modules/cfonts/lib/DisplayVersion.js
-var require_DisplayVersion = __commonJS({
-  "node_modules/cfonts/lib/DisplayVersion.js"(exports2, module2) {
-    "use strict";
-    var {
-      PACKAGE
-    } = require_constants2();
-    var DisplayVersion = () => {
-      console.log(PACKAGE.version);
-    };
-    module2.exports = exports2 = {
-      DisplayVersion
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Debugging.js
-var require_Debugging = __commonJS({
-  "node_modules/cfonts/lib/Debugging.js"(exports2, module2) {
-    "use strict";
-    var {
-      Chalk
-    } = require_Chalk();
-    var DEBUG = {
-      store: {
-        enabled: false,
-        level: 2
-      },
-      set enabled(value) {
-        this.store.enabled = value;
-      },
-      get enabled() {
-        return this.store.enabled;
-      },
-      set level(value) {
-        this.store.level = value;
-      },
-      get level() {
-        return this.store.level;
-      }
-    };
-    var Debugging = {
-      headline: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
-        if (debug && level >= debuglevel) {
-          console.log(Chalk.bgWhite(`
-${Chalk.bold(" \u2611  ")} ${text}`));
-        }
-      },
-      report: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
-        if (debug && level >= debuglevel) {
-          console.log(Chalk.bgWhite(`
-${Chalk.bold.green(" \u2611  ")} ${Chalk.black(`${text} `)}`));
-        }
-      },
-      error: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
-        if (debug && level >= debuglevel) {
-          console.error(Chalk.bgWhite(`
-${Chalk.red(" \u2612  ")} ${Chalk.black(`${text} `)}`));
-        }
-      }
-    };
-    module2.exports = exports2 = {
-      DEBUG,
-      Debugging
-    };
-  }
-});
-
-// node_modules/cfonts/lib/UpperCaseFirst.js
-var require_UpperCaseFirst = __commonJS({
-  "node_modules/cfonts/lib/UpperCaseFirst.js"(exports2, module2) {
-    "use strict";
-    var UpperCaseFirst = (input) => typeof input === "string" ? input.charAt(0).toUpperCase() + input.substr(1) : input;
-    module2.exports = exports2 = {
-      UpperCaseFirst
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Options.js
-var require_Options = __commonJS({
-  "node_modules/cfonts/lib/Options.js"(exports2, module2) {
-    "use strict";
-    var {
-      COLORS,
-      BGCOLORS,
-      FONTFACES
-    } = require_constants2();
-    var Options = {
-      store: {},
-      reset() {
-        const defaults = {
-          font: "block",
-          align: "left",
-          colors: [],
-          background: "transparent",
-          letterSpacing: 1,
-          lineHeight: 1,
-          space: true,
-          maxLength: 0,
-          gradient: false,
-          independentGradient: false,
-          transitionGradient: false,
-          env: "node"
-        };
-        this.store = {
-          ...defaults
-        };
-      },
-      get get() {
-        return this.store;
-      },
-      set set({
-        font = "",
-        align,
-        colors,
-        background,
-        backgroundColor,
-        letterSpacing,
-        lineHeight,
-        space,
-        maxLength,
-        gradient,
-        independentGradient,
-        transitionGradient,
-        env,
-        allowedColors = COLORS,
-        allowedBG = BGCOLORS,
-        allowedFont = FONTFACES
-      }) {
-        this.store.font = font !== "" ? allowedFont[font.toLowerCase()] || font : this.store.font;
-        this.store.align = align !== void 0 ? align.toLowerCase() : this.store.align;
-        this.store.colors = Array.isArray(colors) ? colors.map((color) => allowedColors[color.toLowerCase()] || color) : this.store.colors;
-        const bg = backgroundColor || background;
-        this.store.background = bg !== void 0 ? allowedBG[bg.toLowerCase()] || bg : this.store.background;
-        this.store.letterSpacing = letterSpacing !== void 0 ? parseInt(letterSpacing.toString()) : font.toLowerCase() === "console" ? 0 : this.store.letterSpacing;
-        this.store.lineHeight = lineHeight !== void 0 ? parseInt(lineHeight.toString()) : font.toLowerCase() === "console" ? 0 : this.store.lineHeight;
-        this.store.space = typeof space === "boolean" ? space : this.store.space;
-        this.store.maxLength = maxLength !== void 0 ? maxLength : this.store.maxLength;
-        this.store.gradient = gradient !== void 0 && typeof gradient !== "boolean" ? Array.isArray(gradient) ? gradient : gradient.split(",") : gradient === false ? false : this.store.gradient;
-        this.store.independentGradient = independentGradient !== void 0 ? independentGradient : this.store.independentGradient;
-        this.store.transitionGradient = transitionGradient !== void 0 ? transitionGradient : this.store.transitionGradient;
-        this.store.env = env !== void 0 ? env : this.store.env;
-      }
-    };
-    module2.exports = exports2 = {
-      Options
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Color.js
-var require_Color = __commonJS({
-  "node_modules/cfonts/lib/Color.js"(exports2, module2) {
-    "use strict";
-    var {
-      UpperCaseFirst
-    } = require_UpperCaseFirst();
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      HEXTEST
-    } = require_constants2();
-    var {
-      Options
-    } = require_Options();
-    var {
-      Chalk
-    } = require_Chalk();
-    var Color = (color, bg = false) => {
-      if (color === "system" || process.env.FORCE_COLOR == "0") {
-        return {
-          open: "",
-          close: ""
-        };
-      }
-      const OPTIONS = Options.get;
-      if (OPTIONS.env === "node") {
-        if (color.includes("Bright")) {
-          if (bg) {
-            color = `bg${UpperCaseFirst(color)}`;
-          }
-          return {
-            open: Chalk[color]._styler.open,
-            close: Chalk[color]._styler.close
-          };
-        }
-        const kind = HEXTEST.test(color) ? "hex" : `${bg ? "bgK" : "k"}eyword`;
-        let styles;
-        try {
-          styles = Chalk[kind](color)._styler;
-        } catch (error) {
-          Debugging.error(`The color ${Chalk.yellow(color)} could not be found. Sorry about this.`);
-          return {
-            open: "",
-            close: ""
-          };
-        }
-        return {
-          open: styles.open,
-          close: styles.close
-        };
-      } else {
-        const COLORS = {
-          black: "#000",
-          red: "#ea3223",
-          green: "#377d22",
-          yellow: "#fffd54",
-          blue: "#0020f5",
-          magenta: "#ea3df7",
-          cyan: "#74fbfd",
-          white: "#fff",
-          gray: "#808080",
-          redbright: "#ee776d",
-          greenbright: "#8cf57b",
-          yellowbright: "#fffb7f",
-          bluebright: "#6974f6",
-          magentabright: "#ee82f8",
-          cyanbright: "#8dfafd",
-          whitebright: "#fff"
-        };
-        if (!HEXTEST.test(color)) {
-          color = COLORS[color.toLowerCase()];
-        }
-        if (bg) {
-          return {
-            open: color,
-            close: ""
-          };
-        }
-        return {
-          open: `<span style="color:${color}">`,
-          close: "</span>"
-        };
-      }
-    };
-    module2.exports = exports2 = {
-      Color
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Colorize.js
-var require_Colorize = __commonJS({
-  "node_modules/cfonts/lib/Colorize.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      Color
-    } = require_Color();
-    var Colorize = (character, fontColors, optionColors) => {
-      Debugging.report(`Running Colorize`, 1);
-      let candyColors = [
-        "red",
-        "green",
-        "yellow",
-        "magenta",
-        "cyan",
-        "redBright",
-        "greenBright",
-        "yellowBright",
-        "blueBright",
-        "magentaBright",
-        "cyanBright"
-      ];
-      if (character !== void 0) {
-        if (fontColors > 1) {
-          for (let i2 = 0; i2 < fontColors; i2++) {
-            const color = optionColors[i2] === "candy" ? candyColors[Math.floor(Math.random() * candyColors.length)] : optionColors[i2] || "system";
-            const {
-              open: openNew,
-              close: closeNew
-            } = Color(color);
-            const open = new RegExp(`<c${i2 + 1}>`, "g");
-            const close = new RegExp(`</c${i2 + 1}>`, "g");
-            character = character.replace(open, openNew);
-            character = character.replace(close, closeNew);
-          }
-        }
-        if (fontColors === 1) {
-          const color = optionColors[0] === "candy" ? candyColors[Math.floor(Math.random() * candyColors.length)] : optionColors[0] || "system";
-          const {
-            open: openNew,
-            close: closeNew
-          } = Color(color);
-          character = openNew + character + closeNew;
-        }
-      }
-      return character;
-    };
-    module2.exports = exports2 = {
-      Colorize
-    };
-  }
-});
-
-// node_modules/cfonts/lib/AddLetterSpacing.js
-var require_AddLetterSpacing = __commonJS({
-  "node_modules/cfonts/lib/AddLetterSpacing.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      Colorize
-    } = require_Colorize();
-    var AddLetterSpacing = (output, fontLines, fontLetterspace, fontColors, colors, letterSpacing) => {
-      Debugging.report(`Running AddLetterSpacing`, 1);
-      let lines = output.length - fontLines;
-      for (let i2 = lines; i2 < output.length; i2++) {
-        let index = i2 - lines;
-        let space = Colorize(fontLetterspace[index], fontColors, colors);
-        if (space.length === 0 && letterSpacing > 0) {
-          Debugging.report(`AddLetterSpacing: Adding space to letter spacing`, 1);
-          space = " ";
-        }
-        output[i2] += space.repeat(letterSpacing);
-      }
-      return output;
-    };
-    module2.exports = exports2 = {
-      AddLetterSpacing
-    };
-  }
-});
-
-// node_modules/kind-of/index.js
-var require_kind_of = __commonJS({
-  "node_modules/kind-of/index.js"(exports2, module2) {
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (val === void 0)
-        return "undefined";
-      if (val === null)
-        return "null";
-      var type2 = typeof val;
-      if (type2 === "boolean")
-        return "boolean";
-      if (type2 === "string")
-        return "string";
-      if (type2 === "number")
-        return "number";
-      if (type2 === "symbol")
-        return "symbol";
-      if (type2 === "function") {
-        return isGeneratorFn(val) ? "generatorfunction" : "function";
-      }
-      if (isArray(val))
-        return "array";
-      if (isBuffer(val))
-        return "buffer";
-      if (isArguments(val))
-        return "arguments";
-      if (isDate(val))
-        return "date";
-      if (isError(val))
-        return "error";
-      if (isRegexp(val))
-        return "regexp";
-      switch (ctorName(val)) {
-        case "Symbol":
-          return "symbol";
-        case "Promise":
-          return "promise";
-        case "WeakMap":
-          return "weakmap";
-        case "WeakSet":
-          return "weakset";
-        case "Map":
-          return "map";
-        case "Set":
-          return "set";
-        case "Int8Array":
-          return "int8array";
-        case "Uint8Array":
-          return "uint8array";
-        case "Uint8ClampedArray":
-          return "uint8clampedarray";
-        case "Int16Array":
-          return "int16array";
-        case "Uint16Array":
-          return "uint16array";
-        case "Int32Array":
-          return "int32array";
-        case "Uint32Array":
-          return "uint32array";
-        case "Float32Array":
-          return "float32array";
-        case "Float64Array":
-          return "float64array";
-      }
-      if (isGeneratorObj(val)) {
-        return "generator";
-      }
-      type2 = toString.call(val);
-      switch (type2) {
-        case "[object Object]":
-          return "object";
-        case "[object Map Iterator]":
-          return "mapiterator";
-        case "[object Set Iterator]":
-          return "setiterator";
-        case "[object String Iterator]":
-          return "stringiterator";
-        case "[object Array Iterator]":
-          return "arrayiterator";
-      }
-      return type2.slice(8, -1).toLowerCase().replace(/\s/g, "");
-    };
-    function ctorName(val) {
-      return typeof val.constructor === "function" ? val.constructor.name : null;
-    }
-    function isArray(val) {
-      if (Array.isArray)
-        return Array.isArray(val);
-      return val instanceof Array;
-    }
-    function isError(val) {
-      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
-    }
-    function isDate(val) {
-      if (val instanceof Date)
-        return true;
-      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
-    }
-    function isRegexp(val) {
-      if (val instanceof RegExp)
-        return true;
-      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
-    }
-    function isGeneratorFn(name, val) {
-      return ctorName(name) === "GeneratorFunction";
-    }
-    function isGeneratorObj(val) {
-      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
-    }
-    function isArguments(val) {
-      try {
-        if (typeof val.length === "number" && typeof val.callee === "function") {
-          return true;
-        }
-      } catch (err2) {
-        if (err2.message.indexOf("callee") !== -1) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function isBuffer(val) {
-      if (val.constructor && typeof val.constructor.isBuffer === "function") {
-        return val.constructor.isBuffer(val);
-      }
-      return false;
-    }
-  }
-});
-
-// node_modules/is-accessor-descriptor/index.js
-var require_is_accessor_descriptor = __commonJS({
-  "node_modules/is-accessor-descriptor/index.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var accessor = {
-      get: "function",
-      set: "function",
-      configurable: "boolean",
-      enumerable: "boolean"
-    };
-    function isAccessorDescriptor(obj, prop) {
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (has(obj, "value") || has(obj, "writable")) {
-        return false;
-      }
-      if (!has(obj, "get") || typeof obj.get !== "function") {
-        return false;
-      }
-      if (has(obj, "set") && typeof obj[key2] !== "function" && typeof obj[key2] !== "undefined") {
-        return false;
-      }
-      for (var key2 in obj) {
-        if (!accessor.hasOwnProperty(key2)) {
-          continue;
-        }
-        if (typeOf(obj[key2]) === accessor[key2]) {
-          continue;
-        }
-        if (typeof obj[key2] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    }
-    function has(obj, key2) {
-      return {}.hasOwnProperty.call(obj, key2);
-    }
-    module2.exports = isAccessorDescriptor;
-  }
-});
-
-// node_modules/is-data-descriptor/index.js
-var require_is_data_descriptor = __commonJS({
-  "node_modules/is-data-descriptor/index.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    module2.exports = function isDataDescriptor(obj, prop) {
-      var data = {
-        configurable: "boolean",
-        enumerable: "boolean",
-        writable: "boolean"
-      };
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (!("value" in obj) && !("writable" in obj)) {
-        return false;
-      }
-      for (var key2 in obj) {
-        if (key2 === "value")
-          continue;
-        if (!data.hasOwnProperty(key2)) {
-          continue;
-        }
-        if (typeOf(obj[key2]) === data[key2]) {
-          continue;
-        }
-        if (typeof obj[key2] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    };
-  }
-});
-
-// node_modules/is-descriptor/index.js
-var require_is_descriptor = __commonJS({
-  "node_modules/is-descriptor/index.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var isAccessor = require_is_accessor_descriptor();
-    var isData = require_is_data_descriptor();
-    module2.exports = function isDescriptor(obj, key2) {
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if ("get" in obj) {
-        return isAccessor(obj, key2);
-      }
-      return isData(obj, key2);
-    };
-  }
-});
-
-// node_modules/define-property/index.js
-var require_define_property = __commonJS({
-  "node_modules/define-property/index.js"(exports2, module2) {
-    "use strict";
-    var isDescriptor = require_is_descriptor();
-    module2.exports = function defineProperty(obj, prop, val) {
-      if (typeof obj !== "object" && typeof obj !== "function") {
-        throw new TypeError("expected an object or function.");
-      }
-      if (typeof prop !== "string") {
-        throw new TypeError("expected `prop` to be a string.");
-      }
-      if (isDescriptor(val) && ("set" in val || "get" in val)) {
-        return Object.defineProperty(obj, prop, val);
-      }
-      return Object.defineProperty(obj, prop, {
-        configurable: true,
-        enumerable: false,
-        writable: true,
-        value: val
-      });
-    };
-  }
-});
-
-// node_modules/is-buffer/index.js
-var require_is_buffer = __commonJS({
-  "node_modules/is-buffer/index.js"(exports2, module2) {
-    module2.exports = function(obj) {
-      return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
-    };
-    function isBuffer(obj) {
-      return !!obj.constructor && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
-    }
-    function isSlowBuffer(obj) {
-      return typeof obj.readFloatLE === "function" && typeof obj.slice === "function" && isBuffer(obj.slice(0, 0));
-    }
-  }
-});
-
-// node_modules/is-number/node_modules/kind-of/index.js
-var require_kind_of2 = __commonJS({
-  "node_modules/is-number/node_modules/kind-of/index.js"(exports2, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type2 = toString.call(val);
-      if (type2 === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type2 === "[object Date]") {
-        return "date";
-      }
-      if (type2 === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type2 === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type2 === "[object Set]") {
-        return "set";
-      }
-      if (type2 === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type2 === "[object Map]") {
-        return "map";
-      }
-      if (type2 === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type2 === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type2 === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type2 === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type2 === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type2 === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type2 === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type2 === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type2 === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type2 === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type2 === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
-// node_modules/is-number/index.js
-var require_is_number = __commonJS({
-  "node_modules/is-number/index.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of2();
-    module2.exports = function isNumber(num2) {
-      var type2 = typeOf(num2);
-      if (type2 === "string") {
-        if (!num2.trim())
-          return false;
-      } else if (type2 !== "number") {
-        return false;
-      }
-      return num2 - num2 + 1 >= 0;
-    };
-  }
-});
-
-// node_modules/window-size/utils.js
-var require_utils = __commonJS({
-  "node_modules/window-size/utils.js"(exports2, module2) {
-    "use strict";
-    var os = require("os");
-    var isNumber = require_is_number();
-    var cp = require("child_process");
-    function windowSize(options) {
-      options = options || {};
-      return streamSize(options, "stdout") || streamSize(options, "stderr") || envSize() || ttySize(options);
-    }
-    function streamSize(options, name) {
-      var stream = process && process[name] || options[name];
-      var size;
-      if (!stream)
-        return;
-      if (typeof stream.getWindowSize === "function") {
-        size = stream.getWindowSize();
-        if (isSize(size)) {
-          return {
-            width: size[0],
-            height: size[1],
-            type: name
-          };
-        }
-      }
-      size = [stream.columns, stream.rows];
-      if (isSize(size)) {
-        return {
-          width: Number(size[0]),
-          height: Number(size[1]),
-          type: name
-        };
-      }
-    }
-    function envSize() {
-      if (process && process.env) {
-        var size = [process.env.COLUMNS, process.env.ROWS];
-        if (isSize(size)) {
-          return {
-            width: Number(size[0]),
-            height: Number(size[1]),
-            type: "process.env"
-          };
-        }
-      }
-    }
-    function ttySize(options, stdout) {
-      var tty = options.tty || require("tty");
-      if (tty && typeof tty.getWindowSize === "function") {
-        var size = tty.getWindowSize(stdout);
-        if (isSize(size)) {
-          return {
-            width: Number(size[1]),
-            height: Number(size[0]),
-            type: "tty"
-          };
-        }
-      }
-    }
-    function winSize() {
-      if (os.release().startsWith("10")) {
-        var cmd = "wmic path Win32_VideoController get CurrentHorizontalResolution,CurrentVerticalResolution";
-        var numberPattern = /\d+/g;
-        var code = cp.execSync(cmd).toString();
-        var size = code.match(numberPattern);
-        if (isSize(size)) {
-          return {
-            width: Number(size[0]),
-            height: Number(size[1]),
-            type: "windows"
-          };
-        }
-      }
-    }
-    function tputSize() {
-      try {
-        var buf = cp.execSync("tput cols && tput lines", { stdio: ["ignore", "pipe", process.stderr] });
-        var size = buf.toString().trim().split("\n");
-        if (isSize(size)) {
-          return {
-            width: Number(size[0]),
-            height: Number(size[1]),
-            type: "tput"
-          };
-        }
-      } catch (err2) {
-      }
-    }
-    function isSize(size) {
-      return Array.isArray(size) && isNumber(size[0]) && isNumber(size[1]);
-    }
-    module2.exports = {
-      get: windowSize,
-      env: envSize,
-      tty: ttySize,
-      tput: tputSize,
-      win: winSize
-    };
-  }
-});
-
-// node_modules/window-size/index.js
-var require_window_size = __commonJS({
-  "node_modules/window-size/index.js"(exports2, module2) {
-    "use strict";
-    var define2 = require_define_property();
-    var utils = require_utils();
-    module2.exports = utils.get();
-    if (module2.exports) {
-      define2(module2.exports, "get", utils.get);
-      define2(module2.exports, "env", utils.env);
-      define2(module2.exports, "tty", utils.tty);
-      define2(module2.exports, "tput", utils.tput);
-      define2(module2.exports, "win", utils.win);
-    }
-  }
-});
-
-// node_modules/cfonts/lib/Size.js
-var require_Size = __commonJS({
-  "node_modules/cfonts/lib/Size.js"(exports2, module2) {
-    "use strict";
-    var WinSize = require_window_size();
-    var Size = {
-      width: WinSize ? WinSize.width > 0 ? WinSize.width : 80 : 80,
-      height: WinSize ? WinSize.height > 0 ? WinSize.height : 24 : 24
-    };
-    module2.exports = exports2 = {
-      Size
-    };
-  }
-});
-
-// node_modules/cfonts/lib/AlignText.js
-var require_AlignText = __commonJS({
-  "node_modules/cfonts/lib/AlignText.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      Size
-    } = require_Size();
-    var AlignText = (output, lineLength, characterLines, align, size = Size) => {
-      Debugging.report(`Running AlignText`, 1);
-      let space = 0;
-      if (align === "center") {
-        space = Math.floor((size.width - lineLength) / 2);
-        Debugging.report(`AlignText: Center lineLength: ${lineLength}, size.width: ${size.width}, space: ${space}`, 2);
-      }
-      if (align === "right") {
-        space = size.width - lineLength;
-        Debugging.report(`AlignText: Right lineLength: ${lineLength}, size.width: ${size.width}, space: ${space}`, 2);
-      }
-      if (space > 0) {
-        let lines = output.length - characterLines;
-        const spaces = " ".repeat(space);
-        for (let i2 = lines; i2 < output.length; i2++) {
-          output[i2] = spaces + output[i2];
-        }
-      }
-      return output;
-    };
-    module2.exports = exports2 = {
-      AlignText
-    };
-  }
-});
-
-// node_modules/cfonts/lib/RenderConsole.js
-var require_RenderConsole = __commonJS({
-  "node_modules/cfonts/lib/RenderConsole.js"(exports2, module2) {
-    "use strict";
-    var {
-      AlignText
-    } = require_AlignText();
-    var {
-      Colorize
-    } = require_Colorize();
-    var {
-      Size
-    } = require_Size();
-    var RenderConsole = (INPUT, OPTIONS, size = Size) => {
-      const width = OPTIONS.maxLength < size.width && OPTIONS.maxLength !== 0 ? OPTIONS.maxLength : size.width;
-      let lines = 0;
-      let output = [];
-      let i2 = 0;
-      let space = "";
-      if (OPTIONS.letterSpacing > 0) {
-        space = " ".repeat(OPTIONS.letterSpacing);
-      }
-      const outputLines = INPUT.replace(/(?:\r\n|\r|\n)/g, "|").split("|").map((line) => line.split("").join(space));
-      while (i2 < outputLines.length) {
-        let line = outputLines[i2];
-        if (line.length > width) {
-          outputLines[i2] = line.slice(0, width);
-          outputLines.splice(i2 + 1, 0, line.slice(width));
-          line = outputLines[i2];
-        }
-        if (OPTIONS.colors[0] === "candy") {
-          output.push(line.split("").map((character) => Colorize(character, 1, OPTIONS.colors)).join(""));
-        } else {
-          output.push(Colorize(line, 1, OPTIONS.colors));
-        }
-        if (OPTIONS.env !== "browser") {
-          output = AlignText(output, line.length, 1, OPTIONS.align, size);
-        }
-        if (i2 !== outputLines.length - 1) {
-          output = [...output, ...Array(OPTIONS.lineHeight).fill("")];
-        }
-        lines++;
-        i2++;
-      }
-      return {
-        output,
-        lines
-      };
-    };
-    module2.exports = exports2 = {
-      RenderConsole
-    };
-  }
-});
-
-// node_modules/cfonts/lib/GetFirstCharacterPosition.js
-var require_GetFirstCharacterPosition = __commonJS({
-  "node_modules/cfonts/lib/GetFirstCharacterPosition.js"(exports2, module2) {
-    "use strict";
-    function GetFirstCharacterPosition(lines) {
-      const earliest = lines.reduce((prevLine, line) => line.length - line.trimStart().length < prevLine.length - prevLine.trimStart().length && line !== "" ? line : prevLine, lines[0]);
-      return earliest.length - earliest.trimStart().length;
-    }
-    module2.exports = exports2 = {
-      GetFirstCharacterPosition
-    };
-  }
-});
-
-// node_modules/cfonts/lib/GetLongestLine.js
-var require_GetLongestLine = __commonJS({
-  "node_modules/cfonts/lib/GetLongestLine.js"(exports2, module2) {
-    "use strict";
-    var GetLongestLine = (lines) => lines.reduce((longestLine, line) => line.length > longestLine.length && line.length !== 0 ? line : longestLine, "");
-    module2.exports = exports2 = {
-      GetLongestLine
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Gradient.js
-var require_Gradient = __commonJS({
-  "node_modules/cfonts/lib/Gradient.js"(exports2, module2) {
-    "use strict";
-    var {
-      GetFirstCharacterPosition
-    } = require_GetFirstCharacterPosition();
-    var {
-      GetLongestLine
-    } = require_GetLongestLine();
-    var {
-      GRADIENTS
-    } = require_constants2();
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      Color
-    } = require_Color();
-    function Rgb2hsv({
-      r,
-      g,
-      b
-    }) {
-      r /= 255;
-      g /= 255;
-      b /= 255;
-      const max = Math.max(r, g, b);
-      const min = Math.min(r, g, b);
-      const diff = max - min;
-      let h = 0;
-      let v = max;
-      let s = max === 0 ? 0 : diff / max;
-      if (max === min) {
-        h = 0;
-      } else if (max === r && g >= b) {
-        h = 60 * ((g - b) / diff);
-      } else if (max === r && g < b) {
-        h = 60 * ((g - b) / diff) + 360;
-      } else if (max === g) {
-        h = 60 * ((b - r) / diff) + 120;
-      } else {
-        h = 60 * ((r - g) / diff) + 240;
-      }
-      return [h, s * 100, v * 100];
-    }
-    function Hsv2rgb(h, s, v) {
-      h /= 60;
-      s /= 100;
-      v /= 100;
-      const hi = Math.floor(h) % 6;
-      const f = h - Math.floor(h);
-      const p = 255 * v * (1 - s);
-      const q = 255 * v * (1 - s * f);
-      const t = 255 * v * (1 - s * (1 - f));
-      v *= 255;
-      switch (hi) {
-        case 0:
-          return {
-            r: v,
-            g: t,
-            b: p
-          };
-        case 1:
-          return {
-            r: q,
-            g: v,
-            b: p
-          };
-        case 2:
-          return {
-            r: p,
-            g: v,
-            b: t
-          };
-        case 3:
-          return {
-            r: p,
-            g: q,
-            b: v
-          };
-        case 4:
-          return {
-            r: t,
-            g: p,
-            b: v
-          };
-        case 5:
-          return {
-            r: v,
-            g: p,
-            b: q
-          };
-      }
-    }
-    function Rgb2hex(r, g, b) {
-      const val = (b | g << 8 | r << 16 | 1 << 24).toString(16).slice(1);
-      return "#" + val.toLowerCase();
-    }
-    function Hex2rgb(hex) {
-      hex = hex.replace(/^#/, "");
-      if (hex.length > 6) {
-        hex = hex.slice(0, 6);
-      }
-      if (hex.length === 4) {
-        hex = hex.slice(0, 3);
-      }
-      if (hex.length === 3) {
-        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-      }
-      const num2 = parseInt(hex, 16);
-      const r = num2 >> 16;
-      const g = num2 >> 8 & 255;
-      const b = num2 & 255;
-      const rgb = [r, g, b];
-      return rgb;
-    }
-    function Hsv2hsvRad([h, s, v]) {
-      return [h * Math.PI / 180, s, v];
-    }
-    function HsvRad2hsv(hRad, s, v) {
-      return [hRad * 180 / Math.PI, s, v];
-    }
-    function Hex2hsvRad(hex) {
-      const [r, g, b] = Hex2rgb(hex);
-      const hsv = Rgb2hsv({
-        r,
-        g,
-        b
-      });
-      const hsvRad = Hsv2hsvRad(hsv);
-      return hsvRad;
-    }
-    function HsvRad2hex(hRad, s, v) {
-      const [h] = HsvRad2hsv(hRad, s, v);
-      const {
-        r,
-        g,
-        b
-      } = Hsv2rgb(h, s, v);
-      const hex = Rgb2hex(r, g, b);
-      return hex;
-    }
-    function GetLinear(pointA, pointB, n, steps) {
-      if (steps === 0) {
-        return pointB;
-      }
-      return pointA + n * ((pointB - pointA) / steps);
-    }
-    function GetTheta(fromTheta, toTheta, n, steps) {
-      const TAU = 2 * Math.PI;
-      let longDistance;
-      if (steps === 0) {
-        return toTheta;
-      }
-      if (fromTheta > toTheta) {
-        if (fromTheta - toTheta < Math.PI) {
-          longDistance = TAU - (fromTheta - toTheta);
-        } else {
-          longDistance = toTheta - fromTheta;
-        }
-      } else {
-        if (toTheta - fromTheta < Math.PI) {
-          longDistance = toTheta - fromTheta - TAU;
-        } else {
-          longDistance = -1 * (fromTheta - toTheta);
-        }
-      }
-      let result = fromTheta + n * (longDistance / steps);
-      if (result < 0) {
-        result += TAU;
-      }
-      if (result > TAU) {
-        result -= TAU;
-      }
-      return result;
-    }
-    function GetGradientColors(fromColor, toColor, steps) {
-      const [fromHRad, fromS, fromV] = Hex2hsvRad(fromColor);
-      const [toHRad, toS, toV] = Hex2hsvRad(toColor);
-      const hexColors = [];
-      for (let n = 0; n < steps; n++) {
-        const hRad = GetTheta(fromHRad, toHRad, n, steps - 1);
-        const s = GetLinear(fromS, toS, n, steps - 1);
-        const v = GetLinear(fromV, toV, n, steps - 1);
-        hexColors.push(HsvRad2hex(hRad, s, v));
-      }
-      return hexColors;
-    }
-    function PaintLines(lines, colors, firstCharacterPosition) {
-      Debugging.report(`Running PaintLines`, 1);
-      Debugging.report(colors, 2);
-      const space = " ".repeat(firstCharacterPosition);
-      return lines.map((line) => {
-        const coloredLine = line.slice(firstCharacterPosition).split("").map((char, i2) => {
-          const {
-            open,
-            close
-          } = Color(colors[i2]);
-          return `${open}${char}${close}`;
-        }).join("");
-        return `${space}${coloredLine}`;
-      });
-    }
-    function Color2hex(color) {
-      const colorMap = {
-        black: "#000000",
-        red: "#ff0000",
-        green: "#00ff00",
-        yellow: "#ffff00",
-        blue: "#0000ff",
-        magenta: "#ff00ff",
-        cyan: "#00ffff",
-        white: "#ffffff",
-        gray: "#808080",
-        grey: "#808080"
-      };
-      return colorMap[color] || color;
-    }
-    function GetGaps(points, steps) {
-      const gapSteps = Math.floor((steps - points.length) / (points.length - 1));
-      const rest = steps - (points.length + gapSteps * (points.length - 1));
-      const gaps = Array(points.length - 1).fill(gapSteps);
-      for (let i2 = 0; i2 < rest; i2++) {
-        gaps[gaps.length - 1 - i2]++;
-      }
-      return gaps;
-    }
-    function TransitionBetweenHex(fromHex, toHex, steps) {
-      const fromRgb = Hex2rgb(fromHex);
-      const toRgb = Hex2rgb(toHex);
-      const hexColors = [];
-      steps++;
-      for (let n = 1; n < steps; n++) {
-        const red = GetLinear(fromRgb[0], toRgb[0], n, steps);
-        const green = GetLinear(fromRgb[1], toRgb[1], n, steps);
-        const blue = GetLinear(fromRgb[2], toRgb[2], n, steps);
-        hexColors.push(Rgb2hex(red, green, blue));
-      }
-      return hexColors;
-    }
-    function Transition(colors, steps, gradients = GRADIENTS) {
-      let hexColors = [];
-      if (colors.length === 1) {
-        colors = gradients[colors[0].toLowerCase()];
-      } else {
-        colors = colors.map((color) => Color2hex(color));
-      }
-      const gaps = GetGaps(colors, steps);
-      if (steps <= 1) {
-        return [colors[colors.length - 1]];
-      }
-      for (let i2 = 0; i2 < colors.length; i2++) {
-        const gap = gaps[i2 - 1];
-        if (colors[i2 - 1]) {
-          const gapColors = TransitionBetweenHex(colors[i2 - 1], colors[i2], gap);
-          hexColors = [...hexColors, ...gapColors];
-        }
-        if (gap !== -1) {
-          hexColors.push(colors[i2]);
-        }
-      }
-      return hexColors;
-    }
-    function PaintGradient({
-      output,
-      gradient,
-      lines,
-      lineHeight,
-      fontLines,
-      independentGradient,
-      transitionGradient
-    }) {
-      Debugging.report(`Running PaintGradient`, 1);
-      let newOutput = [];
-      if (transitionGradient) {
-        Debugging.report(`Gradient transition with colors: ${JSON.stringify(gradient)}`, 2);
-      } else {
-        Debugging.report(`Gradient start: ${gradient[0]} | Gradient end: ${gradient[1]}`, 2);
-      }
-      let firstCharacterPosition;
-      let longestLine;
-      if (!independentGradient) {
-        firstCharacterPosition = GetFirstCharacterPosition(output);
-        longestLine = GetLongestLine(output).length;
-      }
-      for (let i2 = 0; i2 < lines; i2++) {
-        const start = i2 * (fontLines + lineHeight);
-        const end = fontLines + start;
-        const thisLine = output.slice(start, end);
-        if (independentGradient) {
-          firstCharacterPosition = GetFirstCharacterPosition(thisLine);
-          longestLine = GetLongestLine(thisLine).length;
-        }
-        const colorsNeeded = longestLine - firstCharacterPosition;
-        const linesInbetween = i2 === 0 ? [] : Array(lineHeight).fill("");
-        Debugging.report(`longestLine: ${longestLine} | firstCharacterPosition: ${firstCharacterPosition}`, 2);
-        const colors = transitionGradient ? Transition(gradient, colorsNeeded) : GetGradientColors(Color2hex(gradient[0]), Color2hex(gradient[1]), colorsNeeded);
-        newOutput = [...newOutput, ...linesInbetween, ...PaintLines(thisLine, colors, firstCharacterPosition)];
-      }
-      return newOutput;
-    }
-    module2.exports = exports2 = {
-      Rgb2hsv,
-      Hsv2rgb,
-      Rgb2hex,
-      Hex2rgb,
-      Hsv2hsvRad,
-      HsvRad2hsv,
-      Hex2hsvRad,
-      HsvRad2hex,
-      GetLinear,
-      GetTheta,
-      GetGradientColors,
-      PaintLines,
-      Color2hex,
-      GetGaps,
-      TransitionBetweenHex,
-      Transition,
-      PaintGradient
-    };
-  }
-});
-
-// node_modules/cfonts/lib/CharLength.js
-var require_CharLength = __commonJS({
-  "node_modules/cfonts/lib/CharLength.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var CharLength = (character, fontLines, letterSpacing) => {
-      Debugging.report(`Running CharLength`, 1);
-      let charWidth = 0;
-      for (let i2 = 0; i2 < fontLines; i2++) {
-        let char = character[i2].replace(/(<([^>]+)>)/ig, "");
-        if (char.length > charWidth) {
-          charWidth = char.length;
-        }
-      }
-      if (charWidth === 0 && letterSpacing > 0) {
-        Debugging.report(`CharLength: Adding space to letter spacing`, 1);
-        charWidth = 1;
-      }
-      return charWidth;
-    };
-    module2.exports = exports2 = {
-      CharLength
-    };
-  }
-});
-
-// node_modules/cfonts/lib/CheckInput.js
-var require_CheckInput = __commonJS({
-  "node_modules/cfonts/lib/CheckInput.js"(exports2, module2) {
-    "use strict";
-    var {
-      Chalk
-    } = require_Chalk();
-    var {
-      COLORS,
-      BGCOLORS,
-      GRADIENTCOLORS,
-      GRADIENTS,
-      ALIGNMENT,
-      FONTFACES,
-      HEXTEST
-    } = require_constants2();
-    var CheckInput = (INPUT, userFont, userColors, userBackground, userAlign, userGradient, userTransitionGradient, userEnv, fontfaces = FONTFACES, colors = COLORS, bgcolors = BGCOLORS, gradientcolors = GRADIENTCOLORS, gradients = GRADIENTS, alignment = ALIGNMENT) => {
-      let result = {
-        message: "",
-        pass: true
-      };
-      if (INPUT === void 0 || INPUT === "") {
-        return {
-          message: "Please provide text to convert",
-          pass: false
-        };
-      }
-      if (Object.keys(fontfaces).indexOf(userFont.toLowerCase()) === -1) {
-        return {
-          message: `"${Chalk.red(userFont)}" is not a valid font option.
-Please use a font from the supported stack:
-${Chalk.green(Object.keys(fontfaces).map((font) => fontfaces[font]).join(", "))}`,
-          pass: false
-        };
-      }
-      userColors.forEach((color) => {
-        if (Object.keys(colors).indexOf(color.toLowerCase()) === -1 && color !== "candy" && !HEXTEST.test(color)) {
-          result = {
-            message: `"${Chalk.red(color)}" is not a valid font color option.
-Please use a color from the supported stack or any valid hex color:
-${Chalk.green(`${Object.keys(colors).map((color2) => colors[color2]).join(", ")}, candy, "#3456ff", "#f80", etc...`)}`,
-            pass: false
-          };
-        }
-      });
-      if (Object.keys(bgcolors).indexOf(userBackground.toLowerCase()) === -1) {
-        return {
-          message: `"${Chalk.red(userBackground)}" is not a valid background option.
-Please use a color from the supported stack:
-${Chalk.green(Object.keys(bgcolors).map((bgcolor) => bgcolors[bgcolor]).join(", "))}`,
-          pass: false
-        };
-      }
-      if (alignment.indexOf(userAlign.toLowerCase()) === -1) {
-        return {
-          message: `"${Chalk.red(userAlign)}" is not a valid alignment option.
-Please use an alignment option from the supported stack:
-${Chalk.green(alignment.join(" | "))}`,
-          pass: false
-        };
-      }
-      if (userGradient) {
-        if (userGradient.length === 1 && Object.keys(gradients).indexOf(userGradient[0].toLowerCase()) !== -1 && userTransitionGradient) {
-          return result;
-        } else {
-          if (userGradient.length < 2) {
-            return {
-              message: `"${Chalk.red(userGradient)}" is not a valid gradient option.
-Please pass in${userTransitionGradient ? " at least" : ""} two colors.`,
-              pass: false
-            };
-          }
-          if (userGradient.length !== 2 && !userTransitionGradient) {
-            return {
-              message: `"${Chalk.red(userGradient)}" is not a valid gradient option.
-Please pass in two colors.`,
-              pass: false
-            };
-          }
-          userGradient.forEach((color) => {
-            if (Object.keys(gradientcolors).indexOf(color.toLowerCase()) === -1 && !HEXTEST.test(color)) {
-              result = {
-                message: `"${Chalk.red(color)}" is not a valid gradient color option.
-Please use a color from the supported stack or any valid hex color:
-${Chalk.green(`${Object.keys(gradientcolors).map((color2) => colors[color2]).join(", ")}, "#3456ff", "#f80", etc...`)}`,
-                pass: false
-              };
-            }
-          });
-        }
-      }
-      if (userEnv !== "node" && userEnv !== "browser") {
-        return {
-          message: `"${Chalk.red(userEnv)}" is not a valid environment option.
-Please use onlythe supported options:
-${Chalk.green("node | browser")}`,
-          pass: false
-        };
-      }
-      return result;
-    };
-    module2.exports = exports2 = {
-      CheckInput
-    };
-  }
-});
-
-// node_modules/cfonts/lib/CleanInput.js
-var require_CleanInput = __commonJS({
-  "node_modules/cfonts/lib/CleanInput.js"(exports2, module2) {
-    "use strict";
-    var {
-      CHARS
-    } = require_constants2();
-    var CleanInput = (INPUT, chars = CHARS) => {
-      if (typeof INPUT === "string") {
-        const clean = INPUT.replace(/(?:\r\n|\r|\n)/g, "|").split("").filter((char) => chars.includes(char.toUpperCase())).join("");
-        return clean;
-      } else {
-        return "";
-      }
-    };
-    module2.exports = exports2 = {
-      CleanInput
-    };
-  }
-});
-
-// node_modules/cfonts/lib/AddLine.js
-var require_AddLine = __commonJS({
-  "node_modules/cfonts/lib/AddLine.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var AddLine = (output, fontLines, FontBuffer, lineHeight) => {
-      Debugging.report(`Running AddLine`, 1);
-      if (output.length === 0) {
-        lineHeight = 0;
-      }
-      let lines = fontLines + output.length + lineHeight;
-      let length = output.length;
-      for (let i2 = length; i2 < lines; i2++) {
-        let index = i2 - length;
-        if (index > lineHeight) {
-          output[i2] = FontBuffer[index - lineHeight];
-        } else {
-          output[i2] = "";
-        }
-      }
-      return output;
-    };
-    module2.exports = exports2 = {
-      AddLine
-    };
-  }
-});
-
-// node_modules/cfonts/lib/AddChar.js
-var require_AddChar = __commonJS({
-  "node_modules/cfonts/lib/AddChar.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      Colorize
-    } = require_Colorize();
-    var AddChar = (CHAR, output, fontLines, fontChars, fontColors, colors) => {
-      Debugging.report(`Running AddChar with "${CHAR}"`, 1);
-      let lines = output.length - fontLines;
-      for (let i2 = lines; i2 < output.length; i2++) {
-        let index = i2 - lines;
-        output[i2] += Colorize(fontChars[CHAR][index], fontColors, colors);
-      }
-      return output;
-    };
-    module2.exports = exports2 = {
-      AddChar
-    };
-  }
-});
-
-// node_modules/cfonts/lib/GetFont.js
-var require_GetFont = __commonJS({
-  "node_modules/cfonts/lib/GetFont.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging
-    } = require_Debugging();
-    var GetFont = (font) => {
-      Debugging.report(`Running GetFont`, 1);
-      try {
-        let FONTFACE = require(`../fonts/${font}.json`);
-        Debugging.report(`GetFont: Fontface path selected: "${font}.json"`, 2);
-        return FONTFACE;
-      } catch (error) {
-        Debugging.error(`Font file for "${font}" errored out: ${error}`, 2);
-        return false;
-      }
-    };
-    module2.exports = exports2 = {
-      GetFont
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Log.js
-var require_Log = __commonJS({
-  "node_modules/cfonts/lib/Log.js"(exports2, module2) {
-    "use strict";
-    var {
-      Chalk
-    } = require_Chalk();
-    var Log = {
-      error: (text) => {
-        text = text.replace(/(?:\r\n|\r|\n)/g, "\n       ");
-        console.error(`
- ${Chalk.bold.red("Ouch:")} ${text}
-`);
-      }
-    };
-    module2.exports = exports2 = {
-      Log
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Render.js
-var require_Render = __commonJS({
-  "node_modules/cfonts/lib/Render.js"(exports2, module2) {
-    "use strict";
-    var {
-      AddLetterSpacing
-    } = require_AddLetterSpacing();
-    var {
-      RenderConsole
-    } = require_RenderConsole();
-    var {
-      Debugging,
-      DEBUG
-    } = require_Debugging();
-    var {
-      PaintGradient
-    } = require_Gradient();
-    var {
-      CharLength
-    } = require_CharLength();
-    var {
-      CheckInput
-    } = require_CheckInput();
-    var {
-      CleanInput
-    } = require_CleanInput();
-    var {
-      AlignText
-    } = require_AlignText();
-    var {
-      AddLine
-    } = require_AddLine();
-    var {
-      AddChar
-    } = require_AddChar();
-    var {
-      Options
-    } = require_Options();
-    var {
-      GetFont
-    } = require_GetFont();
-    var {
-      CHARS
-    } = require_constants2();
-    var {
-      Color
-    } = require_Color();
-    var {
-      Size
-    } = require_Size();
-    var {
-      Log
-    } = require_Log();
-    var Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.level, size = Size) => {
-      Debugging.report(`Running render`, 1);
-      DEBUG.enabled = debug;
-      DEBUG.level = debuglevel;
-      const INPUT = CleanInput(input, CHARS);
-      Options.reset();
-      Options.set = SETTINGS;
-      const OPTIONS = Options.get;
-      let output = [];
-      let lines = 0;
-      let FONTFACE = {};
-      const _isGoodHuman = CheckInput(INPUT, OPTIONS.font, OPTIONS.colors, OPTIONS.background, OPTIONS.align, OPTIONS.gradient, OPTIONS.transitionGradient, OPTIONS.env);
-      if (!_isGoodHuman.pass) {
-        Log.error(_isGoodHuman.message);
-        return false;
-      }
-      if (OPTIONS.gradient) {
-        OPTIONS.colors = [];
-      }
-      if (DEBUG.enabled) {
-        let outOption = `OPTIONS:
-  Text: ${INPUT}`;
-        for (let key2 in OPTIONS) {
-          outOption += `
-  Options.${key2}: ${OPTIONS[key2]}`;
-        }
-        Debugging.report(outOption, 3);
-      }
-      if (OPTIONS.env === "browser") {
-        size = {
-          ...size
-        };
-        size.width = OPTIONS.maxLength === 0 ? 999999999999 : OPTIONS.maxLength;
-      }
-      if (OPTIONS.font === "console") {
-        FONTFACE = {
-          colors: 1,
-          lines: 1
-        };
-        const consoleOutput = RenderConsole(INPUT, OPTIONS, size);
-        output = consoleOutput.output;
-        lines = consoleOutput.lines;
-      } else {
-        FONTFACE = GetFont(OPTIONS.font);
-        if (!FONTFACE) {
-          Log.error(`Font file for the font "${OPTIONS.font}" could not be found.
-Try reinstalling this package.`);
-          return false;
-        }
-        if (SETTINGS.letterSpacing === void 0) {
-          Debugging.report(`Looking up letter spacing from font face`, 1);
-          let width = 0;
-          FONTFACE.letterspace.forEach((item) => {
-            let char = item.replace(/(<([^>]+)>)/ig, "");
-            if (width < char.length) {
-              width = char.length;
-            }
-          });
-          Debugging.report(`Letter spacing set to font face default: "${width}"`, 2);
-          OPTIONS.letterSpacing = width;
-        }
-        let lineLength = CharLength(FONTFACE.buffer, FONTFACE.lines, OPTIONS);
-        let maxChars = 0;
-        output = AddLine([], FONTFACE.lines, FONTFACE.buffer, OPTIONS.lineHeight);
-        lines++;
-        output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
-        lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
-        for (let i2 = 0; i2 < INPUT.length; i2++) {
-          let CHAR = INPUT.charAt(i2).toUpperCase();
-          let lastLineLength = lineLength;
-          Debugging.report(`Character found in font: "${CHAR}"`, 2);
-          if (CHAR !== `|`) {
-            lineLength += CharLength(FONTFACE.chars[CHAR], FONTFACE.lines, OPTIONS);
-            lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
-          }
-          if (maxChars >= OPTIONS.maxLength && OPTIONS.maxLength != 0 || CHAR === `|` || lineLength > size.width) {
-            lines++;
-            Debugging.report(`NEWLINE: maxChars: ${maxChars}, OPTIONS.maxLength: ${OPTIONS.maxLength}, CHAR: ${CHAR}, lineLength: ${lineLength}, Size.width: ${size.width} `, 2);
-            if (OPTIONS.env === "node") {
-              output = AlignText(output, lastLineLength, FONTFACE.lines, OPTIONS.align, size);
-            }
-            lineLength = CharLength(FONTFACE.buffer, FONTFACE.lines, OPTIONS);
-            lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
-            if (CHAR !== `|`) {
-              lineLength += CharLength(FONTFACE.chars[CHAR], FONTFACE.lines, OPTIONS);
-              lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
-            }
-            maxChars = 0;
-            output = AddLine(output, FONTFACE.lines, FONTFACE.buffer, OPTIONS.lineHeight);
-            output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
-          }
-          Debugging.report(`lineLength at: "${lineLength}"`, 2);
-          if (CHAR !== `|`) {
-            maxChars++;
-            output = AddChar(CHAR, output, FONTFACE.lines, FONTFACE.chars, FONTFACE.colors, OPTIONS.colors);
-            output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
-          }
-        }
-        if (OPTIONS.env === "node") {
-          output = AlignText(output, lineLength, FONTFACE.lines, OPTIONS.align, size);
-        }
-      }
-      if (OPTIONS.gradient) {
-        output = PaintGradient({
-          output,
-          gradient: OPTIONS.gradient,
-          lines,
-          lineHeight: OPTIONS.lineHeight,
-          fontLines: FONTFACE.lines,
-          independentGradient: OPTIONS.independentGradient,
-          transitionGradient: OPTIONS.transitionGradient
-        });
-      }
-      if (OPTIONS.space) {
-        if (OPTIONS.align === "top") {
-          output[output.length - 1] = `${output[output.length - 1]}
-
-
-
-`;
-        } else if (OPTIONS.align === "bottom") {
-          output[0] = `
-
-
-
-${output[0]}`;
-        } else {
-          output[0] = `
-
-${output[0]}`;
-          output[output.length - 1] = `${output[output.length - 1]}
-
-`;
-        }
-      }
-      if (OPTIONS.background !== "transparent" && OPTIONS.env === "node") {
-        const {
-          open: openNew,
-          close: closeNew
-        } = Color(OPTIONS.background, true);
-        output[0] = `${openNew}
-${output[0]}`;
-        output[output.length - 1] = `${output[output.length - 1]}${closeNew}`;
-      }
-      let write = output.join(OPTIONS.env === "node" ? `
-` : "<br>");
-      if (OPTIONS.env === "browser") {
-        const {
-          open: bgColor
-        } = Color(OPTIONS.background, true);
-        write = `<div style="font-family:monospace;white-space:pre;text-align:${OPTIONS.align};max-width:100%;overflow:scroll;background:${bgColor ? bgColor : "transparent"}">${write}</div>`;
-      }
-      return {
-        string: write,
-        array: output,
-        lines,
-        options: OPTIONS
-      };
-    };
-    module2.exports = exports2 = {
-      Render
-    };
-  }
-});
-
-// node_modules/cfonts/lib/DisplayHelp.js
-var require_DisplayHelp = __commonJS({
-  "node_modules/cfonts/lib/DisplayHelp.js"(exports2, module2) {
-    "use strict";
-    var {
-      CLIOPTIONS
-    } = require_constants2();
-    var {
-      Render
-    } = require_Render();
-    var {
-      Chalk
-    } = require_Chalk();
-    var DisplayHelp = () => {
-      const {
-        string: headline
-      } = Render("cfonts", {
-        align: "left",
-        gradient: ["red", "green"]
-      });
-      console.log(` ${headline}This is a tool for sexy fonts in the console. Give your cli some love.
-
-Usage: cfonts "<value>" [option1] <input1> [option2] <input1>,<input2> [option3]
-Example: ${Chalk.bold('$ cfonts "sexy font" -f chrome -a center -c red,green,gray')}
-
-Options:
-`);
-      Object.keys(CLIOPTIONS).forEach((option) => {
-        console.log(Chalk.bold(`${option}, ${CLIOPTIONS[option].short}`));
-        console.log(CLIOPTIONS[option].description);
-        console.log(`${Chalk.bold("$")} cfonts ${CLIOPTIONS[option].example}
-`);
-      });
-    };
-    module2.exports = exports2 = {
-      DisplayHelp
-    };
-  }
-});
-
-// node_modules/cfonts/lib/AddShortcuts.js
-var require_AddShortcuts = __commonJS({
-  "node_modules/cfonts/lib/AddShortcuts.js"(exports2, module2) {
-    "use strict";
-    var AddShortcuts = (options) => {
-      const flatOptions = Object.assign({}, options);
-      Object.keys(flatOptions).forEach((option) => {
-        flatOptions[option]._name = option;
-        flatOptions[flatOptions[option].short] = flatOptions[option];
-      });
-      return flatOptions;
-    };
-    module2.exports = exports2 = {
-      AddShortcuts
-    };
-  }
-});
-
-// node_modules/cfonts/lib/ParseArgs.js
-var require_ParseArgs = __commonJS({
-  "node_modules/cfonts/lib/ParseArgs.js"(exports2, module2) {
-    "use strict";
-    var {
-      AddShortcuts
-    } = require_AddShortcuts();
-    var {
-      CLIOPTIONS
-    } = require_constants2();
-    var {
-      Debugging
-    } = require_Debugging();
-    var ParseArgs = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
-      const parsedArgs = {
-        text: inputArgs[2]
-      };
-      Object.keys(inputOptions).forEach((option) => {
-        const name = option.replace("--", "");
-        parsedArgs[name] = inputOptions[option].default;
-      });
-      if (inputArgs[2] === "--help" || inputArgs[2] === "-h") {
-        parsedArgs.help = true;
-      }
-      if (inputArgs[2] === "--version" || inputArgs[2] === "-v") {
-        parsedArgs.version = true;
-      }
-      const args = inputArgs.splice(3);
-      const options = AddShortcuts(inputOptions);
-      for (let index = 0; args.length > index; index++) {
-        const option = options[args[index]];
-        if (option) {
-          const name = option._name.replace("--", "");
-          if (option.options !== void 0) {
-            index++;
-            const value = args[index];
-            parsedArgs[name] = value;
-          } else {
-            parsedArgs[name] = true;
-          }
-        } else {
-          Debugging.report(`The cli argument ${args[index]} was not found and ignored`, 2);
-        }
-      }
-      return parsedArgs;
-    };
-    module2.exports = exports2 = {
-      ParseArgs
-    };
-  }
-});
-
-// node_modules/cfonts/lib/Say.js
-var require_Say = __commonJS({
-  "node_modules/cfonts/lib/Say.js"(exports2, module2) {
-    "use strict";
-    var {
-      Debugging,
-      DEBUG
-    } = require_Debugging();
-    var {
-      Render
-    } = require_Render();
-    var {
-      Size
-    } = require_Size();
-    var Say = (INPUT, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.level, size = Size) => {
-      Debugging.report(`Running say`, 1);
-      DEBUG.enabled = debug;
-      DEBUG.level = debuglevel;
-      const write = Render(INPUT, SETTINGS, debug, debuglevel, size);
-      if (write) {
-        console.log(write.string);
-      }
-    };
-    module2.exports = exports2 = {
-      Say
-    };
-  }
-});
-
-// node_modules/cfonts/lib/index.js
-var require_lib = __commonJS({
-  "node_modules/cfonts/lib/index.js"(exports2, module2) {
-    "use strict";
-    var {
-      DisplayVersion
-    } = require_DisplayVersion();
-    var {
-      DisplayHelp
-    } = require_DisplayHelp();
-    var {
-      CLIOPTIONS
-    } = require_constants2();
-    var {
-      Debugging
-    } = require_Debugging();
-    var {
-      ParseArgs
-    } = require_ParseArgs();
-    var {
-      Render
-    } = require_Render();
-    var {
-      Chalk
-    } = require_Chalk();
-    var {
-      Log
-    } = require_Log();
-    var {
-      Say
-    } = require_Say();
-    var Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
-      const args = ParseArgs(inputOptions, inputArgs);
-      Debugging.report(`OPTIONS:
-  CFonts.say("${args.text}", {
-    font: "${args.font}",
-    align: "${args.align}",
-    colors: ${args.colors ? JSON.stringify(args.colors.split(",")) : []},
-    background: "${args.background}",
-    letterSpacing: ${args["letter-spacing"]},
-    lineHeight: ${args["line-height"]},
-    space: ${!args.spaceless},
-    maxLength: ${args["max-length"]},
-    gradient: ${args.gradient},
-    independentGradient: ${args["independent-gradient"]},
-    transitionGradient: ${args["transition-gradient"]},
-    env: ${args.env},
-  }, ${args.debug}, ${args.debugLevel} );`, 3, args.debug, args.debugLevel);
-      if (args.help) {
-        DisplayHelp();
-        return;
-      }
-      if (args.version) {
-        DisplayVersion();
-        return;
-      }
-      if (!args.text) {
-        Log.error(`Please provide text to convert with ${Chalk.green(`cfonts "Text"`)}
-Run ${Chalk.green(`cfonts --help`)} for more infos`);
-        return;
-      }
-      Say(args.text, {
-        font: args.font,
-        align: args.align,
-        colors: args.colors ? args.colors.split(",") : [],
-        background: args.background,
-        letterSpacing: args["letter-spacing"],
-        lineHeight: args["line-height"],
-        space: !args.spaceless,
-        maxLength: args["max-length"],
-        gradient: args.gradient,
-        independentGradient: args["independent-gradient"],
-        transitionGradient: args["transition-gradient"],
-        env: args.env
-      }, args.debug, args.debugLevel);
-    };
-    module2.exports = exports2 = {
-      render: Render,
-      say: Say,
-      Cli
-    };
-  }
-});
-
-// node_modules/ink-big-text/dist.js
-var require_dist2 = __commonJS({
-  "node_modules/ink-big-text/dist.js"(exports2, module2) {
-    "use strict";
+    exports2.default = void 0;
     var _react = _interopRequireDefault(require_react());
-    var _ink = require_build2();
     var _propTypes = _interopRequireDefault(require_prop_types());
-    var _cfonts = _interopRequireDefault(require_lib());
+    var _ink = require_build2();
+    var _figures = _interopRequireDefault(require_figures2());
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    var BigText2 = ({
-      text,
-      ...props
-    }) => /* @__PURE__ */ _react.default.createElement(_ink.Text, null, _cfonts.default.render(text, props).string);
-    BigText2.defaultProps = {
-      font: "block",
-      align: "left",
-      colors: ["system"],
-      backgroundColor: "transparent",
-      letterSpacing: 1,
-      lineHeight: 1,
-      space: true,
-      maxLength: 0
+    var Indicator = ({
+      isHighlighted
+    }) => _react.default.createElement(_ink.Box, {
+      marginRight: 1
+    }, _react.default.createElement(_ink.Text, {
+      color: isHighlighted ? "blue" : void 0
+    }, isHighlighted ? _figures.default.pointer : " "));
+    Indicator.propTypes = {
+      isHighlighted: _propTypes.default.bool
     };
-    BigText2.propTypes = {
-      text: _propTypes.default.string.isRequired,
-      font: _propTypes.default.oneOf(["block", "slick", "tiny", "grid", "pallet", "shade", "simple", "simpleBlock", "3d", "simple3d", "chrome", "huge"]),
-      align: _propTypes.default.oneOf(["left", "center", "right"]),
-      colors: _propTypes.default.arrayOf(_propTypes.default.string),
-      backgroundColor: _propTypes.default.oneOf(["transparent", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]),
-      letterSpacing: _propTypes.default.number,
-      lineHeight: _propTypes.default.number,
-      space: _propTypes.default.bool,
-      maxLength: _propTypes.default.number
+    Indicator.defaultProps = {
+      isHighlighted: false
     };
-    module2.exports = BigText2;
+    var _default = Indicator;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/item.js
+var require_item = __commonJS({
+  "node_modules/ink-multi-select/build/item.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _ink = require_build2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var Item = ({
+      isHighlighted,
+      label
+    }) => _react.default.createElement(_ink.Text, {
+      color: isHighlighted ? "blue" : void 0
+    }, label);
+    Item.propTypes = {
+      isHighlighted: _propTypes.default.bool,
+      label: _propTypes.default.string.isRequired
+    };
+    Item.defaultProps = {
+      isHighlighted: false
+    };
+    var _default = Item;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/checkbox.js
+var require_checkbox = __commonJS({
+  "node_modules/ink-multi-select/build/checkbox.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _ink = require_build2();
+    var _figures = _interopRequireDefault(require_figures2());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var CheckBox = ({
+      isSelected
+    }) => _react.default.createElement(_ink.Box, {
+      marginRight: 1
+    }, _react.default.createElement(_ink.Text, {
+      color: "green"
+    }, isSelected ? _figures.default.circleFilled : _figures.default.circle));
+    CheckBox.propTypes = {
+      isSelected: _propTypes.default.bool
+    };
+    CheckBox.defaultProps = {
+      isSelected: false
+    };
+    var _default = CheckBox;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/multi-select.js
+var require_multi_select = __commonJS({
+  "node_modules/ink-multi-select/build/multi-select.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports2, "Indicator", {
+      enumerable: true,
+      get: function() {
+        return _indicator.default;
+      }
+    });
+    Object.defineProperty(exports2, "Item", {
+      enumerable: true,
+      get: function() {
+        return _item.default;
+      }
+    });
+    Object.defineProperty(exports2, "CheckBox", {
+      enumerable: true,
+      get: function() {
+        return _checkbox.default;
+      }
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireWildcard(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _lodash = _interopRequireDefault(require_lodash2());
+    var _arrRotate = _interopRequireDefault(require_arr_rotate());
+    var _ink = require_build2();
+    var _indicator = _interopRequireDefault(require_indicator());
+    var _item = _interopRequireDefault(require_item());
+    var _checkbox = _interopRequireDefault(require_checkbox());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    function _getRequireWildcardCache() {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cache = /* @__PURE__ */ new WeakMap();
+      _getRequireWildcardCache = function() {
+        return cache;
+      };
+      return cache;
+    }
+    function _interopRequireWildcard(obj) {
+      if (obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return { default: obj };
+      }
+      var cache = _getRequireWildcardCache();
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key2 in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key2, desc);
+          } else {
+            newObj[key2] = obj[key2];
+          }
+        }
+      }
+      newObj.default = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _extends() {
+      _extends = Object.assign || function(target) {
+        for (var i2 = 1; i2 < arguments.length; i2++) {
+          var source = arguments[i2];
+          for (var key2 in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key2)) {
+              target[key2] = source[key2];
+            }
+          }
+        }
+        return target;
+      };
+      return _extends.apply(this, arguments);
+    }
+    function _defineProperty(obj, key2, value) {
+      if (key2 in obj) {
+        Object.defineProperty(obj, key2, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key2] = value;
+      }
+      return obj;
+    }
+    var ARROW_UP = "\x1B[A";
+    var ARROW_DOWN = "\x1B[B";
+    var ENTER = "\r";
+    var SPACE = " ";
+    var MultiSelect2 = class extends _react.PureComponent {
+      constructor(...args) {
+        super(...args);
+        _defineProperty(this, "state", {
+          rotateIndex: 0,
+          highlightedIndex: this.props.initialIndex,
+          selected: this.props.selected || this.props.defaultSelected
+        });
+        _defineProperty(this, "handleInput", (data) => {
+          const {
+            items,
+            focus,
+            onHighlight,
+            onSubmit
+          } = this.props;
+          const {
+            rotateIndex,
+            highlightedIndex
+          } = this.state;
+          const selected = this.props.selected || this.state.selected;
+          const {
+            limit,
+            hasLimit
+          } = this;
+          if (focus === false) {
+            return;
+          }
+          const s = String(data);
+          if (s === ARROW_UP || s === "k") {
+            const lastIndex = (hasLimit ? limit : items.length) - 1;
+            const atFirstIndex = highlightedIndex === 0;
+            const nextIndex = hasLimit ? highlightedIndex : lastIndex;
+            const nextRotateIndex = atFirstIndex ? rotateIndex + 1 : rotateIndex;
+            const nextHighlightedIndex = atFirstIndex ? nextIndex : highlightedIndex - 1;
+            this.setState({
+              rotateIndex: nextRotateIndex,
+              highlightedIndex: nextHighlightedIndex
+            });
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, nextRotateIndex).slice(0, limit) : items;
+            onHighlight(slicedItems[nextHighlightedIndex]);
+          }
+          if (s === ARROW_DOWN || s === "j") {
+            const atLastIndex = highlightedIndex === (hasLimit ? limit : items.length) - 1;
+            const nextIndex = hasLimit ? highlightedIndex : 0;
+            const nextRotateIndex = atLastIndex ? rotateIndex - 1 : rotateIndex;
+            const nextHighlightedIndex = atLastIndex ? nextIndex : highlightedIndex + 1;
+            this.setState({
+              rotateIndex: nextRotateIndex,
+              highlightedIndex: nextHighlightedIndex
+            });
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, nextRotateIndex).slice(0, limit) : items;
+            onHighlight(slicedItems[nextHighlightedIndex]);
+          }
+          if (s === SPACE) {
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, rotateIndex).slice(0, limit) : items;
+            const selectedItem = slicedItems[highlightedIndex];
+            this.setSelectedState(this.selectItem(selectedItem));
+          }
+          if (s === ENTER) {
+            onSubmit(selected);
+          }
+        });
+      }
+      render() {
+        const {
+          items,
+          indicatorComponent,
+          itemComponent,
+          checkboxComponent
+        } = this.props;
+        const {
+          rotateIndex,
+          highlightedIndex
+        } = this.state;
+        const {
+          limit,
+          hasLimit
+        } = this;
+        const slicedItems = hasLimit ? (0, _arrRotate.default)(items, rotateIndex).slice(0, limit) : items;
+        return _react.default.createElement(_ink.Box, {
+          flexDirection: "column"
+        }, slicedItems.map((item, index) => {
+          const key2 = item.key || item.value;
+          const isHighlighted = index === highlightedIndex;
+          const isSelected = this.isSelected(item.value);
+          return _react.default.createElement(_ink.Box, {
+            key: key2
+          }, _react.default.createElement(indicatorComponent, {
+            isHighlighted
+          }), _react.default.createElement(checkboxComponent, {
+            isSelected
+          }), _react.default.createElement(itemComponent, {
+            ...item,
+            isHighlighted
+          }));
+        }));
+      }
+      componentDidMount() {
+        const {
+          stdin,
+          setRawMode
+        } = this.props;
+        setRawMode(true);
+        stdin.on("data", this.handleInput);
+      }
+      componentWillUnmount() {
+        const {
+          stdin,
+          setRawMode
+        } = this.props;
+        stdin.removeListener("data", this.handleInput);
+        setRawMode(false);
+      }
+      componentDidUpdate(prevProps) {
+        if (!(0, _lodash.default)(prevProps.items, this.props.items)) {
+          this.setState({
+            rotateIndex: 0,
+            highlightedIndex: 0
+          });
+        }
+      }
+      isSelected(value) {
+        const selected = this.props.selected || this.state.selected;
+        return selected.map(({
+          value: value2
+        }) => value2).includes(value);
+      }
+      selectItem(item) {
+        const {
+          onSelect,
+          onUnselect
+        } = this.props;
+        const selected = this.props.selected || this.state.selected;
+        if (this.isSelected(item.value)) {
+          onUnselect(item);
+          return selected.filter(({
+            value
+          }) => {
+            return value !== item.value;
+          });
+        }
+        onSelect(item);
+        return [...selected, item];
+      }
+      setSelectedState(selected) {
+        this.setState({
+          selected
+        });
+      }
+      get hasLimit() {
+        const {
+          limit,
+          items
+        } = this.props;
+        return typeof limit === "number" && items.length > limit;
+      }
+      get limit() {
+        const {
+          limit,
+          items
+        } = this.props;
+        if (this.hasLimit) {
+          return Math.min(limit, items.length);
+        }
+        return items.length;
+      }
+    };
+    _defineProperty(MultiSelect2, "propTypes", {
+      items: _propTypes.default.array,
+      selected: _propTypes.default.array,
+      defaultSelected: _propTypes.default.array,
+      focus: _propTypes.default.bool,
+      initialIndex: _propTypes.default.number,
+      indicatorComponent: _propTypes.default.func,
+      checkboxComponent: _propTypes.default.func,
+      itemComponent: _propTypes.default.func,
+      limit: _propTypes.default.number,
+      onSelect: _propTypes.default.func,
+      onUnselect: _propTypes.default.func,
+      onSubmit: _propTypes.default.func,
+      onHighlight: _propTypes.default.func,
+      stdin: _propTypes.default.any.isRequired,
+      setRawMode: _propTypes.default.func.isRequired
+    });
+    _defineProperty(MultiSelect2, "defaultProps", {
+      items: [],
+      selected: void 0,
+      defaultSelected: [],
+      focus: true,
+      initialIndex: 0,
+      indicatorComponent: _indicator.default,
+      checkboxComponent: _checkbox.default,
+      itemComponent: _item.default,
+      limit: null,
+      onSelect() {
+      },
+      onUnselect() {
+      },
+      onSubmit() {
+      },
+      onHighlight() {
+      }
+    });
+    var _default = (props) => {
+      const {
+        stdin,
+        setRawMode
+      } = (0, _ink.useStdin)();
+      return _react.default.createElement(MultiSelect2, _extends({}, props, {
+        stdin,
+        setRawMode
+      }));
+    };
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/index.js
+var require_build4 = __commonJS({
+  "node_modules/ink-multi-select/build/index.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports2, "default", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.default;
+      }
+    });
+    Object.defineProperty(exports2, "Item", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.Item;
+      }
+    });
+    Object.defineProperty(exports2, "Indicator", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.Indicator;
+      }
+    });
+    Object.defineProperty(exports2, "CheckBox", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.CheckBox;
+      }
+    });
+    var _multiSelect = _interopRequireWildcard(require_multi_select());
+    function _getRequireWildcardCache() {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cache = /* @__PURE__ */ new WeakMap();
+      _getRequireWildcardCache = function() {
+        return cache;
+      };
+      return cache;
+    }
+    function _interopRequireWildcard(obj) {
+      if (obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return { default: obj };
+      }
+      var cache = _getRequireWildcardCache();
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key2 in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key2, desc);
+          } else {
+            newObj[key2] = obj[key2];
+          }
+        }
+      }
+      newObj.default = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
   }
 });
 
 // src/app.jsx
-var import_react2 = __toESM(require_react());
-var import_ink2 = __toESM(require_build2());
-var import_react_router = __toESM(require_main());
+var import_react4 = __toESM(require_react());
+var import_ink4 = __toESM(require_build2());
+var import_react_router3 = __toESM(require_main());
 
 // src/MainMenu.jsx
 var import_react = __toESM(require_react());
 var import_ink = __toESM(require_build2());
 var import_ink_select_input = __toESM(require_build3());
+var import_react_router = __toESM(require_main());
 var import_ink_gradient = __toESM(require_dist());
-var import_ink_big_text = __toESM(require_dist2());
 
 // src/logo.txt
 var logo_default = " \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u2584 \u2584\u2588\u2588\u2588\u2593\n \u2588\u2588 \u2580\u2588   \u2588  \u2588\u2588 \u2580\u2588   \u2588 \u2593\u2588\u2588\u2592\u2580\u2588\u2580 \u2588\u2588\u2592\n\u2593\u2588\u2588  \u2580\u2588 \u2588\u2588\u2592\u2593\u2588\u2588  \u2580\u2588 \u2588\u2588\u2592\u2593\u2588\u2588    \u2593\u2588\u2588\u2591\n\u2593\u2588\u2588\u2592  \u2590\u258C\u2588\u2588\u2592\u2593\u2588\u2588\u2592  \u2590\u258C\u2588\u2588\u2592\u2592\u2588\u2588    \u2592\u2588\u2588 \n\u2592\u2588\u2588\u2591   \u2593\u2588\u2588\u2591\u2592\u2588\u2588\u2591   \u2593\u2588\u2588\u2591\u2592\u2588\u2588\u2592   \u2591\u2588\u2588\u2592\n\u2591 \u2592\u2591   \u2592 \u2592 \u2591 \u2592\u2591   \u2592 \u2592 \u2591 \u2592\u2591   \u2591  \u2591\n\u2591 \u2591\u2591   \u2591 \u2592\u2591\u2591 \u2591\u2591   \u2591 \u2592\u2591\u2591  \u2591      \u2591\n   \u2591   \u2591 \u2591    \u2591   \u2591 \u2591 \u2591      \u2591   \n         \u2591          \u2591        \u2591   \n                                 \n";
@@ -87136,7 +85377,7 @@ var logo_default = " \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u258
 // package.json
 var package_default = {
   name: "nnm",
-  version: "1.0.0",
+  version: "0.0.1",
   description: "",
   main: "index.js",
   scripts: {
@@ -87151,7 +85392,6 @@ var package_default = {
   license: "ISC",
   dependencies: {
     ink: "^3.2.0",
-    "ink-big-text": "^1.2.0",
     "ink-gradient": "^2.0.0",
     "ink-multi-select": "^2.0.0",
     "ink-select-input": "^4.2.1",
@@ -87171,7 +85411,9 @@ var package_default = {
 
 // src/MainMenu.jsx
 function MainMenu() {
+  const navigate = (0, import_react_router.useNavigate)();
   const handleSelect = (item) => {
+    navigate(item.value);
   };
   const items = [
     {
@@ -87191,11 +85433,59 @@ function MainMenu() {
 }
 var MainMenu_default = MainMenu;
 
+// src/MultipleChoiceMenu.jsx
+var import_react2 = __toESM(require_react());
+var import_ink2 = __toESM(require_build2());
+var import_react_router2 = __toESM(require_main());
+var import_ink_multi_select = __toESM(require_build4());
+function MultipleChoiceMenu({
+  escapeToReturn,
+  items
+}) {
+  const navigate = (0, import_react_router2.useNavigate)();
+  (0, import_ink2.useInput)((input, key2) => {
+    if (escapeToReturn) {
+      if (key2.escape) {
+        navigate(-1);
+      }
+    }
+  });
+  const handleSubmit = (items2) => {
+  };
+  return /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " Press ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "blue" }, "Space"), " to select, ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "green" }, "Enter"), " to submit or ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "yellow" }, "Escape"), " to return to the previous menu."), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " "), /* @__PURE__ */ import_react2.default.createElement(import_ink_multi_select.default, { items, onSubmit: handleSubmit }));
+}
+MultipleChoiceMenu.defaultProps = {
+  escapeToReturn: true
+};
+var MultipleChoiceMenu_default = MultipleChoiceMenu;
+
+// src/1/Menu.jsx
+var import_react3 = __toESM(require_react());
+var import_ink3 = __toESM(require_build2());
+
+// src/1/tasks/index.jsx
+var tasks_default = [
+  {
+    label: "Set Up Disk partitions",
+    value: "1"
+  },
+  {
+    label: "Set Up Disk partitions",
+    value: "2"
+  }
+];
+
+// src/1/Menu.jsx
+function Menu() {
+  return /* @__PURE__ */ import_react3.default.createElement(import_ink3.Box, null, /* @__PURE__ */ import_react3.default.createElement(MultipleChoiceMenu_default, { items: tasks_default }));
+}
+var Menu_default = Menu;
+
 // src/app.jsx
 function App() {
-  return /* @__PURE__ */ import_react2.default.createElement(import_react_router.MemoryRouter, null, /* @__PURE__ */ import_react2.default.createElement(import_react_router.Routes, null, /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/1", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/2", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/3", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) })));
+  return /* @__PURE__ */ import_react4.default.createElement(import_react_router3.MemoryRouter, null, /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Routes, null, /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/1", element: /* @__PURE__ */ import_react4.default.createElement(Menu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/2", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/3", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) })));
 }
-(0, import_ink2.render)(/* @__PURE__ */ import_react2.default.createElement(App, null));
+(0, import_ink4.render)(/* @__PURE__ */ import_react4.default.createElement(App, null));
 /*! Bundled license information:
 
 object-assign/index.js:
@@ -87399,539 +85689,4 @@ tinygradient/tinygradient.js:
    * Copyright 2014-2018 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
    * Licensed under MIT (http://opensource.org/licenses/MIT)
    *)
-
-cfonts/lib/Chalk.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Chalk
-   *   We pass on the FORCE_COLOR env var to chalk so we can force it in ci
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/constants.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Constants
-   *   CHARS
-   *   COLORS
-   *   BGCOLORS
-   *   GRADIENTCOLORS
-   *   ALIGNMENT
-   *   FONTFACES
-   *   CLIOPTIONS
-   *   PACKAGE
-   *   HEXTEST
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/DisplayVersion.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * DisplayVersion
-   *   Display the version of this package
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Debugging.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Debugging
-   *   Debugging prettiness
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/UpperCaseFirst.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * UpperCaseFirst
-   *   Upper case the first character of an input string
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Options.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Options
-   *   Merge user settings with default options
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Color.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Color
-   *   Abstraction for coloring hex-, keyword- and background-colors
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Colorize.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Colorize
-   *   Replace placeholders with color information
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/AddLetterSpacing.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * AddLetterSpacing
-   *   Add letter spacing for the next character
-   *
-   **************************************************************************************************************************************************************)
-
-is-accessor-descriptor/index.js:
-  (*!
-   * is-accessor-descriptor <https://github.com/jonschlinkert/is-accessor-descriptor>
-   *
-   * Copyright (c) 2015-2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-is-data-descriptor/index.js:
-  (*!
-   * is-data-descriptor <https://github.com/jonschlinkert/is-data-descriptor>
-   *
-   * Copyright (c) 2015-2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-is-descriptor/index.js:
-  (*!
-   * is-descriptor <https://github.com/jonschlinkert/is-descriptor>
-   *
-   * Copyright (c) 2015-2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-define-property/index.js:
-  (*!
-   * define-property <https://github.com/jonschlinkert/define-property>
-   *
-   * Copyright (c) 2015, 2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-is-buffer/index.js:
-  (*!
-   * Determine if an object is a Buffer
-   *
-   * @author   Feross Aboukhadijeh <https://feross.org>
-   * @license  MIT
-   *)
-
-is-number/index.js:
-  (*!
-   * is-number <https://github.com/jonschlinkert/is-number>
-   *
-   * Copyright (c) 2014-2015, Jon Schlinkert.
-   * Licensed under the MIT License.
-   *)
-
-window-size/utils.js:
-  (*!
-   * window-size <https://github.com/jonschlinkert/window-size>
-   *
-   * Copyright (c) 2014-2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-window-size/index.js:
-  (*!
-   * window-size <https://github.com/jonschlinkert/window-size>
-   *
-   * Copyright (c) 2014-2017, Jon Schlinkert.
-   * Released under the MIT License.
-   *)
-
-cfonts/lib/Size.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Size
-   *   Abstraction for windows size
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/AlignText.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * AlignText
-   *   Calculate the spaces to be added to the left of each line to align them either center or right
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/RenderConsole.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * RenderConsole
-   *   Render our input with the console font
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/GetFirstCharacterPosition.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * GetFirstCharacterPosition
-   *   Get the position of the first character out of all strings inside an array
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/GetLongestLine.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * GetLongestLine
-   *   Return the longest line of an Array
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Gradient.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Rgb2hsv              - Converts an RGB color value to HSV
-   * Hsv2rgb              - Converts an HSV color value to RGB
-   * Rgb2hex              - Converts RGB to HEX
-   * Hex2rgb              - Convert HEX to RGB
-   * Hsv2hsvRad           - Convert HSV coordinate to HSVrad (degree to radian)
-   * HsvRad2hsv           - Convert HSVrad color to HSV (radian to degree)
-   * Hex2hsvRad           - Convert HEX to HSVrad
-   * HsvRad2hex           - Convert HSVrad to HEX
-   * GetLinear            - Interpolate a linear path from a number to another number
-   * GetTheta             - Interpolate a radial path from a number to another number
-   * GetGradientColors    - Generate the most colorful delta between two colors
-   * PaintLines           - Take a bunch of lines and color them in the colors provided
-   * Color2hex            - Make sure a color is hex
-   * GetGaps              - Calculate the gaps between an array of points
-   * TransitionBetweenHex - Generate colors between two given colors
-   * Transition           - Generate n colors between x colors
-   * PaintGradient        - Paint finished output in a gradient
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/CharLength.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * CharLength
-   *   Return the max width of a character by looking at its longest line
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/CheckInput.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * CheckInput
-   *   Check input for human errors
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/CleanInput.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * CleanInput
-   *   Filter only allowed character
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/AddLine.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * AddLine
-   *   Add a new line to the output array
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/AddChar.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * AddChar
-   *   Add a new character to the output array
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/GetFont.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * GetFont
-   *   Get a selected JSON font-file object
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Log.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Log
-   *   Logging prettiness
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Render.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Render
-   *   Main method to get the ANSI output for a string
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/DisplayHelp.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * DisplayHelp
-   *   Display the help generated from our CLIOPTIONS
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/AddShortcuts.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * AddShortcuts
-   *   Flatten the shortcuts in our cli options object
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/ParseArgs.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * ParseArgs
-   *   Parse cli arguments into a nice object
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/Say.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Say
-   *   Print to console
-   *
-   **************************************************************************************************************************************************************)
-
-cfonts/lib/index.js:
-  (***************************************************************************************************************************************************************
-   *
-   * cfonts
-   *
-   * Sexy fonts for the console. (CLI output)
-   *
-   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
-   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
-   * @repository  https://github.com/dominikwilkowski/cfonts
-   *
-   * Cli
-   *   Run cli commands
-   *
-   **************************************************************************************************************************************************************)
 */
