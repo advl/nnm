@@ -20,7 +20,7 @@ function get_swap_size {
   #echo $(get_memtotal_gb)
   #echo '$(get_memtotal_gb)'
   #echo $((2 + $swap_power))
-  local s=`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; printf "%3.0f", $1}'`
+  local s=`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; print "%3.0f", $1}'`
   echo "${s}G" 
 }
 
