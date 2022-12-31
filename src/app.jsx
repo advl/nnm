@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { render, Text } from 'ink'
+import React from 'react'
+import { render } from 'ink'
+import { MemoryRouter, Routes, Route } from 'react-router'
+import MainMenu from './MainMenu.jsx'
 
 function App() {
-  const [counter, setCounter] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCounter((previousCounter) => previousCounter + 1)
-    }, 100)
-
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
-
   return (
-    <Text color="green">
-      {counter}
-      {' '}
-      tests passed
-    </Text>
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<MainMenu />} />
+        <Route path="/1" element={<MainMenu />} />
+        <Route path="/2" element={<MainMenu />} />
+        <Route path="/3" element={<MainMenu />} />
+      </Routes>
+    </MemoryRouter>
   )
 }
 

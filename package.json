@@ -1,20 +1,26 @@
 {
   "name": "nnm",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test:eslint": "eslint --ext .jsx,.js src/",
     "fix:eslint": "npm run test:eslint -- --fix",
-    "build": "esbuild src/app.jsx --bundle --platform=node --outfile=dist/app.js",
+    "build": "esbuild src/app.jsx --loader:.txt=text --bundle --platform=node --outfile=dist/app.js",
     "start": "node ./dist/app.js",
+    "dev": "npm run build && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ink": "^3.2.0",
-    "react": "^17.0.2"
+    "ink-big-text": "^1.2.0",
+    "ink-gradient": "^2.0.0",
+    "ink-multi-select": "^2.0.0",
+    "ink-select-input": "^4.2.1",
+    "react": "^17.0.2",
+    "react-router": "^6.6.1"
   },
   "devDependencies": {
     "esbuild": "^0.16.12",

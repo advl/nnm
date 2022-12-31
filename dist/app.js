@@ -1343,7 +1343,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState2(initialState) {
+        function useState(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1355,7 +1355,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect2(create, deps) {
+        function useEffect(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -1925,13 +1925,13 @@ var require_react_development = __commonJS({
         exports2.useCallback = useCallback;
         exports2.useContext = useContext;
         exports2.useDebugValue = useDebugValue;
-        exports2.useEffect = useEffect2;
+        exports2.useEffect = useEffect;
         exports2.useImperativeHandle = useImperativeHandle;
         exports2.useLayoutEffect = useLayoutEffect;
         exports2.useMemo = useMemo;
         exports2.useReducer = useReducer;
         exports2.useRef = useRef;
-        exports2.useState = useState2;
+        exports2.useState = useState;
         exports2.version = ReactVersion;
       })();
     }
@@ -13878,11 +13878,11 @@ var require_react_reconciler_development = __commonJS({
       module2.exports = function $$$reconciler($$$hostConfig) {
         var exports3 = {};
         "use strict";
-        var React2 = require_react();
+        var React3 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var tracing = require_tracing();
-        var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function warn(format) {
           {
             for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -16466,7 +16466,7 @@ var require_react_reconciler_development = __commonJS({
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React2.Component().refs;
+        var emptyRefsObject = new React3.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -58153,7 +58153,7 @@ var require_websocket = __commonJS({
     var tls = require("tls");
     var { randomBytes, createHash } = require("crypto");
     var { Readable } = require("stream");
-    var { URL } = require("url");
+    var { URL: URL2 } = require("url");
     var PerMessageDeflate = require_permessage_deflate();
     var Receiver = require_receiver();
     var Sender = require_sender();
@@ -58488,11 +58488,11 @@ var require_websocket = __commonJS({
         );
       }
       let parsedUrl;
-      if (address instanceof URL) {
+      if (address instanceof URL2) {
         parsedUrl = address;
         websocket._url = address.href;
       } else {
-        parsedUrl = new URL(address);
+        parsedUrl = new URL2(address);
         websocket._url = address;
       }
       const isUnixSocket = parsedUrl.protocol === "ws+unix:";
@@ -58600,7 +58600,7 @@ var require_websocket = __commonJS({
           req.abort();
           let addr;
           try {
-            addr = new URL(location, address);
+            addr = new URL2(location, address);
           } catch (err2) {
             emitErrorAndClose(websocket, err2);
             return;
@@ -68709,7 +68709,7 @@ var require_backend = __commonJS({
               });
               return a._currentValue;
             },
-            useEffect: function useEffect2(a) {
+            useEffect: function useEffect(a) {
               C();
               x.push({
                 primitive: "Effect",
@@ -68783,7 +68783,7 @@ var require_backend = __commonJS({
               });
               return a;
             },
-            useState: function useState2(a) {
+            useState: function useState(a) {
               var b = C();
               a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
               x.push({
@@ -74845,18 +74845,18 @@ var require_Box = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Box = react_1.forwardRef((_a2, ref) => {
+    var Box2 = react_1.forwardRef((_a2, ref) => {
       var { children } = _a2, style = __rest(_a2, ["children"]);
       const transformedStyle = Object.assign(Object.assign({}, style), { marginLeft: style.marginLeft || style.marginX || style.margin || 0, marginRight: style.marginRight || style.marginX || style.margin || 0, marginTop: style.marginTop || style.marginY || style.margin || 0, marginBottom: style.marginBottom || style.marginY || style.margin || 0, paddingLeft: style.paddingLeft || style.paddingX || style.padding || 0, paddingRight: style.paddingRight || style.paddingX || style.padding || 0, paddingTop: style.paddingTop || style.paddingY || style.padding || 0, paddingBottom: style.paddingBottom || style.paddingY || style.padding || 0 });
       return react_1.default.createElement("ink-box", { ref, style: transformedStyle }, children);
     });
-    Box.displayName = "Box";
-    Box.defaultProps = {
+    Box2.displayName = "Box";
+    Box2.defaultProps = {
       flexDirection: "row",
       flexGrow: 0,
       flexShrink: 1
     };
-    exports2.default = Box;
+    exports2.default = Box2;
   }
 });
 
@@ -75737,9 +75737,9 @@ var require_Spacer = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importDefault(require_react());
     var Box_1 = __importDefault(require_Box());
-    var Spacer = () => react_1.default.createElement(Box_1.default, { flexGrow: 1 });
-    Spacer.displayName = "Spacer";
-    exports2.default = Spacer;
+    var Spacer2 = () => react_1.default.createElement(Box_1.default, { flexGrow: 1 });
+    Spacer2.displayName = "Spacer";
+    exports2.default = Spacer2;
   }
 });
 
@@ -76034,22 +76034,11168 @@ var require_build2 = __commonJS({
   }
 });
 
+// node_modules/@remix-run/router/dist/router.cjs.js
+var require_router_cjs = __commonJS({
+  "node_modules/@remix-run/router/dist/router.cjs.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    function _extends() {
+      _extends = Object.assign ? Object.assign.bind() : function(target) {
+        for (var i2 = 1; i2 < arguments.length; i2++) {
+          var source = arguments[i2];
+          for (var key2 in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key2)) {
+              target[key2] = source[key2];
+            }
+          }
+        }
+        return target;
+      };
+      return _extends.apply(this, arguments);
+    }
+    exports2.Action = void 0;
+    (function(Action) {
+      Action["Pop"] = "POP";
+      Action["Push"] = "PUSH";
+      Action["Replace"] = "REPLACE";
+    })(exports2.Action || (exports2.Action = {}));
+    var PopStateEventType = "popstate";
+    function createMemoryHistory(options) {
+      if (options === void 0) {
+        options = {};
+      }
+      let {
+        initialEntries = ["/"],
+        initialIndex,
+        v5Compat = false
+      } = options;
+      let entries;
+      entries = initialEntries.map((entry, index2) => createMemoryLocation(entry, typeof entry === "string" ? null : entry.state, index2 === 0 ? "default" : void 0));
+      let index = clampIndex(initialIndex == null ? entries.length - 1 : initialIndex);
+      let action = exports2.Action.Pop;
+      let listener = null;
+      function clampIndex(n) {
+        return Math.min(Math.max(n, 0), entries.length - 1);
+      }
+      function getCurrentLocation() {
+        return entries[index];
+      }
+      function createMemoryLocation(to, state, key2) {
+        if (state === void 0) {
+          state = null;
+        }
+        let location = createLocation(entries ? getCurrentLocation().pathname : "/", to, state, key2);
+        warning$1(location.pathname.charAt(0) === "/", "relative pathnames are not supported in memory history: " + JSON.stringify(to));
+        return location;
+      }
+      let history = {
+        get index() {
+          return index;
+        },
+        get action() {
+          return action;
+        },
+        get location() {
+          return getCurrentLocation();
+        },
+        createHref(to) {
+          return typeof to === "string" ? to : createPath(to);
+        },
+        encodeLocation(to) {
+          let path = typeof to === "string" ? parsePath(to) : to;
+          return {
+            pathname: path.pathname || "",
+            search: path.search || "",
+            hash: path.hash || ""
+          };
+        },
+        push(to, state) {
+          action = exports2.Action.Push;
+          let nextLocation = createMemoryLocation(to, state);
+          index += 1;
+          entries.splice(index, entries.length, nextLocation);
+          if (v5Compat && listener) {
+            listener({
+              action,
+              location: nextLocation
+            });
+          }
+        },
+        replace(to, state) {
+          action = exports2.Action.Replace;
+          let nextLocation = createMemoryLocation(to, state);
+          entries[index] = nextLocation;
+          if (v5Compat && listener) {
+            listener({
+              action,
+              location: nextLocation
+            });
+          }
+        },
+        go(delta) {
+          action = exports2.Action.Pop;
+          index = clampIndex(index + delta);
+          if (listener) {
+            listener({
+              action,
+              location: getCurrentLocation()
+            });
+          }
+        },
+        listen(fn) {
+          listener = fn;
+          return () => {
+            listener = null;
+          };
+        }
+      };
+      return history;
+    }
+    function createBrowserHistory(options) {
+      if (options === void 0) {
+        options = {};
+      }
+      function createBrowserLocation(window2, globalHistory) {
+        let {
+          pathname,
+          search,
+          hash
+        } = window2.location;
+        return createLocation(
+          "",
+          {
+            pathname,
+            search,
+            hash
+          },
+          globalHistory.state && globalHistory.state.usr || null,
+          globalHistory.state && globalHistory.state.key || "default"
+        );
+      }
+      function createBrowserHref(window2, to) {
+        return typeof to === "string" ? to : createPath(to);
+      }
+      return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options);
+    }
+    function createHashHistory(options) {
+      if (options === void 0) {
+        options = {};
+      }
+      function createHashLocation(window2, globalHistory) {
+        let {
+          pathname = "/",
+          search = "",
+          hash = ""
+        } = parsePath(window2.location.hash.substr(1));
+        return createLocation(
+          "",
+          {
+            pathname,
+            search,
+            hash
+          },
+          globalHistory.state && globalHistory.state.usr || null,
+          globalHistory.state && globalHistory.state.key || "default"
+        );
+      }
+      function createHashHref(window2, to) {
+        let base = window2.document.querySelector("base");
+        let href = "";
+        if (base && base.getAttribute("href")) {
+          let url = window2.location.href;
+          let hashIndex = url.indexOf("#");
+          href = hashIndex === -1 ? url : url.slice(0, hashIndex);
+        }
+        return href + "#" + (typeof to === "string" ? to : createPath(to));
+      }
+      function validateHashLocation(location, to) {
+        warning$1(location.pathname.charAt(0) === "/", "relative pathnames are not supported in hash history.push(" + JSON.stringify(to) + ")");
+      }
+      return getUrlBasedHistory(createHashLocation, createHashHref, validateHashLocation, options);
+    }
+    function invariant(value, message) {
+      if (value === false || value === null || typeof value === "undefined") {
+        throw new Error(message);
+      }
+    }
+    function warning$1(cond, message) {
+      if (!cond) {
+        if (typeof console !== "undefined")
+          console.warn(message);
+        try {
+          throw new Error(message);
+        } catch (e) {
+        }
+      }
+    }
+    function createKey() {
+      return Math.random().toString(36).substr(2, 8);
+    }
+    function getHistoryState(location) {
+      return {
+        usr: location.state,
+        key: location.key
+      };
+    }
+    function createLocation(current, to, state, key2) {
+      if (state === void 0) {
+        state = null;
+      }
+      let location = _extends({
+        pathname: typeof current === "string" ? current : current.pathname,
+        search: "",
+        hash: ""
+      }, typeof to === "string" ? parsePath(to) : to, {
+        state,
+        key: to && to.key || key2 || createKey()
+      });
+      return location;
+    }
+    function createPath(_ref) {
+      let {
+        pathname = "/",
+        search = "",
+        hash = ""
+      } = _ref;
+      if (search && search !== "?")
+        pathname += search.charAt(0) === "?" ? search : "?" + search;
+      if (hash && hash !== "#")
+        pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
+      return pathname;
+    }
+    function parsePath(path) {
+      let parsedPath = {};
+      if (path) {
+        let hashIndex = path.indexOf("#");
+        if (hashIndex >= 0) {
+          parsedPath.hash = path.substr(hashIndex);
+          path = path.substr(0, hashIndex);
+        }
+        let searchIndex = path.indexOf("?");
+        if (searchIndex >= 0) {
+          parsedPath.search = path.substr(searchIndex);
+          path = path.substr(0, searchIndex);
+        }
+        if (path) {
+          parsedPath.pathname = path;
+        }
+      }
+      return parsedPath;
+    }
+    function createClientSideURL(location) {
+      let base = typeof window !== "undefined" && typeof window.location !== "undefined" && window.location.origin !== "null" ? window.location.origin : window.location.href;
+      let href = typeof location === "string" ? location : createPath(location);
+      invariant(base, "No window.location.(origin|href) available to create URL for href: " + href);
+      return new URL(href, base);
+    }
+    function getUrlBasedHistory(getLocation, createHref, validateLocation, options) {
+      if (options === void 0) {
+        options = {};
+      }
+      let {
+        window: window2 = document.defaultView,
+        v5Compat = false
+      } = options;
+      let globalHistory = window2.history;
+      let action = exports2.Action.Pop;
+      let listener = null;
+      function handlePop() {
+        action = exports2.Action.Pop;
+        if (listener) {
+          listener({
+            action,
+            location: history.location
+          });
+        }
+      }
+      function push(to, state) {
+        action = exports2.Action.Push;
+        let location = createLocation(history.location, to, state);
+        if (validateLocation)
+          validateLocation(location, to);
+        let historyState = getHistoryState(location);
+        let url = history.createHref(location);
+        try {
+          globalHistory.pushState(historyState, "", url);
+        } catch (error) {
+          window2.location.assign(url);
+        }
+        if (v5Compat && listener) {
+          listener({
+            action,
+            location: history.location
+          });
+        }
+      }
+      function replace(to, state) {
+        action = exports2.Action.Replace;
+        let location = createLocation(history.location, to, state);
+        if (validateLocation)
+          validateLocation(location, to);
+        let historyState = getHistoryState(location);
+        let url = history.createHref(location);
+        globalHistory.replaceState(historyState, "", url);
+        if (v5Compat && listener) {
+          listener({
+            action,
+            location: history.location
+          });
+        }
+      }
+      let history = {
+        get action() {
+          return action;
+        },
+        get location() {
+          return getLocation(window2, globalHistory);
+        },
+        listen(fn) {
+          if (listener) {
+            throw new Error("A history only accepts one active listener");
+          }
+          window2.addEventListener(PopStateEventType, handlePop);
+          listener = fn;
+          return () => {
+            window2.removeEventListener(PopStateEventType, handlePop);
+            listener = null;
+          };
+        },
+        createHref(to) {
+          return createHref(window2, to);
+        },
+        encodeLocation(to) {
+          let url = createClientSideURL(typeof to === "string" ? to : createPath(to));
+          return {
+            pathname: url.pathname,
+            search: url.search,
+            hash: url.hash
+          };
+        },
+        push,
+        replace,
+        go(n) {
+          return globalHistory.go(n);
+        }
+      };
+      return history;
+    }
+    var ResultType;
+    (function(ResultType2) {
+      ResultType2["data"] = "data";
+      ResultType2["deferred"] = "deferred";
+      ResultType2["redirect"] = "redirect";
+      ResultType2["error"] = "error";
+    })(ResultType || (ResultType = {}));
+    function isIndexRoute(route) {
+      return route.index === true;
+    }
+    function convertRoutesToDataRoutes(routes, parentPath, allIds) {
+      if (parentPath === void 0) {
+        parentPath = [];
+      }
+      if (allIds === void 0) {
+        allIds = /* @__PURE__ */ new Set();
+      }
+      return routes.map((route, index) => {
+        let treePath = [...parentPath, index];
+        let id = typeof route.id === "string" ? route.id : treePath.join("-");
+        invariant(route.index !== true || !route.children, "Cannot specify children on an index route");
+        invariant(!allIds.has(id), 'Found a route id collision on id "' + id + `".  Route id's must be globally unique within Data Router usages`);
+        allIds.add(id);
+        if (isIndexRoute(route)) {
+          let indexRoute = _extends({}, route, {
+            id
+          });
+          return indexRoute;
+        } else {
+          let pathOrLayoutRoute = _extends({}, route, {
+            id,
+            children: route.children ? convertRoutesToDataRoutes(route.children, treePath, allIds) : void 0
+          });
+          return pathOrLayoutRoute;
+        }
+      });
+    }
+    function matchRoutes(routes, locationArg, basename) {
+      if (basename === void 0) {
+        basename = "/";
+      }
+      let location = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
+      let pathname = stripBasename(location.pathname || "/", basename);
+      if (pathname == null) {
+        return null;
+      }
+      let branches = flattenRoutes(routes);
+      rankRouteBranches(branches);
+      let matches = null;
+      for (let i2 = 0; matches == null && i2 < branches.length; ++i2) {
+        matches = matchRouteBranch(
+          branches[i2],
+          safelyDecodeURI(pathname)
+        );
+      }
+      return matches;
+    }
+    function flattenRoutes(routes, branches, parentsMeta, parentPath) {
+      if (branches === void 0) {
+        branches = [];
+      }
+      if (parentsMeta === void 0) {
+        parentsMeta = [];
+      }
+      if (parentPath === void 0) {
+        parentPath = "";
+      }
+      let flattenRoute = (route, index, relativePath) => {
+        let meta = {
+          relativePath: relativePath === void 0 ? route.path || "" : relativePath,
+          caseSensitive: route.caseSensitive === true,
+          childrenIndex: index,
+          route
+        };
+        if (meta.relativePath.startsWith("/")) {
+          invariant(meta.relativePath.startsWith(parentPath), 'Absolute route path "' + meta.relativePath + '" nested under path ' + ('"' + parentPath + '" is not valid. An absolute child route path ') + "must start with the combined path of all its parent routes.");
+          meta.relativePath = meta.relativePath.slice(parentPath.length);
+        }
+        let path = joinPaths([parentPath, meta.relativePath]);
+        let routesMeta = parentsMeta.concat(meta);
+        if (route.children && route.children.length > 0) {
+          invariant(
+            route.index !== true,
+            "Index routes must not have child routes. Please remove " + ('all child routes from route path "' + path + '".')
+          );
+          flattenRoutes(route.children, branches, routesMeta, path);
+        }
+        if (route.path == null && !route.index) {
+          return;
+        }
+        branches.push({
+          path,
+          score: computeScore(path, route.index),
+          routesMeta
+        });
+      };
+      routes.forEach((route, index) => {
+        var _route$path;
+        if (route.path === "" || !((_route$path = route.path) != null && _route$path.includes("?"))) {
+          flattenRoute(route, index);
+        } else {
+          for (let exploded of explodeOptionalSegments(route.path)) {
+            flattenRoute(route, index, exploded);
+          }
+        }
+      });
+      return branches;
+    }
+    function explodeOptionalSegments(path) {
+      let segments = path.split("/");
+      if (segments.length === 0)
+        return [];
+      let [first, ...rest] = segments;
+      let isOptional = first.endsWith("?");
+      let required = first.replace(/\?$/, "");
+      if (rest.length === 0) {
+        return isOptional ? [required, ""] : [required];
+      }
+      let restExploded = explodeOptionalSegments(rest.join("/"));
+      let result = [];
+      result.push(...restExploded.map((subpath) => subpath === "" ? required : [required, subpath].join("/")));
+      if (isOptional) {
+        result.push(...restExploded);
+      }
+      return result.map((exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded);
+    }
+    function rankRouteBranches(branches) {
+      branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta) => meta.childrenIndex), b.routesMeta.map((meta) => meta.childrenIndex)));
+    }
+    var paramRe = /^:\w+$/;
+    var dynamicSegmentValue = 3;
+    var indexRouteValue = 2;
+    var emptySegmentValue = 1;
+    var staticSegmentValue = 10;
+    var splatPenalty = -2;
+    var isSplat = (s) => s === "*";
+    function computeScore(path, index) {
+      let segments = path.split("/");
+      let initialScore = segments.length;
+      if (segments.some(isSplat)) {
+        initialScore += splatPenalty;
+      }
+      if (index) {
+        initialScore += indexRouteValue;
+      }
+      return segments.filter((s) => !isSplat(s)).reduce((score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue), initialScore);
+    }
+    function compareIndexes(a, b) {
+      let siblings = a.length === b.length && a.slice(0, -1).every((n, i2) => n === b[i2]);
+      return siblings ? a[a.length - 1] - b[b.length - 1] : 0;
+    }
+    function matchRouteBranch(branch, pathname) {
+      let {
+        routesMeta
+      } = branch;
+      let matchedParams = {};
+      let matchedPathname = "/";
+      let matches = [];
+      for (let i2 = 0; i2 < routesMeta.length; ++i2) {
+        let meta = routesMeta[i2];
+        let end = i2 === routesMeta.length - 1;
+        let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
+        let match = matchPath({
+          path: meta.relativePath,
+          caseSensitive: meta.caseSensitive,
+          end
+        }, remainingPathname);
+        if (!match)
+          return null;
+        Object.assign(matchedParams, match.params);
+        let route = meta.route;
+        matches.push({
+          params: matchedParams,
+          pathname: joinPaths([matchedPathname, match.pathname]),
+          pathnameBase: normalizePathname(joinPaths([matchedPathname, match.pathnameBase])),
+          route
+        });
+        if (match.pathnameBase !== "/") {
+          matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
+        }
+      }
+      return matches;
+    }
+    function generatePath(originalPath, params) {
+      if (params === void 0) {
+        params = {};
+      }
+      let path = originalPath;
+      if (path.endsWith("*") && path !== "*" && !path.endsWith("/*")) {
+        warning(false, 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
+        path = path.replace(/\*$/, "/*");
+      }
+      return path.replace(/^:(\w+)/g, (_, key2) => {
+        invariant(params[key2] != null, 'Missing ":' + key2 + '" param');
+        return params[key2];
+      }).replace(/\/:(\w+)/g, (_, key2) => {
+        invariant(params[key2] != null, 'Missing ":' + key2 + '" param');
+        return "/" + params[key2];
+      }).replace(/(\/?)\*/, (_, prefix2, __, str) => {
+        const star = "*";
+        if (params[star] == null) {
+          return str === "/*" ? "/" : "";
+        }
+        return "" + prefix2 + params[star];
+      });
+    }
+    function matchPath(pattern, pathname) {
+      if (typeof pattern === "string") {
+        pattern = {
+          path: pattern,
+          caseSensitive: false,
+          end: true
+        };
+      }
+      let [matcher, paramNames] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
+      let match = pathname.match(matcher);
+      if (!match)
+        return null;
+      let matchedPathname = match[0];
+      let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
+      let captureGroups = match.slice(1);
+      let params = paramNames.reduce((memo, paramName, index) => {
+        if (paramName === "*") {
+          let splatValue = captureGroups[index] || "";
+          pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
+        }
+        memo[paramName] = safelyDecodeURIComponent(captureGroups[index] || "", paramName);
+        return memo;
+      }, {});
+      return {
+        params,
+        pathname: matchedPathname,
+        pathnameBase,
+        pattern
+      };
+    }
+    function compilePath(path, caseSensitive, end) {
+      if (caseSensitive === void 0) {
+        caseSensitive = false;
+      }
+      if (end === void 0) {
+        end = true;
+      }
+      warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
+      let paramNames = [];
+      let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^$?{}|()[\]]/g, "\\$&").replace(/\/:(\w+)/g, (_, paramName) => {
+        paramNames.push(paramName);
+        return "/([^\\/]+)";
+      });
+      if (path.endsWith("*")) {
+        paramNames.push("*");
+        regexpSource += path === "*" || path === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$";
+      } else if (end) {
+        regexpSource += "\\/*$";
+      } else if (path !== "" && path !== "/") {
+        regexpSource += "(?:(?=\\/|$))";
+      } else
+        ;
+      let matcher = new RegExp(regexpSource, caseSensitive ? void 0 : "i");
+      return [matcher, paramNames];
+    }
+    function safelyDecodeURI(value) {
+      try {
+        return decodeURI(value);
+      } catch (error) {
+        warning(false, 'The URL path "' + value + '" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent ' + ("encoding (" + error + ")."));
+        return value;
+      }
+    }
+    function safelyDecodeURIComponent(value, paramName) {
+      try {
+        return decodeURIComponent(value);
+      } catch (error) {
+        warning(false, 'The value for the URL param "' + paramName + '" will not be decoded because' + (' the string "' + value + '" is a malformed URL segment. This is probably') + (" due to a bad percent encoding (" + error + ")."));
+        return value;
+      }
+    }
+    function stripBasename(pathname, basename) {
+      if (basename === "/")
+        return pathname;
+      if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
+        return null;
+      }
+      let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
+      let nextChar = pathname.charAt(startIndex);
+      if (nextChar && nextChar !== "/") {
+        return null;
+      }
+      return pathname.slice(startIndex) || "/";
+    }
+    function warning(cond, message) {
+      if (!cond) {
+        if (typeof console !== "undefined")
+          console.warn(message);
+        try {
+          throw new Error(message);
+        } catch (e) {
+        }
+      }
+    }
+    function resolvePath(to, fromPathname) {
+      if (fromPathname === void 0) {
+        fromPathname = "/";
+      }
+      let {
+        pathname: toPathname,
+        search = "",
+        hash = ""
+      } = typeof to === "string" ? parsePath(to) : to;
+      let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
+      return {
+        pathname,
+        search: normalizeSearch(search),
+        hash: normalizeHash(hash)
+      };
+    }
+    function resolvePathname(relativePath, fromPathname) {
+      let segments = fromPathname.replace(/\/+$/, "").split("/");
+      let relativeSegments = relativePath.split("/");
+      relativeSegments.forEach((segment) => {
+        if (segment === "..") {
+          if (segments.length > 1)
+            segments.pop();
+        } else if (segment !== ".") {
+          segments.push(segment);
+        }
+      });
+      return segments.length > 1 ? segments.join("/") : "/";
+    }
+    function getInvalidPathError(char, field, dest, path) {
+      return "Cannot include a '" + char + "' character in a manually specified " + ("`to." + field + "` field [" + JSON.stringify(path) + "].  Please separate it out to the ") + ("`to." + dest + "` field. Alternatively you may provide the full path as ") + 'a string in <Link to="..."> and the router will parse it for you.';
+    }
+    function getPathContributingMatches(matches) {
+      return matches.filter((match, index) => index === 0 || match.route.path && match.route.path.length > 0);
+    }
+    function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
+      if (isPathRelative === void 0) {
+        isPathRelative = false;
+      }
+      let to;
+      if (typeof toArg === "string") {
+        to = parsePath(toArg);
+      } else {
+        to = _extends({}, toArg);
+        invariant(!to.pathname || !to.pathname.includes("?"), getInvalidPathError("?", "pathname", "search", to));
+        invariant(!to.pathname || !to.pathname.includes("#"), getInvalidPathError("#", "pathname", "hash", to));
+        invariant(!to.search || !to.search.includes("#"), getInvalidPathError("#", "search", "hash", to));
+      }
+      let isEmptyPath = toArg === "" || to.pathname === "";
+      let toPathname = isEmptyPath ? "/" : to.pathname;
+      let from;
+      if (isPathRelative || toPathname == null) {
+        from = locationPathname;
+      } else {
+        let routePathnameIndex = routePathnames.length - 1;
+        if (toPathname.startsWith("..")) {
+          let toSegments = toPathname.split("/");
+          while (toSegments[0] === "..") {
+            toSegments.shift();
+            routePathnameIndex -= 1;
+          }
+          to.pathname = toSegments.join("/");
+        }
+        from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+      }
+      let path = resolvePath(to, from);
+      let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
+      let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
+      if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
+        path.pathname += "/";
+      }
+      return path;
+    }
+    function getToPathname(to) {
+      return to === "" || to.pathname === "" ? "/" : typeof to === "string" ? parsePath(to).pathname : to.pathname;
+    }
+    var joinPaths = (paths) => paths.join("/").replace(/\/\/+/g, "/");
+    var normalizePathname = (pathname) => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
+    var normalizeSearch = (search) => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
+    var normalizeHash = (hash) => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
+    var json = function json2(data, init) {
+      if (init === void 0) {
+        init = {};
+      }
+      let responseInit = typeof init === "number" ? {
+        status: init
+      } : init;
+      let headers = new Headers(responseInit.headers);
+      if (!headers.has("Content-Type")) {
+        headers.set("Content-Type", "application/json; charset=utf-8");
+      }
+      return new Response(JSON.stringify(data), _extends({}, responseInit, {
+        headers
+      }));
+    };
+    var AbortedDeferredError = class extends Error {
+    };
+    var DeferredData = class {
+      constructor(data) {
+        this.pendingKeys = /* @__PURE__ */ new Set();
+        this.subscriber = void 0;
+        invariant(data && typeof data === "object" && !Array.isArray(data), "defer() only accepts plain objects");
+        let reject;
+        this.abortPromise = new Promise((_, r) => reject = r);
+        this.controller = new AbortController();
+        let onAbort = () => reject(new AbortedDeferredError("Deferred data aborted"));
+        this.unlistenAbortSignal = () => this.controller.signal.removeEventListener("abort", onAbort);
+        this.controller.signal.addEventListener("abort", onAbort);
+        this.data = Object.entries(data).reduce((acc, _ref) => {
+          let [key2, value] = _ref;
+          return Object.assign(acc, {
+            [key2]: this.trackPromise(key2, value)
+          });
+        }, {});
+      }
+      trackPromise(key2, value) {
+        if (!(value instanceof Promise)) {
+          return value;
+        }
+        this.pendingKeys.add(key2);
+        let promise = Promise.race([value, this.abortPromise]).then((data) => this.onSettle(promise, key2, null, data), (error) => this.onSettle(promise, key2, error));
+        promise.catch(() => {
+        });
+        Object.defineProperty(promise, "_tracked", {
+          get: () => true
+        });
+        return promise;
+      }
+      onSettle(promise, key2, error, data) {
+        if (this.controller.signal.aborted && error instanceof AbortedDeferredError) {
+          this.unlistenAbortSignal();
+          Object.defineProperty(promise, "_error", {
+            get: () => error
+          });
+          return Promise.reject(error);
+        }
+        this.pendingKeys.delete(key2);
+        if (this.done) {
+          this.unlistenAbortSignal();
+        }
+        const subscriber = this.subscriber;
+        if (error) {
+          Object.defineProperty(promise, "_error", {
+            get: () => error
+          });
+          subscriber && subscriber(false);
+          return Promise.reject(error);
+        }
+        Object.defineProperty(promise, "_data", {
+          get: () => data
+        });
+        subscriber && subscriber(false);
+        return data;
+      }
+      subscribe(fn) {
+        this.subscriber = fn;
+      }
+      cancel() {
+        this.controller.abort();
+        this.pendingKeys.forEach((v, k) => this.pendingKeys.delete(k));
+        let subscriber = this.subscriber;
+        subscriber && subscriber(true);
+      }
+      async resolveData(signal) {
+        let aborted = false;
+        if (!this.done) {
+          let onAbort = () => this.cancel();
+          signal.addEventListener("abort", onAbort);
+          aborted = await new Promise((resolve) => {
+            this.subscribe((aborted2) => {
+              signal.removeEventListener("abort", onAbort);
+              if (aborted2 || this.done) {
+                resolve(aborted2);
+              }
+            });
+          });
+        }
+        return aborted;
+      }
+      get done() {
+        return this.pendingKeys.size === 0;
+      }
+      get unwrappedData() {
+        invariant(this.data !== null && this.done, "Can only unwrap data on initialized and settled deferreds");
+        return Object.entries(this.data).reduce((acc, _ref2) => {
+          let [key2, value] = _ref2;
+          return Object.assign(acc, {
+            [key2]: unwrapTrackedPromise(value)
+          });
+        }, {});
+      }
+    };
+    function isTrackedPromise(value) {
+      return value instanceof Promise && value._tracked === true;
+    }
+    function unwrapTrackedPromise(value) {
+      if (!isTrackedPromise(value)) {
+        return value;
+      }
+      if (value._error) {
+        throw value._error;
+      }
+      return value._data;
+    }
+    function defer(data) {
+      return new DeferredData(data);
+    }
+    var redirect = function redirect2(url, init) {
+      if (init === void 0) {
+        init = 302;
+      }
+      let responseInit = init;
+      if (typeof responseInit === "number") {
+        responseInit = {
+          status: responseInit
+        };
+      } else if (typeof responseInit.status === "undefined") {
+        responseInit.status = 302;
+      }
+      let headers = new Headers(responseInit.headers);
+      headers.set("Location", url);
+      return new Response(null, _extends({}, responseInit, {
+        headers
+      }));
+    };
+    var ErrorResponse = class {
+      constructor(status, statusText, data, internal) {
+        if (internal === void 0) {
+          internal = false;
+        }
+        this.status = status;
+        this.statusText = statusText || "";
+        this.internal = internal;
+        if (data instanceof Error) {
+          this.data = data.toString();
+          this.error = data;
+        } else {
+          this.data = data;
+        }
+      }
+    };
+    function isRouteErrorResponse(e) {
+      return e instanceof ErrorResponse;
+    }
+    var validMutationMethodsArr = ["post", "put", "patch", "delete"];
+    var validMutationMethods = new Set(validMutationMethodsArr);
+    var validRequestMethodsArr = ["get", ...validMutationMethodsArr];
+    var validRequestMethods = new Set(validRequestMethodsArr);
+    var redirectStatusCodes = /* @__PURE__ */ new Set([301, 302, 303, 307, 308]);
+    var redirectPreserveMethodStatusCodes = /* @__PURE__ */ new Set([307, 308]);
+    var IDLE_NAVIGATION = {
+      state: "idle",
+      location: void 0,
+      formMethod: void 0,
+      formAction: void 0,
+      formEncType: void 0,
+      formData: void 0
+    };
+    var IDLE_FETCHER = {
+      state: "idle",
+      data: void 0,
+      formMethod: void 0,
+      formAction: void 0,
+      formEncType: void 0,
+      formData: void 0
+    };
+    var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+    var isServer = !isBrowser;
+    function createRouter(init) {
+      invariant(init.routes.length > 0, "You must provide a non-empty routes array to createRouter");
+      let dataRoutes = convertRoutesToDataRoutes(init.routes);
+      let unlistenHistory = null;
+      let subscribers = /* @__PURE__ */ new Set();
+      let savedScrollPositions = null;
+      let getScrollRestorationKey = null;
+      let getScrollPosition = null;
+      let initialScrollRestored = init.hydrationData != null;
+      let initialMatches = matchRoutes(dataRoutes, init.history.location, init.basename);
+      let initialErrors = null;
+      if (initialMatches == null) {
+        let error = getInternalRouterError(404, {
+          pathname: init.history.location.pathname
+        });
+        let {
+          matches,
+          route
+        } = getShortCircuitMatches(dataRoutes);
+        initialMatches = matches;
+        initialErrors = {
+          [route.id]: error
+        };
+      }
+      let initialized = !initialMatches.some((m) => m.route.loader) || init.hydrationData != null;
+      let router;
+      let state = {
+        historyAction: init.history.action,
+        location: init.history.location,
+        matches: initialMatches,
+        initialized,
+        navigation: IDLE_NAVIGATION,
+        restoreScrollPosition: init.hydrationData != null ? false : null,
+        preventScrollReset: false,
+        revalidation: "idle",
+        loaderData: init.hydrationData && init.hydrationData.loaderData || {},
+        actionData: init.hydrationData && init.hydrationData.actionData || null,
+        errors: init.hydrationData && init.hydrationData.errors || initialErrors,
+        fetchers: /* @__PURE__ */ new Map()
+      };
+      let pendingAction = exports2.Action.Pop;
+      let pendingPreventScrollReset = false;
+      let pendingNavigationController;
+      let isUninterruptedRevalidation = false;
+      let isRevalidationRequired = false;
+      let cancelledDeferredRoutes = [];
+      let cancelledFetcherLoads = [];
+      let fetchControllers = /* @__PURE__ */ new Map();
+      let incrementingLoadId = 0;
+      let pendingNavigationLoadId = -1;
+      let fetchReloadIds = /* @__PURE__ */ new Map();
+      let fetchRedirectIds = /* @__PURE__ */ new Set();
+      let fetchLoadMatches = /* @__PURE__ */ new Map();
+      let activeDeferreds = /* @__PURE__ */ new Map();
+      function initialize() {
+        unlistenHistory = init.history.listen((_ref) => {
+          let {
+            action: historyAction,
+            location
+          } = _ref;
+          return startNavigation(historyAction, location);
+        });
+        if (!state.initialized) {
+          startNavigation(exports2.Action.Pop, state.location);
+        }
+        return router;
+      }
+      function dispose() {
+        if (unlistenHistory) {
+          unlistenHistory();
+        }
+        subscribers.clear();
+        pendingNavigationController && pendingNavigationController.abort();
+        state.fetchers.forEach((_, key2) => deleteFetcher(key2));
+      }
+      function subscribe(fn) {
+        subscribers.add(fn);
+        return () => subscribers.delete(fn);
+      }
+      function updateState(newState) {
+        state = _extends({}, state, newState);
+        subscribers.forEach((subscriber) => subscriber(state));
+      }
+      function completeNavigation(location, newState) {
+        var _location$state;
+        let isActionReload = state.actionData != null && state.navigation.formMethod != null && isMutationMethod(state.navigation.formMethod) && state.navigation.state === "loading" && ((_location$state = location.state) == null ? void 0 : _location$state._isRedirect) !== true;
+        let actionData;
+        if (newState.actionData) {
+          if (Object.keys(newState.actionData).length > 0) {
+            actionData = newState.actionData;
+          } else {
+            actionData = null;
+          }
+        } else if (isActionReload) {
+          actionData = state.actionData;
+        } else {
+          actionData = null;
+        }
+        let loaderData = newState.loaderData ? mergeLoaderData(state.loaderData, newState.loaderData, newState.matches || [], newState.errors) : state.loaderData;
+        updateState(_extends({}, newState, {
+          actionData,
+          loaderData,
+          historyAction: pendingAction,
+          location,
+          initialized: true,
+          navigation: IDLE_NAVIGATION,
+          revalidation: "idle",
+          restoreScrollPosition: state.navigation.formData ? false : getSavedScrollPosition(location, newState.matches || state.matches),
+          preventScrollReset: pendingPreventScrollReset
+        }));
+        if (isUninterruptedRevalidation)
+          ;
+        else if (pendingAction === exports2.Action.Pop)
+          ;
+        else if (pendingAction === exports2.Action.Push) {
+          init.history.push(location, location.state);
+        } else if (pendingAction === exports2.Action.Replace) {
+          init.history.replace(location, location.state);
+        }
+        pendingAction = exports2.Action.Pop;
+        pendingPreventScrollReset = false;
+        isUninterruptedRevalidation = false;
+        isRevalidationRequired = false;
+        cancelledDeferredRoutes = [];
+        cancelledFetcherLoads = [];
+      }
+      async function navigate(to, opts) {
+        if (typeof to === "number") {
+          init.history.go(to);
+          return;
+        }
+        let {
+          path,
+          submission,
+          error
+        } = normalizeNavigateOptions(to, opts);
+        let location = createLocation(state.location, path, opts && opts.state);
+        location = _extends({}, location, init.history.encodeLocation(location));
+        let userReplace = opts && opts.replace != null ? opts.replace : void 0;
+        let historyAction = exports2.Action.Push;
+        if (userReplace === true) {
+          historyAction = exports2.Action.Replace;
+        } else if (userReplace === false)
+          ;
+        else if (submission != null && isMutationMethod(submission.formMethod) && submission.formAction === state.location.pathname + state.location.search) {
+          historyAction = exports2.Action.Replace;
+        }
+        let preventScrollReset = opts && "preventScrollReset" in opts ? opts.preventScrollReset === true : void 0;
+        return await startNavigation(historyAction, location, {
+          submission,
+          pendingError: error,
+          preventScrollReset,
+          replace: opts && opts.replace
+        });
+      }
+      function revalidate() {
+        interruptActiveLoads();
+        updateState({
+          revalidation: "loading"
+        });
+        if (state.navigation.state === "submitting") {
+          return;
+        }
+        if (state.navigation.state === "idle") {
+          startNavigation(state.historyAction, state.location, {
+            startUninterruptedRevalidation: true
+          });
+          return;
+        }
+        startNavigation(pendingAction || state.historyAction, state.navigation.location, {
+          overrideNavigation: state.navigation
+        });
+      }
+      async function startNavigation(historyAction, location, opts) {
+        pendingNavigationController && pendingNavigationController.abort();
+        pendingNavigationController = null;
+        pendingAction = historyAction;
+        isUninterruptedRevalidation = (opts && opts.startUninterruptedRevalidation) === true;
+        saveScrollPosition(state.location, state.matches);
+        pendingPreventScrollReset = (opts && opts.preventScrollReset) === true;
+        let loadingNavigation = opts && opts.overrideNavigation;
+        let matches = matchRoutes(dataRoutes, location, init.basename);
+        if (!matches) {
+          let error = getInternalRouterError(404, {
+            pathname: location.pathname
+          });
+          let {
+            matches: notFoundMatches,
+            route
+          } = getShortCircuitMatches(dataRoutes);
+          cancelActiveDeferreds();
+          completeNavigation(location, {
+            matches: notFoundMatches,
+            loaderData: {},
+            errors: {
+              [route.id]: error
+            }
+          });
+          return;
+        }
+        if (isHashChangeOnly(state.location, location)) {
+          completeNavigation(location, {
+            matches
+          });
+          return;
+        }
+        pendingNavigationController = new AbortController();
+        let request = createClientSideRequest(location, pendingNavigationController.signal, opts && opts.submission);
+        let pendingActionData;
+        let pendingError;
+        if (opts && opts.pendingError) {
+          pendingError = {
+            [findNearestBoundary(matches).route.id]: opts.pendingError
+          };
+        } else if (opts && opts.submission && isMutationMethod(opts.submission.formMethod)) {
+          let actionOutput = await handleAction(request, location, opts.submission, matches, {
+            replace: opts.replace
+          });
+          if (actionOutput.shortCircuited) {
+            return;
+          }
+          pendingActionData = actionOutput.pendingActionData;
+          pendingError = actionOutput.pendingActionError;
+          let navigation = _extends({
+            state: "loading",
+            location
+          }, opts.submission);
+          loadingNavigation = navigation;
+          request = new Request(request.url, {
+            signal: request.signal
+          });
+        }
+        let {
+          shortCircuited,
+          loaderData,
+          errors
+        } = await handleLoaders(request, location, matches, loadingNavigation, opts && opts.submission, opts && opts.replace, pendingActionData, pendingError);
+        if (shortCircuited) {
+          return;
+        }
+        pendingNavigationController = null;
+        completeNavigation(location, _extends({
+          matches
+        }, pendingActionData ? {
+          actionData: pendingActionData
+        } : {}, {
+          loaderData,
+          errors
+        }));
+      }
+      async function handleAction(request, location, submission, matches, opts) {
+        interruptActiveLoads();
+        let navigation = _extends({
+          state: "submitting",
+          location
+        }, submission);
+        updateState({
+          navigation
+        });
+        let result;
+        let actionMatch = getTargetMatch(matches, location);
+        if (!actionMatch.route.action) {
+          result = {
+            type: ResultType.error,
+            error: getInternalRouterError(405, {
+              method: request.method,
+              pathname: location.pathname,
+              routeId: actionMatch.route.id
+            })
+          };
+        } else {
+          result = await callLoaderOrAction("action", request, actionMatch, matches, router.basename);
+          if (request.signal.aborted) {
+            return {
+              shortCircuited: true
+            };
+          }
+        }
+        if (isRedirectResult(result)) {
+          let replace;
+          if (opts && opts.replace != null) {
+            replace = opts.replace;
+          } else {
+            replace = result.location === state.location.pathname + state.location.search;
+          }
+          await startRedirectNavigation(state, result, {
+            submission,
+            replace
+          });
+          return {
+            shortCircuited: true
+          };
+        }
+        if (isErrorResult(result)) {
+          let boundaryMatch = findNearestBoundary(matches, actionMatch.route.id);
+          if ((opts && opts.replace) !== true) {
+            pendingAction = exports2.Action.Push;
+          }
+          return {
+            pendingActionData: {},
+            pendingActionError: {
+              [boundaryMatch.route.id]: result.error
+            }
+          };
+        }
+        if (isDeferredResult(result)) {
+          throw new Error("defer() is not supported in actions");
+        }
+        return {
+          pendingActionData: {
+            [actionMatch.route.id]: result.data
+          }
+        };
+      }
+      async function handleLoaders(request, location, matches, overrideNavigation, submission, replace, pendingActionData, pendingError) {
+        let loadingNavigation = overrideNavigation;
+        if (!loadingNavigation) {
+          let navigation = _extends({
+            state: "loading",
+            location,
+            formMethod: void 0,
+            formAction: void 0,
+            formEncType: void 0,
+            formData: void 0
+          }, submission);
+          loadingNavigation = navigation;
+        }
+        let activeSubmission = submission ? submission : loadingNavigation.formMethod && loadingNavigation.formAction && loadingNavigation.formData && loadingNavigation.formEncType ? {
+          formMethod: loadingNavigation.formMethod,
+          formAction: loadingNavigation.formAction,
+          formData: loadingNavigation.formData,
+          formEncType: loadingNavigation.formEncType
+        } : void 0;
+        let [matchesToLoad, revalidatingFetchers] = getMatchesToLoad(state, matches, activeSubmission, location, isRevalidationRequired, cancelledDeferredRoutes, cancelledFetcherLoads, pendingActionData, pendingError, fetchLoadMatches);
+        cancelActiveDeferreds((routeId) => !(matches && matches.some((m) => m.route.id === routeId)) || matchesToLoad && matchesToLoad.some((m) => m.route.id === routeId));
+        if (matchesToLoad.length === 0 && revalidatingFetchers.length === 0) {
+          completeNavigation(location, _extends({
+            matches,
+            loaderData: {},
+            errors: pendingError || null
+          }, pendingActionData ? {
+            actionData: pendingActionData
+          } : {}));
+          return {
+            shortCircuited: true
+          };
+        }
+        if (!isUninterruptedRevalidation) {
+          revalidatingFetchers.forEach((_ref2) => {
+            let [key2] = _ref2;
+            let fetcher = state.fetchers.get(key2);
+            let revalidatingFetcher = {
+              state: "loading",
+              data: fetcher && fetcher.data,
+              formMethod: void 0,
+              formAction: void 0,
+              formEncType: void 0,
+              formData: void 0,
+              " _hasFetcherDoneAnything ": true
+            };
+            state.fetchers.set(key2, revalidatingFetcher);
+          });
+          let actionData = pendingActionData || state.actionData;
+          updateState(_extends({
+            navigation: loadingNavigation
+          }, actionData ? Object.keys(actionData).length === 0 ? {
+            actionData: null
+          } : {
+            actionData
+          } : {}, revalidatingFetchers.length > 0 ? {
+            fetchers: new Map(state.fetchers)
+          } : {}));
+        }
+        pendingNavigationLoadId = ++incrementingLoadId;
+        revalidatingFetchers.forEach((_ref3) => {
+          let [key2] = _ref3;
+          return fetchControllers.set(key2, pendingNavigationController);
+        });
+        let {
+          results,
+          loaderResults,
+          fetcherResults
+        } = await callLoadersAndMaybeResolveData(state.matches, matches, matchesToLoad, revalidatingFetchers, request);
+        if (request.signal.aborted) {
+          return {
+            shortCircuited: true
+          };
+        }
+        revalidatingFetchers.forEach((_ref4) => {
+          let [key2] = _ref4;
+          return fetchControllers.delete(key2);
+        });
+        let redirect2 = findRedirect(results);
+        if (redirect2) {
+          await startRedirectNavigation(state, redirect2, {
+            replace
+          });
+          return {
+            shortCircuited: true
+          };
+        }
+        let {
+          loaderData,
+          errors
+        } = processLoaderData(state, matches, matchesToLoad, loaderResults, pendingError, revalidatingFetchers, fetcherResults, activeDeferreds);
+        activeDeferreds.forEach((deferredData, routeId) => {
+          deferredData.subscribe((aborted) => {
+            if (aborted || deferredData.done) {
+              activeDeferreds.delete(routeId);
+            }
+          });
+        });
+        markFetchRedirectsDone();
+        let didAbortFetchLoads = abortStaleFetchLoads(pendingNavigationLoadId);
+        return _extends({
+          loaderData,
+          errors
+        }, didAbortFetchLoads || revalidatingFetchers.length > 0 ? {
+          fetchers: new Map(state.fetchers)
+        } : {});
+      }
+      function getFetcher(key2) {
+        return state.fetchers.get(key2) || IDLE_FETCHER;
+      }
+      function fetch(key2, routeId, href, opts) {
+        if (isServer) {
+          throw new Error("router.fetch() was called during the server render, but it shouldn't be. You are likely calling a useFetcher() method in the body of your component. Try moving it to a useEffect or a callback.");
+        }
+        if (fetchControllers.has(key2))
+          abortFetcher(key2);
+        let matches = matchRoutes(dataRoutes, href, init.basename);
+        if (!matches) {
+          setFetcherError(key2, routeId, getInternalRouterError(404, {
+            pathname: href
+          }));
+          return;
+        }
+        let {
+          path,
+          submission
+        } = normalizeNavigateOptions(href, opts, true);
+        let match = getTargetMatch(matches, path);
+        if (submission && isMutationMethod(submission.formMethod)) {
+          handleFetcherAction(key2, routeId, path, match, matches, submission);
+          return;
+        }
+        fetchLoadMatches.set(key2, [path, match, matches]);
+        handleFetcherLoader(key2, routeId, path, match, matches, submission);
+      }
+      async function handleFetcherAction(key2, routeId, path, match, requestMatches, submission) {
+        interruptActiveLoads();
+        fetchLoadMatches.delete(key2);
+        if (!match.route.action) {
+          let error = getInternalRouterError(405, {
+            method: submission.formMethod,
+            pathname: path,
+            routeId
+          });
+          setFetcherError(key2, routeId, error);
+          return;
+        }
+        let existingFetcher = state.fetchers.get(key2);
+        let fetcher = _extends({
+          state: "submitting"
+        }, submission, {
+          data: existingFetcher && existingFetcher.data,
+          " _hasFetcherDoneAnything ": true
+        });
+        state.fetchers.set(key2, fetcher);
+        updateState({
+          fetchers: new Map(state.fetchers)
+        });
+        let abortController = new AbortController();
+        let fetchRequest = createClientSideRequest(path, abortController.signal, submission);
+        fetchControllers.set(key2, abortController);
+        let actionResult = await callLoaderOrAction("action", fetchRequest, match, requestMatches, router.basename);
+        if (fetchRequest.signal.aborted) {
+          if (fetchControllers.get(key2) === abortController) {
+            fetchControllers.delete(key2);
+          }
+          return;
+        }
+        if (isRedirectResult(actionResult)) {
+          fetchControllers.delete(key2);
+          fetchRedirectIds.add(key2);
+          let loadingFetcher = _extends({
+            state: "loading"
+          }, submission, {
+            data: void 0,
+            " _hasFetcherDoneAnything ": true
+          });
+          state.fetchers.set(key2, loadingFetcher);
+          updateState({
+            fetchers: new Map(state.fetchers)
+          });
+          return startRedirectNavigation(state, actionResult, {
+            isFetchActionRedirect: true
+          });
+        }
+        if (isErrorResult(actionResult)) {
+          setFetcherError(key2, routeId, actionResult.error);
+          return;
+        }
+        if (isDeferredResult(actionResult)) {
+          invariant(false, "defer() is not supported in actions");
+        }
+        let nextLocation = state.navigation.location || state.location;
+        let revalidationRequest = createClientSideRequest(nextLocation, abortController.signal);
+        let matches = state.navigation.state !== "idle" ? matchRoutes(dataRoutes, state.navigation.location, init.basename) : state.matches;
+        invariant(matches, "Didn't find any matches after fetcher action");
+        let loadId = ++incrementingLoadId;
+        fetchReloadIds.set(key2, loadId);
+        let loadFetcher = _extends({
+          state: "loading",
+          data: actionResult.data
+        }, submission, {
+          " _hasFetcherDoneAnything ": true
+        });
+        state.fetchers.set(key2, loadFetcher);
+        let [matchesToLoad, revalidatingFetchers] = getMatchesToLoad(
+          state,
+          matches,
+          submission,
+          nextLocation,
+          isRevalidationRequired,
+          cancelledDeferredRoutes,
+          cancelledFetcherLoads,
+          {
+            [match.route.id]: actionResult.data
+          },
+          void 0,
+          fetchLoadMatches
+        );
+        revalidatingFetchers.filter((_ref5) => {
+          let [staleKey] = _ref5;
+          return staleKey !== key2;
+        }).forEach((_ref6) => {
+          let [staleKey] = _ref6;
+          let existingFetcher2 = state.fetchers.get(staleKey);
+          let revalidatingFetcher = {
+            state: "loading",
+            data: existingFetcher2 && existingFetcher2.data,
+            formMethod: void 0,
+            formAction: void 0,
+            formEncType: void 0,
+            formData: void 0,
+            " _hasFetcherDoneAnything ": true
+          };
+          state.fetchers.set(staleKey, revalidatingFetcher);
+          fetchControllers.set(staleKey, abortController);
+        });
+        updateState({
+          fetchers: new Map(state.fetchers)
+        });
+        let {
+          results,
+          loaderResults,
+          fetcherResults
+        } = await callLoadersAndMaybeResolveData(state.matches, matches, matchesToLoad, revalidatingFetchers, revalidationRequest);
+        if (abortController.signal.aborted) {
+          return;
+        }
+        fetchReloadIds.delete(key2);
+        fetchControllers.delete(key2);
+        revalidatingFetchers.forEach((_ref7) => {
+          let [staleKey] = _ref7;
+          return fetchControllers.delete(staleKey);
+        });
+        let redirect2 = findRedirect(results);
+        if (redirect2) {
+          return startRedirectNavigation(state, redirect2);
+        }
+        let {
+          loaderData,
+          errors
+        } = processLoaderData(state, state.matches, matchesToLoad, loaderResults, void 0, revalidatingFetchers, fetcherResults, activeDeferreds);
+        let doneFetcher = {
+          state: "idle",
+          data: actionResult.data,
+          formMethod: void 0,
+          formAction: void 0,
+          formEncType: void 0,
+          formData: void 0,
+          " _hasFetcherDoneAnything ": true
+        };
+        state.fetchers.set(key2, doneFetcher);
+        let didAbortFetchLoads = abortStaleFetchLoads(loadId);
+        if (state.navigation.state === "loading" && loadId > pendingNavigationLoadId) {
+          invariant(pendingAction, "Expected pending action");
+          pendingNavigationController && pendingNavigationController.abort();
+          completeNavigation(state.navigation.location, {
+            matches,
+            loaderData,
+            errors,
+            fetchers: new Map(state.fetchers)
+          });
+        } else {
+          updateState(_extends({
+            errors,
+            loaderData: mergeLoaderData(state.loaderData, loaderData, matches, errors)
+          }, didAbortFetchLoads ? {
+            fetchers: new Map(state.fetchers)
+          } : {}));
+          isRevalidationRequired = false;
+        }
+      }
+      async function handleFetcherLoader(key2, routeId, path, match, matches, submission) {
+        let existingFetcher = state.fetchers.get(key2);
+        let loadingFetcher = _extends({
+          state: "loading",
+          formMethod: void 0,
+          formAction: void 0,
+          formEncType: void 0,
+          formData: void 0
+        }, submission, {
+          data: existingFetcher && existingFetcher.data,
+          " _hasFetcherDoneAnything ": true
+        });
+        state.fetchers.set(key2, loadingFetcher);
+        updateState({
+          fetchers: new Map(state.fetchers)
+        });
+        let abortController = new AbortController();
+        let fetchRequest = createClientSideRequest(path, abortController.signal);
+        fetchControllers.set(key2, abortController);
+        let result = await callLoaderOrAction("loader", fetchRequest, match, matches, router.basename);
+        if (isDeferredResult(result)) {
+          result = await resolveDeferredData(result, fetchRequest.signal, true) || result;
+        }
+        if (fetchControllers.get(key2) === abortController) {
+          fetchControllers.delete(key2);
+        }
+        if (fetchRequest.signal.aborted) {
+          return;
+        }
+        if (isRedirectResult(result)) {
+          await startRedirectNavigation(state, result);
+          return;
+        }
+        if (isErrorResult(result)) {
+          let boundaryMatch = findNearestBoundary(state.matches, routeId);
+          state.fetchers.delete(key2);
+          updateState({
+            fetchers: new Map(state.fetchers),
+            errors: {
+              [boundaryMatch.route.id]: result.error
+            }
+          });
+          return;
+        }
+        invariant(!isDeferredResult(result), "Unhandled fetcher deferred data");
+        let doneFetcher = {
+          state: "idle",
+          data: result.data,
+          formMethod: void 0,
+          formAction: void 0,
+          formEncType: void 0,
+          formData: void 0,
+          " _hasFetcherDoneAnything ": true
+        };
+        state.fetchers.set(key2, doneFetcher);
+        updateState({
+          fetchers: new Map(state.fetchers)
+        });
+      }
+      async function startRedirectNavigation(state2, redirect2, _temp) {
+        var _window;
+        let {
+          submission,
+          replace,
+          isFetchActionRedirect
+        } = _temp === void 0 ? {} : _temp;
+        if (redirect2.revalidate) {
+          isRevalidationRequired = true;
+        }
+        let redirectLocation = createLocation(
+          state2.location,
+          redirect2.location,
+          _extends({
+            _isRedirect: true
+          }, isFetchActionRedirect ? {
+            _isFetchActionRedirect: true
+          } : {})
+        );
+        invariant(redirectLocation, "Expected a location on the redirect navigation");
+        if (typeof ((_window = window) == null ? void 0 : _window.location) !== "undefined") {
+          let newOrigin = createClientSideURL(redirect2.location).origin;
+          if (window.location.origin !== newOrigin) {
+            if (replace) {
+              window.location.replace(redirect2.location);
+            } else {
+              window.location.assign(redirect2.location);
+            }
+            return;
+          }
+        }
+        pendingNavigationController = null;
+        let redirectHistoryAction = replace === true ? exports2.Action.Replace : exports2.Action.Push;
+        let {
+          formMethod,
+          formAction,
+          formEncType,
+          formData
+        } = state2.navigation;
+        if (!submission && formMethod && formAction && formData && formEncType) {
+          submission = {
+            formMethod,
+            formAction,
+            formEncType,
+            formData
+          };
+        }
+        if (redirectPreserveMethodStatusCodes.has(redirect2.status) && submission && isMutationMethod(submission.formMethod)) {
+          await startNavigation(redirectHistoryAction, redirectLocation, {
+            submission: _extends({}, submission, {
+              formAction: redirect2.location
+            })
+          });
+        } else {
+          await startNavigation(redirectHistoryAction, redirectLocation, {
+            overrideNavigation: {
+              state: "loading",
+              location: redirectLocation,
+              formMethod: submission ? submission.formMethod : void 0,
+              formAction: submission ? submission.formAction : void 0,
+              formEncType: submission ? submission.formEncType : void 0,
+              formData: submission ? submission.formData : void 0
+            }
+          });
+        }
+      }
+      async function callLoadersAndMaybeResolveData(currentMatches, matches, matchesToLoad, fetchersToLoad, request) {
+        let results = await Promise.all([...matchesToLoad.map((match) => callLoaderOrAction("loader", request, match, matches, router.basename)), ...fetchersToLoad.map((_ref8) => {
+          let [, href, match, fetchMatches] = _ref8;
+          return callLoaderOrAction("loader", createClientSideRequest(href, request.signal), match, fetchMatches, router.basename);
+        })]);
+        let loaderResults = results.slice(0, matchesToLoad.length);
+        let fetcherResults = results.slice(matchesToLoad.length);
+        await Promise.all([resolveDeferredResults(currentMatches, matchesToLoad, loaderResults, request.signal, false, state.loaderData), resolveDeferredResults(currentMatches, fetchersToLoad.map((_ref9) => {
+          let [, , match] = _ref9;
+          return match;
+        }), fetcherResults, request.signal, true)]);
+        return {
+          results,
+          loaderResults,
+          fetcherResults
+        };
+      }
+      function interruptActiveLoads() {
+        isRevalidationRequired = true;
+        cancelledDeferredRoutes.push(...cancelActiveDeferreds());
+        fetchLoadMatches.forEach((_, key2) => {
+          if (fetchControllers.has(key2)) {
+            cancelledFetcherLoads.push(key2);
+            abortFetcher(key2);
+          }
+        });
+      }
+      function setFetcherError(key2, routeId, error) {
+        let boundaryMatch = findNearestBoundary(state.matches, routeId);
+        deleteFetcher(key2);
+        updateState({
+          errors: {
+            [boundaryMatch.route.id]: error
+          },
+          fetchers: new Map(state.fetchers)
+        });
+      }
+      function deleteFetcher(key2) {
+        if (fetchControllers.has(key2))
+          abortFetcher(key2);
+        fetchLoadMatches.delete(key2);
+        fetchReloadIds.delete(key2);
+        fetchRedirectIds.delete(key2);
+        state.fetchers.delete(key2);
+      }
+      function abortFetcher(key2) {
+        let controller = fetchControllers.get(key2);
+        invariant(controller, "Expected fetch controller: " + key2);
+        controller.abort();
+        fetchControllers.delete(key2);
+      }
+      function markFetchersDone(keys) {
+        for (let key2 of keys) {
+          let fetcher = getFetcher(key2);
+          let doneFetcher = {
+            state: "idle",
+            data: fetcher.data,
+            formMethod: void 0,
+            formAction: void 0,
+            formEncType: void 0,
+            formData: void 0,
+            " _hasFetcherDoneAnything ": true
+          };
+          state.fetchers.set(key2, doneFetcher);
+        }
+      }
+      function markFetchRedirectsDone() {
+        let doneKeys = [];
+        for (let key2 of fetchRedirectIds) {
+          let fetcher = state.fetchers.get(key2);
+          invariant(fetcher, "Expected fetcher: " + key2);
+          if (fetcher.state === "loading") {
+            fetchRedirectIds.delete(key2);
+            doneKeys.push(key2);
+          }
+        }
+        markFetchersDone(doneKeys);
+      }
+      function abortStaleFetchLoads(landedId) {
+        let yeetedKeys = [];
+        for (let [key2, id] of fetchReloadIds) {
+          if (id < landedId) {
+            let fetcher = state.fetchers.get(key2);
+            invariant(fetcher, "Expected fetcher: " + key2);
+            if (fetcher.state === "loading") {
+              abortFetcher(key2);
+              fetchReloadIds.delete(key2);
+              yeetedKeys.push(key2);
+            }
+          }
+        }
+        markFetchersDone(yeetedKeys);
+        return yeetedKeys.length > 0;
+      }
+      function cancelActiveDeferreds(predicate) {
+        let cancelledRouteIds = [];
+        activeDeferreds.forEach((dfd, routeId) => {
+          if (!predicate || predicate(routeId)) {
+            dfd.cancel();
+            cancelledRouteIds.push(routeId);
+            activeDeferreds.delete(routeId);
+          }
+        });
+        return cancelledRouteIds;
+      }
+      function enableScrollRestoration(positions, getPosition, getKey) {
+        savedScrollPositions = positions;
+        getScrollPosition = getPosition;
+        getScrollRestorationKey = getKey || ((location) => location.key);
+        if (!initialScrollRestored && state.navigation === IDLE_NAVIGATION) {
+          initialScrollRestored = true;
+          let y = getSavedScrollPosition(state.location, state.matches);
+          if (y != null) {
+            updateState({
+              restoreScrollPosition: y
+            });
+          }
+        }
+        return () => {
+          savedScrollPositions = null;
+          getScrollPosition = null;
+          getScrollRestorationKey = null;
+        };
+      }
+      function saveScrollPosition(location, matches) {
+        if (savedScrollPositions && getScrollRestorationKey && getScrollPosition) {
+          let userMatches = matches.map((m) => createUseMatchesMatch(m, state.loaderData));
+          let key2 = getScrollRestorationKey(location, userMatches) || location.key;
+          savedScrollPositions[key2] = getScrollPosition();
+        }
+      }
+      function getSavedScrollPosition(location, matches) {
+        if (savedScrollPositions && getScrollRestorationKey && getScrollPosition) {
+          let userMatches = matches.map((m) => createUseMatchesMatch(m, state.loaderData));
+          let key2 = getScrollRestorationKey(location, userMatches) || location.key;
+          let y = savedScrollPositions[key2];
+          if (typeof y === "number") {
+            return y;
+          }
+        }
+        return null;
+      }
+      router = {
+        get basename() {
+          return init.basename;
+        },
+        get state() {
+          return state;
+        },
+        get routes() {
+          return dataRoutes;
+        },
+        initialize,
+        subscribe,
+        enableScrollRestoration,
+        navigate,
+        fetch,
+        revalidate,
+        createHref: (to) => init.history.createHref(to),
+        encodeLocation: (to) => init.history.encodeLocation(to),
+        getFetcher,
+        deleteFetcher,
+        dispose,
+        _internalFetchControllers: fetchControllers,
+        _internalActiveDeferreds: activeDeferreds
+      };
+      return router;
+    }
+    function createStaticHandler(routes, opts) {
+      invariant(routes.length > 0, "You must provide a non-empty routes array to createStaticHandler");
+      let dataRoutes = convertRoutesToDataRoutes(routes);
+      let basename = (opts ? opts.basename : null) || "/";
+      async function query(request, _temp2) {
+        let {
+          requestContext
+        } = _temp2 === void 0 ? {} : _temp2;
+        let url = new URL(request.url);
+        let method = request.method.toLowerCase();
+        let location = createLocation("", createPath(url), null, "default");
+        let matches = matchRoutes(dataRoutes, location, basename);
+        if (!isValidMethod(method) && method !== "head") {
+          let error = getInternalRouterError(405, {
+            method
+          });
+          let {
+            matches: methodNotAllowedMatches,
+            route
+          } = getShortCircuitMatches(dataRoutes);
+          return {
+            basename,
+            location,
+            matches: methodNotAllowedMatches,
+            loaderData: {},
+            actionData: null,
+            errors: {
+              [route.id]: error
+            },
+            statusCode: error.status,
+            loaderHeaders: {},
+            actionHeaders: {}
+          };
+        } else if (!matches) {
+          let error = getInternalRouterError(404, {
+            pathname: location.pathname
+          });
+          let {
+            matches: notFoundMatches,
+            route
+          } = getShortCircuitMatches(dataRoutes);
+          return {
+            basename,
+            location,
+            matches: notFoundMatches,
+            loaderData: {},
+            actionData: null,
+            errors: {
+              [route.id]: error
+            },
+            statusCode: error.status,
+            loaderHeaders: {},
+            actionHeaders: {}
+          };
+        }
+        let result = await queryImpl(request, location, matches, requestContext);
+        if (isResponse(result)) {
+          return result;
+        }
+        return _extends({
+          location,
+          basename
+        }, result);
+      }
+      async function queryRoute(request, _temp3) {
+        let {
+          routeId,
+          requestContext
+        } = _temp3 === void 0 ? {} : _temp3;
+        let url = new URL(request.url);
+        let method = request.method.toLowerCase();
+        let location = createLocation("", createPath(url), null, "default");
+        let matches = matchRoutes(dataRoutes, location, basename);
+        if (!isValidMethod(method) && method !== "head") {
+          throw getInternalRouterError(405, {
+            method
+          });
+        } else if (!matches) {
+          throw getInternalRouterError(404, {
+            pathname: location.pathname
+          });
+        }
+        let match = routeId ? matches.find((m) => m.route.id === routeId) : getTargetMatch(matches, location);
+        if (routeId && !match) {
+          throw getInternalRouterError(403, {
+            pathname: location.pathname,
+            routeId
+          });
+        } else if (!match) {
+          throw getInternalRouterError(404, {
+            pathname: location.pathname
+          });
+        }
+        let result = await queryImpl(request, location, matches, requestContext, match);
+        if (isResponse(result)) {
+          return result;
+        }
+        let error = result.errors ? Object.values(result.errors)[0] : void 0;
+        if (error !== void 0) {
+          throw error;
+        }
+        let routeData = [result.actionData, result.loaderData].find((v) => v);
+        return Object.values(routeData || {})[0];
+      }
+      async function queryImpl(request, location, matches, requestContext, routeMatch) {
+        invariant(request.signal, "query()/queryRoute() requests must contain an AbortController signal");
+        try {
+          if (isMutationMethod(request.method.toLowerCase())) {
+            let result2 = await submit(request, matches, routeMatch || getTargetMatch(matches, location), requestContext, routeMatch != null);
+            return result2;
+          }
+          let result = await loadRouteData(request, matches, requestContext, routeMatch);
+          return isResponse(result) ? result : _extends({}, result, {
+            actionData: null,
+            actionHeaders: {}
+          });
+        } catch (e) {
+          if (isQueryRouteResponse(e)) {
+            if (e.type === ResultType.error && !isRedirectResponse(e.response)) {
+              throw e.response;
+            }
+            return e.response;
+          }
+          if (isRedirectResponse(e)) {
+            return e;
+          }
+          throw e;
+        }
+      }
+      async function submit(request, matches, actionMatch, requestContext, isRouteRequest) {
+        let result;
+        if (!actionMatch.route.action) {
+          let error = getInternalRouterError(405, {
+            method: request.method,
+            pathname: new URL(request.url).pathname,
+            routeId: actionMatch.route.id
+          });
+          if (isRouteRequest) {
+            throw error;
+          }
+          result = {
+            type: ResultType.error,
+            error
+          };
+        } else {
+          result = await callLoaderOrAction("action", request, actionMatch, matches, basename, true, isRouteRequest, requestContext);
+          if (request.signal.aborted) {
+            let method = isRouteRequest ? "queryRoute" : "query";
+            throw new Error(method + "() call aborted");
+          }
+        }
+        if (isRedirectResult(result)) {
+          throw new Response(null, {
+            status: result.status,
+            headers: {
+              Location: result.location
+            }
+          });
+        }
+        if (isDeferredResult(result)) {
+          throw new Error("defer() is not supported in actions");
+        }
+        if (isRouteRequest) {
+          if (isErrorResult(result)) {
+            throw result.error;
+          }
+          return {
+            matches: [actionMatch],
+            loaderData: {},
+            actionData: {
+              [actionMatch.route.id]: result.data
+            },
+            errors: null,
+            statusCode: 200,
+            loaderHeaders: {},
+            actionHeaders: {}
+          };
+        }
+        if (isErrorResult(result)) {
+          let boundaryMatch = findNearestBoundary(matches, actionMatch.route.id);
+          let context2 = await loadRouteData(request, matches, requestContext, void 0, {
+            [boundaryMatch.route.id]: result.error
+          });
+          return _extends({}, context2, {
+            statusCode: isRouteErrorResponse(result.error) ? result.error.status : 500,
+            actionData: null,
+            actionHeaders: _extends({}, result.headers ? {
+              [actionMatch.route.id]: result.headers
+            } : {})
+          });
+        }
+        let loaderRequest = new Request(request.url, {
+          headers: request.headers,
+          redirect: request.redirect,
+          signal: request.signal
+        });
+        let context = await loadRouteData(loaderRequest, matches, requestContext);
+        return _extends({}, context, result.statusCode ? {
+          statusCode: result.statusCode
+        } : {}, {
+          actionData: {
+            [actionMatch.route.id]: result.data
+          },
+          actionHeaders: _extends({}, result.headers ? {
+            [actionMatch.route.id]: result.headers
+          } : {})
+        });
+      }
+      async function loadRouteData(request, matches, requestContext, routeMatch, pendingActionError) {
+        let isRouteRequest = routeMatch != null;
+        if (isRouteRequest && !(routeMatch != null && routeMatch.route.loader)) {
+          throw getInternalRouterError(400, {
+            method: request.method,
+            pathname: new URL(request.url).pathname,
+            routeId: routeMatch == null ? void 0 : routeMatch.route.id
+          });
+        }
+        let requestMatches = routeMatch ? [routeMatch] : getLoaderMatchesUntilBoundary(matches, Object.keys(pendingActionError || {})[0]);
+        let matchesToLoad = requestMatches.filter((m) => m.route.loader);
+        if (matchesToLoad.length === 0) {
+          return {
+            matches,
+            loaderData: matches.reduce((acc, m) => Object.assign(acc, {
+              [m.route.id]: null
+            }), {}),
+            errors: pendingActionError || null,
+            statusCode: 200,
+            loaderHeaders: {}
+          };
+        }
+        let results = await Promise.all([...matchesToLoad.map((match) => callLoaderOrAction("loader", request, match, matches, basename, true, isRouteRequest, requestContext))]);
+        if (request.signal.aborted) {
+          let method = isRouteRequest ? "queryRoute" : "query";
+          throw new Error(method + "() call aborted");
+        }
+        let executedLoaders = /* @__PURE__ */ new Set();
+        results.forEach((result, i2) => {
+          executedLoaders.add(matchesToLoad[i2].route.id);
+          if (isDeferredResult(result)) {
+            result.deferredData.cancel();
+          }
+        });
+        let context = processRouteLoaderData(matches, matchesToLoad, results, pendingActionError);
+        matches.forEach((match) => {
+          if (!executedLoaders.has(match.route.id)) {
+            context.loaderData[match.route.id] = null;
+          }
+        });
+        return _extends({}, context, {
+          matches
+        });
+      }
+      return {
+        dataRoutes,
+        query,
+        queryRoute
+      };
+    }
+    function getStaticContextFromError(routes, context, error) {
+      let newContext = _extends({}, context, {
+        statusCode: 500,
+        errors: {
+          [context._deepestRenderedBoundaryId || routes[0].id]: error
+        }
+      });
+      return newContext;
+    }
+    function isSubmissionNavigation(opts) {
+      return opts != null && "formData" in opts;
+    }
+    function normalizeNavigateOptions(to, opts, isFetcher) {
+      if (isFetcher === void 0) {
+        isFetcher = false;
+      }
+      let path = typeof to === "string" ? to : createPath(to);
+      if (!opts || !isSubmissionNavigation(opts)) {
+        return {
+          path
+        };
+      }
+      if (opts.formMethod && !isValidMethod(opts.formMethod)) {
+        return {
+          path,
+          error: getInternalRouterError(405, {
+            method: opts.formMethod
+          })
+        };
+      }
+      let submission;
+      if (opts.formData) {
+        submission = {
+          formMethod: opts.formMethod || "get",
+          formAction: stripHashFromPath(path),
+          formEncType: opts && opts.formEncType || "application/x-www-form-urlencoded",
+          formData: opts.formData
+        };
+        if (isMutationMethod(submission.formMethod)) {
+          return {
+            path,
+            submission
+          };
+        }
+      }
+      let parsedPath = parsePath(path);
+      try {
+        let searchParams = convertFormDataToSearchParams(opts.formData);
+        if (isFetcher && parsedPath.search && hasNakedIndexQuery(parsedPath.search)) {
+          searchParams.append("index", "");
+        }
+        parsedPath.search = "?" + searchParams;
+      } catch (e) {
+        return {
+          path,
+          error: getInternalRouterError(400)
+        };
+      }
+      return {
+        path: createPath(parsedPath),
+        submission
+      };
+    }
+    function getLoaderMatchesUntilBoundary(matches, boundaryId) {
+      let boundaryMatches = matches;
+      if (boundaryId) {
+        let index = matches.findIndex((m) => m.route.id === boundaryId);
+        if (index >= 0) {
+          boundaryMatches = matches.slice(0, index);
+        }
+      }
+      return boundaryMatches;
+    }
+    function getMatchesToLoad(state, matches, submission, location, isRevalidationRequired, cancelledDeferredRoutes, cancelledFetcherLoads, pendingActionData, pendingError, fetchLoadMatches) {
+      let actionResult = pendingError ? Object.values(pendingError)[0] : pendingActionData ? Object.values(pendingActionData)[0] : void 0;
+      let boundaryId = pendingError ? Object.keys(pendingError)[0] : void 0;
+      let boundaryMatches = getLoaderMatchesUntilBoundary(matches, boundaryId);
+      let navigationMatches = boundaryMatches.filter((match, index) => match.route.loader != null && (isNewLoader(state.loaderData, state.matches[index], match) || cancelledDeferredRoutes.some((id) => id === match.route.id) || shouldRevalidateLoader(state.location, state.matches[index], submission, location, match, isRevalidationRequired, actionResult)));
+      let revalidatingFetchers = [];
+      fetchLoadMatches && fetchLoadMatches.forEach((_ref10, key2) => {
+        let [href, match, fetchMatches] = _ref10;
+        if (cancelledFetcherLoads.includes(key2)) {
+          revalidatingFetchers.push([key2, href, match, fetchMatches]);
+        } else if (isRevalidationRequired) {
+          let shouldRevalidate = shouldRevalidateLoader(href, match, submission, href, match, isRevalidationRequired, actionResult);
+          if (shouldRevalidate) {
+            revalidatingFetchers.push([key2, href, match, fetchMatches]);
+          }
+        }
+      });
+      return [navigationMatches, revalidatingFetchers];
+    }
+    function isNewLoader(currentLoaderData, currentMatch, match) {
+      let isNew = !currentMatch || match.route.id !== currentMatch.route.id;
+      let isMissingData = currentLoaderData[match.route.id] === void 0;
+      return isNew || isMissingData;
+    }
+    function isNewRouteInstance(currentMatch, match) {
+      let currentPath = currentMatch.route.path;
+      return currentMatch.pathname !== match.pathname || currentPath && currentPath.endsWith("*") && currentMatch.params["*"] !== match.params["*"];
+    }
+    function shouldRevalidateLoader(currentLocation, currentMatch, submission, location, match, isRevalidationRequired, actionResult) {
+      let currentUrl = createClientSideURL(currentLocation);
+      let currentParams = currentMatch.params;
+      let nextUrl = createClientSideURL(location);
+      let nextParams = match.params;
+      let defaultShouldRevalidate = isNewRouteInstance(currentMatch, match) || currentUrl.toString() === nextUrl.toString() || currentUrl.search !== nextUrl.search || isRevalidationRequired;
+      if (match.route.shouldRevalidate) {
+        let routeChoice = match.route.shouldRevalidate(_extends({
+          currentUrl,
+          currentParams,
+          nextUrl,
+          nextParams
+        }, submission, {
+          actionResult,
+          defaultShouldRevalidate
+        }));
+        if (typeof routeChoice === "boolean") {
+          return routeChoice;
+        }
+      }
+      return defaultShouldRevalidate;
+    }
+    async function callLoaderOrAction(type2, request, match, matches, basename, isStaticRequest, isRouteRequest, requestContext) {
+      if (basename === void 0) {
+        basename = "/";
+      }
+      if (isStaticRequest === void 0) {
+        isStaticRequest = false;
+      }
+      if (isRouteRequest === void 0) {
+        isRouteRequest = false;
+      }
+      let resultType;
+      let result;
+      let reject;
+      let abortPromise = new Promise((_, r) => reject = r);
+      let onReject = () => reject();
+      request.signal.addEventListener("abort", onReject);
+      try {
+        let handler = match.route[type2];
+        invariant(handler, "Could not find the " + type2 + ' to run on the "' + match.route.id + '" route');
+        result = await Promise.race([handler({
+          request,
+          params: match.params,
+          context: requestContext
+        }), abortPromise]);
+        invariant(result !== void 0, "You defined " + (type2 === "action" ? "an action" : "a loader") + " for route " + ('"' + match.route.id + "\" but didn't return anything from your `" + type2 + "` ") + "function. Please return a value or `null`.");
+      } catch (e) {
+        resultType = ResultType.error;
+        result = e;
+      } finally {
+        request.signal.removeEventListener("abort", onReject);
+      }
+      if (isResponse(result)) {
+        let status = result.status;
+        if (redirectStatusCodes.has(status)) {
+          let location = result.headers.get("Location");
+          invariant(location, "Redirects returned/thrown from loaders/actions must have a Location header");
+          let isAbsolute = /^[a-z+]+:\/\//i.test(location) || location.startsWith("//");
+          if (!isAbsolute) {
+            let activeMatches = matches.slice(0, matches.indexOf(match) + 1);
+            let routePathnames = getPathContributingMatches(activeMatches).map((match2) => match2.pathnameBase);
+            let resolvedLocation = resolveTo(location, routePathnames, new URL(request.url).pathname);
+            invariant(createPath(resolvedLocation), "Unable to resolve redirect location: " + location);
+            if (basename) {
+              let path = resolvedLocation.pathname;
+              resolvedLocation.pathname = path === "/" ? basename : joinPaths([basename, path]);
+            }
+            location = createPath(resolvedLocation);
+          }
+          if (isStaticRequest) {
+            result.headers.set("Location", location);
+            throw result;
+          }
+          return {
+            type: ResultType.redirect,
+            status,
+            location,
+            revalidate: result.headers.get("X-Remix-Revalidate") !== null
+          };
+        }
+        if (isRouteRequest) {
+          throw {
+            type: resultType || ResultType.data,
+            response: result
+          };
+        }
+        let data;
+        let contentType = result.headers.get("Content-Type");
+        if (contentType && /\bapplication\/json\b/.test(contentType)) {
+          data = await result.json();
+        } else {
+          data = await result.text();
+        }
+        if (resultType === ResultType.error) {
+          return {
+            type: resultType,
+            error: new ErrorResponse(status, result.statusText, data),
+            headers: result.headers
+          };
+        }
+        return {
+          type: ResultType.data,
+          data,
+          statusCode: result.status,
+          headers: result.headers
+        };
+      }
+      if (resultType === ResultType.error) {
+        return {
+          type: resultType,
+          error: result
+        };
+      }
+      if (result instanceof DeferredData) {
+        return {
+          type: ResultType.deferred,
+          deferredData: result
+        };
+      }
+      return {
+        type: ResultType.data,
+        data: result
+      };
+    }
+    function createClientSideRequest(location, signal, submission) {
+      let url = createClientSideURL(stripHashFromPath(location)).toString();
+      let init = {
+        signal
+      };
+      if (submission && isMutationMethod(submission.formMethod)) {
+        let {
+          formMethod,
+          formEncType,
+          formData
+        } = submission;
+        init.method = formMethod.toUpperCase();
+        init.body = formEncType === "application/x-www-form-urlencoded" ? convertFormDataToSearchParams(formData) : formData;
+      }
+      return new Request(url, init);
+    }
+    function convertFormDataToSearchParams(formData) {
+      let searchParams = new URLSearchParams();
+      for (let [key2, value] of formData.entries()) {
+        invariant(typeof value === "string", 'File inputs are not supported with encType "application/x-www-form-urlencoded", please use "multipart/form-data" instead.');
+        searchParams.append(key2, value);
+      }
+      return searchParams;
+    }
+    function processRouteLoaderData(matches, matchesToLoad, results, pendingError, activeDeferreds) {
+      let loaderData = {};
+      let errors = null;
+      let statusCode;
+      let foundError = false;
+      let loaderHeaders = {};
+      results.forEach((result, index) => {
+        let id = matchesToLoad[index].route.id;
+        invariant(!isRedirectResult(result), "Cannot handle redirect results in processLoaderData");
+        if (isErrorResult(result)) {
+          let boundaryMatch = findNearestBoundary(matches, id);
+          let error = result.error;
+          if (pendingError) {
+            error = Object.values(pendingError)[0];
+            pendingError = void 0;
+          }
+          errors = errors || {};
+          if (errors[boundaryMatch.route.id] == null) {
+            errors[boundaryMatch.route.id] = error;
+          }
+          loaderData[id] = void 0;
+          if (!foundError) {
+            foundError = true;
+            statusCode = isRouteErrorResponse(result.error) ? result.error.status : 500;
+          }
+          if (result.headers) {
+            loaderHeaders[id] = result.headers;
+          }
+        } else if (isDeferredResult(result)) {
+          activeDeferreds && activeDeferreds.set(id, result.deferredData);
+          loaderData[id] = result.deferredData.data;
+        } else {
+          loaderData[id] = result.data;
+          if (result.statusCode != null && result.statusCode !== 200 && !foundError) {
+            statusCode = result.statusCode;
+          }
+          if (result.headers) {
+            loaderHeaders[id] = result.headers;
+          }
+        }
+      });
+      if (pendingError) {
+        errors = pendingError;
+        loaderData[Object.keys(pendingError)[0]] = void 0;
+      }
+      return {
+        loaderData,
+        errors,
+        statusCode: statusCode || 200,
+        loaderHeaders
+      };
+    }
+    function processLoaderData(state, matches, matchesToLoad, results, pendingError, revalidatingFetchers, fetcherResults, activeDeferreds) {
+      let {
+        loaderData,
+        errors
+      } = processRouteLoaderData(matches, matchesToLoad, results, pendingError, activeDeferreds);
+      for (let index = 0; index < revalidatingFetchers.length; index++) {
+        let [key2, , match] = revalidatingFetchers[index];
+        invariant(fetcherResults !== void 0 && fetcherResults[index] !== void 0, "Did not find corresponding fetcher result");
+        let result = fetcherResults[index];
+        if (isErrorResult(result)) {
+          let boundaryMatch = findNearestBoundary(state.matches, match.route.id);
+          if (!(errors && errors[boundaryMatch.route.id])) {
+            errors = _extends({}, errors, {
+              [boundaryMatch.route.id]: result.error
+            });
+          }
+          state.fetchers.delete(key2);
+        } else if (isRedirectResult(result)) {
+          throw new Error("Unhandled fetcher revalidation redirect");
+        } else if (isDeferredResult(result)) {
+          throw new Error("Unhandled fetcher deferred data");
+        } else {
+          let doneFetcher = {
+            state: "idle",
+            data: result.data,
+            formMethod: void 0,
+            formAction: void 0,
+            formEncType: void 0,
+            formData: void 0,
+            " _hasFetcherDoneAnything ": true
+          };
+          state.fetchers.set(key2, doneFetcher);
+        }
+      }
+      return {
+        loaderData,
+        errors
+      };
+    }
+    function mergeLoaderData(loaderData, newLoaderData, matches, errors) {
+      let mergedLoaderData = _extends({}, newLoaderData);
+      for (let match of matches) {
+        let id = match.route.id;
+        if (newLoaderData.hasOwnProperty(id)) {
+          if (newLoaderData[id] !== void 0) {
+            mergedLoaderData[id] = newLoaderData[id];
+          }
+        } else if (loaderData[id] !== void 0) {
+          mergedLoaderData[id] = loaderData[id];
+        }
+        if (errors && errors.hasOwnProperty(id)) {
+          break;
+        }
+      }
+      return mergedLoaderData;
+    }
+    function findNearestBoundary(matches, routeId) {
+      let eligibleMatches = routeId ? matches.slice(0, matches.findIndex((m) => m.route.id === routeId) + 1) : [...matches];
+      return eligibleMatches.reverse().find((m) => m.route.hasErrorBoundary === true) || matches[0];
+    }
+    function getShortCircuitMatches(routes) {
+      let route = routes.find((r) => r.index || !r.path || r.path === "/") || {
+        id: "__shim-error-route__"
+      };
+      return {
+        matches: [{
+          params: {},
+          pathname: "",
+          pathnameBase: "",
+          route
+        }],
+        route
+      };
+    }
+    function getInternalRouterError(status, _temp4) {
+      let {
+        pathname,
+        routeId,
+        method
+      } = _temp4 === void 0 ? {} : _temp4;
+      let statusText = "Unknown Server Error";
+      let errorMessage = "Unknown @remix-run/router error";
+      if (status === 400) {
+        statusText = "Bad Request";
+        if (method && pathname && routeId) {
+          errorMessage = "You made a " + method + ' request to "' + pathname + '" but ' + ('did not provide a `loader` for route "' + routeId + '", ') + "so there is no way to handle the request.";
+        } else {
+          errorMessage = "Cannot submit binary form data using GET";
+        }
+      } else if (status === 403) {
+        statusText = "Forbidden";
+        errorMessage = 'Route "' + routeId + '" does not match URL "' + pathname + '"';
+      } else if (status === 404) {
+        statusText = "Not Found";
+        errorMessage = 'No route matches URL "' + pathname + '"';
+      } else if (status === 405) {
+        statusText = "Method Not Allowed";
+        if (method && pathname && routeId) {
+          errorMessage = "You made a " + method.toUpperCase() + ' request to "' + pathname + '" but ' + ('did not provide an `action` for route "' + routeId + '", ') + "so there is no way to handle the request.";
+        } else if (method) {
+          errorMessage = 'Invalid request method "' + method.toUpperCase() + '"';
+        }
+      }
+      return new ErrorResponse(status || 500, statusText, new Error(errorMessage), true);
+    }
+    function findRedirect(results) {
+      for (let i2 = results.length - 1; i2 >= 0; i2--) {
+        let result = results[i2];
+        if (isRedirectResult(result)) {
+          return result;
+        }
+      }
+    }
+    function stripHashFromPath(path) {
+      let parsedPath = typeof path === "string" ? parsePath(path) : path;
+      return createPath(_extends({}, parsedPath, {
+        hash: ""
+      }));
+    }
+    function isHashChangeOnly(a, b) {
+      return a.pathname === b.pathname && a.search === b.search && a.hash !== b.hash;
+    }
+    function isDeferredResult(result) {
+      return result.type === ResultType.deferred;
+    }
+    function isErrorResult(result) {
+      return result.type === ResultType.error;
+    }
+    function isRedirectResult(result) {
+      return (result && result.type) === ResultType.redirect;
+    }
+    function isResponse(value) {
+      return value != null && typeof value.status === "number" && typeof value.statusText === "string" && typeof value.headers === "object" && typeof value.body !== "undefined";
+    }
+    function isRedirectResponse(result) {
+      if (!isResponse(result)) {
+        return false;
+      }
+      let status = result.status;
+      let location = result.headers.get("Location");
+      return status >= 300 && status <= 399 && location != null;
+    }
+    function isQueryRouteResponse(obj) {
+      return obj && isResponse(obj.response) && (obj.type === ResultType.data || ResultType.error);
+    }
+    function isValidMethod(method) {
+      return validRequestMethods.has(method);
+    }
+    function isMutationMethod(method) {
+      return validMutationMethods.has(method);
+    }
+    async function resolveDeferredResults(currentMatches, matchesToLoad, results, signal, isFetcher, currentLoaderData) {
+      for (let index = 0; index < results.length; index++) {
+        let result = results[index];
+        let match = matchesToLoad[index];
+        let currentMatch = currentMatches.find((m) => m.route.id === match.route.id);
+        let isRevalidatingLoader = currentMatch != null && !isNewRouteInstance(currentMatch, match) && (currentLoaderData && currentLoaderData[match.route.id]) !== void 0;
+        if (isDeferredResult(result) && (isFetcher || isRevalidatingLoader)) {
+          await resolveDeferredData(result, signal, isFetcher).then((result2) => {
+            if (result2) {
+              results[index] = result2 || results[index];
+            }
+          });
+        }
+      }
+    }
+    async function resolveDeferredData(result, signal, unwrap) {
+      if (unwrap === void 0) {
+        unwrap = false;
+      }
+      let aborted = await result.deferredData.resolveData(signal);
+      if (aborted) {
+        return;
+      }
+      if (unwrap) {
+        try {
+          return {
+            type: ResultType.data,
+            data: result.deferredData.unwrappedData
+          };
+        } catch (e) {
+          return {
+            type: ResultType.error,
+            error: e
+          };
+        }
+      }
+      return {
+        type: ResultType.data,
+        data: result.deferredData.data
+      };
+    }
+    function hasNakedIndexQuery(search) {
+      return new URLSearchParams(search).getAll("index").some((v) => v === "");
+    }
+    function createUseMatchesMatch(match, loaderData) {
+      let {
+        route,
+        pathname,
+        params
+      } = match;
+      return {
+        id: route.id,
+        pathname,
+        params,
+        data: loaderData[route.id],
+        handle: route.handle
+      };
+    }
+    function getTargetMatch(matches, location) {
+      let search = typeof location === "string" ? parsePath(location).search : location.search;
+      if (matches[matches.length - 1].route.index && hasNakedIndexQuery(search || "")) {
+        return matches[matches.length - 1];
+      }
+      let pathMatches = getPathContributingMatches(matches);
+      return pathMatches[pathMatches.length - 1];
+    }
+    exports2.AbortedDeferredError = AbortedDeferredError;
+    exports2.ErrorResponse = ErrorResponse;
+    exports2.IDLE_FETCHER = IDLE_FETCHER;
+    exports2.IDLE_NAVIGATION = IDLE_NAVIGATION;
+    exports2.UNSAFE_convertRoutesToDataRoutes = convertRoutesToDataRoutes;
+    exports2.UNSAFE_getPathContributingMatches = getPathContributingMatches;
+    exports2.createBrowserHistory = createBrowserHistory;
+    exports2.createHashHistory = createHashHistory;
+    exports2.createMemoryHistory = createMemoryHistory;
+    exports2.createPath = createPath;
+    exports2.createRouter = createRouter;
+    exports2.createStaticHandler = createStaticHandler;
+    exports2.defer = defer;
+    exports2.generatePath = generatePath;
+    exports2.getStaticContextFromError = getStaticContextFromError;
+    exports2.getToPathname = getToPathname;
+    exports2.invariant = invariant;
+    exports2.isRouteErrorResponse = isRouteErrorResponse;
+    exports2.joinPaths = joinPaths;
+    exports2.json = json;
+    exports2.matchPath = matchPath;
+    exports2.matchRoutes = matchRoutes;
+    exports2.normalizePathname = normalizePathname;
+    exports2.parsePath = parsePath;
+    exports2.redirect = redirect;
+    exports2.resolvePath = resolvePath;
+    exports2.resolveTo = resolveTo;
+    exports2.stripBasename = stripBasename;
+    exports2.warning = warning;
+  }
+});
+
+// node_modules/react-router/dist/umd/react-router.production.min.js
+var require_react_router_production_min = __commonJS({
+  "node_modules/react-router/dist/umd/react-router.production.min.js"(exports2, module2) {
+    !function(e, t) {
+      "object" == typeof exports2 && "undefined" != typeof module2 ? t(exports2, require_router_cjs(), require_react()) : "function" == typeof define && define.amd ? define(["exports", "@remix-run/router", "react"], t) : t((e = "undefined" != typeof globalThis ? globalThis : e || self).ReactRouter = {}, e.RemixRouter, e.React);
+    }(exports2, function(e, t, r) {
+      "use strict";
+      function n(e2) {
+        if (e2 && e2.__esModule)
+          return e2;
+        var t2 = /* @__PURE__ */ Object.create(null);
+        return e2 && Object.keys(e2).forEach(function(r2) {
+          if ("default" !== r2) {
+            var n2 = Object.getOwnPropertyDescriptor(e2, r2);
+            Object.defineProperty(t2, r2, n2.get ? n2 : { enumerable: true, get: function() {
+              return e2[r2];
+            } });
+          }
+        }), t2.default = e2, Object.freeze(t2);
+      }
+      var a = n(r);
+      function o() {
+        return o = Object.assign ? Object.assign.bind() : function(e2) {
+          for (var t2 = 1; t2 < arguments.length; t2++) {
+            var r2 = arguments[t2];
+            for (var n2 in r2)
+              Object.prototype.hasOwnProperty.call(r2, n2) && (e2[n2] = r2[n2]);
+          }
+          return e2;
+        }, o.apply(this, arguments);
+      }
+      const i2 = "function" == typeof Object.is ? Object.is : function(e2, t2) {
+        return e2 === t2 && (0 !== e2 || 1 / e2 == 1 / t2) || e2 != e2 && t2 != t2;
+      }, { useState: u, useEffect: l, useLayoutEffect: s, useDebugValue: c } = a;
+      function d(e2) {
+        const t2 = e2.getSnapshot, r2 = e2.value;
+        try {
+          const e3 = t2();
+          return !i2(r2, e3);
+        } catch (e3) {
+          return true;
+        }
+      }
+      const p = !!("undefined" == typeof window || void 0 === window.document || void 0 === window.document.createElement) ? function(e2, t2, r2) {
+        return t2();
+      } : function(e2, t2, r2) {
+        const n2 = t2(), [{ inst: a2 }, o2] = u({ inst: { value: n2, getSnapshot: t2 } });
+        return s(() => {
+          a2.value = n2, a2.getSnapshot = t2, d(a2) && o2({ inst: a2 });
+        }, [e2, n2, t2]), l(() => {
+          d(a2) && o2({ inst: a2 });
+          return e2(() => {
+            d(a2) && o2({ inst: a2 });
+          });
+        }, [e2]), c(n2), n2;
+      }, h = "useSyncExternalStore" in a ? ((e2) => e2.useSyncExternalStore)(a) : p, m = a.createContext(null), f = a.createContext(null), v = a.createContext(null), g = a.createContext(null), E = a.createContext(null), y = a.createContext(null), b = a.createContext({ outlet: null, matches: [] }), x = a.createContext(null);
+      function P() {
+        return null != a.useContext(y);
+      }
+      function R() {
+        return P() || t.invariant(false), a.useContext(y).location;
+      }
+      function C() {
+        P() || t.invariant(false);
+        let { basename: e2, navigator: r2 } = a.useContext(E), { matches: n2 } = a.useContext(b), { pathname: o2 } = R(), i3 = JSON.stringify(t.UNSAFE_getPathContributingMatches(n2).map((e3) => e3.pathnameBase)), u2 = a.useRef(false);
+        return a.useEffect(() => {
+          u2.current = true;
+        }), a.useCallback(function(n3, a2) {
+          if (void 0 === a2 && (a2 = {}), !u2.current)
+            return;
+          if ("number" == typeof n3)
+            return void r2.go(n3);
+          let l2 = t.resolveTo(n3, JSON.parse(i3), o2, "path" === a2.relative);
+          "/" !== e2 && (l2.pathname = "/" === l2.pathname ? e2 : t.joinPaths([e2, l2.pathname])), (a2.replace ? r2.replace : r2.push)(l2, a2.state, a2);
+        }, [e2, r2, i3, o2]);
+      }
+      const O = a.createContext(null);
+      function j(e2) {
+        let t2 = a.useContext(b).outlet;
+        return t2 ? a.createElement(O.Provider, { value: e2 }, t2) : t2;
+      }
+      function S(e2, r2) {
+        let { relative: n2 } = void 0 === r2 ? {} : r2, { matches: o2 } = a.useContext(b), { pathname: i3 } = R(), u2 = JSON.stringify(t.UNSAFE_getPathContributingMatches(o2).map((e3) => e3.pathnameBase));
+        return a.useMemo(() => t.resolveTo(e2, JSON.parse(u2), i3, "path" === n2), [e2, u2, i3, n2]);
+      }
+      function D(e2, r2) {
+        P() || t.invariant(false);
+        let { navigator: n2 } = a.useContext(E), i3 = a.useContext(v), { matches: u2 } = a.useContext(b), l2 = u2[u2.length - 1], s2 = l2 ? l2.params : {};
+        !l2 || l2.pathname;
+        let c2 = l2 ? l2.pathnameBase : "/";
+        l2 && l2.route;
+        let d2, p2 = R();
+        if (r2) {
+          var h2;
+          let e3 = "string" == typeof r2 ? t.parsePath(r2) : r2;
+          "/" === c2 || (null == (h2 = e3.pathname) ? void 0 : h2.startsWith(c2)) || t.invariant(false), d2 = e3;
+        } else
+          d2 = p2;
+        let m2 = d2.pathname || "/", f2 = "/" === c2 ? m2 : m2.slice(c2.length) || "/", g2 = t.matchRoutes(e2, { pathname: f2 }), x2 = N(g2 && g2.map((e3) => Object.assign({}, e3, { params: Object.assign({}, s2, e3.params), pathname: t.joinPaths([c2, n2.encodeLocation ? n2.encodeLocation(e3.pathname).pathname : e3.pathname]), pathnameBase: "/" === e3.pathnameBase ? c2 : t.joinPaths([c2, n2.encodeLocation ? n2.encodeLocation(e3.pathnameBase).pathname : e3.pathnameBase]) })), u2, i3 || void 0);
+        return r2 && x2 ? a.createElement(y.Provider, { value: { location: o({ pathname: "/", search: "", hash: "", state: null, key: "default" }, d2), navigationType: t.Action.Pop } }, x2) : x2;
+      }
+      function U() {
+        let e2 = k(), r2 = t.isRouteErrorResponse(e2) ? e2.status + " " + e2.statusText : e2 instanceof Error ? e2.message : JSON.stringify(e2), n2 = e2 instanceof Error ? e2.stack : null, o2 = "rgba(200,200,200, 0.5)", i3 = { padding: "0.5rem", backgroundColor: o2 }, u2 = { padding: "2px 4px", backgroundColor: o2 };
+        return a.createElement(a.Fragment, null, a.createElement("h2", null, "Unhandled Thrown Error!"), a.createElement("h3", { style: { fontStyle: "italic" } }, r2), n2 ? a.createElement("pre", { style: i3 }, n2) : null, a.createElement("p", null, "\u{1F4BF} Hey developer \u{1F44B}"), a.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own\xA0", a.createElement("code", { style: u2 }, "errorElement"), " props on\xA0", a.createElement("code", { style: u2 }, "<Route>")));
+      }
+      class _ extends a.Component {
+        constructor(e2) {
+          super(e2), this.state = { location: e2.location, error: e2.error };
+        }
+        static getDerivedStateFromError(e2) {
+          return { error: e2 };
+        }
+        static getDerivedStateFromProps(e2, t2) {
+          return t2.location !== e2.location ? { error: e2.error, location: e2.location } : { error: e2.error || t2.error, location: t2.location };
+        }
+        componentDidCatch(e2, t2) {
+          console.error("React Router caught the following error during render", e2, t2);
+        }
+        render() {
+          return this.state.error ? a.createElement(b.Provider, { value: this.props.routeContext }, a.createElement(x.Provider, { value: this.state.error, children: this.props.component })) : this.props.children;
+        }
+      }
+      function A(e2) {
+        let { routeContext: t2, match: r2, children: n2 } = e2, o2 = a.useContext(m);
+        return o2 && r2.route.errorElement && (o2._deepestRenderedBoundaryId = r2.route.id), a.createElement(b.Provider, { value: t2 }, n2);
+      }
+      function N(e2, r2, n2) {
+        if (void 0 === r2 && (r2 = []), null == e2) {
+          if (null == n2 || !n2.errors)
+            return null;
+          e2 = n2.matches;
+        }
+        let o2 = e2, i3 = null == n2 ? void 0 : n2.errors;
+        if (null != i3) {
+          let e3 = o2.findIndex((e4) => e4.route.id && (null == i3 ? void 0 : i3[e4.route.id]));
+          e3 >= 0 || t.invariant(false), o2 = o2.slice(0, Math.min(o2.length, e3 + 1));
+        }
+        return o2.reduceRight((e3, t2, u2) => {
+          let l2 = t2.route.id ? null == i3 ? void 0 : i3[t2.route.id] : null, s2 = n2 ? t2.route.errorElement || a.createElement(U, null) : null, c2 = r2.concat(o2.slice(0, u2 + 1)), d2 = () => a.createElement(A, { match: t2, routeContext: { outlet: e3, matches: c2 } }, l2 ? s2 : void 0 !== t2.route.element ? t2.route.element : e3);
+          return n2 && (t2.route.errorElement || 0 === u2) ? a.createElement(_, { location: n2.location, component: s2, error: l2, children: d2(), routeContext: { outlet: null, matches: c2 } }) : d2();
+        }, null);
+      }
+      var M, w, L;
+      function F(e2) {
+        let r2 = a.useContext(v);
+        return r2 || t.invariant(false), r2;
+      }
+      function T(e2) {
+        let r2 = function(e3) {
+          let r3 = a.useContext(b);
+          return r3 || t.invariant(false), r3;
+        }(), n2 = r2.matches[r2.matches.length - 1];
+        return n2.route.id || t.invariant(false), n2.route.id;
+      }
+      function k() {
+        var e2;
+        let t2 = a.useContext(x), r2 = F(w.UseRouteError), n2 = T(w.UseRouteError);
+        return t2 || (null == (e2 = r2.errors) ? void 0 : e2[n2]);
+      }
+      function B() {
+        let e2 = a.useContext(g);
+        return null == e2 ? void 0 : e2._data;
+      }
+      function I(e2) {
+        t.invariant(false);
+      }
+      function H(e2) {
+        let { basename: r2 = "/", children: n2 = null, location: o2, navigationType: i3 = t.Action.Pop, navigator: u2, static: l2 = false } = e2;
+        P() && t.invariant(false);
+        let s2 = r2.replace(/^\/*/, "/"), c2 = a.useMemo(() => ({ basename: s2, navigator: u2, static: l2 }), [s2, u2, l2]);
+        "string" == typeof o2 && (o2 = t.parsePath(o2));
+        let { pathname: d2 = "/", search: p2 = "", hash: h2 = "", state: m2 = null, key: f2 = "default" } = o2, v2 = a.useMemo(() => {
+          let e3 = t.stripBasename(d2, s2);
+          return null == e3 ? null : { pathname: e3, search: p2, hash: h2, state: m2, key: f2 };
+        }, [s2, d2, p2, h2, m2, f2]);
+        return null == v2 ? null : a.createElement(E.Provider, { value: c2 }, a.createElement(y.Provider, { children: n2, value: { location: v2, navigationType: i3 } }));
+      }
+      function J(e2) {
+        let { children: t2, location: r2 } = e2, n2 = a.useContext(f);
+        return D(n2 && !t2 ? n2.router.routes : Y(t2), r2);
+      }
+      !function(e2) {
+        e2.UseRevalidator = "useRevalidator";
+      }(M || (M = {})), function(e2) {
+        e2.UseLoaderData = "useLoaderData", e2.UseActionData = "useActionData", e2.UseRouteError = "useRouteError", e2.UseNavigation = "useNavigation", e2.UseRouteLoaderData = "useRouteLoaderData", e2.UseMatches = "useMatches", e2.UseRevalidator = "useRevalidator";
+      }(w || (w = {})), function(e2) {
+        e2[e2.pending = 0] = "pending", e2[e2.success = 1] = "success", e2[e2.error = 2] = "error";
+      }(L || (L = {}));
+      const z = new Promise(() => {
+      });
+      class V extends a.Component {
+        constructor(e2) {
+          super(e2), this.state = { error: null };
+        }
+        static getDerivedStateFromError(e2) {
+          return { error: e2 };
+        }
+        componentDidCatch(e2, t2) {
+          console.error("<Await> caught the following error during render", e2, t2);
+        }
+        render() {
+          let { children: e2, errorElement: r2, resolve: n2 } = this.props, o2 = null, i3 = L.pending;
+          if (n2 instanceof Promise)
+            if (this.state.error) {
+              i3 = L.error;
+              let e3 = this.state.error;
+              o2 = Promise.reject().catch(() => {
+              }), Object.defineProperty(o2, "_tracked", { get: () => true }), Object.defineProperty(o2, "_error", { get: () => e3 });
+            } else
+              n2._tracked ? (o2 = n2, i3 = void 0 !== o2._error ? L.error : void 0 !== o2._data ? L.success : L.pending) : (i3 = L.pending, Object.defineProperty(n2, "_tracked", { get: () => true }), o2 = n2.then((e3) => Object.defineProperty(n2, "_data", { get: () => e3 }), (e3) => Object.defineProperty(n2, "_error", { get: () => e3 })));
+          else
+            i3 = L.success, o2 = Promise.resolve(), Object.defineProperty(o2, "_tracked", { get: () => true }), Object.defineProperty(o2, "_data", { get: () => n2 });
+          if (i3 === L.error && o2._error instanceof t.AbortedDeferredError)
+            throw z;
+          if (i3 === L.error && !r2)
+            throw o2._error;
+          if (i3 === L.error)
+            return a.createElement(g.Provider, { value: o2, children: r2 });
+          if (i3 === L.success)
+            return a.createElement(g.Provider, { value: o2, children: e2 });
+          throw o2;
+        }
+      }
+      function q(e2) {
+        let { children: t2 } = e2, r2 = B();
+        return "function" == typeof t2 ? t2(r2) : a.createElement(a.Fragment, null, t2);
+      }
+      function Y(e2, r2) {
+        void 0 === r2 && (r2 = []);
+        let n2 = [];
+        return a.Children.forEach(e2, (e3, o2) => {
+          if (!a.isValidElement(e3))
+            return;
+          if (e3.type === a.Fragment)
+            return void n2.push.apply(n2, Y(e3.props.children, r2));
+          e3.type !== I && t.invariant(false), e3.props.index && e3.props.children && t.invariant(false);
+          let i3 = [...r2, o2], u2 = { id: e3.props.id || i3.join("-"), caseSensitive: e3.props.caseSensitive, element: e3.props.element, index: e3.props.index, path: e3.props.path, loader: e3.props.loader, action: e3.props.action, errorElement: e3.props.errorElement, hasErrorBoundary: null != e3.props.errorElement, shouldRevalidate: e3.props.shouldRevalidate, handle: e3.props.handle };
+          e3.props.children && (u2.children = Y(e3.props.children, i3)), n2.push(u2);
+        }), n2;
+      }
+      function W(e2) {
+        return e2.map((e3) => {
+          let t2 = o({}, e3);
+          return null == t2.hasErrorBoundary && (t2.hasErrorBoundary = null != t2.errorElement), t2.children && (t2.children = W(t2.children)), t2;
+        });
+      }
+      Object.defineProperty(e, "AbortedDeferredError", { enumerable: true, get: function() {
+        return t.AbortedDeferredError;
+      } }), Object.defineProperty(e, "NavigationType", { enumerable: true, get: function() {
+        return t.Action;
+      } }), Object.defineProperty(e, "createPath", { enumerable: true, get: function() {
+        return t.createPath;
+      } }), Object.defineProperty(e, "defer", { enumerable: true, get: function() {
+        return t.defer;
+      } }), Object.defineProperty(e, "generatePath", { enumerable: true, get: function() {
+        return t.generatePath;
+      } }), Object.defineProperty(e, "isRouteErrorResponse", { enumerable: true, get: function() {
+        return t.isRouteErrorResponse;
+      } }), Object.defineProperty(e, "json", { enumerable: true, get: function() {
+        return t.json;
+      } }), Object.defineProperty(e, "matchPath", { enumerable: true, get: function() {
+        return t.matchPath;
+      } }), Object.defineProperty(e, "matchRoutes", { enumerable: true, get: function() {
+        return t.matchRoutes;
+      } }), Object.defineProperty(e, "parsePath", { enumerable: true, get: function() {
+        return t.parsePath;
+      } }), Object.defineProperty(e, "redirect", { enumerable: true, get: function() {
+        return t.redirect;
+      } }), Object.defineProperty(e, "resolvePath", { enumerable: true, get: function() {
+        return t.resolvePath;
+      } }), e.Await = function(e2) {
+        let { children: t2, errorElement: r2, resolve: n2 } = e2;
+        return a.createElement(V, { resolve: n2, errorElement: r2 }, a.createElement(q, null, t2));
+      }, e.MemoryRouter = function(e2) {
+        let { basename: r2, children: n2, initialEntries: o2, initialIndex: i3 } = e2, u2 = a.useRef();
+        null == u2.current && (u2.current = t.createMemoryHistory({ initialEntries: o2, initialIndex: i3, v5Compat: true }));
+        let l2 = u2.current, [s2, c2] = a.useState({ action: l2.action, location: l2.location });
+        return a.useLayoutEffect(() => l2.listen(c2), [l2]), a.createElement(H, { basename: r2, children: n2, location: s2.location, navigationType: s2.action, navigator: l2 });
+      }, e.Navigate = function(e2) {
+        let { to: r2, replace: n2, state: o2, relative: i3 } = e2;
+        P() || t.invariant(false);
+        let u2 = a.useContext(v), l2 = C();
+        return a.useEffect(() => {
+          u2 && "idle" !== u2.navigation.state || l2(r2, { replace: n2, state: o2, relative: i3 });
+        }), null;
+      }, e.Outlet = function(e2) {
+        return j(e2.context);
+      }, e.Route = I, e.Router = H, e.RouterProvider = function(e2) {
+        let { fallbackElement: t2, router: r2 } = e2, n2 = h(r2.subscribe, () => r2.state, () => r2.state), o2 = a.useMemo(() => ({ createHref: r2.createHref, encodeLocation: r2.encodeLocation, go: (e3) => r2.navigate(e3), push: (e3, t3, n3) => r2.navigate(e3, { state: t3, preventScrollReset: null == n3 ? void 0 : n3.preventScrollReset }), replace: (e3, t3, n3) => r2.navigate(e3, { replace: true, state: t3, preventScrollReset: null == n3 ? void 0 : n3.preventScrollReset }) }), [r2]), i3 = r2.basename || "/";
+        return a.createElement(f.Provider, { value: { router: r2, navigator: o2, static: false, basename: i3 } }, a.createElement(v.Provider, { value: n2 }, a.createElement(H, { basename: r2.basename, location: r2.state.location, navigationType: r2.state.historyAction, navigator: o2 }, r2.state.initialized ? a.createElement(J, null) : t2)));
+      }, e.Routes = J, e.UNSAFE_DataRouterContext = f, e.UNSAFE_DataRouterStateContext = v, e.UNSAFE_DataStaticRouterContext = m, e.UNSAFE_LocationContext = y, e.UNSAFE_NavigationContext = E, e.UNSAFE_RouteContext = b, e.UNSAFE_enhanceManualRouteObjects = W, e.createMemoryRouter = function(e2, r2) {
+        return t.createRouter({ basename: null == r2 ? void 0 : r2.basename, history: t.createMemoryHistory({ initialEntries: null == r2 ? void 0 : r2.initialEntries, initialIndex: null == r2 ? void 0 : r2.initialIndex }), hydrationData: null == r2 ? void 0 : r2.hydrationData, routes: W(e2) }).initialize();
+      }, e.createRoutesFromChildren = Y, e.createRoutesFromElements = Y, e.renderMatches = function(e2) {
+        return N(e2);
+      }, e.useActionData = function() {
+        let e2 = F(w.UseActionData);
+        return a.useContext(b) || t.invariant(false), Object.values((null == e2 ? void 0 : e2.actionData) || {})[0];
+      }, e.useAsyncError = function() {
+        let e2 = a.useContext(g);
+        return null == e2 ? void 0 : e2._error;
+      }, e.useAsyncValue = B, e.useHref = function(e2, r2) {
+        let { relative: n2 } = void 0 === r2 ? {} : r2;
+        P() || t.invariant(false);
+        let { basename: o2, navigator: i3 } = a.useContext(E), { hash: u2, pathname: l2, search: s2 } = S(e2, { relative: n2 }), c2 = l2;
+        return "/" !== o2 && (c2 = "/" === l2 ? o2 : t.joinPaths([o2, l2])), i3.createHref({ pathname: c2, search: s2, hash: u2 });
+      }, e.useInRouterContext = P, e.useLoaderData = function() {
+        let e2 = F(w.UseLoaderData), t2 = T(w.UseLoaderData);
+        if (!e2.errors || null == e2.errors[t2])
+          return e2.loaderData[t2];
+        console.error("You cannot `useLoaderData` in an errorElement (routeId: " + t2 + ")");
+      }, e.useLocation = R, e.useMatch = function(e2) {
+        P() || t.invariant(false);
+        let { pathname: r2 } = R();
+        return a.useMemo(() => t.matchPath(e2, r2), [r2, e2]);
+      }, e.useMatches = function() {
+        let { matches: e2, loaderData: t2 } = F(w.UseMatches);
+        return a.useMemo(() => e2.map((e3) => {
+          let { pathname: r2, params: n2 } = e3;
+          return { id: e3.route.id, pathname: r2, params: n2, data: t2[e3.route.id], handle: e3.route.handle };
+        }), [e2, t2]);
+      }, e.useNavigate = C, e.useNavigation = function() {
+        return F(w.UseNavigation).navigation;
+      }, e.useNavigationType = function() {
+        return a.useContext(y).navigationType;
+      }, e.useOutlet = j, e.useOutletContext = function() {
+        return a.useContext(O);
+      }, e.useParams = function() {
+        let { matches: e2 } = a.useContext(b), t2 = e2[e2.length - 1];
+        return t2 ? t2.params : {};
+      }, e.useResolvedPath = S, e.useRevalidator = function() {
+        let e2 = function(e3) {
+          let r3 = a.useContext(f);
+          return r3 || t.invariant(false), r3;
+        }(M.UseRevalidator), r2 = F(w.UseRevalidator);
+        return { revalidate: e2.router.revalidate, state: r2.revalidation };
+      }, e.useRouteError = k, e.useRouteLoaderData = function(e2) {
+        return F(w.UseRouteLoaderData).loaderData[e2];
+      }, e.useRoutes = D, Object.defineProperty(e, "__esModule", { value: true });
+    });
+  }
+});
+
+// node_modules/react-router/dist/umd/react-router.development.js
+var require_react_router_development = __commonJS({
+  "node_modules/react-router/dist/umd/react-router.development.js"(exports2, module2) {
+    (function(global2, factory) {
+      typeof exports2 === "object" && typeof module2 !== "undefined" ? factory(exports2, require_router_cjs(), require_react()) : typeof define === "function" && define.amd ? define(["exports", "@remix-run/router", "react"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.ReactRouter = {}, global2.RemixRouter, global2.React));
+    })(exports2, function(exports3, router, React3) {
+      "use strict";
+      function _interopNamespace(e) {
+        if (e && e.__esModule)
+          return e;
+        var n = /* @__PURE__ */ Object.create(null);
+        if (e) {
+          Object.keys(e).forEach(function(k) {
+            if (k !== "default") {
+              var d = Object.getOwnPropertyDescriptor(e, k);
+              Object.defineProperty(n, k, d.get ? d : {
+                enumerable: true,
+                get: function() {
+                  return e[k];
+                }
+              });
+            }
+          });
+        }
+        n["default"] = e;
+        return Object.freeze(n);
+      }
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React3);
+      function _extends() {
+        _extends = Object.assign ? Object.assign.bind() : function(target) {
+          for (var i2 = 1; i2 < arguments.length; i2++) {
+            var source = arguments[i2];
+            for (var key2 in source) {
+              if (Object.prototype.hasOwnProperty.call(source, key2)) {
+                target[key2] = source[key2];
+              }
+            }
+          }
+          return target;
+        };
+        return _extends.apply(this, arguments);
+      }
+      function isPolyfill(x, y) {
+        return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
+      }
+      const is = typeof Object.is === "function" ? Object.is : isPolyfill;
+      const {
+        useState,
+        useEffect,
+        useLayoutEffect,
+        useDebugValue
+      } = React__namespace;
+      let didWarnOld18Alpha = false;
+      let didWarnUncachedGetSnapshot = false;
+      function useSyncExternalStore$2(subscribe, getSnapshot, getServerSnapshot) {
+        {
+          if (!didWarnOld18Alpha) {
+            if ("startTransition" in React__namespace) {
+              didWarnOld18Alpha = true;
+              console.error("You are using an outdated, pre-release alpha of React 18 that does not support useSyncExternalStore. The use-sync-external-store shim will not work correctly. Upgrade to a newer pre-release.");
+            }
+          }
+        }
+        const value = getSnapshot();
+        {
+          if (!didWarnUncachedGetSnapshot) {
+            const cachedValue = getSnapshot();
+            if (!is(value, cachedValue)) {
+              console.error("The result of getSnapshot should be cached to avoid an infinite loop");
+              didWarnUncachedGetSnapshot = true;
+            }
+          }
+        }
+        const [{
+          inst
+        }, forceUpdate] = useState({
+          inst: {
+            value,
+            getSnapshot
+          }
+        });
+        useLayoutEffect(() => {
+          inst.value = value;
+          inst.getSnapshot = getSnapshot;
+          if (checkIfSnapshotChanged(inst)) {
+            forceUpdate({
+              inst
+            });
+          }
+        }, [subscribe, value, getSnapshot]);
+        useEffect(() => {
+          if (checkIfSnapshotChanged(inst)) {
+            forceUpdate({
+              inst
+            });
+          }
+          const handleStoreChange = () => {
+            if (checkIfSnapshotChanged(inst)) {
+              forceUpdate({
+                inst
+              });
+            }
+          };
+          return subscribe(handleStoreChange);
+        }, [subscribe]);
+        useDebugValue(value);
+        return value;
+      }
+      function checkIfSnapshotChanged(inst) {
+        const latestGetSnapshot = inst.getSnapshot;
+        const prevValue = inst.value;
+        try {
+          const nextValue = latestGetSnapshot();
+          return !is(prevValue, nextValue);
+        } catch (error) {
+          return true;
+        }
+      }
+      function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
+        return getSnapshot();
+      }
+      const canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
+      const isServerEnvironment = !canUseDOM;
+      const shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore$2;
+      const useSyncExternalStore = "useSyncExternalStore" in React__namespace ? ((module3) => module3.useSyncExternalStore)(React__namespace) : shim;
+      const DataStaticRouterContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        DataStaticRouterContext.displayName = "DataStaticRouterContext";
+      }
+      const DataRouterContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        DataRouterContext.displayName = "DataRouter";
+      }
+      const DataRouterStateContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        DataRouterStateContext.displayName = "DataRouterState";
+      }
+      const AwaitContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        AwaitContext.displayName = "Await";
+      }
+      const NavigationContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        NavigationContext.displayName = "Navigation";
+      }
+      const LocationContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        LocationContext.displayName = "Location";
+      }
+      const RouteContext = /* @__PURE__ */ React__namespace.createContext({
+        outlet: null,
+        matches: []
+      });
+      {
+        RouteContext.displayName = "Route";
+      }
+      const RouteErrorContext = /* @__PURE__ */ React__namespace.createContext(null);
+      {
+        RouteErrorContext.displayName = "RouteError";
+      }
+      function useHref(to, _temp) {
+        let {
+          relative
+        } = _temp === void 0 ? {} : _temp;
+        !useInRouterContext() ? router.invariant(
+          false,
+          "useHref() may be used only in the context of a <Router> component."
+        ) : void 0;
+        let {
+          basename,
+          navigator: navigator2
+        } = React__namespace.useContext(NavigationContext);
+        let {
+          hash,
+          pathname,
+          search
+        } = useResolvedPath(to, {
+          relative
+        });
+        let joinedPathname = pathname;
+        if (basename !== "/") {
+          joinedPathname = pathname === "/" ? basename : router.joinPaths([basename, pathname]);
+        }
+        return navigator2.createHref({
+          pathname: joinedPathname,
+          search,
+          hash
+        });
+      }
+      function useInRouterContext() {
+        return React__namespace.useContext(LocationContext) != null;
+      }
+      function useLocation() {
+        !useInRouterContext() ? router.invariant(
+          false,
+          "useLocation() may be used only in the context of a <Router> component."
+        ) : void 0;
+        return React__namespace.useContext(LocationContext).location;
+      }
+      function useNavigationType() {
+        return React__namespace.useContext(LocationContext).navigationType;
+      }
+      function useMatch(pattern) {
+        !useInRouterContext() ? router.invariant(
+          false,
+          "useMatch() may be used only in the context of a <Router> component."
+        ) : void 0;
+        let {
+          pathname
+        } = useLocation();
+        return React__namespace.useMemo(() => router.matchPath(pattern, pathname), [pathname, pattern]);
+      }
+      function useNavigate() {
+        !useInRouterContext() ? router.invariant(
+          false,
+          "useNavigate() may be used only in the context of a <Router> component."
+        ) : void 0;
+        let {
+          basename,
+          navigator: navigator2
+        } = React__namespace.useContext(NavigationContext);
+        let {
+          matches
+        } = React__namespace.useContext(RouteContext);
+        let {
+          pathname: locationPathname
+        } = useLocation();
+        let routePathnamesJson = JSON.stringify(router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase));
+        let activeRef = React__namespace.useRef(false);
+        React__namespace.useEffect(() => {
+          activeRef.current = true;
+        });
+        let navigate = React__namespace.useCallback(function(to, options) {
+          if (options === void 0) {
+            options = {};
+          }
+          router.warning(activeRef.current, "You should call navigate() in a React.useEffect(), not when your component is first rendered.");
+          if (!activeRef.current)
+            return;
+          if (typeof to === "number") {
+            navigator2.go(to);
+            return;
+          }
+          let path = router.resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, options.relative === "path");
+          if (basename !== "/") {
+            path.pathname = path.pathname === "/" ? basename : router.joinPaths([basename, path.pathname]);
+          }
+          (!!options.replace ? navigator2.replace : navigator2.push)(path, options.state, options);
+        }, [basename, navigator2, routePathnamesJson, locationPathname]);
+        return navigate;
+      }
+      const OutletContext = /* @__PURE__ */ React__namespace.createContext(null);
+      function useOutletContext() {
+        return React__namespace.useContext(OutletContext);
+      }
+      function useOutlet(context) {
+        let outlet = React__namespace.useContext(RouteContext).outlet;
+        if (outlet) {
+          return /* @__PURE__ */ React__namespace.createElement(OutletContext.Provider, {
+            value: context
+          }, outlet);
+        }
+        return outlet;
+      }
+      function useParams() {
+        let {
+          matches
+        } = React__namespace.useContext(RouteContext);
+        let routeMatch = matches[matches.length - 1];
+        return routeMatch ? routeMatch.params : {};
+      }
+      function useResolvedPath(to, _temp2) {
+        let {
+          relative
+        } = _temp2 === void 0 ? {} : _temp2;
+        let {
+          matches
+        } = React__namespace.useContext(RouteContext);
+        let {
+          pathname: locationPathname
+        } = useLocation();
+        let routePathnamesJson = JSON.stringify(router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase));
+        return React__namespace.useMemo(() => router.resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
+      }
+      function useRoutes(routes, locationArg) {
+        !useInRouterContext() ? router.invariant(
+          false,
+          "useRoutes() may be used only in the context of a <Router> component."
+        ) : void 0;
+        let {
+          navigator: navigator2
+        } = React__namespace.useContext(NavigationContext);
+        let dataRouterStateContext = React__namespace.useContext(DataRouterStateContext);
+        let {
+          matches: parentMatches
+        } = React__namespace.useContext(RouteContext);
+        let routeMatch = parentMatches[parentMatches.length - 1];
+        let parentParams = routeMatch ? routeMatch.params : {};
+        let parentPathname = routeMatch ? routeMatch.pathname : "/";
+        let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
+        let parentRoute = routeMatch && routeMatch.route;
+        {
+          let parentPath = parentRoute && parentRoute.path || "";
+          warningOnce(parentPathname, !parentRoute || parentPath.endsWith("*"), "You rendered descendant <Routes> (or called `useRoutes()`) at " + ('"' + parentPathname + '" (under <Route path="' + parentPath + '">) but the ') + `parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+
+` + ('Please change the parent <Route path="' + parentPath + '"> to <Route ') + ('path="' + (parentPath === "/" ? "*" : parentPath + "/*") + '">.'));
+        }
+        let locationFromContext = useLocation();
+        let location;
+        if (locationArg) {
+          var _parsedLocationArg$pa;
+          let parsedLocationArg = typeof locationArg === "string" ? router.parsePath(locationArg) : locationArg;
+          !(parentPathnameBase === "/" || ((_parsedLocationArg$pa = parsedLocationArg.pathname) == null ? void 0 : _parsedLocationArg$pa.startsWith(parentPathnameBase))) ? router.invariant(false, "When overriding the location using `<Routes location>` or `useRoutes(routes, location)`, the location pathname must begin with the portion of the URL pathname that was " + ('matched by all parent routes. The current pathname base is "' + parentPathnameBase + '" ') + ('but pathname "' + parsedLocationArg.pathname + '" was given in the `location` prop.')) : void 0;
+          location = parsedLocationArg;
+        } else {
+          location = locationFromContext;
+        }
+        let pathname = location.pathname || "/";
+        let remainingPathname = parentPathnameBase === "/" ? pathname : pathname.slice(parentPathnameBase.length) || "/";
+        let matches = router.matchRoutes(routes, {
+          pathname: remainingPathname
+        });
+        {
+          router.warning(parentRoute || matches != null, 'No routes matched location "' + location.pathname + location.search + location.hash + '" ');
+          router.warning(matches == null || matches[matches.length - 1].route.element !== void 0, 'Matched leaf route at location "' + location.pathname + location.search + location.hash + '" does not have an element. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.');
+        }
+        let renderedMatches = _renderMatches(matches && matches.map((match) => Object.assign({}, match, {
+          params: Object.assign({}, parentParams, match.params),
+          pathname: router.joinPaths([
+            parentPathnameBase,
+            navigator2.encodeLocation ? navigator2.encodeLocation(match.pathname).pathname : match.pathname
+          ]),
+          pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : router.joinPaths([
+            parentPathnameBase,
+            navigator2.encodeLocation ? navigator2.encodeLocation(match.pathnameBase).pathname : match.pathnameBase
+          ])
+        })), parentMatches, dataRouterStateContext || void 0);
+        if (locationArg && renderedMatches) {
+          return /* @__PURE__ */ React__namespace.createElement(LocationContext.Provider, {
+            value: {
+              location: _extends({
+                pathname: "/",
+                search: "",
+                hash: "",
+                state: null,
+                key: "default"
+              }, location),
+              navigationType: router.Action.Pop
+            }
+          }, renderedMatches);
+        }
+        return renderedMatches;
+      }
+      function DefaultErrorElement() {
+        let error = useRouteError();
+        let message = router.isRouteErrorResponse(error) ? error.status + " " + error.statusText : error instanceof Error ? error.message : JSON.stringify(error);
+        let stack = error instanceof Error ? error.stack : null;
+        let lightgrey = "rgba(200,200,200, 0.5)";
+        let preStyles = {
+          padding: "0.5rem",
+          backgroundColor: lightgrey
+        };
+        let codeStyles = {
+          padding: "2px 4px",
+          backgroundColor: lightgrey
+        };
+        return /* @__PURE__ */ React__namespace.createElement(React__namespace.Fragment, null, /* @__PURE__ */ React__namespace.createElement("h2", null, "Unhandled Thrown Error!"), /* @__PURE__ */ React__namespace.createElement("h3", {
+          style: {
+            fontStyle: "italic"
+          }
+        }, message), stack ? /* @__PURE__ */ React__namespace.createElement("pre", {
+          style: preStyles
+        }, stack) : null, /* @__PURE__ */ React__namespace.createElement("p", null, "\u{1F4BF} Hey developer \u{1F44B}"), /* @__PURE__ */ React__namespace.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own\xA0", /* @__PURE__ */ React__namespace.createElement("code", {
+          style: codeStyles
+        }, "errorElement"), " props on\xA0", /* @__PURE__ */ React__namespace.createElement("code", {
+          style: codeStyles
+        }, "<Route>")));
+      }
+      class RenderErrorBoundary extends React__namespace.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            location: props.location,
+            error: props.error
+          };
+        }
+        static getDerivedStateFromError(error) {
+          return {
+            error
+          };
+        }
+        static getDerivedStateFromProps(props, state) {
+          if (state.location !== props.location) {
+            return {
+              error: props.error,
+              location: props.location
+            };
+          }
+          return {
+            error: props.error || state.error,
+            location: state.location
+          };
+        }
+        componentDidCatch(error, errorInfo) {
+          console.error("React Router caught the following error during render", error, errorInfo);
+        }
+        render() {
+          return this.state.error ? /* @__PURE__ */ React__namespace.createElement(RouteContext.Provider, {
+            value: this.props.routeContext
+          }, /* @__PURE__ */ React__namespace.createElement(RouteErrorContext.Provider, {
+            value: this.state.error,
+            children: this.props.component
+          })) : this.props.children;
+        }
+      }
+      function RenderedRoute(_ref) {
+        let {
+          routeContext,
+          match,
+          children
+        } = _ref;
+        let dataStaticRouterContext = React__namespace.useContext(DataStaticRouterContext);
+        if (dataStaticRouterContext && match.route.errorElement) {
+          dataStaticRouterContext._deepestRenderedBoundaryId = match.route.id;
+        }
+        return /* @__PURE__ */ React__namespace.createElement(RouteContext.Provider, {
+          value: routeContext
+        }, children);
+      }
+      function _renderMatches(matches, parentMatches, dataRouterState) {
+        if (parentMatches === void 0) {
+          parentMatches = [];
+        }
+        if (matches == null) {
+          if (dataRouterState != null && dataRouterState.errors) {
+            matches = dataRouterState.matches;
+          } else {
+            return null;
+          }
+        }
+        let renderedMatches = matches;
+        let errors = dataRouterState == null ? void 0 : dataRouterState.errors;
+        if (errors != null) {
+          let errorIndex = renderedMatches.findIndex((m) => m.route.id && (errors == null ? void 0 : errors[m.route.id]));
+          !(errorIndex >= 0) ? router.invariant(false, "Could not find a matching route for the current errors: " + errors) : void 0;
+          renderedMatches = renderedMatches.slice(0, Math.min(renderedMatches.length, errorIndex + 1));
+        }
+        return renderedMatches.reduceRight((outlet, match, index) => {
+          let error = match.route.id ? errors == null ? void 0 : errors[match.route.id] : null;
+          let errorElement = dataRouterState ? match.route.errorElement || /* @__PURE__ */ React__namespace.createElement(DefaultErrorElement, null) : null;
+          let matches2 = parentMatches.concat(renderedMatches.slice(0, index + 1));
+          let getChildren = () => /* @__PURE__ */ React__namespace.createElement(RenderedRoute, {
+            match,
+            routeContext: {
+              outlet,
+              matches: matches2
+            }
+          }, error ? errorElement : match.route.element !== void 0 ? match.route.element : outlet);
+          return dataRouterState && (match.route.errorElement || index === 0) ? /* @__PURE__ */ React__namespace.createElement(RenderErrorBoundary, {
+            location: dataRouterState.location,
+            component: errorElement,
+            error,
+            children: getChildren(),
+            routeContext: {
+              outlet: null,
+              matches: matches2
+            }
+          }) : getChildren();
+        }, null);
+      }
+      var DataRouterHook;
+      (function(DataRouterHook2) {
+        DataRouterHook2["UseRevalidator"] = "useRevalidator";
+      })(DataRouterHook || (DataRouterHook = {}));
+      var DataRouterStateHook;
+      (function(DataRouterStateHook2) {
+        DataRouterStateHook2["UseLoaderData"] = "useLoaderData";
+        DataRouterStateHook2["UseActionData"] = "useActionData";
+        DataRouterStateHook2["UseRouteError"] = "useRouteError";
+        DataRouterStateHook2["UseNavigation"] = "useNavigation";
+        DataRouterStateHook2["UseRouteLoaderData"] = "useRouteLoaderData";
+        DataRouterStateHook2["UseMatches"] = "useMatches";
+        DataRouterStateHook2["UseRevalidator"] = "useRevalidator";
+      })(DataRouterStateHook || (DataRouterStateHook = {}));
+      function getDataRouterConsoleError(hookName) {
+        return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
+      }
+      function useDataRouterContext(hookName) {
+        let ctx = React__namespace.useContext(DataRouterContext);
+        !ctx ? router.invariant(false, getDataRouterConsoleError(hookName)) : void 0;
+        return ctx;
+      }
+      function useDataRouterState(hookName) {
+        let state = React__namespace.useContext(DataRouterStateContext);
+        !state ? router.invariant(false, getDataRouterConsoleError(hookName)) : void 0;
+        return state;
+      }
+      function useRouteContext(hookName) {
+        let route = React__namespace.useContext(RouteContext);
+        !route ? router.invariant(false, getDataRouterConsoleError(hookName)) : void 0;
+        return route;
+      }
+      function useCurrentRouteId(hookName) {
+        let route = useRouteContext(hookName);
+        let thisRoute = route.matches[route.matches.length - 1];
+        !thisRoute.route.id ? router.invariant(false, hookName + ' can only be used on routes that contain a unique "id"') : void 0;
+        return thisRoute.route.id;
+      }
+      function useNavigation() {
+        let state = useDataRouterState(DataRouterStateHook.UseNavigation);
+        return state.navigation;
+      }
+      function useRevalidator() {
+        let dataRouterContext = useDataRouterContext(DataRouterHook.UseRevalidator);
+        let state = useDataRouterState(DataRouterStateHook.UseRevalidator);
+        return {
+          revalidate: dataRouterContext.router.revalidate,
+          state: state.revalidation
+        };
+      }
+      function useMatches() {
+        let {
+          matches,
+          loaderData
+        } = useDataRouterState(DataRouterStateHook.UseMatches);
+        return React__namespace.useMemo(() => matches.map((match) => {
+          let {
+            pathname,
+            params
+          } = match;
+          return {
+            id: match.route.id,
+            pathname,
+            params,
+            data: loaderData[match.route.id],
+            handle: match.route.handle
+          };
+        }), [matches, loaderData]);
+      }
+      function useLoaderData() {
+        let state = useDataRouterState(DataRouterStateHook.UseLoaderData);
+        let routeId = useCurrentRouteId(DataRouterStateHook.UseLoaderData);
+        if (state.errors && state.errors[routeId] != null) {
+          console.error("You cannot `useLoaderData` in an errorElement (routeId: " + routeId + ")");
+          return void 0;
+        }
+        return state.loaderData[routeId];
+      }
+      function useRouteLoaderData(routeId) {
+        let state = useDataRouterState(DataRouterStateHook.UseRouteLoaderData);
+        return state.loaderData[routeId];
+      }
+      function useActionData() {
+        let state = useDataRouterState(DataRouterStateHook.UseActionData);
+        let route = React__namespace.useContext(RouteContext);
+        !route ? router.invariant(false, "useActionData must be used inside a RouteContext") : void 0;
+        return Object.values((state == null ? void 0 : state.actionData) || {})[0];
+      }
+      function useRouteError() {
+        var _state$errors;
+        let error = React__namespace.useContext(RouteErrorContext);
+        let state = useDataRouterState(DataRouterStateHook.UseRouteError);
+        let routeId = useCurrentRouteId(DataRouterStateHook.UseRouteError);
+        if (error) {
+          return error;
+        }
+        return (_state$errors = state.errors) == null ? void 0 : _state$errors[routeId];
+      }
+      function useAsyncValue() {
+        let value = React__namespace.useContext(AwaitContext);
+        return value == null ? void 0 : value._data;
+      }
+      function useAsyncError() {
+        let value = React__namespace.useContext(AwaitContext);
+        return value == null ? void 0 : value._error;
+      }
+      const alreadyWarned = {};
+      function warningOnce(key2, cond, message) {
+        if (!cond && !alreadyWarned[key2]) {
+          alreadyWarned[key2] = true;
+          router.warning(false, message);
+        }
+      }
+      function RouterProvider(_ref) {
+        let {
+          fallbackElement,
+          router: router2
+        } = _ref;
+        let state = useSyncExternalStore(
+          router2.subscribe,
+          () => router2.state,
+          () => router2.state
+        );
+        let navigator2 = React__namespace.useMemo(() => {
+          return {
+            createHref: router2.createHref,
+            encodeLocation: router2.encodeLocation,
+            go: (n) => router2.navigate(n),
+            push: (to, state2, opts) => router2.navigate(to, {
+              state: state2,
+              preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
+            }),
+            replace: (to, state2, opts) => router2.navigate(to, {
+              replace: true,
+              state: state2,
+              preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
+            })
+          };
+        }, [router2]);
+        let basename = router2.basename || "/";
+        return /* @__PURE__ */ React__namespace.createElement(DataRouterContext.Provider, {
+          value: {
+            router: router2,
+            navigator: navigator2,
+            static: false,
+            basename
+          }
+        }, /* @__PURE__ */ React__namespace.createElement(DataRouterStateContext.Provider, {
+          value: state
+        }, /* @__PURE__ */ React__namespace.createElement(Router, {
+          basename: router2.basename,
+          location: router2.state.location,
+          navigationType: router2.state.historyAction,
+          navigator: navigator2
+        }, router2.state.initialized ? /* @__PURE__ */ React__namespace.createElement(Routes2, null) : fallbackElement)));
+      }
+      function MemoryRouter2(_ref2) {
+        let {
+          basename,
+          children,
+          initialEntries,
+          initialIndex
+        } = _ref2;
+        let historyRef = React__namespace.useRef();
+        if (historyRef.current == null) {
+          historyRef.current = router.createMemoryHistory({
+            initialEntries,
+            initialIndex,
+            v5Compat: true
+          });
+        }
+        let history = historyRef.current;
+        let [state, setState] = React__namespace.useState({
+          action: history.action,
+          location: history.location
+        });
+        React__namespace.useLayoutEffect(() => history.listen(setState), [history]);
+        return /* @__PURE__ */ React__namespace.createElement(Router, {
+          basename,
+          children,
+          location: state.location,
+          navigationType: state.action,
+          navigator: history
+        });
+      }
+      function Navigate(_ref3) {
+        let {
+          to,
+          replace,
+          state,
+          relative
+        } = _ref3;
+        !useInRouterContext() ? router.invariant(
+          false,
+          "<Navigate> may be used only in the context of a <Router> component."
+        ) : void 0;
+        router.warning(!React__namespace.useContext(NavigationContext).static, "<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.");
+        let dataRouterState = React__namespace.useContext(DataRouterStateContext);
+        let navigate = useNavigate();
+        React__namespace.useEffect(() => {
+          if (dataRouterState && dataRouterState.navigation.state !== "idle") {
+            return;
+          }
+          navigate(to, {
+            replace,
+            state,
+            relative
+          });
+        });
+        return null;
+      }
+      function Outlet(props) {
+        return useOutlet(props.context);
+      }
+      function Route2(_props) {
+        router.invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.");
+      }
+      function Router(_ref4) {
+        let {
+          basename: basenameProp = "/",
+          children = null,
+          location: locationProp,
+          navigationType = router.Action.Pop,
+          navigator: navigator2,
+          static: staticProp = false
+        } = _ref4;
+        !!useInRouterContext() ? router.invariant(false, "You cannot render a <Router> inside another <Router>. You should never have more than one in your app.") : void 0;
+        let basename = basenameProp.replace(/^\/*/, "/");
+        let navigationContext = React__namespace.useMemo(() => ({
+          basename,
+          navigator: navigator2,
+          static: staticProp
+        }), [basename, navigator2, staticProp]);
+        if (typeof locationProp === "string") {
+          locationProp = router.parsePath(locationProp);
+        }
+        let {
+          pathname = "/",
+          search = "",
+          hash = "",
+          state = null,
+          key: key2 = "default"
+        } = locationProp;
+        let location = React__namespace.useMemo(() => {
+          let trailingPathname = router.stripBasename(pathname, basename);
+          if (trailingPathname == null) {
+            return null;
+          }
+          return {
+            pathname: trailingPathname,
+            search,
+            hash,
+            state,
+            key: key2
+          };
+        }, [basename, pathname, search, hash, state, key2]);
+        router.warning(location != null, '<Router basename="' + basename + '"> is not able to match the URL ' + ('"' + pathname + search + hash + '" because it does not start with the ') + "basename, so the <Router> won't render anything.");
+        if (location == null) {
+          return null;
+        }
+        return /* @__PURE__ */ React__namespace.createElement(NavigationContext.Provider, {
+          value: navigationContext
+        }, /* @__PURE__ */ React__namespace.createElement(LocationContext.Provider, {
+          children,
+          value: {
+            location,
+            navigationType
+          }
+        }));
+      }
+      function Routes2(_ref5) {
+        let {
+          children,
+          location
+        } = _ref5;
+        let dataRouterContext = React__namespace.useContext(DataRouterContext);
+        let routes = dataRouterContext && !children ? dataRouterContext.router.routes : createRoutesFromChildren(children);
+        return useRoutes(routes, location);
+      }
+      function Await(_ref6) {
+        let {
+          children,
+          errorElement,
+          resolve
+        } = _ref6;
+        return /* @__PURE__ */ React__namespace.createElement(AwaitErrorBoundary, {
+          resolve,
+          errorElement
+        }, /* @__PURE__ */ React__namespace.createElement(ResolveAwait, null, children));
+      }
+      var AwaitRenderStatus;
+      (function(AwaitRenderStatus2) {
+        AwaitRenderStatus2[AwaitRenderStatus2["pending"] = 0] = "pending";
+        AwaitRenderStatus2[AwaitRenderStatus2["success"] = 1] = "success";
+        AwaitRenderStatus2[AwaitRenderStatus2["error"] = 2] = "error";
+      })(AwaitRenderStatus || (AwaitRenderStatus = {}));
+      const neverSettledPromise = new Promise(() => {
+      });
+      class AwaitErrorBoundary extends React__namespace.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            error: null
+          };
+        }
+        static getDerivedStateFromError(error) {
+          return {
+            error
+          };
+        }
+        componentDidCatch(error, errorInfo) {
+          console.error("<Await> caught the following error during render", error, errorInfo);
+        }
+        render() {
+          let {
+            children,
+            errorElement,
+            resolve
+          } = this.props;
+          let promise = null;
+          let status = AwaitRenderStatus.pending;
+          if (!(resolve instanceof Promise)) {
+            status = AwaitRenderStatus.success;
+            promise = Promise.resolve();
+            Object.defineProperty(promise, "_tracked", {
+              get: () => true
+            });
+            Object.defineProperty(promise, "_data", {
+              get: () => resolve
+            });
+          } else if (this.state.error) {
+            status = AwaitRenderStatus.error;
+            let renderError = this.state.error;
+            promise = Promise.reject().catch(() => {
+            });
+            Object.defineProperty(promise, "_tracked", {
+              get: () => true
+            });
+            Object.defineProperty(promise, "_error", {
+              get: () => renderError
+            });
+          } else if (resolve._tracked) {
+            promise = resolve;
+            status = promise._error !== void 0 ? AwaitRenderStatus.error : promise._data !== void 0 ? AwaitRenderStatus.success : AwaitRenderStatus.pending;
+          } else {
+            status = AwaitRenderStatus.pending;
+            Object.defineProperty(resolve, "_tracked", {
+              get: () => true
+            });
+            promise = resolve.then((data) => Object.defineProperty(resolve, "_data", {
+              get: () => data
+            }), (error) => Object.defineProperty(resolve, "_error", {
+              get: () => error
+            }));
+          }
+          if (status === AwaitRenderStatus.error && promise._error instanceof router.AbortedDeferredError) {
+            throw neverSettledPromise;
+          }
+          if (status === AwaitRenderStatus.error && !errorElement) {
+            throw promise._error;
+          }
+          if (status === AwaitRenderStatus.error) {
+            return /* @__PURE__ */ React__namespace.createElement(AwaitContext.Provider, {
+              value: promise,
+              children: errorElement
+            });
+          }
+          if (status === AwaitRenderStatus.success) {
+            return /* @__PURE__ */ React__namespace.createElement(AwaitContext.Provider, {
+              value: promise,
+              children
+            });
+          }
+          throw promise;
+        }
+      }
+      function ResolveAwait(_ref7) {
+        let {
+          children
+        } = _ref7;
+        let data = useAsyncValue();
+        if (typeof children === "function") {
+          return children(data);
+        }
+        return /* @__PURE__ */ React__namespace.createElement(React__namespace.Fragment, null, children);
+      }
+      function createRoutesFromChildren(children, parentPath) {
+        if (parentPath === void 0) {
+          parentPath = [];
+        }
+        let routes = [];
+        React__namespace.Children.forEach(children, (element, index) => {
+          if (!/* @__PURE__ */ React__namespace.isValidElement(element)) {
+            return;
+          }
+          if (element.type === React__namespace.Fragment) {
+            routes.push.apply(routes, createRoutesFromChildren(element.props.children, parentPath));
+            return;
+          }
+          !(element.type === Route2) ? router.invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : void 0;
+          !(!element.props.index || !element.props.children) ? router.invariant(false, "An index route cannot have child routes.") : void 0;
+          let treePath = [...parentPath, index];
+          let route = {
+            id: element.props.id || treePath.join("-"),
+            caseSensitive: element.props.caseSensitive,
+            element: element.props.element,
+            index: element.props.index,
+            path: element.props.path,
+            loader: element.props.loader,
+            action: element.props.action,
+            errorElement: element.props.errorElement,
+            hasErrorBoundary: element.props.errorElement != null,
+            shouldRevalidate: element.props.shouldRevalidate,
+            handle: element.props.handle
+          };
+          if (element.props.children) {
+            route.children = createRoutesFromChildren(element.props.children, treePath);
+          }
+          routes.push(route);
+        });
+        return routes;
+      }
+      function renderMatches(matches) {
+        return _renderMatches(matches);
+      }
+      function enhanceManualRouteObjects(routes) {
+        return routes.map((route) => {
+          let routeClone = _extends({}, route);
+          if (routeClone.hasErrorBoundary == null) {
+            routeClone.hasErrorBoundary = routeClone.errorElement != null;
+          }
+          if (routeClone.children) {
+            routeClone.children = enhanceManualRouteObjects(routeClone.children);
+          }
+          return routeClone;
+        });
+      }
+      function createMemoryRouter(routes, opts) {
+        return router.createRouter({
+          basename: opts == null ? void 0 : opts.basename,
+          history: router.createMemoryHistory({
+            initialEntries: opts == null ? void 0 : opts.initialEntries,
+            initialIndex: opts == null ? void 0 : opts.initialIndex
+          }),
+          hydrationData: opts == null ? void 0 : opts.hydrationData,
+          routes: enhanceManualRouteObjects(routes)
+        }).initialize();
+      }
+      Object.defineProperty(exports3, "AbortedDeferredError", {
+        enumerable: true,
+        get: function() {
+          return router.AbortedDeferredError;
+        }
+      });
+      Object.defineProperty(exports3, "NavigationType", {
+        enumerable: true,
+        get: function() {
+          return router.Action;
+        }
+      });
+      Object.defineProperty(exports3, "createPath", {
+        enumerable: true,
+        get: function() {
+          return router.createPath;
+        }
+      });
+      Object.defineProperty(exports3, "defer", {
+        enumerable: true,
+        get: function() {
+          return router.defer;
+        }
+      });
+      Object.defineProperty(exports3, "generatePath", {
+        enumerable: true,
+        get: function() {
+          return router.generatePath;
+        }
+      });
+      Object.defineProperty(exports3, "isRouteErrorResponse", {
+        enumerable: true,
+        get: function() {
+          return router.isRouteErrorResponse;
+        }
+      });
+      Object.defineProperty(exports3, "json", {
+        enumerable: true,
+        get: function() {
+          return router.json;
+        }
+      });
+      Object.defineProperty(exports3, "matchPath", {
+        enumerable: true,
+        get: function() {
+          return router.matchPath;
+        }
+      });
+      Object.defineProperty(exports3, "matchRoutes", {
+        enumerable: true,
+        get: function() {
+          return router.matchRoutes;
+        }
+      });
+      Object.defineProperty(exports3, "parsePath", {
+        enumerable: true,
+        get: function() {
+          return router.parsePath;
+        }
+      });
+      Object.defineProperty(exports3, "redirect", {
+        enumerable: true,
+        get: function() {
+          return router.redirect;
+        }
+      });
+      Object.defineProperty(exports3, "resolvePath", {
+        enumerable: true,
+        get: function() {
+          return router.resolvePath;
+        }
+      });
+      exports3.Await = Await;
+      exports3.MemoryRouter = MemoryRouter2;
+      exports3.Navigate = Navigate;
+      exports3.Outlet = Outlet;
+      exports3.Route = Route2;
+      exports3.Router = Router;
+      exports3.RouterProvider = RouterProvider;
+      exports3.Routes = Routes2;
+      exports3.UNSAFE_DataRouterContext = DataRouterContext;
+      exports3.UNSAFE_DataRouterStateContext = DataRouterStateContext;
+      exports3.UNSAFE_DataStaticRouterContext = DataStaticRouterContext;
+      exports3.UNSAFE_LocationContext = LocationContext;
+      exports3.UNSAFE_NavigationContext = NavigationContext;
+      exports3.UNSAFE_RouteContext = RouteContext;
+      exports3.UNSAFE_enhanceManualRouteObjects = enhanceManualRouteObjects;
+      exports3.createMemoryRouter = createMemoryRouter;
+      exports3.createRoutesFromChildren = createRoutesFromChildren;
+      exports3.createRoutesFromElements = createRoutesFromChildren;
+      exports3.renderMatches = renderMatches;
+      exports3.useActionData = useActionData;
+      exports3.useAsyncError = useAsyncError;
+      exports3.useAsyncValue = useAsyncValue;
+      exports3.useHref = useHref;
+      exports3.useInRouterContext = useInRouterContext;
+      exports3.useLoaderData = useLoaderData;
+      exports3.useLocation = useLocation;
+      exports3.useMatch = useMatch;
+      exports3.useMatches = useMatches;
+      exports3.useNavigate = useNavigate;
+      exports3.useNavigation = useNavigation;
+      exports3.useNavigationType = useNavigationType;
+      exports3.useOutlet = useOutlet;
+      exports3.useOutletContext = useOutletContext;
+      exports3.useParams = useParams;
+      exports3.useResolvedPath = useResolvedPath;
+      exports3.useRevalidator = useRevalidator;
+      exports3.useRouteError = useRouteError;
+      exports3.useRouteLoaderData = useRouteLoaderData;
+      exports3.useRoutes = useRoutes;
+      Object.defineProperty(exports3, "__esModule", { value: true });
+    });
+  }
+});
+
+// node_modules/react-router/dist/main.js
+var require_main = __commonJS({
+  "node_modules/react-router/dist/main.js"(exports2, module2) {
+    "use strict";
+    if (process.env.NODE_ENV === "production") {
+      module2.exports = require_react_router_production_min();
+    } else {
+      module2.exports = require_react_router_development();
+    }
+  }
+});
+
+// node_modules/lodash.isequal/index.js
+var require_lodash2 = __commonJS({
+  "node_modules/lodash.isequal/index.js"(exports2, module2) {
+    var LARGE_ARRAY_SIZE = 200;
+    var HASH_UNDEFINED = "__lodash_hash_undefined__";
+    var COMPARE_PARTIAL_FLAG = 1;
+    var COMPARE_UNORDERED_FLAG = 2;
+    var MAX_SAFE_INTEGER = 9007199254740991;
+    var argsTag = "[object Arguments]";
+    var arrayTag = "[object Array]";
+    var asyncTag = "[object AsyncFunction]";
+    var boolTag = "[object Boolean]";
+    var dateTag = "[object Date]";
+    var errorTag = "[object Error]";
+    var funcTag = "[object Function]";
+    var genTag = "[object GeneratorFunction]";
+    var mapTag = "[object Map]";
+    var numberTag = "[object Number]";
+    var nullTag = "[object Null]";
+    var objectTag = "[object Object]";
+    var promiseTag = "[object Promise]";
+    var proxyTag = "[object Proxy]";
+    var regexpTag = "[object RegExp]";
+    var setTag = "[object Set]";
+    var stringTag = "[object String]";
+    var symbolTag = "[object Symbol]";
+    var undefinedTag = "[object Undefined]";
+    var weakMapTag = "[object WeakMap]";
+    var arrayBufferTag = "[object ArrayBuffer]";
+    var dataViewTag = "[object DataView]";
+    var float32Tag = "[object Float32Array]";
+    var float64Tag = "[object Float64Array]";
+    var int8Tag = "[object Int8Array]";
+    var int16Tag = "[object Int16Array]";
+    var int32Tag = "[object Int32Array]";
+    var uint8Tag = "[object Uint8Array]";
+    var uint8ClampedTag = "[object Uint8ClampedArray]";
+    var uint16Tag = "[object Uint16Array]";
+    var uint32Tag = "[object Uint32Array]";
+    var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+    var reIsHostCtor = /^\[object .+?Constructor\]$/;
+    var reIsUint = /^(?:0|[1-9]\d*)$/;
+    var typedArrayTags = {};
+    typedArrayTags[float32Tag] = typedArrayTags[float64Tag] = typedArrayTags[int8Tag] = typedArrayTags[int16Tag] = typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] = typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] = typedArrayTags[uint32Tag] = true;
+    typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] = typedArrayTags[dataViewTag] = typedArrayTags[dateTag] = typedArrayTags[errorTag] = typedArrayTags[funcTag] = typedArrayTags[mapTag] = typedArrayTags[numberTag] = typedArrayTags[objectTag] = typedArrayTags[regexpTag] = typedArrayTags[setTag] = typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
+    var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+    var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+    var root = freeGlobal || freeSelf || Function("return this")();
+    var freeExports = typeof exports2 == "object" && exports2 && !exports2.nodeType && exports2;
+    var freeModule = freeExports && typeof module2 == "object" && module2 && !module2.nodeType && module2;
+    var moduleExports = freeModule && freeModule.exports === freeExports;
+    var freeProcess = moduleExports && freeGlobal.process;
+    var nodeUtil = function() {
+      try {
+        return freeProcess && freeProcess.binding && freeProcess.binding("util");
+      } catch (e) {
+      }
+    }();
+    var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+    function arrayFilter(array, predicate) {
+      var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
+      while (++index < length) {
+        var value = array[index];
+        if (predicate(value, index, array)) {
+          result[resIndex++] = value;
+        }
+      }
+      return result;
+    }
+    function arrayPush(array, values) {
+      var index = -1, length = values.length, offset = array.length;
+      while (++index < length) {
+        array[offset + index] = values[index];
+      }
+      return array;
+    }
+    function arraySome(array, predicate) {
+      var index = -1, length = array == null ? 0 : array.length;
+      while (++index < length) {
+        if (predicate(array[index], index, array)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function baseTimes(n, iteratee) {
+      var index = -1, result = Array(n);
+      while (++index < n) {
+        result[index] = iteratee(index);
+      }
+      return result;
+    }
+    function baseUnary(func2) {
+      return function(value) {
+        return func2(value);
+      };
+    }
+    function cacheHas(cache, key2) {
+      return cache.has(key2);
+    }
+    function getValue2(object, key2) {
+      return object == null ? void 0 : object[key2];
+    }
+    function mapToArray(map) {
+      var index = -1, result = Array(map.size);
+      map.forEach(function(value, key2) {
+        result[++index] = [key2, value];
+      });
+      return result;
+    }
+    function overArg(func2, transform) {
+      return function(arg2) {
+        return func2(transform(arg2));
+      };
+    }
+    function setToArray(set) {
+      var index = -1, result = Array(set.size);
+      set.forEach(function(value) {
+        result[++index] = value;
+      });
+      return result;
+    }
+    var arrayProto = Array.prototype;
+    var funcProto = Function.prototype;
+    var objectProto = Object.prototype;
+    var coreJsData = root["__core-js_shared__"];
+    var funcToString = funcProto.toString;
+    var hasOwnProperty = objectProto.hasOwnProperty;
+    var maskSrcKey = function() {
+      var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
+      return uid ? "Symbol(src)_1." + uid : "";
+    }();
+    var nativeObjectToString = objectProto.toString;
+    var reIsNative = RegExp(
+      "^" + funcToString.call(hasOwnProperty).replace(reRegExpChar, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
+    );
+    var Buffer2 = moduleExports ? root.Buffer : void 0;
+    var Symbol2 = root.Symbol;
+    var Uint8Array2 = root.Uint8Array;
+    var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+    var splice = arrayProto.splice;
+    var symToStringTag = Symbol2 ? Symbol2.toStringTag : void 0;
+    var nativeGetSymbols = Object.getOwnPropertySymbols;
+    var nativeIsBuffer = Buffer2 ? Buffer2.isBuffer : void 0;
+    var nativeKeys = overArg(Object.keys, Object);
+    var DataView2 = getNative(root, "DataView");
+    var Map2 = getNative(root, "Map");
+    var Promise2 = getNative(root, "Promise");
+    var Set2 = getNative(root, "Set");
+    var WeakMap2 = getNative(root, "WeakMap");
+    var nativeCreate = getNative(Object, "create");
+    var dataViewCtorString = toSource(DataView2);
+    var mapCtorString = toSource(Map2);
+    var promiseCtorString = toSource(Promise2);
+    var setCtorString = toSource(Set2);
+    var weakMapCtorString = toSource(WeakMap2);
+    var symbolProto = Symbol2 ? Symbol2.prototype : void 0;
+    var symbolValueOf = symbolProto ? symbolProto.valueOf : void 0;
+    function Hash(entries) {
+      var index = -1, length = entries == null ? 0 : entries.length;
+      this.clear();
+      while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+      }
+    }
+    function hashClear() {
+      this.__data__ = nativeCreate ? nativeCreate(null) : {};
+      this.size = 0;
+    }
+    function hashDelete(key2) {
+      var result = this.has(key2) && delete this.__data__[key2];
+      this.size -= result ? 1 : 0;
+      return result;
+    }
+    function hashGet(key2) {
+      var data = this.__data__;
+      if (nativeCreate) {
+        var result = data[key2];
+        return result === HASH_UNDEFINED ? void 0 : result;
+      }
+      return hasOwnProperty.call(data, key2) ? data[key2] : void 0;
+    }
+    function hashHas(key2) {
+      var data = this.__data__;
+      return nativeCreate ? data[key2] !== void 0 : hasOwnProperty.call(data, key2);
+    }
+    function hashSet(key2, value) {
+      var data = this.__data__;
+      this.size += this.has(key2) ? 0 : 1;
+      data[key2] = nativeCreate && value === void 0 ? HASH_UNDEFINED : value;
+      return this;
+    }
+    Hash.prototype.clear = hashClear;
+    Hash.prototype["delete"] = hashDelete;
+    Hash.prototype.get = hashGet;
+    Hash.prototype.has = hashHas;
+    Hash.prototype.set = hashSet;
+    function ListCache(entries) {
+      var index = -1, length = entries == null ? 0 : entries.length;
+      this.clear();
+      while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+      }
+    }
+    function listCacheClear() {
+      this.__data__ = [];
+      this.size = 0;
+    }
+    function listCacheDelete(key2) {
+      var data = this.__data__, index = assocIndexOf(data, key2);
+      if (index < 0) {
+        return false;
+      }
+      var lastIndex = data.length - 1;
+      if (index == lastIndex) {
+        data.pop();
+      } else {
+        splice.call(data, index, 1);
+      }
+      --this.size;
+      return true;
+    }
+    function listCacheGet(key2) {
+      var data = this.__data__, index = assocIndexOf(data, key2);
+      return index < 0 ? void 0 : data[index][1];
+    }
+    function listCacheHas(key2) {
+      return assocIndexOf(this.__data__, key2) > -1;
+    }
+    function listCacheSet(key2, value) {
+      var data = this.__data__, index = assocIndexOf(data, key2);
+      if (index < 0) {
+        ++this.size;
+        data.push([key2, value]);
+      } else {
+        data[index][1] = value;
+      }
+      return this;
+    }
+    ListCache.prototype.clear = listCacheClear;
+    ListCache.prototype["delete"] = listCacheDelete;
+    ListCache.prototype.get = listCacheGet;
+    ListCache.prototype.has = listCacheHas;
+    ListCache.prototype.set = listCacheSet;
+    function MapCache(entries) {
+      var index = -1, length = entries == null ? 0 : entries.length;
+      this.clear();
+      while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+      }
+    }
+    function mapCacheClear() {
+      this.size = 0;
+      this.__data__ = {
+        "hash": new Hash(),
+        "map": new (Map2 || ListCache)(),
+        "string": new Hash()
+      };
+    }
+    function mapCacheDelete(key2) {
+      var result = getMapData(this, key2)["delete"](key2);
+      this.size -= result ? 1 : 0;
+      return result;
+    }
+    function mapCacheGet(key2) {
+      return getMapData(this, key2).get(key2);
+    }
+    function mapCacheHas(key2) {
+      return getMapData(this, key2).has(key2);
+    }
+    function mapCacheSet(key2, value) {
+      var data = getMapData(this, key2), size = data.size;
+      data.set(key2, value);
+      this.size += data.size == size ? 0 : 1;
+      return this;
+    }
+    MapCache.prototype.clear = mapCacheClear;
+    MapCache.prototype["delete"] = mapCacheDelete;
+    MapCache.prototype.get = mapCacheGet;
+    MapCache.prototype.has = mapCacheHas;
+    MapCache.prototype.set = mapCacheSet;
+    function SetCache(values) {
+      var index = -1, length = values == null ? 0 : values.length;
+      this.__data__ = new MapCache();
+      while (++index < length) {
+        this.add(values[index]);
+      }
+    }
+    function setCacheAdd(value) {
+      this.__data__.set(value, HASH_UNDEFINED);
+      return this;
+    }
+    function setCacheHas(value) {
+      return this.__data__.has(value);
+    }
+    SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
+    SetCache.prototype.has = setCacheHas;
+    function Stack(entries) {
+      var data = this.__data__ = new ListCache(entries);
+      this.size = data.size;
+    }
+    function stackClear() {
+      this.__data__ = new ListCache();
+      this.size = 0;
+    }
+    function stackDelete(key2) {
+      var data = this.__data__, result = data["delete"](key2);
+      this.size = data.size;
+      return result;
+    }
+    function stackGet(key2) {
+      return this.__data__.get(key2);
+    }
+    function stackHas(key2) {
+      return this.__data__.has(key2);
+    }
+    function stackSet(key2, value) {
+      var data = this.__data__;
+      if (data instanceof ListCache) {
+        var pairs = data.__data__;
+        if (!Map2 || pairs.length < LARGE_ARRAY_SIZE - 1) {
+          pairs.push([key2, value]);
+          this.size = ++data.size;
+          return this;
+        }
+        data = this.__data__ = new MapCache(pairs);
+      }
+      data.set(key2, value);
+      this.size = data.size;
+      return this;
+    }
+    Stack.prototype.clear = stackClear;
+    Stack.prototype["delete"] = stackDelete;
+    Stack.prototype.get = stackGet;
+    Stack.prototype.has = stackHas;
+    Stack.prototype.set = stackSet;
+    function arrayLikeKeys(value, inherited) {
+      var isArr = isArray(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? baseTimes(value.length, String) : [], length = result.length;
+      for (var key2 in value) {
+        if ((inherited || hasOwnProperty.call(value, key2)) && !(skipIndexes && (key2 == "length" || isBuff && (key2 == "offset" || key2 == "parent") || isType && (key2 == "buffer" || key2 == "byteLength" || key2 == "byteOffset") || isIndex(key2, length)))) {
+          result.push(key2);
+        }
+      }
+      return result;
+    }
+    function assocIndexOf(array, key2) {
+      var length = array.length;
+      while (length--) {
+        if (eq(array[length][0], key2)) {
+          return length;
+        }
+      }
+      return -1;
+    }
+    function baseGetAllKeys(object, keysFunc, symbolsFunc) {
+      var result = keysFunc(object);
+      return isArray(object) ? result : arrayPush(result, symbolsFunc(object));
+    }
+    function baseGetTag(value) {
+      if (value == null) {
+        return value === void 0 ? undefinedTag : nullTag;
+      }
+      return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+    }
+    function baseIsArguments(value) {
+      return isObjectLike(value) && baseGetTag(value) == argsTag;
+    }
+    function baseIsEqual(value, other, bitmask, customizer, stack) {
+      if (value === other) {
+        return true;
+      }
+      if (value == null || other == null || !isObjectLike(value) && !isObjectLike(other)) {
+        return value !== value && other !== other;
+      }
+      return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
+    }
+    function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
+      var objIsArr = isArray(object), othIsArr = isArray(other), objTag = objIsArr ? arrayTag : getTag(object), othTag = othIsArr ? arrayTag : getTag(other);
+      objTag = objTag == argsTag ? objectTag : objTag;
+      othTag = othTag == argsTag ? objectTag : othTag;
+      var objIsObj = objTag == objectTag, othIsObj = othTag == objectTag, isSameTag = objTag == othTag;
+      if (isSameTag && isBuffer(object)) {
+        if (!isBuffer(other)) {
+          return false;
+        }
+        objIsArr = true;
+        objIsObj = false;
+      }
+      if (isSameTag && !objIsObj) {
+        stack || (stack = new Stack());
+        return objIsArr || isTypedArray(object) ? equalArrays(object, other, bitmask, customizer, equalFunc, stack) : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
+      }
+      if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
+        var objIsWrapped = objIsObj && hasOwnProperty.call(object, "__wrapped__"), othIsWrapped = othIsObj && hasOwnProperty.call(other, "__wrapped__");
+        if (objIsWrapped || othIsWrapped) {
+          var objUnwrapped = objIsWrapped ? object.value() : object, othUnwrapped = othIsWrapped ? other.value() : other;
+          stack || (stack = new Stack());
+          return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack);
+        }
+      }
+      if (!isSameTag) {
+        return false;
+      }
+      stack || (stack = new Stack());
+      return equalObjects(object, other, bitmask, customizer, equalFunc, stack);
+    }
+    function baseIsNative(value) {
+      if (!isObject(value) || isMasked(value)) {
+        return false;
+      }
+      var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
+      return pattern.test(toSource(value));
+    }
+    function baseIsTypedArray(value) {
+      return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
+    }
+    function baseKeys(object) {
+      if (!isPrototype(object)) {
+        return nativeKeys(object);
+      }
+      var result = [];
+      for (var key2 in Object(object)) {
+        if (hasOwnProperty.call(object, key2) && key2 != "constructor") {
+          result.push(key2);
+        }
+      }
+      return result;
+    }
+    function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
+      var isPartial = bitmask & COMPARE_PARTIAL_FLAG, arrLength = array.length, othLength = other.length;
+      if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
+        return false;
+      }
+      var stacked = stack.get(array);
+      if (stacked && stack.get(other)) {
+        return stacked == other;
+      }
+      var index = -1, result = true, seen = bitmask & COMPARE_UNORDERED_FLAG ? new SetCache() : void 0;
+      stack.set(array, other);
+      stack.set(other, array);
+      while (++index < arrLength) {
+        var arrValue = array[index], othValue = other[index];
+        if (customizer) {
+          var compared = isPartial ? customizer(othValue, arrValue, index, other, array, stack) : customizer(arrValue, othValue, index, array, other, stack);
+        }
+        if (compared !== void 0) {
+          if (compared) {
+            continue;
+          }
+          result = false;
+          break;
+        }
+        if (seen) {
+          if (!arraySome(other, function(othValue2, othIndex) {
+            if (!cacheHas(seen, othIndex) && (arrValue === othValue2 || equalFunc(arrValue, othValue2, bitmask, customizer, stack))) {
+              return seen.push(othIndex);
+            }
+          })) {
+            result = false;
+            break;
+          }
+        } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
+          result = false;
+          break;
+        }
+      }
+      stack["delete"](array);
+      stack["delete"](other);
+      return result;
+    }
+    function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
+      switch (tag) {
+        case dataViewTag:
+          if (object.byteLength != other.byteLength || object.byteOffset != other.byteOffset) {
+            return false;
+          }
+          object = object.buffer;
+          other = other.buffer;
+        case arrayBufferTag:
+          if (object.byteLength != other.byteLength || !equalFunc(new Uint8Array2(object), new Uint8Array2(other))) {
+            return false;
+          }
+          return true;
+        case boolTag:
+        case dateTag:
+        case numberTag:
+          return eq(+object, +other);
+        case errorTag:
+          return object.name == other.name && object.message == other.message;
+        case regexpTag:
+        case stringTag:
+          return object == other + "";
+        case mapTag:
+          var convert = mapToArray;
+        case setTag:
+          var isPartial = bitmask & COMPARE_PARTIAL_FLAG;
+          convert || (convert = setToArray);
+          if (object.size != other.size && !isPartial) {
+            return false;
+          }
+          var stacked = stack.get(object);
+          if (stacked) {
+            return stacked == other;
+          }
+          bitmask |= COMPARE_UNORDERED_FLAG;
+          stack.set(object, other);
+          var result = equalArrays(convert(object), convert(other), bitmask, customizer, equalFunc, stack);
+          stack["delete"](object);
+          return result;
+        case symbolTag:
+          if (symbolValueOf) {
+            return symbolValueOf.call(object) == symbolValueOf.call(other);
+          }
+      }
+      return false;
+    }
+    function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
+      var isPartial = bitmask & COMPARE_PARTIAL_FLAG, objProps = getAllKeys(object), objLength = objProps.length, othProps = getAllKeys(other), othLength = othProps.length;
+      if (objLength != othLength && !isPartial) {
+        return false;
+      }
+      var index = objLength;
+      while (index--) {
+        var key2 = objProps[index];
+        if (!(isPartial ? key2 in other : hasOwnProperty.call(other, key2))) {
+          return false;
+        }
+      }
+      var stacked = stack.get(object);
+      if (stacked && stack.get(other)) {
+        return stacked == other;
+      }
+      var result = true;
+      stack.set(object, other);
+      stack.set(other, object);
+      var skipCtor = isPartial;
+      while (++index < objLength) {
+        key2 = objProps[index];
+        var objValue = object[key2], othValue = other[key2];
+        if (customizer) {
+          var compared = isPartial ? customizer(othValue, objValue, key2, other, object, stack) : customizer(objValue, othValue, key2, object, other, stack);
+        }
+        if (!(compared === void 0 ? objValue === othValue || equalFunc(objValue, othValue, bitmask, customizer, stack) : compared)) {
+          result = false;
+          break;
+        }
+        skipCtor || (skipCtor = key2 == "constructor");
+      }
+      if (result && !skipCtor) {
+        var objCtor = object.constructor, othCtor = other.constructor;
+        if (objCtor != othCtor && ("constructor" in object && "constructor" in other) && !(typeof objCtor == "function" && objCtor instanceof objCtor && typeof othCtor == "function" && othCtor instanceof othCtor)) {
+          result = false;
+        }
+      }
+      stack["delete"](object);
+      stack["delete"](other);
+      return result;
+    }
+    function getAllKeys(object) {
+      return baseGetAllKeys(object, keys, getSymbols);
+    }
+    function getMapData(map, key2) {
+      var data = map.__data__;
+      return isKeyable(key2) ? data[typeof key2 == "string" ? "string" : "hash"] : data.map;
+    }
+    function getNative(object, key2) {
+      var value = getValue2(object, key2);
+      return baseIsNative(value) ? value : void 0;
+    }
+    function getRawTag(value) {
+      var isOwn = hasOwnProperty.call(value, symToStringTag), tag = value[symToStringTag];
+      try {
+        value[symToStringTag] = void 0;
+        var unmasked = true;
+      } catch (e) {
+      }
+      var result = nativeObjectToString.call(value);
+      if (unmasked) {
+        if (isOwn) {
+          value[symToStringTag] = tag;
+        } else {
+          delete value[symToStringTag];
+        }
+      }
+      return result;
+    }
+    var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
+      if (object == null) {
+        return [];
+      }
+      object = Object(object);
+      return arrayFilter(nativeGetSymbols(object), function(symbol) {
+        return propertyIsEnumerable.call(object, symbol);
+      });
+    };
+    var getTag = baseGetTag;
+    if (DataView2 && getTag(new DataView2(new ArrayBuffer(1))) != dataViewTag || Map2 && getTag(new Map2()) != mapTag || Promise2 && getTag(Promise2.resolve()) != promiseTag || Set2 && getTag(new Set2()) != setTag || WeakMap2 && getTag(new WeakMap2()) != weakMapTag) {
+      getTag = function(value) {
+        var result = baseGetTag(value), Ctor = result == objectTag ? value.constructor : void 0, ctorString = Ctor ? toSource(Ctor) : "";
+        if (ctorString) {
+          switch (ctorString) {
+            case dataViewCtorString:
+              return dataViewTag;
+            case mapCtorString:
+              return mapTag;
+            case promiseCtorString:
+              return promiseTag;
+            case setCtorString:
+              return setTag;
+            case weakMapCtorString:
+              return weakMapTag;
+          }
+        }
+        return result;
+      };
+    }
+    function isIndex(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER : length;
+      return !!length && (typeof value == "number" || reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length);
+    }
+    function isKeyable(value) {
+      var type2 = typeof value;
+      return type2 == "string" || type2 == "number" || type2 == "symbol" || type2 == "boolean" ? value !== "__proto__" : value === null;
+    }
+    function isMasked(func2) {
+      return !!maskSrcKey && maskSrcKey in func2;
+    }
+    function isPrototype(value) {
+      var Ctor = value && value.constructor, proto = typeof Ctor == "function" && Ctor.prototype || objectProto;
+      return value === proto;
+    }
+    function objectToString(value) {
+      return nativeObjectToString.call(value);
+    }
+    function toSource(func2) {
+      if (func2 != null) {
+        try {
+          return funcToString.call(func2);
+        } catch (e) {
+        }
+        try {
+          return func2 + "";
+        } catch (e) {
+        }
+      }
+      return "";
+    }
+    function eq(value, other) {
+      return value === other || value !== value && other !== other;
+    }
+    var isArguments = baseIsArguments(function() {
+      return arguments;
+    }()) ? baseIsArguments : function(value) {
+      return isObjectLike(value) && hasOwnProperty.call(value, "callee") && !propertyIsEnumerable.call(value, "callee");
+    };
+    var isArray = Array.isArray;
+    function isArrayLike(value) {
+      return value != null && isLength(value.length) && !isFunction(value);
+    }
+    var isBuffer = nativeIsBuffer || stubFalse;
+    function isEqual(value, other) {
+      return baseIsEqual(value, other);
+    }
+    function isFunction(value) {
+      if (!isObject(value)) {
+        return false;
+      }
+      var tag = baseGetTag(value);
+      return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+    }
+    function isLength(value) {
+      return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    }
+    function isObject(value) {
+      var type2 = typeof value;
+      return value != null && (type2 == "object" || type2 == "function");
+    }
+    function isObjectLike(value) {
+      return value != null && typeof value == "object";
+    }
+    var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+    function keys(object) {
+      return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
+    }
+    function stubArray() {
+      return [];
+    }
+    function stubFalse() {
+      return false;
+    }
+    module2.exports = isEqual;
+  }
+});
+
+// node_modules/arr-rotate/index.js
+var require_arr_rotate = __commonJS({
+  "node_modules/arr-rotate/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = (input, n) => {
+      if (!Array.isArray(input)) {
+        throw new TypeError(`Expected an array, got ${typeof input}`);
+      }
+      const x = input.slice();
+      const num2 = typeof n === "number" ? n : 0;
+      return x.splice(-num2 % x.length).concat(x);
+    };
+  }
+});
+
+// node_modules/ink-select-input/node_modules/escape-string-regexp/index.js
+var require_escape_string_regexp2 = __commonJS({
+  "node_modules/ink-select-input/node_modules/escape-string-regexp/index.js"(exports2, module2) {
+    "use strict";
+    var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+    module2.exports = function(str) {
+      if (typeof str !== "string") {
+        throw new TypeError("Expected a string");
+      }
+      return str.replace(matchOperatorsRe, "\\$&");
+    };
+  }
+});
+
+// node_modules/ink-select-input/node_modules/figures/index.js
+var require_figures = __commonJS({
+  "node_modules/ink-select-input/node_modules/figures/index.js"(exports2, module2) {
+    "use strict";
+    var escapeStringRegexp = require_escape_string_regexp2();
+    var { platform } = process;
+    var main = {
+      tick: "\u2714",
+      cross: "\u2716",
+      star: "\u2605",
+      square: "\u2587",
+      squareSmall: "\u25FB",
+      squareSmallFilled: "\u25FC",
+      play: "\u25B6",
+      circle: "\u25EF",
+      circleFilled: "\u25C9",
+      circleDotted: "\u25CC",
+      circleDouble: "\u25CE",
+      circleCircle: "\u24DE",
+      circleCross: "\u24E7",
+      circlePipe: "\u24BE",
+      circleQuestionMark: "?\u20DD",
+      bullet: "\u25CF",
+      dot: "\u2024",
+      line: "\u2500",
+      ellipsis: "\u2026",
+      pointer: "\u276F",
+      pointerSmall: "\u203A",
+      info: "\u2139",
+      warning: "\u26A0",
+      hamburger: "\u2630",
+      smiley: "\u32E1",
+      mustache: "\u0DF4",
+      heart: "\u2665",
+      nodejs: "\u2B22",
+      arrowUp: "\u2191",
+      arrowDown: "\u2193",
+      arrowLeft: "\u2190",
+      arrowRight: "\u2192",
+      radioOn: "\u25C9",
+      radioOff: "\u25EF",
+      checkboxOn: "\u2612",
+      checkboxOff: "\u2610",
+      checkboxCircleOn: "\u24E7",
+      checkboxCircleOff: "\u24BE",
+      questionMarkPrefix: "?\u20DD",
+      oneHalf: "\xBD",
+      oneThird: "\u2153",
+      oneQuarter: "\xBC",
+      oneFifth: "\u2155",
+      oneSixth: "\u2159",
+      oneSeventh: "\u2150",
+      oneEighth: "\u215B",
+      oneNinth: "\u2151",
+      oneTenth: "\u2152",
+      twoThirds: "\u2154",
+      twoFifths: "\u2156",
+      threeQuarters: "\xBE",
+      threeFifths: "\u2157",
+      threeEighths: "\u215C",
+      fourFifths: "\u2158",
+      fiveSixths: "\u215A",
+      fiveEighths: "\u215D",
+      sevenEighths: "\u215E"
+    };
+    var windows = {
+      tick: "\u221A",
+      cross: "\xD7",
+      star: "*",
+      square: "\u2588",
+      squareSmall: "[ ]",
+      squareSmallFilled: "[\u2588]",
+      play: "\u25BA",
+      circle: "( )",
+      circleFilled: "(*)",
+      circleDotted: "( )",
+      circleDouble: "( )",
+      circleCircle: "(\u25CB)",
+      circleCross: "(\xD7)",
+      circlePipe: "(\u2502)",
+      circleQuestionMark: "(?)",
+      bullet: "*",
+      dot: ".",
+      line: "\u2500",
+      ellipsis: "...",
+      pointer: ">",
+      pointerSmall: "\xBB",
+      info: "i",
+      warning: "\u203C",
+      hamburger: "\u2261",
+      smiley: "\u263A",
+      mustache: "\u250C\u2500\u2510",
+      heart: main.heart,
+      nodejs: "\u2666",
+      arrowUp: main.arrowUp,
+      arrowDown: main.arrowDown,
+      arrowLeft: main.arrowLeft,
+      arrowRight: main.arrowRight,
+      radioOn: "(*)",
+      radioOff: "( )",
+      checkboxOn: "[\xD7]",
+      checkboxOff: "[ ]",
+      checkboxCircleOn: "(\xD7)",
+      checkboxCircleOff: "( )",
+      questionMarkPrefix: "\uFF1F",
+      oneHalf: "1/2",
+      oneThird: "1/3",
+      oneQuarter: "1/4",
+      oneFifth: "1/5",
+      oneSixth: "1/6",
+      oneSeventh: "1/7",
+      oneEighth: "1/8",
+      oneNinth: "1/9",
+      oneTenth: "1/10",
+      twoThirds: "2/3",
+      twoFifths: "2/5",
+      threeQuarters: "3/4",
+      threeFifths: "3/5",
+      threeEighths: "3/8",
+      fourFifths: "4/5",
+      fiveSixths: "5/6",
+      fiveEighths: "5/8",
+      sevenEighths: "7/8"
+    };
+    if (platform === "linux") {
+      main.questionMarkPrefix = "?";
+    }
+    var figures = platform === "win32" ? windows : main;
+    var fn = (string) => {
+      if (figures === main) {
+        return string;
+      }
+      for (const [key2, value] of Object.entries(main)) {
+        if (value === figures[key2]) {
+          continue;
+        }
+        string = string.replace(new RegExp(escapeStringRegexp(value), "g"), figures[key2]);
+      }
+      return string;
+    };
+    module2.exports = Object.assign(fn, figures);
+    module2.exports.main = main;
+    module2.exports.windows = windows;
+  }
+});
+
+// node_modules/ink-select-input/build/Indicator.js
+var require_Indicator = __commonJS({
+  "node_modules/ink-select-input/build/Indicator.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    var React3 = require_react();
+    var ink_1 = require_build2();
+    var figures = require_figures();
+    var Indicator = ({ isSelected = false }) => React3.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React3.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React3.createElement(ink_1.Text, null, " "));
+    exports2.default = Indicator;
+  }
+});
+
+// node_modules/ink-select-input/build/Item.js
+var require_Item = __commonJS({
+  "node_modules/ink-select-input/build/Item.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    var React3 = require_react();
+    var ink_1 = require_build2();
+    var Item = ({ isSelected = false, label }) => React3.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
+    exports2.default = Item;
+  }
+});
+
+// node_modules/ink-select-input/build/SelectInput.js
+var require_SelectInput = __commonJS({
+  "node_modules/ink-select-input/build/SelectInput.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    var React3 = require_react();
+    var react_1 = require_react();
+    var isEqual = require_lodash2();
+    var arrayRotate = require_arr_rotate();
+    var ink_1 = require_build2();
+    var Indicator_1 = require_Indicator();
+    var Item_1 = require_Item();
+    function SelectInput2({ items = [], isFocused = true, initialIndex = 0, indicatorComponent = Indicator_1.default, itemComponent = Item_1.default, limit: customLimit, onSelect, onHighlight }) {
+      const [rotateIndex, setRotateIndex] = react_1.useState(0);
+      const [selectedIndex, setSelectedIndex] = react_1.useState(initialIndex);
+      const hasLimit = typeof customLimit === "number" && items.length > customLimit;
+      const limit = hasLimit ? Math.min(customLimit, items.length) : items.length;
+      const previousItems = react_1.useRef(items);
+      react_1.useEffect(() => {
+        if (!isEqual(previousItems.current.map((item) => item.value), items.map((item) => item.value))) {
+          setRotateIndex(0);
+          setSelectedIndex(0);
+        }
+        previousItems.current = items;
+      }, [items]);
+      ink_1.useInput(react_1.useCallback((input, key2) => {
+        if (input === "k" || key2.upArrow) {
+          const lastIndex = (hasLimit ? limit : items.length) - 1;
+          const atFirstIndex = selectedIndex === 0;
+          const nextIndex = hasLimit ? selectedIndex : lastIndex;
+          const nextRotateIndex = atFirstIndex ? rotateIndex + 1 : rotateIndex;
+          const nextSelectedIndex = atFirstIndex ? nextIndex : selectedIndex - 1;
+          setRotateIndex(nextRotateIndex);
+          setSelectedIndex(nextSelectedIndex);
+          const slicedItems2 = hasLimit ? arrayRotate(items, nextRotateIndex).slice(0, limit) : items;
+          if (typeof onHighlight === "function") {
+            onHighlight(slicedItems2[nextSelectedIndex]);
+          }
+        }
+        if (input === "j" || key2.downArrow) {
+          const atLastIndex = selectedIndex === (hasLimit ? limit : items.length) - 1;
+          const nextIndex = hasLimit ? selectedIndex : 0;
+          const nextRotateIndex = atLastIndex ? rotateIndex - 1 : rotateIndex;
+          const nextSelectedIndex = atLastIndex ? nextIndex : selectedIndex + 1;
+          setRotateIndex(nextRotateIndex);
+          setSelectedIndex(nextSelectedIndex);
+          const slicedItems2 = hasLimit ? arrayRotate(items, nextRotateIndex).slice(0, limit) : items;
+          if (typeof onHighlight === "function") {
+            onHighlight(slicedItems2[nextSelectedIndex]);
+          }
+        }
+        if (key2.return) {
+          const slicedItems2 = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
+          if (typeof onSelect === "function") {
+            onSelect(slicedItems2[selectedIndex]);
+          }
+        }
+      }, [
+        hasLimit,
+        limit,
+        rotateIndex,
+        selectedIndex,
+        items,
+        onSelect,
+        onHighlight
+      ]), { isActive: isFocused });
+      const slicedItems = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
+      return React3.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
+        var _a2;
+        const isSelected = index === selectedIndex;
+        return React3.createElement(
+          ink_1.Box,
+          { key: (_a2 = item.key) !== null && _a2 !== void 0 ? _a2 : item.value },
+          React3.createElement(indicatorComponent, { isSelected }),
+          React3.createElement(itemComponent, { ...item, isSelected })
+        );
+      }));
+    }
+    exports2.default = SelectInput2;
+  }
+});
+
+// node_modules/ink-select-input/build/index.js
+var require_build3 = __commonJS({
+  "node_modules/ink-select-input/build/index.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    var SelectInput_1 = require_SelectInput();
+    exports2.default = SelectInput_1.default;
+    var Indicator_1 = require_Indicator();
+    Object.defineProperty(exports2, "Indicator", { enumerable: true, get: function() {
+      return Indicator_1.default;
+    } });
+    var Item_1 = require_Item();
+    Object.defineProperty(exports2, "Item", { enumerable: true, get: function() {
+      return Item_1.default;
+    } });
+  }
+});
+
+// node_modules/react-is/cjs/react-is.production.min.js
+var require_react_is_production_min = __commonJS({
+  "node_modules/react-is/cjs/react-is.production.min.js"(exports2) {
+    "use strict";
+    var b = "function" === typeof Symbol && Symbol.for;
+    var c = b ? Symbol.for("react.element") : 60103;
+    var d = b ? Symbol.for("react.portal") : 60106;
+    var e = b ? Symbol.for("react.fragment") : 60107;
+    var f = b ? Symbol.for("react.strict_mode") : 60108;
+    var g = b ? Symbol.for("react.profiler") : 60114;
+    var h = b ? Symbol.for("react.provider") : 60109;
+    var k = b ? Symbol.for("react.context") : 60110;
+    var l = b ? Symbol.for("react.async_mode") : 60111;
+    var m = b ? Symbol.for("react.concurrent_mode") : 60111;
+    var n = b ? Symbol.for("react.forward_ref") : 60112;
+    var p = b ? Symbol.for("react.suspense") : 60113;
+    var q = b ? Symbol.for("react.suspense_list") : 60120;
+    var r = b ? Symbol.for("react.memo") : 60115;
+    var t = b ? Symbol.for("react.lazy") : 60116;
+    var v = b ? Symbol.for("react.block") : 60121;
+    var w = b ? Symbol.for("react.fundamental") : 60117;
+    var x = b ? Symbol.for("react.responder") : 60118;
+    var y = b ? Symbol.for("react.scope") : 60119;
+    function z(a) {
+      if ("object" === typeof a && null !== a) {
+        var u = a.$$typeof;
+        switch (u) {
+          case c:
+            switch (a = a.type, a) {
+              case l:
+              case m:
+              case e:
+              case g:
+              case f:
+              case p:
+                return a;
+              default:
+                switch (a = a && a.$$typeof, a) {
+                  case k:
+                  case n:
+                  case t:
+                  case r:
+                  case h:
+                    return a;
+                  default:
+                    return u;
+                }
+            }
+          case d:
+            return u;
+        }
+      }
+    }
+    function A(a) {
+      return z(a) === m;
+    }
+    exports2.AsyncMode = l;
+    exports2.ConcurrentMode = m;
+    exports2.ContextConsumer = k;
+    exports2.ContextProvider = h;
+    exports2.Element = c;
+    exports2.ForwardRef = n;
+    exports2.Fragment = e;
+    exports2.Lazy = t;
+    exports2.Memo = r;
+    exports2.Portal = d;
+    exports2.Profiler = g;
+    exports2.StrictMode = f;
+    exports2.Suspense = p;
+    exports2.isAsyncMode = function(a) {
+      return A(a) || z(a) === l;
+    };
+    exports2.isConcurrentMode = A;
+    exports2.isContextConsumer = function(a) {
+      return z(a) === k;
+    };
+    exports2.isContextProvider = function(a) {
+      return z(a) === h;
+    };
+    exports2.isElement = function(a) {
+      return "object" === typeof a && null !== a && a.$$typeof === c;
+    };
+    exports2.isForwardRef = function(a) {
+      return z(a) === n;
+    };
+    exports2.isFragment = function(a) {
+      return z(a) === e;
+    };
+    exports2.isLazy = function(a) {
+      return z(a) === t;
+    };
+    exports2.isMemo = function(a) {
+      return z(a) === r;
+    };
+    exports2.isPortal = function(a) {
+      return z(a) === d;
+    };
+    exports2.isProfiler = function(a) {
+      return z(a) === g;
+    };
+    exports2.isStrictMode = function(a) {
+      return z(a) === f;
+    };
+    exports2.isSuspense = function(a) {
+      return z(a) === p;
+    };
+    exports2.isValidElementType = function(a) {
+      return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === typeof a && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === w || a.$$typeof === x || a.$$typeof === y || a.$$typeof === v);
+    };
+    exports2.typeOf = z;
+  }
+});
+
+// node_modules/react-is/cjs/react-is.development.js
+var require_react_is_development = __commonJS({
+  "node_modules/react-is/cjs/react-is.development.js"(exports2) {
+    "use strict";
+    if (process.env.NODE_ENV !== "production") {
+      (function() {
+        "use strict";
+        var hasSymbol = typeof Symbol === "function" && Symbol.for;
+        var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
+        var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
+        var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
+        var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
+        var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
+        var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
+        var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
+        var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
+        var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
+        var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
+        var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
+        var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
+        var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
+        var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
+        var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
+        var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
+        var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
+        var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
+        function isValidElementType(type2) {
+          return typeof type2 === "string" || typeof type2 === "function" || type2 === REACT_FRAGMENT_TYPE || type2 === REACT_CONCURRENT_MODE_TYPE || type2 === REACT_PROFILER_TYPE || type2 === REACT_STRICT_MODE_TYPE || type2 === REACT_SUSPENSE_TYPE || type2 === REACT_SUSPENSE_LIST_TYPE || typeof type2 === "object" && type2 !== null && (type2.$$typeof === REACT_LAZY_TYPE || type2.$$typeof === REACT_MEMO_TYPE || type2.$$typeof === REACT_PROVIDER_TYPE || type2.$$typeof === REACT_CONTEXT_TYPE || type2.$$typeof === REACT_FORWARD_REF_TYPE || type2.$$typeof === REACT_FUNDAMENTAL_TYPE || type2.$$typeof === REACT_RESPONDER_TYPE || type2.$$typeof === REACT_SCOPE_TYPE || type2.$$typeof === REACT_BLOCK_TYPE);
+        }
+        function typeOf(object) {
+          if (typeof object === "object" && object !== null) {
+            var $$typeof = object.$$typeof;
+            switch ($$typeof) {
+              case REACT_ELEMENT_TYPE:
+                var type2 = object.type;
+                switch (type2) {
+                  case REACT_ASYNC_MODE_TYPE:
+                  case REACT_CONCURRENT_MODE_TYPE:
+                  case REACT_FRAGMENT_TYPE:
+                  case REACT_PROFILER_TYPE:
+                  case REACT_STRICT_MODE_TYPE:
+                  case REACT_SUSPENSE_TYPE:
+                    return type2;
+                  default:
+                    var $$typeofType = type2 && type2.$$typeof;
+                    switch ($$typeofType) {
+                      case REACT_CONTEXT_TYPE:
+                      case REACT_FORWARD_REF_TYPE:
+                      case REACT_LAZY_TYPE:
+                      case REACT_MEMO_TYPE:
+                      case REACT_PROVIDER_TYPE:
+                        return $$typeofType;
+                      default:
+                        return $$typeof;
+                    }
+                }
+              case REACT_PORTAL_TYPE:
+                return $$typeof;
+            }
+          }
+          return void 0;
+        }
+        var AsyncMode = REACT_ASYNC_MODE_TYPE;
+        var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+        var ContextConsumer = REACT_CONTEXT_TYPE;
+        var ContextProvider = REACT_PROVIDER_TYPE;
+        var Element2 = REACT_ELEMENT_TYPE;
+        var ForwardRef = REACT_FORWARD_REF_TYPE;
+        var Fragment = REACT_FRAGMENT_TYPE;
+        var Lazy = REACT_LAZY_TYPE;
+        var Memo = REACT_MEMO_TYPE;
+        var Portal = REACT_PORTAL_TYPE;
+        var Profiler = REACT_PROFILER_TYPE;
+        var StrictMode = REACT_STRICT_MODE_TYPE;
+        var Suspense = REACT_SUSPENSE_TYPE;
+        var hasWarnedAboutDeprecatedIsAsyncMode = false;
+        function isAsyncMode(object) {
+          {
+            if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+              hasWarnedAboutDeprecatedIsAsyncMode = true;
+              console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
+            }
+          }
+          return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+        }
+        function isConcurrentMode(object) {
+          return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+        }
+        function isContextConsumer(object) {
+          return typeOf(object) === REACT_CONTEXT_TYPE;
+        }
+        function isContextProvider(object) {
+          return typeOf(object) === REACT_PROVIDER_TYPE;
+        }
+        function isElement(object) {
+          return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+        }
+        function isForwardRef(object) {
+          return typeOf(object) === REACT_FORWARD_REF_TYPE;
+        }
+        function isFragment(object) {
+          return typeOf(object) === REACT_FRAGMENT_TYPE;
+        }
+        function isLazy(object) {
+          return typeOf(object) === REACT_LAZY_TYPE;
+        }
+        function isMemo(object) {
+          return typeOf(object) === REACT_MEMO_TYPE;
+        }
+        function isPortal(object) {
+          return typeOf(object) === REACT_PORTAL_TYPE;
+        }
+        function isProfiler(object) {
+          return typeOf(object) === REACT_PROFILER_TYPE;
+        }
+        function isStrictMode(object) {
+          return typeOf(object) === REACT_STRICT_MODE_TYPE;
+        }
+        function isSuspense(object) {
+          return typeOf(object) === REACT_SUSPENSE_TYPE;
+        }
+        exports2.AsyncMode = AsyncMode;
+        exports2.ConcurrentMode = ConcurrentMode;
+        exports2.ContextConsumer = ContextConsumer;
+        exports2.ContextProvider = ContextProvider;
+        exports2.Element = Element2;
+        exports2.ForwardRef = ForwardRef;
+        exports2.Fragment = Fragment;
+        exports2.Lazy = Lazy;
+        exports2.Memo = Memo;
+        exports2.Portal = Portal;
+        exports2.Profiler = Profiler;
+        exports2.StrictMode = StrictMode;
+        exports2.Suspense = Suspense;
+        exports2.isAsyncMode = isAsyncMode;
+        exports2.isConcurrentMode = isConcurrentMode;
+        exports2.isContextConsumer = isContextConsumer;
+        exports2.isContextProvider = isContextProvider;
+        exports2.isElement = isElement;
+        exports2.isForwardRef = isForwardRef;
+        exports2.isFragment = isFragment;
+        exports2.isLazy = isLazy;
+        exports2.isMemo = isMemo;
+        exports2.isPortal = isPortal;
+        exports2.isProfiler = isProfiler;
+        exports2.isStrictMode = isStrictMode;
+        exports2.isSuspense = isSuspense;
+        exports2.isValidElementType = isValidElementType;
+        exports2.typeOf = typeOf;
+      })();
+    }
+  }
+});
+
+// node_modules/react-is/index.js
+var require_react_is = __commonJS({
+  "node_modules/react-is/index.js"(exports2, module2) {
+    "use strict";
+    if (process.env.NODE_ENV === "production") {
+      module2.exports = require_react_is_production_min();
+    } else {
+      module2.exports = require_react_is_development();
+    }
+  }
+});
+
+// node_modules/prop-types/lib/ReactPropTypesSecret.js
+var require_ReactPropTypesSecret = __commonJS({
+  "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports2, module2) {
+    "use strict";
+    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+    module2.exports = ReactPropTypesSecret;
+  }
+});
+
+// node_modules/prop-types/lib/has.js
+var require_has = __commonJS({
+  "node_modules/prop-types/lib/has.js"(exports2, module2) {
+    module2.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+  }
+});
+
+// node_modules/prop-types/checkPropTypes.js
+var require_checkPropTypes = __commonJS({
+  "node_modules/prop-types/checkPropTypes.js"(exports2, module2) {
+    "use strict";
+    var printWarning = function() {
+    };
+    if (process.env.NODE_ENV !== "production") {
+      ReactPropTypesSecret = require_ReactPropTypesSecret();
+      loggedTypeFailures = {};
+      has = require_has();
+      printWarning = function(text) {
+        var message = "Warning: " + text;
+        if (typeof console !== "undefined") {
+          console.error(message);
+        }
+        try {
+          throw new Error(message);
+        } catch (x) {
+        }
+      };
+    }
+    var ReactPropTypesSecret;
+    var loggedTypeFailures;
+    var has;
+    function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+      if (process.env.NODE_ENV !== "production") {
+        for (var typeSpecName in typeSpecs) {
+          if (has(typeSpecs, typeSpecName)) {
+            var error;
+            try {
+              if (typeof typeSpecs[typeSpecName] !== "function") {
+                var err2 = Error(
+                  (componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
+                );
+                err2.name = "Invariant Violation";
+                throw err2;
+              }
+              error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+            } catch (ex) {
+              error = ex;
+            }
+            if (error && !(error instanceof Error)) {
+              printWarning(
+                (componentName || "React class") + ": type specification of " + location + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
+              );
+            }
+            if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+              loggedTypeFailures[error.message] = true;
+              var stack = getStack ? getStack() : "";
+              printWarning(
+                "Failed " + location + " type: " + error.message + (stack != null ? stack : "")
+              );
+            }
+          }
+        }
+      }
+    }
+    checkPropTypes.resetWarningCache = function() {
+      if (process.env.NODE_ENV !== "production") {
+        loggedTypeFailures = {};
+      }
+    };
+    module2.exports = checkPropTypes;
+  }
+});
+
+// node_modules/prop-types/factoryWithTypeCheckers.js
+var require_factoryWithTypeCheckers = __commonJS({
+  "node_modules/prop-types/factoryWithTypeCheckers.js"(exports2, module2) {
+    "use strict";
+    var ReactIs = require_react_is();
+    var assign = require_object_assign();
+    var ReactPropTypesSecret = require_ReactPropTypesSecret();
+    var has = require_has();
+    var checkPropTypes = require_checkPropTypes();
+    var printWarning = function() {
+    };
+    if (process.env.NODE_ENV !== "production") {
+      printWarning = function(text) {
+        var message = "Warning: " + text;
+        if (typeof console !== "undefined") {
+          console.error(message);
+        }
+        try {
+          throw new Error(message);
+        } catch (x) {
+        }
+      };
+    }
+    function emptyFunctionThatReturnsNull() {
+      return null;
+    }
+    module2.exports = function(isValidElement, throwOnDirectAccess) {
+      var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
+      var FAUX_ITERATOR_SYMBOL = "@@iterator";
+      function getIteratorFn(maybeIterable) {
+        var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+        if (typeof iteratorFn === "function") {
+          return iteratorFn;
+        }
+      }
+      var ANONYMOUS = "<<anonymous>>";
+      var ReactPropTypes = {
+        array: createPrimitiveTypeChecker("array"),
+        bigint: createPrimitiveTypeChecker("bigint"),
+        bool: createPrimitiveTypeChecker("boolean"),
+        func: createPrimitiveTypeChecker("function"),
+        number: createPrimitiveTypeChecker("number"),
+        object: createPrimitiveTypeChecker("object"),
+        string: createPrimitiveTypeChecker("string"),
+        symbol: createPrimitiveTypeChecker("symbol"),
+        any: createAnyTypeChecker(),
+        arrayOf: createArrayOfTypeChecker,
+        element: createElementTypeChecker(),
+        elementType: createElementTypeTypeChecker(),
+        instanceOf: createInstanceTypeChecker,
+        node: createNodeChecker(),
+        objectOf: createObjectOfTypeChecker,
+        oneOf: createEnumTypeChecker,
+        oneOfType: createUnionTypeChecker,
+        shape: createShapeTypeChecker,
+        exact: createStrictShapeTypeChecker
+      };
+      function is(x, y) {
+        if (x === y) {
+          return x !== 0 || 1 / x === 1 / y;
+        } else {
+          return x !== x && y !== y;
+        }
+      }
+      function PropTypeError(message, data) {
+        this.message = message;
+        this.data = data && typeof data === "object" ? data : {};
+        this.stack = "";
+      }
+      PropTypeError.prototype = Error.prototype;
+      function createChainableTypeChecker(validate) {
+        if (process.env.NODE_ENV !== "production") {
+          var manualPropTypeCallCache = {};
+          var manualPropTypeWarningCount = 0;
+        }
+        function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+          componentName = componentName || ANONYMOUS;
+          propFullName = propFullName || propName;
+          if (secret !== ReactPropTypesSecret) {
+            if (throwOnDirectAccess) {
+              var err2 = new Error(
+                "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
+              );
+              err2.name = "Invariant Violation";
+              throw err2;
+            } else if (process.env.NODE_ENV !== "production" && typeof console !== "undefined") {
+              var cacheKey = componentName + ":" + propName;
+              if (!manualPropTypeCallCache[cacheKey] && manualPropTypeWarningCount < 3) {
+                printWarning(
+                  "You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
+                );
+                manualPropTypeCallCache[cacheKey] = true;
+                manualPropTypeWarningCount++;
+              }
+            }
+          }
+          if (props[propName] == null) {
+            if (isRequired) {
+              if (props[propName] === null) {
+                return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`."));
+              }
+              return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`."));
+            }
+            return null;
+          } else {
+            return validate(props, propName, componentName, location, propFullName);
+          }
+        }
+        var chainedCheckType = checkType.bind(null, false);
+        chainedCheckType.isRequired = checkType.bind(null, true);
+        return chainedCheckType;
+      }
+      function createPrimitiveTypeChecker(expectedType) {
+        function validate(props, propName, componentName, location, propFullName, secret) {
+          var propValue = props[propName];
+          var propType = getPropType(propValue);
+          if (propType !== expectedType) {
+            var preciseType = getPreciseType(propValue);
+            return new PropTypeError(
+              "Invalid " + location + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."),
+              { expectedType }
+            );
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createAnyTypeChecker() {
+        return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+      }
+      function createArrayOfTypeChecker(typeChecker) {
+        function validate(props, propName, componentName, location, propFullName) {
+          if (typeof typeChecker !== "function") {
+            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
+          }
+          var propValue = props[propName];
+          if (!Array.isArray(propValue)) {
+            var propType = getPropType(propValue);
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
+          }
+          for (var i2 = 0; i2 < propValue.length; i2++) {
+            var error = typeChecker(propValue, i2, componentName, location, propFullName + "[" + i2 + "]", ReactPropTypesSecret);
+            if (error instanceof Error) {
+              return error;
+            }
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createElementTypeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+          var propValue = props[propName];
+          if (!isValidElement(propValue)) {
+            var propType = getPropType(propValue);
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createElementTypeTypeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+          var propValue = props[propName];
+          if (!ReactIs.isValidElementType(propValue)) {
+            var propType = getPropType(propValue);
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createInstanceTypeChecker(expectedClass) {
+        function validate(props, propName, componentName, location, propFullName) {
+          if (!(props[propName] instanceof expectedClass)) {
+            var expectedClassName = expectedClass.name || ANONYMOUS;
+            var actualClassName = getClassName(props[propName]);
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createEnumTypeChecker(expectedValues) {
+        if (!Array.isArray(expectedValues)) {
+          if (process.env.NODE_ENV !== "production") {
+            if (arguments.length > 1) {
+              printWarning(
+                "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
+              );
+            } else {
+              printWarning("Invalid argument supplied to oneOf, expected an array.");
+            }
+          }
+          return emptyFunctionThatReturnsNull;
+        }
+        function validate(props, propName, componentName, location, propFullName) {
+          var propValue = props[propName];
+          for (var i2 = 0; i2 < expectedValues.length; i2++) {
+            if (is(propValue, expectedValues[i2])) {
+              return null;
+            }
+          }
+          var valuesString = JSON.stringify(expectedValues, function replacer(key2, value) {
+            var type2 = getPreciseType(value);
+            if (type2 === "symbol") {
+              return String(value);
+            }
+            return value;
+          });
+          return new PropTypeError("Invalid " + location + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createObjectOfTypeChecker(typeChecker) {
+        function validate(props, propName, componentName, location, propFullName) {
+          if (typeof typeChecker !== "function") {
+            return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
+          }
+          var propValue = props[propName];
+          var propType = getPropType(propValue);
+          if (propType !== "object") {
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
+          }
+          for (var key2 in propValue) {
+            if (has(propValue, key2)) {
+              var error = typeChecker(propValue, key2, componentName, location, propFullName + "." + key2, ReactPropTypesSecret);
+              if (error instanceof Error) {
+                return error;
+              }
+            }
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createUnionTypeChecker(arrayOfTypeCheckers) {
+        if (!Array.isArray(arrayOfTypeCheckers)) {
+          process.env.NODE_ENV !== "production" ? printWarning("Invalid argument supplied to oneOfType, expected an instance of array.") : void 0;
+          return emptyFunctionThatReturnsNull;
+        }
+        for (var i2 = 0; i2 < arrayOfTypeCheckers.length; i2++) {
+          var checker = arrayOfTypeCheckers[i2];
+          if (typeof checker !== "function") {
+            printWarning(
+              "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i2 + "."
+            );
+            return emptyFunctionThatReturnsNull;
+          }
+        }
+        function validate(props, propName, componentName, location, propFullName) {
+          var expectedTypes = [];
+          for (var i3 = 0; i3 < arrayOfTypeCheckers.length; i3++) {
+            var checker2 = arrayOfTypeCheckers[i3];
+            var checkerResult = checker2(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+            if (checkerResult == null) {
+              return null;
+            }
+            if (checkerResult.data && has(checkerResult.data, "expectedType")) {
+              expectedTypes.push(checkerResult.data.expectedType);
+            }
+          }
+          var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
+          return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createNodeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+          if (!isNode(props[propName])) {
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function invalidValidatorError(componentName, location, propFullName, key2, type2) {
+        return new PropTypeError(
+          (componentName || "React class") + ": " + location + " type `" + propFullName + "." + key2 + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type2 + "`."
+        );
+      }
+      function createShapeTypeChecker(shapeTypes) {
+        function validate(props, propName, componentName, location, propFullName) {
+          var propValue = props[propName];
+          var propType = getPropType(propValue);
+          if (propType !== "object") {
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+          }
+          for (var key2 in shapeTypes) {
+            var checker = shapeTypes[key2];
+            if (typeof checker !== "function") {
+              return invalidValidatorError(componentName, location, propFullName, key2, getPreciseType(checker));
+            }
+            var error = checker(propValue, key2, componentName, location, propFullName + "." + key2, ReactPropTypesSecret);
+            if (error) {
+              return error;
+            }
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function createStrictShapeTypeChecker(shapeTypes) {
+        function validate(props, propName, componentName, location, propFullName) {
+          var propValue = props[propName];
+          var propType = getPropType(propValue);
+          if (propType !== "object") {
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+          }
+          var allKeys = assign({}, props[propName], shapeTypes);
+          for (var key2 in allKeys) {
+            var checker = shapeTypes[key2];
+            if (has(shapeTypes, key2) && typeof checker !== "function") {
+              return invalidValidatorError(componentName, location, propFullName, key2, getPreciseType(checker));
+            }
+            if (!checker) {
+              return new PropTypeError(
+                "Invalid " + location + " `" + propFullName + "` key `" + key2 + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + "\nValid keys: " + JSON.stringify(Object.keys(shapeTypes), null, "  ")
+              );
+            }
+            var error = checker(propValue, key2, componentName, location, propFullName + "." + key2, ReactPropTypesSecret);
+            if (error) {
+              return error;
+            }
+          }
+          return null;
+        }
+        return createChainableTypeChecker(validate);
+      }
+      function isNode(propValue) {
+        switch (typeof propValue) {
+          case "number":
+          case "string":
+          case "undefined":
+            return true;
+          case "boolean":
+            return !propValue;
+          case "object":
+            if (Array.isArray(propValue)) {
+              return propValue.every(isNode);
+            }
+            if (propValue === null || isValidElement(propValue)) {
+              return true;
+            }
+            var iteratorFn = getIteratorFn(propValue);
+            if (iteratorFn) {
+              var iterator = iteratorFn.call(propValue);
+              var step;
+              if (iteratorFn !== propValue.entries) {
+                while (!(step = iterator.next()).done) {
+                  if (!isNode(step.value)) {
+                    return false;
+                  }
+                }
+              } else {
+                while (!(step = iterator.next()).done) {
+                  var entry = step.value;
+                  if (entry) {
+                    if (!isNode(entry[1])) {
+                      return false;
+                    }
+                  }
+                }
+              }
+            } else {
+              return false;
+            }
+            return true;
+          default:
+            return false;
+        }
+      }
+      function isSymbol(propType, propValue) {
+        if (propType === "symbol") {
+          return true;
+        }
+        if (!propValue) {
+          return false;
+        }
+        if (propValue["@@toStringTag"] === "Symbol") {
+          return true;
+        }
+        if (typeof Symbol === "function" && propValue instanceof Symbol) {
+          return true;
+        }
+        return false;
+      }
+      function getPropType(propValue) {
+        var propType = typeof propValue;
+        if (Array.isArray(propValue)) {
+          return "array";
+        }
+        if (propValue instanceof RegExp) {
+          return "object";
+        }
+        if (isSymbol(propType, propValue)) {
+          return "symbol";
+        }
+        return propType;
+      }
+      function getPreciseType(propValue) {
+        if (typeof propValue === "undefined" || propValue === null) {
+          return "" + propValue;
+        }
+        var propType = getPropType(propValue);
+        if (propType === "object") {
+          if (propValue instanceof Date) {
+            return "date";
+          } else if (propValue instanceof RegExp) {
+            return "regexp";
+          }
+        }
+        return propType;
+      }
+      function getPostfixForTypeWarning(value) {
+        var type2 = getPreciseType(value);
+        switch (type2) {
+          case "array":
+          case "object":
+            return "an " + type2;
+          case "boolean":
+          case "date":
+          case "regexp":
+            return "a " + type2;
+          default:
+            return type2;
+        }
+      }
+      function getClassName(propValue) {
+        if (!propValue.constructor || !propValue.constructor.name) {
+          return ANONYMOUS;
+        }
+        return propValue.constructor.name;
+      }
+      ReactPropTypes.checkPropTypes = checkPropTypes;
+      ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+      ReactPropTypes.PropTypes = ReactPropTypes;
+      return ReactPropTypes;
+    };
+  }
+});
+
+// node_modules/prop-types/factoryWithThrowingShims.js
+var require_factoryWithThrowingShims = __commonJS({
+  "node_modules/prop-types/factoryWithThrowingShims.js"(exports2, module2) {
+    "use strict";
+    var ReactPropTypesSecret = require_ReactPropTypesSecret();
+    function emptyFunction() {
+    }
+    function emptyFunctionWithReset() {
+    }
+    emptyFunctionWithReset.resetWarningCache = emptyFunction;
+    module2.exports = function() {
+      function shim(props, propName, componentName, location, propFullName, secret) {
+        if (secret === ReactPropTypesSecret) {
+          return;
+        }
+        var err2 = new Error(
+          "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
+        );
+        err2.name = "Invariant Violation";
+        throw err2;
+      }
+      ;
+      shim.isRequired = shim;
+      function getShim() {
+        return shim;
+      }
+      ;
+      var ReactPropTypes = {
+        array: shim,
+        bigint: shim,
+        bool: shim,
+        func: shim,
+        number: shim,
+        object: shim,
+        string: shim,
+        symbol: shim,
+        any: shim,
+        arrayOf: getShim,
+        element: shim,
+        elementType: shim,
+        instanceOf: getShim,
+        node: shim,
+        objectOf: getShim,
+        oneOf: getShim,
+        oneOfType: getShim,
+        shape: getShim,
+        exact: getShim,
+        checkPropTypes: emptyFunctionWithReset,
+        resetWarningCache: emptyFunction
+      };
+      ReactPropTypes.PropTypes = ReactPropTypes;
+      return ReactPropTypes;
+    };
+  }
+});
+
+// node_modules/prop-types/index.js
+var require_prop_types = __commonJS({
+  "node_modules/prop-types/index.js"(exports2, module2) {
+    if (process.env.NODE_ENV !== "production") {
+      ReactIs = require_react_is();
+      throwOnDirectAccess = true;
+      module2.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
+    } else {
+      module2.exports = require_factoryWithThrowingShims()();
+    }
+    var ReactIs;
+    var throwOnDirectAccess;
+  }
+});
+
+// node_modules/gradient-string/node_modules/escape-string-regexp/index.js
+var require_escape_string_regexp3 = __commonJS({
+  "node_modules/gradient-string/node_modules/escape-string-regexp/index.js"(exports2, module2) {
+    "use strict";
+    var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+    module2.exports = function(str) {
+      if (typeof str !== "string") {
+        throw new TypeError("Expected a string");
+      }
+      return str.replace(matchOperatorsRe, "\\$&");
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/color-name/index.js
+var require_color_name2 = __commonJS({
+  "node_modules/gradient-string/node_modules/color-name/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = {
+      "aliceblue": [240, 248, 255],
+      "antiquewhite": [250, 235, 215],
+      "aqua": [0, 255, 255],
+      "aquamarine": [127, 255, 212],
+      "azure": [240, 255, 255],
+      "beige": [245, 245, 220],
+      "bisque": [255, 228, 196],
+      "black": [0, 0, 0],
+      "blanchedalmond": [255, 235, 205],
+      "blue": [0, 0, 255],
+      "blueviolet": [138, 43, 226],
+      "brown": [165, 42, 42],
+      "burlywood": [222, 184, 135],
+      "cadetblue": [95, 158, 160],
+      "chartreuse": [127, 255, 0],
+      "chocolate": [210, 105, 30],
+      "coral": [255, 127, 80],
+      "cornflowerblue": [100, 149, 237],
+      "cornsilk": [255, 248, 220],
+      "crimson": [220, 20, 60],
+      "cyan": [0, 255, 255],
+      "darkblue": [0, 0, 139],
+      "darkcyan": [0, 139, 139],
+      "darkgoldenrod": [184, 134, 11],
+      "darkgray": [169, 169, 169],
+      "darkgreen": [0, 100, 0],
+      "darkgrey": [169, 169, 169],
+      "darkkhaki": [189, 183, 107],
+      "darkmagenta": [139, 0, 139],
+      "darkolivegreen": [85, 107, 47],
+      "darkorange": [255, 140, 0],
+      "darkorchid": [153, 50, 204],
+      "darkred": [139, 0, 0],
+      "darksalmon": [233, 150, 122],
+      "darkseagreen": [143, 188, 143],
+      "darkslateblue": [72, 61, 139],
+      "darkslategray": [47, 79, 79],
+      "darkslategrey": [47, 79, 79],
+      "darkturquoise": [0, 206, 209],
+      "darkviolet": [148, 0, 211],
+      "deeppink": [255, 20, 147],
+      "deepskyblue": [0, 191, 255],
+      "dimgray": [105, 105, 105],
+      "dimgrey": [105, 105, 105],
+      "dodgerblue": [30, 144, 255],
+      "firebrick": [178, 34, 34],
+      "floralwhite": [255, 250, 240],
+      "forestgreen": [34, 139, 34],
+      "fuchsia": [255, 0, 255],
+      "gainsboro": [220, 220, 220],
+      "ghostwhite": [248, 248, 255],
+      "gold": [255, 215, 0],
+      "goldenrod": [218, 165, 32],
+      "gray": [128, 128, 128],
+      "green": [0, 128, 0],
+      "greenyellow": [173, 255, 47],
+      "grey": [128, 128, 128],
+      "honeydew": [240, 255, 240],
+      "hotpink": [255, 105, 180],
+      "indianred": [205, 92, 92],
+      "indigo": [75, 0, 130],
+      "ivory": [255, 255, 240],
+      "khaki": [240, 230, 140],
+      "lavender": [230, 230, 250],
+      "lavenderblush": [255, 240, 245],
+      "lawngreen": [124, 252, 0],
+      "lemonchiffon": [255, 250, 205],
+      "lightblue": [173, 216, 230],
+      "lightcoral": [240, 128, 128],
+      "lightcyan": [224, 255, 255],
+      "lightgoldenrodyellow": [250, 250, 210],
+      "lightgray": [211, 211, 211],
+      "lightgreen": [144, 238, 144],
+      "lightgrey": [211, 211, 211],
+      "lightpink": [255, 182, 193],
+      "lightsalmon": [255, 160, 122],
+      "lightseagreen": [32, 178, 170],
+      "lightskyblue": [135, 206, 250],
+      "lightslategray": [119, 136, 153],
+      "lightslategrey": [119, 136, 153],
+      "lightsteelblue": [176, 196, 222],
+      "lightyellow": [255, 255, 224],
+      "lime": [0, 255, 0],
+      "limegreen": [50, 205, 50],
+      "linen": [250, 240, 230],
+      "magenta": [255, 0, 255],
+      "maroon": [128, 0, 0],
+      "mediumaquamarine": [102, 205, 170],
+      "mediumblue": [0, 0, 205],
+      "mediumorchid": [186, 85, 211],
+      "mediumpurple": [147, 112, 219],
+      "mediumseagreen": [60, 179, 113],
+      "mediumslateblue": [123, 104, 238],
+      "mediumspringgreen": [0, 250, 154],
+      "mediumturquoise": [72, 209, 204],
+      "mediumvioletred": [199, 21, 133],
+      "midnightblue": [25, 25, 112],
+      "mintcream": [245, 255, 250],
+      "mistyrose": [255, 228, 225],
+      "moccasin": [255, 228, 181],
+      "navajowhite": [255, 222, 173],
+      "navy": [0, 0, 128],
+      "oldlace": [253, 245, 230],
+      "olive": [128, 128, 0],
+      "olivedrab": [107, 142, 35],
+      "orange": [255, 165, 0],
+      "orangered": [255, 69, 0],
+      "orchid": [218, 112, 214],
+      "palegoldenrod": [238, 232, 170],
+      "palegreen": [152, 251, 152],
+      "paleturquoise": [175, 238, 238],
+      "palevioletred": [219, 112, 147],
+      "papayawhip": [255, 239, 213],
+      "peachpuff": [255, 218, 185],
+      "peru": [205, 133, 63],
+      "pink": [255, 192, 203],
+      "plum": [221, 160, 221],
+      "powderblue": [176, 224, 230],
+      "purple": [128, 0, 128],
+      "rebeccapurple": [102, 51, 153],
+      "red": [255, 0, 0],
+      "rosybrown": [188, 143, 143],
+      "royalblue": [65, 105, 225],
+      "saddlebrown": [139, 69, 19],
+      "salmon": [250, 128, 114],
+      "sandybrown": [244, 164, 96],
+      "seagreen": [46, 139, 87],
+      "seashell": [255, 245, 238],
+      "sienna": [160, 82, 45],
+      "silver": [192, 192, 192],
+      "skyblue": [135, 206, 235],
+      "slateblue": [106, 90, 205],
+      "slategray": [112, 128, 144],
+      "slategrey": [112, 128, 144],
+      "snow": [255, 250, 250],
+      "springgreen": [0, 255, 127],
+      "steelblue": [70, 130, 180],
+      "tan": [210, 180, 140],
+      "teal": [0, 128, 128],
+      "thistle": [216, 191, 216],
+      "tomato": [255, 99, 71],
+      "turquoise": [64, 224, 208],
+      "violet": [238, 130, 238],
+      "wheat": [245, 222, 179],
+      "white": [255, 255, 255],
+      "whitesmoke": [245, 245, 245],
+      "yellow": [255, 255, 0],
+      "yellowgreen": [154, 205, 50]
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/color-convert/conversions.js
+var require_conversions2 = __commonJS({
+  "node_modules/gradient-string/node_modules/color-convert/conversions.js"(exports2, module2) {
+    var cssKeywords = require_color_name2();
+    var reverseKeywords = {};
+    for (key2 in cssKeywords) {
+      if (cssKeywords.hasOwnProperty(key2)) {
+        reverseKeywords[cssKeywords[key2]] = key2;
+      }
+    }
+    var key2;
+    var convert = module2.exports = {
+      rgb: { channels: 3, labels: "rgb" },
+      hsl: { channels: 3, labels: "hsl" },
+      hsv: { channels: 3, labels: "hsv" },
+      hwb: { channels: 3, labels: "hwb" },
+      cmyk: { channels: 4, labels: "cmyk" },
+      xyz: { channels: 3, labels: "xyz" },
+      lab: { channels: 3, labels: "lab" },
+      lch: { channels: 3, labels: "lch" },
+      hex: { channels: 1, labels: ["hex"] },
+      keyword: { channels: 1, labels: ["keyword"] },
+      ansi16: { channels: 1, labels: ["ansi16"] },
+      ansi256: { channels: 1, labels: ["ansi256"] },
+      hcg: { channels: 3, labels: ["h", "c", "g"] },
+      apple: { channels: 3, labels: ["r16", "g16", "b16"] },
+      gray: { channels: 1, labels: ["gray"] }
+    };
+    for (model in convert) {
+      if (convert.hasOwnProperty(model)) {
+        if (!("channels" in convert[model])) {
+          throw new Error("missing channels property: " + model);
+        }
+        if (!("labels" in convert[model])) {
+          throw new Error("missing channel labels property: " + model);
+        }
+        if (convert[model].labels.length !== convert[model].channels) {
+          throw new Error("channel and label counts mismatch: " + model);
+        }
+        channels = convert[model].channels;
+        labels = convert[model].labels;
+        delete convert[model].channels;
+        delete convert[model].labels;
+        Object.defineProperty(convert[model], "channels", { value: channels });
+        Object.defineProperty(convert[model], "labels", { value: labels });
+      }
+    }
+    var channels;
+    var labels;
+    var model;
+    convert.rgb.hsl = function(rgb) {
+      var r = rgb[0] / 255;
+      var g = rgb[1] / 255;
+      var b = rgb[2] / 255;
+      var min = Math.min(r, g, b);
+      var max = Math.max(r, g, b);
+      var delta = max - min;
+      var h;
+      var s;
+      var l;
+      if (max === min) {
+        h = 0;
+      } else if (r === max) {
+        h = (g - b) / delta;
+      } else if (g === max) {
+        h = 2 + (b - r) / delta;
+      } else if (b === max) {
+        h = 4 + (r - g) / delta;
+      }
+      h = Math.min(h * 60, 360);
+      if (h < 0) {
+        h += 360;
+      }
+      l = (min + max) / 2;
+      if (max === min) {
+        s = 0;
+      } else if (l <= 0.5) {
+        s = delta / (max + min);
+      } else {
+        s = delta / (2 - max - min);
+      }
+      return [h, s * 100, l * 100];
+    };
+    convert.rgb.hsv = function(rgb) {
+      var rdif;
+      var gdif;
+      var bdif;
+      var h;
+      var s;
+      var r = rgb[0] / 255;
+      var g = rgb[1] / 255;
+      var b = rgb[2] / 255;
+      var v = Math.max(r, g, b);
+      var diff = v - Math.min(r, g, b);
+      var diffc = function(c) {
+        return (v - c) / 6 / diff + 1 / 2;
+      };
+      if (diff === 0) {
+        h = s = 0;
+      } else {
+        s = diff / v;
+        rdif = diffc(r);
+        gdif = diffc(g);
+        bdif = diffc(b);
+        if (r === v) {
+          h = bdif - gdif;
+        } else if (g === v) {
+          h = 1 / 3 + rdif - bdif;
+        } else if (b === v) {
+          h = 2 / 3 + gdif - rdif;
+        }
+        if (h < 0) {
+          h += 1;
+        } else if (h > 1) {
+          h -= 1;
+        }
+      }
+      return [
+        h * 360,
+        s * 100,
+        v * 100
+      ];
+    };
+    convert.rgb.hwb = function(rgb) {
+      var r = rgb[0];
+      var g = rgb[1];
+      var b = rgb[2];
+      var h = convert.rgb.hsl(rgb)[0];
+      var w = 1 / 255 * Math.min(r, Math.min(g, b));
+      b = 1 - 1 / 255 * Math.max(r, Math.max(g, b));
+      return [h, w * 100, b * 100];
+    };
+    convert.rgb.cmyk = function(rgb) {
+      var r = rgb[0] / 255;
+      var g = rgb[1] / 255;
+      var b = rgb[2] / 255;
+      var c;
+      var m;
+      var y;
+      var k;
+      k = Math.min(1 - r, 1 - g, 1 - b);
+      c = (1 - r - k) / (1 - k) || 0;
+      m = (1 - g - k) / (1 - k) || 0;
+      y = (1 - b - k) / (1 - k) || 0;
+      return [c * 100, m * 100, y * 100, k * 100];
+    };
+    function comparativeDistance(x, y) {
+      return Math.pow(x[0] - y[0], 2) + Math.pow(x[1] - y[1], 2) + Math.pow(x[2] - y[2], 2);
+    }
+    convert.rgb.keyword = function(rgb) {
+      var reversed = reverseKeywords[rgb];
+      if (reversed) {
+        return reversed;
+      }
+      var currentClosestDistance = Infinity;
+      var currentClosestKeyword;
+      for (var keyword in cssKeywords) {
+        if (cssKeywords.hasOwnProperty(keyword)) {
+          var value = cssKeywords[keyword];
+          var distance = comparativeDistance(rgb, value);
+          if (distance < currentClosestDistance) {
+            currentClosestDistance = distance;
+            currentClosestKeyword = keyword;
+          }
+        }
+      }
+      return currentClosestKeyword;
+    };
+    convert.keyword.rgb = function(keyword) {
+      return cssKeywords[keyword];
+    };
+    convert.rgb.xyz = function(rgb) {
+      var r = rgb[0] / 255;
+      var g = rgb[1] / 255;
+      var b = rgb[2] / 255;
+      r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
+      g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
+      b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
+      var x = r * 0.4124 + g * 0.3576 + b * 0.1805;
+      var y = r * 0.2126 + g * 0.7152 + b * 0.0722;
+      var z = r * 0.0193 + g * 0.1192 + b * 0.9505;
+      return [x * 100, y * 100, z * 100];
+    };
+    convert.rgb.lab = function(rgb) {
+      var xyz = convert.rgb.xyz(rgb);
+      var x = xyz[0];
+      var y = xyz[1];
+      var z = xyz[2];
+      var l;
+      var a;
+      var b;
+      x /= 95.047;
+      y /= 100;
+      z /= 108.883;
+      x = x > 8856e-6 ? Math.pow(x, 1 / 3) : 7.787 * x + 16 / 116;
+      y = y > 8856e-6 ? Math.pow(y, 1 / 3) : 7.787 * y + 16 / 116;
+      z = z > 8856e-6 ? Math.pow(z, 1 / 3) : 7.787 * z + 16 / 116;
+      l = 116 * y - 16;
+      a = 500 * (x - y);
+      b = 200 * (y - z);
+      return [l, a, b];
+    };
+    convert.hsl.rgb = function(hsl) {
+      var h = hsl[0] / 360;
+      var s = hsl[1] / 100;
+      var l = hsl[2] / 100;
+      var t1;
+      var t2;
+      var t3;
+      var rgb;
+      var val;
+      if (s === 0) {
+        val = l * 255;
+        return [val, val, val];
+      }
+      if (l < 0.5) {
+        t2 = l * (1 + s);
+      } else {
+        t2 = l + s - l * s;
+      }
+      t1 = 2 * l - t2;
+      rgb = [0, 0, 0];
+      for (var i2 = 0; i2 < 3; i2++) {
+        t3 = h + 1 / 3 * -(i2 - 1);
+        if (t3 < 0) {
+          t3++;
+        }
+        if (t3 > 1) {
+          t3--;
+        }
+        if (6 * t3 < 1) {
+          val = t1 + (t2 - t1) * 6 * t3;
+        } else if (2 * t3 < 1) {
+          val = t2;
+        } else if (3 * t3 < 2) {
+          val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
+        } else {
+          val = t1;
+        }
+        rgb[i2] = val * 255;
+      }
+      return rgb;
+    };
+    convert.hsl.hsv = function(hsl) {
+      var h = hsl[0];
+      var s = hsl[1] / 100;
+      var l = hsl[2] / 100;
+      var smin = s;
+      var lmin = Math.max(l, 0.01);
+      var sv;
+      var v;
+      l *= 2;
+      s *= l <= 1 ? l : 2 - l;
+      smin *= lmin <= 1 ? lmin : 2 - lmin;
+      v = (l + s) / 2;
+      sv = l === 0 ? 2 * smin / (lmin + smin) : 2 * s / (l + s);
+      return [h, sv * 100, v * 100];
+    };
+    convert.hsv.rgb = function(hsv) {
+      var h = hsv[0] / 60;
+      var s = hsv[1] / 100;
+      var v = hsv[2] / 100;
+      var hi = Math.floor(h) % 6;
+      var f = h - Math.floor(h);
+      var p = 255 * v * (1 - s);
+      var q = 255 * v * (1 - s * f);
+      var t = 255 * v * (1 - s * (1 - f));
+      v *= 255;
+      switch (hi) {
+        case 0:
+          return [v, t, p];
+        case 1:
+          return [q, v, p];
+        case 2:
+          return [p, v, t];
+        case 3:
+          return [p, q, v];
+        case 4:
+          return [t, p, v];
+        case 5:
+          return [v, p, q];
+      }
+    };
+    convert.hsv.hsl = function(hsv) {
+      var h = hsv[0];
+      var s = hsv[1] / 100;
+      var v = hsv[2] / 100;
+      var vmin = Math.max(v, 0.01);
+      var lmin;
+      var sl;
+      var l;
+      l = (2 - s) * v;
+      lmin = (2 - s) * vmin;
+      sl = s * vmin;
+      sl /= lmin <= 1 ? lmin : 2 - lmin;
+      sl = sl || 0;
+      l /= 2;
+      return [h, sl * 100, l * 100];
+    };
+    convert.hwb.rgb = function(hwb) {
+      var h = hwb[0] / 360;
+      var wh = hwb[1] / 100;
+      var bl = hwb[2] / 100;
+      var ratio = wh + bl;
+      var i2;
+      var v;
+      var f;
+      var n;
+      if (ratio > 1) {
+        wh /= ratio;
+        bl /= ratio;
+      }
+      i2 = Math.floor(6 * h);
+      v = 1 - bl;
+      f = 6 * h - i2;
+      if ((i2 & 1) !== 0) {
+        f = 1 - f;
+      }
+      n = wh + f * (v - wh);
+      var r;
+      var g;
+      var b;
+      switch (i2) {
+        default:
+        case 6:
+        case 0:
+          r = v;
+          g = n;
+          b = wh;
+          break;
+        case 1:
+          r = n;
+          g = v;
+          b = wh;
+          break;
+        case 2:
+          r = wh;
+          g = v;
+          b = n;
+          break;
+        case 3:
+          r = wh;
+          g = n;
+          b = v;
+          break;
+        case 4:
+          r = n;
+          g = wh;
+          b = v;
+          break;
+        case 5:
+          r = v;
+          g = wh;
+          b = n;
+          break;
+      }
+      return [r * 255, g * 255, b * 255];
+    };
+    convert.cmyk.rgb = function(cmyk) {
+      var c = cmyk[0] / 100;
+      var m = cmyk[1] / 100;
+      var y = cmyk[2] / 100;
+      var k = cmyk[3] / 100;
+      var r;
+      var g;
+      var b;
+      r = 1 - Math.min(1, c * (1 - k) + k);
+      g = 1 - Math.min(1, m * (1 - k) + k);
+      b = 1 - Math.min(1, y * (1 - k) + k);
+      return [r * 255, g * 255, b * 255];
+    };
+    convert.xyz.rgb = function(xyz) {
+      var x = xyz[0] / 100;
+      var y = xyz[1] / 100;
+      var z = xyz[2] / 100;
+      var r;
+      var g;
+      var b;
+      r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+      g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+      b = x * 0.0557 + y * -0.204 + z * 1.057;
+      r = r > 31308e-7 ? 1.055 * Math.pow(r, 1 / 2.4) - 0.055 : r * 12.92;
+      g = g > 31308e-7 ? 1.055 * Math.pow(g, 1 / 2.4) - 0.055 : g * 12.92;
+      b = b > 31308e-7 ? 1.055 * Math.pow(b, 1 / 2.4) - 0.055 : b * 12.92;
+      r = Math.min(Math.max(0, r), 1);
+      g = Math.min(Math.max(0, g), 1);
+      b = Math.min(Math.max(0, b), 1);
+      return [r * 255, g * 255, b * 255];
+    };
+    convert.xyz.lab = function(xyz) {
+      var x = xyz[0];
+      var y = xyz[1];
+      var z = xyz[2];
+      var l;
+      var a;
+      var b;
+      x /= 95.047;
+      y /= 100;
+      z /= 108.883;
+      x = x > 8856e-6 ? Math.pow(x, 1 / 3) : 7.787 * x + 16 / 116;
+      y = y > 8856e-6 ? Math.pow(y, 1 / 3) : 7.787 * y + 16 / 116;
+      z = z > 8856e-6 ? Math.pow(z, 1 / 3) : 7.787 * z + 16 / 116;
+      l = 116 * y - 16;
+      a = 500 * (x - y);
+      b = 200 * (y - z);
+      return [l, a, b];
+    };
+    convert.lab.xyz = function(lab) {
+      var l = lab[0];
+      var a = lab[1];
+      var b = lab[2];
+      var x;
+      var y;
+      var z;
+      y = (l + 16) / 116;
+      x = a / 500 + y;
+      z = y - b / 200;
+      var y2 = Math.pow(y, 3);
+      var x2 = Math.pow(x, 3);
+      var z2 = Math.pow(z, 3);
+      y = y2 > 8856e-6 ? y2 : (y - 16 / 116) / 7.787;
+      x = x2 > 8856e-6 ? x2 : (x - 16 / 116) / 7.787;
+      z = z2 > 8856e-6 ? z2 : (z - 16 / 116) / 7.787;
+      x *= 95.047;
+      y *= 100;
+      z *= 108.883;
+      return [x, y, z];
+    };
+    convert.lab.lch = function(lab) {
+      var l = lab[0];
+      var a = lab[1];
+      var b = lab[2];
+      var hr;
+      var h;
+      var c;
+      hr = Math.atan2(b, a);
+      h = hr * 360 / 2 / Math.PI;
+      if (h < 0) {
+        h += 360;
+      }
+      c = Math.sqrt(a * a + b * b);
+      return [l, c, h];
+    };
+    convert.lch.lab = function(lch) {
+      var l = lch[0];
+      var c = lch[1];
+      var h = lch[2];
+      var a;
+      var b;
+      var hr;
+      hr = h / 360 * 2 * Math.PI;
+      a = c * Math.cos(hr);
+      b = c * Math.sin(hr);
+      return [l, a, b];
+    };
+    convert.rgb.ansi16 = function(args) {
+      var r = args[0];
+      var g = args[1];
+      var b = args[2];
+      var value = 1 in arguments ? arguments[1] : convert.rgb.hsv(args)[2];
+      value = Math.round(value / 50);
+      if (value === 0) {
+        return 30;
+      }
+      var ansi = 30 + (Math.round(b / 255) << 2 | Math.round(g / 255) << 1 | Math.round(r / 255));
+      if (value === 2) {
+        ansi += 60;
+      }
+      return ansi;
+    };
+    convert.hsv.ansi16 = function(args) {
+      return convert.rgb.ansi16(convert.hsv.rgb(args), args[2]);
+    };
+    convert.rgb.ansi256 = function(args) {
+      var r = args[0];
+      var g = args[1];
+      var b = args[2];
+      if (r === g && g === b) {
+        if (r < 8) {
+          return 16;
+        }
+        if (r > 248) {
+          return 231;
+        }
+        return Math.round((r - 8) / 247 * 24) + 232;
+      }
+      var ansi = 16 + 36 * Math.round(r / 255 * 5) + 6 * Math.round(g / 255 * 5) + Math.round(b / 255 * 5);
+      return ansi;
+    };
+    convert.ansi16.rgb = function(args) {
+      var color = args % 10;
+      if (color === 0 || color === 7) {
+        if (args > 50) {
+          color += 3.5;
+        }
+        color = color / 10.5 * 255;
+        return [color, color, color];
+      }
+      var mult = (~~(args > 50) + 1) * 0.5;
+      var r = (color & 1) * mult * 255;
+      var g = (color >> 1 & 1) * mult * 255;
+      var b = (color >> 2 & 1) * mult * 255;
+      return [r, g, b];
+    };
+    convert.ansi256.rgb = function(args) {
+      if (args >= 232) {
+        var c = (args - 232) * 10 + 8;
+        return [c, c, c];
+      }
+      args -= 16;
+      var rem;
+      var r = Math.floor(args / 36) / 5 * 255;
+      var g = Math.floor((rem = args % 36) / 6) / 5 * 255;
+      var b = rem % 6 / 5 * 255;
+      return [r, g, b];
+    };
+    convert.rgb.hex = function(args) {
+      var integer = ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
+      var string = integer.toString(16).toUpperCase();
+      return "000000".substring(string.length) + string;
+    };
+    convert.hex.rgb = function(args) {
+      var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+      if (!match) {
+        return [0, 0, 0];
+      }
+      var colorString = match[0];
+      if (match[0].length === 3) {
+        colorString = colorString.split("").map(function(char) {
+          return char + char;
+        }).join("");
+      }
+      var integer = parseInt(colorString, 16);
+      var r = integer >> 16 & 255;
+      var g = integer >> 8 & 255;
+      var b = integer & 255;
+      return [r, g, b];
+    };
+    convert.rgb.hcg = function(rgb) {
+      var r = rgb[0] / 255;
+      var g = rgb[1] / 255;
+      var b = rgb[2] / 255;
+      var max = Math.max(Math.max(r, g), b);
+      var min = Math.min(Math.min(r, g), b);
+      var chroma = max - min;
+      var grayscale;
+      var hue;
+      if (chroma < 1) {
+        grayscale = min / (1 - chroma);
+      } else {
+        grayscale = 0;
+      }
+      if (chroma <= 0) {
+        hue = 0;
+      } else if (max === r) {
+        hue = (g - b) / chroma % 6;
+      } else if (max === g) {
+        hue = 2 + (b - r) / chroma;
+      } else {
+        hue = 4 + (r - g) / chroma + 4;
+      }
+      hue /= 6;
+      hue %= 1;
+      return [hue * 360, chroma * 100, grayscale * 100];
+    };
+    convert.hsl.hcg = function(hsl) {
+      var s = hsl[1] / 100;
+      var l = hsl[2] / 100;
+      var c = 1;
+      var f = 0;
+      if (l < 0.5) {
+        c = 2 * s * l;
+      } else {
+        c = 2 * s * (1 - l);
+      }
+      if (c < 1) {
+        f = (l - 0.5 * c) / (1 - c);
+      }
+      return [hsl[0], c * 100, f * 100];
+    };
+    convert.hsv.hcg = function(hsv) {
+      var s = hsv[1] / 100;
+      var v = hsv[2] / 100;
+      var c = s * v;
+      var f = 0;
+      if (c < 1) {
+        f = (v - c) / (1 - c);
+      }
+      return [hsv[0], c * 100, f * 100];
+    };
+    convert.hcg.rgb = function(hcg) {
+      var h = hcg[0] / 360;
+      var c = hcg[1] / 100;
+      var g = hcg[2] / 100;
+      if (c === 0) {
+        return [g * 255, g * 255, g * 255];
+      }
+      var pure = [0, 0, 0];
+      var hi = h % 1 * 6;
+      var v = hi % 1;
+      var w = 1 - v;
+      var mg = 0;
+      switch (Math.floor(hi)) {
+        case 0:
+          pure[0] = 1;
+          pure[1] = v;
+          pure[2] = 0;
+          break;
+        case 1:
+          pure[0] = w;
+          pure[1] = 1;
+          pure[2] = 0;
+          break;
+        case 2:
+          pure[0] = 0;
+          pure[1] = 1;
+          pure[2] = v;
+          break;
+        case 3:
+          pure[0] = 0;
+          pure[1] = w;
+          pure[2] = 1;
+          break;
+        case 4:
+          pure[0] = v;
+          pure[1] = 0;
+          pure[2] = 1;
+          break;
+        default:
+          pure[0] = 1;
+          pure[1] = 0;
+          pure[2] = w;
+      }
+      mg = (1 - c) * g;
+      return [
+        (c * pure[0] + mg) * 255,
+        (c * pure[1] + mg) * 255,
+        (c * pure[2] + mg) * 255
+      ];
+    };
+    convert.hcg.hsv = function(hcg) {
+      var c = hcg[1] / 100;
+      var g = hcg[2] / 100;
+      var v = c + g * (1 - c);
+      var f = 0;
+      if (v > 0) {
+        f = c / v;
+      }
+      return [hcg[0], f * 100, v * 100];
+    };
+    convert.hcg.hsl = function(hcg) {
+      var c = hcg[1] / 100;
+      var g = hcg[2] / 100;
+      var l = g * (1 - c) + 0.5 * c;
+      var s = 0;
+      if (l > 0 && l < 0.5) {
+        s = c / (2 * l);
+      } else if (l >= 0.5 && l < 1) {
+        s = c / (2 * (1 - l));
+      }
+      return [hcg[0], s * 100, l * 100];
+    };
+    convert.hcg.hwb = function(hcg) {
+      var c = hcg[1] / 100;
+      var g = hcg[2] / 100;
+      var v = c + g * (1 - c);
+      return [hcg[0], (v - c) * 100, (1 - v) * 100];
+    };
+    convert.hwb.hcg = function(hwb) {
+      var w = hwb[1] / 100;
+      var b = hwb[2] / 100;
+      var v = 1 - b;
+      var c = v - w;
+      var g = 0;
+      if (c < 1) {
+        g = (v - c) / (1 - c);
+      }
+      return [hwb[0], c * 100, g * 100];
+    };
+    convert.apple.rgb = function(apple) {
+      return [apple[0] / 65535 * 255, apple[1] / 65535 * 255, apple[2] / 65535 * 255];
+    };
+    convert.rgb.apple = function(rgb) {
+      return [rgb[0] / 255 * 65535, rgb[1] / 255 * 65535, rgb[2] / 255 * 65535];
+    };
+    convert.gray.rgb = function(args) {
+      return [args[0] / 100 * 255, args[0] / 100 * 255, args[0] / 100 * 255];
+    };
+    convert.gray.hsl = convert.gray.hsv = function(args) {
+      return [0, 0, args[0]];
+    };
+    convert.gray.hwb = function(gray) {
+      return [0, 100, gray[0]];
+    };
+    convert.gray.cmyk = function(gray) {
+      return [0, 0, 0, gray[0]];
+    };
+    convert.gray.lab = function(gray) {
+      return [gray[0], 0, 0];
+    };
+    convert.gray.hex = function(gray) {
+      var val = Math.round(gray[0] / 100 * 255) & 255;
+      var integer = (val << 16) + (val << 8) + val;
+      var string = integer.toString(16).toUpperCase();
+      return "000000".substring(string.length) + string;
+    };
+    convert.rgb.gray = function(rgb) {
+      var val = (rgb[0] + rgb[1] + rgb[2]) / 3;
+      return [val / 255 * 100];
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/color-convert/route.js
+var require_route2 = __commonJS({
+  "node_modules/gradient-string/node_modules/color-convert/route.js"(exports2, module2) {
+    var conversions = require_conversions2();
+    function buildGraph() {
+      var graph = {};
+      var models = Object.keys(conversions);
+      for (var len = models.length, i2 = 0; i2 < len; i2++) {
+        graph[models[i2]] = {
+          distance: -1,
+          parent: null
+        };
+      }
+      return graph;
+    }
+    function deriveBFS(fromModel) {
+      var graph = buildGraph();
+      var queue = [fromModel];
+      graph[fromModel].distance = 0;
+      while (queue.length) {
+        var current = queue.pop();
+        var adjacents = Object.keys(conversions[current]);
+        for (var len = adjacents.length, i2 = 0; i2 < len; i2++) {
+          var adjacent = adjacents[i2];
+          var node = graph[adjacent];
+          if (node.distance === -1) {
+            node.distance = graph[current].distance + 1;
+            node.parent = current;
+            queue.unshift(adjacent);
+          }
+        }
+      }
+      return graph;
+    }
+    function link(from, to) {
+      return function(args) {
+        return to(from(args));
+      };
+    }
+    function wrapConversion(toModel, graph) {
+      var path = [graph[toModel].parent, toModel];
+      var fn = conversions[graph[toModel].parent][toModel];
+      var cur = graph[toModel].parent;
+      while (graph[cur].parent) {
+        path.unshift(graph[cur].parent);
+        fn = link(conversions[graph[cur].parent][cur], fn);
+        cur = graph[cur].parent;
+      }
+      fn.conversion = path;
+      return fn;
+    }
+    module2.exports = function(fromModel) {
+      var graph = deriveBFS(fromModel);
+      var conversion = {};
+      var models = Object.keys(graph);
+      for (var len = models.length, i2 = 0; i2 < len; i2++) {
+        var toModel = models[i2];
+        var node = graph[toModel];
+        if (node.parent === null) {
+          continue;
+        }
+        conversion[toModel] = wrapConversion(toModel, graph);
+      }
+      return conversion;
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/color-convert/index.js
+var require_color_convert2 = __commonJS({
+  "node_modules/gradient-string/node_modules/color-convert/index.js"(exports2, module2) {
+    var conversions = require_conversions2();
+    var route = require_route2();
+    var convert = {};
+    var models = Object.keys(conversions);
+    function wrapRaw(fn) {
+      var wrappedFn = function(args) {
+        if (args === void 0 || args === null) {
+          return args;
+        }
+        if (arguments.length > 1) {
+          args = Array.prototype.slice.call(arguments);
+        }
+        return fn(args);
+      };
+      if ("conversion" in fn) {
+        wrappedFn.conversion = fn.conversion;
+      }
+      return wrappedFn;
+    }
+    function wrapRounded(fn) {
+      var wrappedFn = function(args) {
+        if (args === void 0 || args === null) {
+          return args;
+        }
+        if (arguments.length > 1) {
+          args = Array.prototype.slice.call(arguments);
+        }
+        var result = fn(args);
+        if (typeof result === "object") {
+          for (var len = result.length, i2 = 0; i2 < len; i2++) {
+            result[i2] = Math.round(result[i2]);
+          }
+        }
+        return result;
+      };
+      if ("conversion" in fn) {
+        wrappedFn.conversion = fn.conversion;
+      }
+      return wrappedFn;
+    }
+    models.forEach(function(fromModel) {
+      convert[fromModel] = {};
+      Object.defineProperty(convert[fromModel], "channels", { value: conversions[fromModel].channels });
+      Object.defineProperty(convert[fromModel], "labels", { value: conversions[fromModel].labels });
+      var routes = route(fromModel);
+      var routeModels = Object.keys(routes);
+      routeModels.forEach(function(toModel) {
+        var fn = routes[toModel];
+        convert[fromModel][toModel] = wrapRounded(fn);
+        convert[fromModel][toModel].raw = wrapRaw(fn);
+      });
+    });
+    module2.exports = convert;
+  }
+});
+
+// node_modules/gradient-string/node_modules/ansi-styles/index.js
+var require_ansi_styles2 = __commonJS({
+  "node_modules/gradient-string/node_modules/ansi-styles/index.js"(exports2, module2) {
+    "use strict";
+    var colorConvert = require_color_convert2();
+    var wrapAnsi16 = (fn, offset) => function() {
+      const code = fn.apply(colorConvert, arguments);
+      return `\x1B[${code + offset}m`;
+    };
+    var wrapAnsi256 = (fn, offset) => function() {
+      const code = fn.apply(colorConvert, arguments);
+      return `\x1B[${38 + offset};5;${code}m`;
+    };
+    var wrapAnsi16m = (fn, offset) => function() {
+      const rgb = fn.apply(colorConvert, arguments);
+      return `\x1B[${38 + offset};2;${rgb[0]};${rgb[1]};${rgb[2]}m`;
+    };
+    function assembleStyles() {
+      const codes = /* @__PURE__ */ new Map();
+      const styles = {
+        modifier: {
+          reset: [0, 0],
+          bold: [1, 22],
+          dim: [2, 22],
+          italic: [3, 23],
+          underline: [4, 24],
+          inverse: [7, 27],
+          hidden: [8, 28],
+          strikethrough: [9, 29]
+        },
+        color: {
+          black: [30, 39],
+          red: [31, 39],
+          green: [32, 39],
+          yellow: [33, 39],
+          blue: [34, 39],
+          magenta: [35, 39],
+          cyan: [36, 39],
+          white: [37, 39],
+          gray: [90, 39],
+          redBright: [91, 39],
+          greenBright: [92, 39],
+          yellowBright: [93, 39],
+          blueBright: [94, 39],
+          magentaBright: [95, 39],
+          cyanBright: [96, 39],
+          whiteBright: [97, 39]
+        },
+        bgColor: {
+          bgBlack: [40, 49],
+          bgRed: [41, 49],
+          bgGreen: [42, 49],
+          bgYellow: [43, 49],
+          bgBlue: [44, 49],
+          bgMagenta: [45, 49],
+          bgCyan: [46, 49],
+          bgWhite: [47, 49],
+          bgBlackBright: [100, 49],
+          bgRedBright: [101, 49],
+          bgGreenBright: [102, 49],
+          bgYellowBright: [103, 49],
+          bgBlueBright: [104, 49],
+          bgMagentaBright: [105, 49],
+          bgCyanBright: [106, 49],
+          bgWhiteBright: [107, 49]
+        }
+      };
+      styles.color.grey = styles.color.gray;
+      for (const groupName of Object.keys(styles)) {
+        const group = styles[groupName];
+        for (const styleName of Object.keys(group)) {
+          const style = group[styleName];
+          styles[styleName] = {
+            open: `\x1B[${style[0]}m`,
+            close: `\x1B[${style[1]}m`
+          };
+          group[styleName] = styles[styleName];
+          codes.set(style[0], style[1]);
+        }
+        Object.defineProperty(styles, groupName, {
+          value: group,
+          enumerable: false
+        });
+        Object.defineProperty(styles, "codes", {
+          value: codes,
+          enumerable: false
+        });
+      }
+      const ansi2ansi = (n) => n;
+      const rgb2rgb = (r, g, b) => [r, g, b];
+      styles.color.close = "\x1B[39m";
+      styles.bgColor.close = "\x1B[49m";
+      styles.color.ansi = {
+        ansi: wrapAnsi16(ansi2ansi, 0)
+      };
+      styles.color.ansi256 = {
+        ansi256: wrapAnsi256(ansi2ansi, 0)
+      };
+      styles.color.ansi16m = {
+        rgb: wrapAnsi16m(rgb2rgb, 0)
+      };
+      styles.bgColor.ansi = {
+        ansi: wrapAnsi16(ansi2ansi, 10)
+      };
+      styles.bgColor.ansi256 = {
+        ansi256: wrapAnsi256(ansi2ansi, 10)
+      };
+      styles.bgColor.ansi16m = {
+        rgb: wrapAnsi16m(rgb2rgb, 10)
+      };
+      for (let key2 of Object.keys(colorConvert)) {
+        if (typeof colorConvert[key2] !== "object") {
+          continue;
+        }
+        const suite = colorConvert[key2];
+        if (key2 === "ansi16") {
+          key2 = "ansi";
+        }
+        if ("ansi16" in suite) {
+          styles.color.ansi[key2] = wrapAnsi16(suite.ansi16, 0);
+          styles.bgColor.ansi[key2] = wrapAnsi16(suite.ansi16, 10);
+        }
+        if ("ansi256" in suite) {
+          styles.color.ansi256[key2] = wrapAnsi256(suite.ansi256, 0);
+          styles.bgColor.ansi256[key2] = wrapAnsi256(suite.ansi256, 10);
+        }
+        if ("rgb" in suite) {
+          styles.color.ansi16m[key2] = wrapAnsi16m(suite.rgb, 0);
+          styles.bgColor.ansi16m[key2] = wrapAnsi16m(suite.rgb, 10);
+        }
+      }
+      return styles;
+    }
+    Object.defineProperty(module2, "exports", {
+      enumerable: true,
+      get: assembleStyles
+    });
+  }
+});
+
+// node_modules/gradient-string/node_modules/has-flag/index.js
+var require_has_flag2 = __commonJS({
+  "node_modules/gradient-string/node_modules/has-flag/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = (flag, argv) => {
+      argv = argv || process.argv;
+      const prefix2 = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
+      const pos = argv.indexOf(prefix2 + flag);
+      const terminatorPos = argv.indexOf("--");
+      return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/supports-color/index.js
+var require_supports_color2 = __commonJS({
+  "node_modules/gradient-string/node_modules/supports-color/index.js"(exports2, module2) {
+    "use strict";
+    var os = require("os");
+    var hasFlag = require_has_flag2();
+    var env = process.env;
+    var forceColor;
+    if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false")) {
+      forceColor = false;
+    } else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) {
+      forceColor = true;
+    }
+    if ("FORCE_COLOR" in env) {
+      forceColor = env.FORCE_COLOR.length === 0 || parseInt(env.FORCE_COLOR, 10) !== 0;
+    }
+    function translateLevel(level) {
+      if (level === 0) {
+        return false;
+      }
+      return {
+        level,
+        hasBasic: true,
+        has256: level >= 2,
+        has16m: level >= 3
+      };
+    }
+    function supportsColor(stream) {
+      if (forceColor === false) {
+        return 0;
+      }
+      if (hasFlag("color=16m") || hasFlag("color=full") || hasFlag("color=truecolor")) {
+        return 3;
+      }
+      if (hasFlag("color=256")) {
+        return 2;
+      }
+      if (stream && !stream.isTTY && forceColor !== true) {
+        return 0;
+      }
+      const min = forceColor ? 1 : 0;
+      if (process.platform === "win32") {
+        const osRelease = os.release().split(".");
+        if (Number(process.versions.node.split(".")[0]) >= 8 && Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
+          return Number(osRelease[2]) >= 14931 ? 3 : 2;
+        }
+        return 1;
+      }
+      if ("CI" in env) {
+        if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
+          return 1;
+        }
+        return min;
+      }
+      if ("TEAMCITY_VERSION" in env) {
+        return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
+      }
+      if (env.COLORTERM === "truecolor") {
+        return 3;
+      }
+      if ("TERM_PROGRAM" in env) {
+        const version = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        switch (env.TERM_PROGRAM) {
+          case "iTerm.app":
+            return version >= 3 ? 3 : 2;
+          case "Apple_Terminal":
+            return 2;
+        }
+      }
+      if (/-256(color)?$/i.test(env.TERM)) {
+        return 2;
+      }
+      if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+        return 1;
+      }
+      if ("COLORTERM" in env) {
+        return 1;
+      }
+      if (env.TERM === "dumb") {
+        return min;
+      }
+      return min;
+    }
+    function getSupportLevel(stream) {
+      const level = supportsColor(stream);
+      return translateLevel(level);
+    }
+    module2.exports = {
+      supportsColor: getSupportLevel,
+      stdout: getSupportLevel(process.stdout),
+      stderr: getSupportLevel(process.stderr)
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/chalk/templates.js
+var require_templates2 = __commonJS({
+  "node_modules/gradient-string/node_modules/chalk/templates.js"(exports2, module2) {
+    "use strict";
+    var TEMPLATE_REGEX = /(?:\\(u[a-f\d]{4}|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
+    var STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
+    var STRING_REGEX = /^(['"])((?:\\.|(?!\1)[^\\])*)\1$/;
+    var ESCAPE_REGEX = /\\(u[a-f\d]{4}|x[a-f\d]{2}|.)|([^\\])/gi;
+    var ESCAPES = /* @__PURE__ */ new Map([
+      ["n", "\n"],
+      ["r", "\r"],
+      ["t", "	"],
+      ["b", "\b"],
+      ["f", "\f"],
+      ["v", "\v"],
+      ["0", "\0"],
+      ["\\", "\\"],
+      ["e", "\x1B"],
+      ["a", "\x07"]
+    ]);
+    function unescape(c) {
+      if (c[0] === "u" && c.length === 5 || c[0] === "x" && c.length === 3) {
+        return String.fromCharCode(parseInt(c.slice(1), 16));
+      }
+      return ESCAPES.get(c) || c;
+    }
+    function parseArguments(name, args) {
+      const results = [];
+      const chunks = args.trim().split(/\s*,\s*/g);
+      let matches;
+      for (const chunk of chunks) {
+        if (!isNaN(chunk)) {
+          results.push(Number(chunk));
+        } else if (matches = chunk.match(STRING_REGEX)) {
+          results.push(matches[2].replace(ESCAPE_REGEX, (m, escape, chr) => escape ? unescape(escape) : chr));
+        } else {
+          throw new Error(`Invalid Chalk template style argument: ${chunk} (in style '${name}')`);
+        }
+      }
+      return results;
+    }
+    function parseStyle(style) {
+      STYLE_REGEX.lastIndex = 0;
+      const results = [];
+      let matches;
+      while ((matches = STYLE_REGEX.exec(style)) !== null) {
+        const name = matches[1];
+        if (matches[2]) {
+          const args = parseArguments(name, matches[2]);
+          results.push([name].concat(args));
+        } else {
+          results.push([name]);
+        }
+      }
+      return results;
+    }
+    function buildStyle(chalk, styles) {
+      const enabled = {};
+      for (const layer of styles) {
+        for (const style of layer.styles) {
+          enabled[style[0]] = layer.inverse ? null : style.slice(1);
+        }
+      }
+      let current = chalk;
+      for (const styleName of Object.keys(enabled)) {
+        if (Array.isArray(enabled[styleName])) {
+          if (!(styleName in current)) {
+            throw new Error(`Unknown Chalk style: ${styleName}`);
+          }
+          if (enabled[styleName].length > 0) {
+            current = current[styleName].apply(current, enabled[styleName]);
+          } else {
+            current = current[styleName];
+          }
+        }
+      }
+      return current;
+    }
+    module2.exports = (chalk, tmp) => {
+      const styles = [];
+      const chunks = [];
+      let chunk = [];
+      tmp.replace(TEMPLATE_REGEX, (m, escapeChar, inverse, style, close, chr) => {
+        if (escapeChar) {
+          chunk.push(unescape(escapeChar));
+        } else if (style) {
+          const str = chunk.join("");
+          chunk = [];
+          chunks.push(styles.length === 0 ? str : buildStyle(chalk, styles)(str));
+          styles.push({ inverse, styles: parseStyle(style) });
+        } else if (close) {
+          if (styles.length === 0) {
+            throw new Error("Found extraneous } in Chalk template literal");
+          }
+          chunks.push(buildStyle(chalk, styles)(chunk.join("")));
+          chunk = [];
+          styles.pop();
+        } else {
+          chunk.push(chr);
+        }
+      });
+      chunks.push(chunk.join(""));
+      if (styles.length > 0) {
+        const errMsg = `Chalk template literal is missing ${styles.length} closing bracket${styles.length === 1 ? "" : "s"} (\`}\`)`;
+        throw new Error(errMsg);
+      }
+      return chunks.join("");
+    };
+  }
+});
+
+// node_modules/gradient-string/node_modules/chalk/index.js
+var require_chalk = __commonJS({
+  "node_modules/gradient-string/node_modules/chalk/index.js"(exports2, module2) {
+    "use strict";
+    var escapeStringRegexp = require_escape_string_regexp3();
+    var ansiStyles = require_ansi_styles2();
+    var stdoutColor = require_supports_color2().stdout;
+    var template = require_templates2();
+    var isSimpleWindowsTerm = process.platform === "win32" && !(process.env.TERM || "").toLowerCase().startsWith("xterm");
+    var levelMapping = ["ansi", "ansi", "ansi256", "ansi16m"];
+    var skipModels = /* @__PURE__ */ new Set(["gray"]);
+    var styles = /* @__PURE__ */ Object.create(null);
+    function applyOptions(obj, options) {
+      options = options || {};
+      const scLevel = stdoutColor ? stdoutColor.level : 0;
+      obj.level = options.level === void 0 ? scLevel : options.level;
+      obj.enabled = "enabled" in options ? options.enabled : obj.level > 0;
+    }
+    function Chalk(options) {
+      if (!this || !(this instanceof Chalk) || this.template) {
+        const chalk = {};
+        applyOptions(chalk, options);
+        chalk.template = function() {
+          const args = [].slice.call(arguments);
+          return chalkTag.apply(null, [chalk.template].concat(args));
+        };
+        Object.setPrototypeOf(chalk, Chalk.prototype);
+        Object.setPrototypeOf(chalk.template, chalk);
+        chalk.template.constructor = Chalk;
+        return chalk.template;
+      }
+      applyOptions(this, options);
+    }
+    if (isSimpleWindowsTerm) {
+      ansiStyles.blue.open = "\x1B[94m";
+    }
+    for (const key2 of Object.keys(ansiStyles)) {
+      ansiStyles[key2].closeRe = new RegExp(escapeStringRegexp(ansiStyles[key2].close), "g");
+      styles[key2] = {
+        get() {
+          const codes = ansiStyles[key2];
+          return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, key2);
+        }
+      };
+    }
+    styles.visible = {
+      get() {
+        return build.call(this, this._styles || [], true, "visible");
+      }
+    };
+    ansiStyles.color.closeRe = new RegExp(escapeStringRegexp(ansiStyles.color.close), "g");
+    for (const model of Object.keys(ansiStyles.color.ansi)) {
+      if (skipModels.has(model)) {
+        continue;
+      }
+      styles[model] = {
+        get() {
+          const level = this.level;
+          return function() {
+            const open = ansiStyles.color[levelMapping[level]][model].apply(null, arguments);
+            const codes = {
+              open,
+              close: ansiStyles.color.close,
+              closeRe: ansiStyles.color.closeRe
+            };
+            return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, model);
+          };
+        }
+      };
+    }
+    ansiStyles.bgColor.closeRe = new RegExp(escapeStringRegexp(ansiStyles.bgColor.close), "g");
+    for (const model of Object.keys(ansiStyles.bgColor.ansi)) {
+      if (skipModels.has(model)) {
+        continue;
+      }
+      const bgModel = "bg" + model[0].toUpperCase() + model.slice(1);
+      styles[bgModel] = {
+        get() {
+          const level = this.level;
+          return function() {
+            const open = ansiStyles.bgColor[levelMapping[level]][model].apply(null, arguments);
+            const codes = {
+              open,
+              close: ansiStyles.bgColor.close,
+              closeRe: ansiStyles.bgColor.closeRe
+            };
+            return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, model);
+          };
+        }
+      };
+    }
+    var proto = Object.defineProperties(() => {
+    }, styles);
+    function build(_styles, _empty, key2) {
+      const builder = function() {
+        return applyStyle.apply(builder, arguments);
+      };
+      builder._styles = _styles;
+      builder._empty = _empty;
+      const self2 = this;
+      Object.defineProperty(builder, "level", {
+        enumerable: true,
+        get() {
+          return self2.level;
+        },
+        set(level) {
+          self2.level = level;
+        }
+      });
+      Object.defineProperty(builder, "enabled", {
+        enumerable: true,
+        get() {
+          return self2.enabled;
+        },
+        set(enabled) {
+          self2.enabled = enabled;
+        }
+      });
+      builder.hasGrey = this.hasGrey || key2 === "gray" || key2 === "grey";
+      builder.__proto__ = proto;
+      return builder;
+    }
+    function applyStyle() {
+      const args = arguments;
+      const argsLen = args.length;
+      let str = String(arguments[0]);
+      if (argsLen === 0) {
+        return "";
+      }
+      if (argsLen > 1) {
+        for (let a = 1; a < argsLen; a++) {
+          str += " " + args[a];
+        }
+      }
+      if (!this.enabled || this.level <= 0 || !str) {
+        return this._empty ? "" : str;
+      }
+      const originalDim = ansiStyles.dim.open;
+      if (isSimpleWindowsTerm && this.hasGrey) {
+        ansiStyles.dim.open = "";
+      }
+      for (const code of this._styles.slice().reverse()) {
+        str = code.open + str.replace(code.closeRe, code.open) + code.close;
+        str = str.replace(/\r?\n/g, `${code.close}$&${code.open}`);
+      }
+      ansiStyles.dim.open = originalDim;
+      return str;
+    }
+    function chalkTag(chalk, strings) {
+      if (!Array.isArray(strings)) {
+        return [].slice.call(arguments, 1).join(" ");
+      }
+      const args = [].slice.call(arguments, 2);
+      const parts = [strings.raw[0]];
+      for (let i2 = 1; i2 < strings.length; i2++) {
+        parts.push(String(args[i2 - 1]).replace(/[{}\\]/g, "\\$&"));
+        parts.push(String(strings.raw[i2]));
+      }
+      return template(chalk, parts.join(""));
+    }
+    Object.defineProperties(Chalk.prototype, styles);
+    module2.exports = Chalk();
+    module2.exports.supportsColor = stdoutColor;
+    module2.exports.default = module2.exports;
+  }
+});
+
+// node_modules/tinycolor2/tinycolor.js
+var require_tinycolor = __commonJS({
+  "node_modules/tinycolor2/tinycolor.js"(exports2, module2) {
+    (function(Math2) {
+      var trimLeft = /^\s+/, trimRight = /\s+$/, tinyCounter = 0, mathRound = Math2.round, mathMin = Math2.min, mathMax = Math2.max, mathRandom = Math2.random;
+      function tinycolor(color, opts) {
+        color = color ? color : "";
+        opts = opts || {};
+        if (color instanceof tinycolor) {
+          return color;
+        }
+        if (!(this instanceof tinycolor)) {
+          return new tinycolor(color, opts);
+        }
+        var rgb = inputToRGB(color);
+        this._originalInput = color, this._r = rgb.r, this._g = rgb.g, this._b = rgb.b, this._a = rgb.a, this._roundA = mathRound(100 * this._a) / 100, this._format = opts.format || rgb.format;
+        this._gradientType = opts.gradientType;
+        if (this._r < 1) {
+          this._r = mathRound(this._r);
+        }
+        if (this._g < 1) {
+          this._g = mathRound(this._g);
+        }
+        if (this._b < 1) {
+          this._b = mathRound(this._b);
+        }
+        this._ok = rgb.ok;
+        this._tc_id = tinyCounter++;
+      }
+      tinycolor.prototype = {
+        isDark: function() {
+          return this.getBrightness() < 128;
+        },
+        isLight: function() {
+          return !this.isDark();
+        },
+        isValid: function() {
+          return this._ok;
+        },
+        getOriginalInput: function() {
+          return this._originalInput;
+        },
+        getFormat: function() {
+          return this._format;
+        },
+        getAlpha: function() {
+          return this._a;
+        },
+        getBrightness: function() {
+          var rgb = this.toRgb();
+          return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1e3;
+        },
+        getLuminance: function() {
+          var rgb = this.toRgb();
+          var RsRGB, GsRGB, BsRGB, R, G, B;
+          RsRGB = rgb.r / 255;
+          GsRGB = rgb.g / 255;
+          BsRGB = rgb.b / 255;
+          if (RsRGB <= 0.03928) {
+            R = RsRGB / 12.92;
+          } else {
+            R = Math2.pow((RsRGB + 0.055) / 1.055, 2.4);
+          }
+          if (GsRGB <= 0.03928) {
+            G = GsRGB / 12.92;
+          } else {
+            G = Math2.pow((GsRGB + 0.055) / 1.055, 2.4);
+          }
+          if (BsRGB <= 0.03928) {
+            B = BsRGB / 12.92;
+          } else {
+            B = Math2.pow((BsRGB + 0.055) / 1.055, 2.4);
+          }
+          return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+        },
+        setAlpha: function(value) {
+          this._a = boundAlpha(value);
+          this._roundA = mathRound(100 * this._a) / 100;
+          return this;
+        },
+        toHsv: function() {
+          var hsv = rgbToHsv(this._r, this._g, this._b);
+          return { h: hsv.h * 360, s: hsv.s, v: hsv.v, a: this._a };
+        },
+        toHsvString: function() {
+          var hsv = rgbToHsv(this._r, this._g, this._b);
+          var h = mathRound(hsv.h * 360), s = mathRound(hsv.s * 100), v = mathRound(hsv.v * 100);
+          return this._a == 1 ? "hsv(" + h + ", " + s + "%, " + v + "%)" : "hsva(" + h + ", " + s + "%, " + v + "%, " + this._roundA + ")";
+        },
+        toHsl: function() {
+          var hsl = rgbToHsl(this._r, this._g, this._b);
+          return { h: hsl.h * 360, s: hsl.s, l: hsl.l, a: this._a };
+        },
+        toHslString: function() {
+          var hsl = rgbToHsl(this._r, this._g, this._b);
+          var h = mathRound(hsl.h * 360), s = mathRound(hsl.s * 100), l = mathRound(hsl.l * 100);
+          return this._a == 1 ? "hsl(" + h + ", " + s + "%, " + l + "%)" : "hsla(" + h + ", " + s + "%, " + l + "%, " + this._roundA + ")";
+        },
+        toHex: function(allow3Char) {
+          return rgbToHex(this._r, this._g, this._b, allow3Char);
+        },
+        toHexString: function(allow3Char) {
+          return "#" + this.toHex(allow3Char);
+        },
+        toHex8: function(allow4Char) {
+          return rgbaToHex(this._r, this._g, this._b, this._a, allow4Char);
+        },
+        toHex8String: function(allow4Char) {
+          return "#" + this.toHex8(allow4Char);
+        },
+        toRgb: function() {
+          return { r: mathRound(this._r), g: mathRound(this._g), b: mathRound(this._b), a: this._a };
+        },
+        toRgbString: function() {
+          return this._a == 1 ? "rgb(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" : "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
+        },
+        toPercentageRgb: function() {
+          return { r: mathRound(bound01(this._r, 255) * 100) + "%", g: mathRound(bound01(this._g, 255) * 100) + "%", b: mathRound(bound01(this._b, 255) * 100) + "%", a: this._a };
+        },
+        toPercentageRgbString: function() {
+          return this._a == 1 ? "rgb(" + mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%)" : "rgba(" + mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%, " + this._roundA + ")";
+        },
+        toName: function() {
+          if (this._a === 0) {
+            return "transparent";
+          }
+          if (this._a < 1) {
+            return false;
+          }
+          return hexNames[rgbToHex(this._r, this._g, this._b, true)] || false;
+        },
+        toFilter: function(secondColor) {
+          var hex8String = "#" + rgbaToArgbHex(this._r, this._g, this._b, this._a);
+          var secondHex8String = hex8String;
+          var gradientType = this._gradientType ? "GradientType = 1, " : "";
+          if (secondColor) {
+            var s = tinycolor(secondColor);
+            secondHex8String = "#" + rgbaToArgbHex(s._r, s._g, s._b, s._a);
+          }
+          return "progid:DXImageTransform.Microsoft.gradient(" + gradientType + "startColorstr=" + hex8String + ",endColorstr=" + secondHex8String + ")";
+        },
+        toString: function(format) {
+          var formatSet = !!format;
+          format = format || this._format;
+          var formattedString = false;
+          var hasAlpha = this._a < 1 && this._a >= 0;
+          var needsAlphaFormat = !formatSet && hasAlpha && (format === "hex" || format === "hex6" || format === "hex3" || format === "hex4" || format === "hex8" || format === "name");
+          if (needsAlphaFormat) {
+            if (format === "name" && this._a === 0) {
+              return this.toName();
+            }
+            return this.toRgbString();
+          }
+          if (format === "rgb") {
+            formattedString = this.toRgbString();
+          }
+          if (format === "prgb") {
+            formattedString = this.toPercentageRgbString();
+          }
+          if (format === "hex" || format === "hex6") {
+            formattedString = this.toHexString();
+          }
+          if (format === "hex3") {
+            formattedString = this.toHexString(true);
+          }
+          if (format === "hex4") {
+            formattedString = this.toHex8String(true);
+          }
+          if (format === "hex8") {
+            formattedString = this.toHex8String();
+          }
+          if (format === "name") {
+            formattedString = this.toName();
+          }
+          if (format === "hsl") {
+            formattedString = this.toHslString();
+          }
+          if (format === "hsv") {
+            formattedString = this.toHsvString();
+          }
+          return formattedString || this.toHexString();
+        },
+        clone: function() {
+          return tinycolor(this.toString());
+        },
+        _applyModification: function(fn, args) {
+          var color = fn.apply(null, [this].concat([].slice.call(args)));
+          this._r = color._r;
+          this._g = color._g;
+          this._b = color._b;
+          this.setAlpha(color._a);
+          return this;
+        },
+        lighten: function() {
+          return this._applyModification(lighten, arguments);
+        },
+        brighten: function() {
+          return this._applyModification(brighten, arguments);
+        },
+        darken: function() {
+          return this._applyModification(darken, arguments);
+        },
+        desaturate: function() {
+          return this._applyModification(desaturate, arguments);
+        },
+        saturate: function() {
+          return this._applyModification(saturate, arguments);
+        },
+        greyscale: function() {
+          return this._applyModification(greyscale, arguments);
+        },
+        spin: function() {
+          return this._applyModification(spin, arguments);
+        },
+        _applyCombination: function(fn, args) {
+          return fn.apply(null, [this].concat([].slice.call(args)));
+        },
+        analogous: function() {
+          return this._applyCombination(analogous, arguments);
+        },
+        complement: function() {
+          return this._applyCombination(complement, arguments);
+        },
+        monochromatic: function() {
+          return this._applyCombination(monochromatic, arguments);
+        },
+        splitcomplement: function() {
+          return this._applyCombination(splitcomplement, arguments);
+        },
+        triad: function() {
+          return this._applyCombination(triad, arguments);
+        },
+        tetrad: function() {
+          return this._applyCombination(tetrad, arguments);
+        }
+      };
+      tinycolor.fromRatio = function(color, opts) {
+        if (typeof color == "object") {
+          var newColor = {};
+          for (var i2 in color) {
+            if (color.hasOwnProperty(i2)) {
+              if (i2 === "a") {
+                newColor[i2] = color[i2];
+              } else {
+                newColor[i2] = convertToPercentage(color[i2]);
+              }
+            }
+          }
+          color = newColor;
+        }
+        return tinycolor(color, opts);
+      };
+      function inputToRGB(color) {
+        var rgb = { r: 0, g: 0, b: 0 };
+        var a = 1;
+        var s = null;
+        var v = null;
+        var l = null;
+        var ok = false;
+        var format = false;
+        if (typeof color == "string") {
+          color = stringInputToObject(color);
+        }
+        if (typeof color == "object") {
+          if (isValidCSSUnit(color.r) && isValidCSSUnit(color.g) && isValidCSSUnit(color.b)) {
+            rgb = rgbToRgb(color.r, color.g, color.b);
+            ok = true;
+            format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
+          } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
+            s = convertToPercentage(color.s);
+            v = convertToPercentage(color.v);
+            rgb = hsvToRgb(color.h, s, v);
+            ok = true;
+            format = "hsv";
+          } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
+            s = convertToPercentage(color.s);
+            l = convertToPercentage(color.l);
+            rgb = hslToRgb(color.h, s, l);
+            ok = true;
+            format = "hsl";
+          }
+          if (color.hasOwnProperty("a")) {
+            a = color.a;
+          }
+        }
+        a = boundAlpha(a);
+        return {
+          ok,
+          format: color.format || format,
+          r: mathMin(255, mathMax(rgb.r, 0)),
+          g: mathMin(255, mathMax(rgb.g, 0)),
+          b: mathMin(255, mathMax(rgb.b, 0)),
+          a
+        };
+      }
+      function rgbToRgb(r, g, b) {
+        return {
+          r: bound01(r, 255) * 255,
+          g: bound01(g, 255) * 255,
+          b: bound01(b, 255) * 255
+        };
+      }
+      function rgbToHsl(r, g, b) {
+        r = bound01(r, 255);
+        g = bound01(g, 255);
+        b = bound01(b, 255);
+        var max = mathMax(r, g, b), min = mathMin(r, g, b);
+        var h, s, l = (max + min) / 2;
+        if (max == min) {
+          h = s = 0;
+        } else {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            case b:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h /= 6;
+        }
+        return { h, s, l };
+      }
+      function hslToRgb(h, s, l) {
+        var r, g, b;
+        h = bound01(h, 360);
+        s = bound01(s, 100);
+        l = bound01(l, 100);
+        function hue2rgb(p2, q2, t) {
+          if (t < 0)
+            t += 1;
+          if (t > 1)
+            t -= 1;
+          if (t < 1 / 6)
+            return p2 + (q2 - p2) * 6 * t;
+          if (t < 1 / 2)
+            return q2;
+          if (t < 2 / 3)
+            return p2 + (q2 - p2) * (2 / 3 - t) * 6;
+          return p2;
+        }
+        if (s === 0) {
+          r = g = b = l;
+        } else {
+          var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          var p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1 / 3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1 / 3);
+        }
+        return { r: r * 255, g: g * 255, b: b * 255 };
+      }
+      function rgbToHsv(r, g, b) {
+        r = bound01(r, 255);
+        g = bound01(g, 255);
+        b = bound01(b, 255);
+        var max = mathMax(r, g, b), min = mathMin(r, g, b);
+        var h, s, v = max;
+        var d = max - min;
+        s = max === 0 ? 0 : d / max;
+        if (max == min) {
+          h = 0;
+        } else {
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            case b:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h /= 6;
+        }
+        return { h, s, v };
+      }
+      function hsvToRgb(h, s, v) {
+        h = bound01(h, 360) * 6;
+        s = bound01(s, 100);
+        v = bound01(v, 100);
+        var i2 = Math2.floor(h), f = h - i2, p = v * (1 - s), q = v * (1 - f * s), t = v * (1 - (1 - f) * s), mod = i2 % 6, r = [v, q, p, p, t, v][mod], g = [t, v, v, q, p, p][mod], b = [p, p, t, v, v, q][mod];
+        return { r: r * 255, g: g * 255, b: b * 255 };
+      }
+      function rgbToHex(r, g, b, allow3Char) {
+        var hex = [
+          pad2(mathRound(r).toString(16)),
+          pad2(mathRound(g).toString(16)),
+          pad2(mathRound(b).toString(16))
+        ];
+        if (allow3Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1)) {
+          return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
+        }
+        return hex.join("");
+      }
+      function rgbaToHex(r, g, b, a, allow4Char) {
+        var hex = [
+          pad2(mathRound(r).toString(16)),
+          pad2(mathRound(g).toString(16)),
+          pad2(mathRound(b).toString(16)),
+          pad2(convertDecimalToHex(a))
+        ];
+        if (allow4Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1) && hex[3].charAt(0) == hex[3].charAt(1)) {
+          return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0) + hex[3].charAt(0);
+        }
+        return hex.join("");
+      }
+      function rgbaToArgbHex(r, g, b, a) {
+        var hex = [
+          pad2(convertDecimalToHex(a)),
+          pad2(mathRound(r).toString(16)),
+          pad2(mathRound(g).toString(16)),
+          pad2(mathRound(b).toString(16))
+        ];
+        return hex.join("");
+      }
+      tinycolor.equals = function(color1, color2) {
+        if (!color1 || !color2) {
+          return false;
+        }
+        return tinycolor(color1).toRgbString() == tinycolor(color2).toRgbString();
+      };
+      tinycolor.random = function() {
+        return tinycolor.fromRatio({
+          r: mathRandom(),
+          g: mathRandom(),
+          b: mathRandom()
+        });
+      };
+      function desaturate(color, amount) {
+        amount = amount === 0 ? 0 : amount || 10;
+        var hsl = tinycolor(color).toHsl();
+        hsl.s -= amount / 100;
+        hsl.s = clamp01(hsl.s);
+        return tinycolor(hsl);
+      }
+      function saturate(color, amount) {
+        amount = amount === 0 ? 0 : amount || 10;
+        var hsl = tinycolor(color).toHsl();
+        hsl.s += amount / 100;
+        hsl.s = clamp01(hsl.s);
+        return tinycolor(hsl);
+      }
+      function greyscale(color) {
+        return tinycolor(color).desaturate(100);
+      }
+      function lighten(color, amount) {
+        amount = amount === 0 ? 0 : amount || 10;
+        var hsl = tinycolor(color).toHsl();
+        hsl.l += amount / 100;
+        hsl.l = clamp01(hsl.l);
+        return tinycolor(hsl);
+      }
+      function brighten(color, amount) {
+        amount = amount === 0 ? 0 : amount || 10;
+        var rgb = tinycolor(color).toRgb();
+        rgb.r = mathMax(0, mathMin(255, rgb.r - mathRound(255 * -(amount / 100))));
+        rgb.g = mathMax(0, mathMin(255, rgb.g - mathRound(255 * -(amount / 100))));
+        rgb.b = mathMax(0, mathMin(255, rgb.b - mathRound(255 * -(amount / 100))));
+        return tinycolor(rgb);
+      }
+      function darken(color, amount) {
+        amount = amount === 0 ? 0 : amount || 10;
+        var hsl = tinycolor(color).toHsl();
+        hsl.l -= amount / 100;
+        hsl.l = clamp01(hsl.l);
+        return tinycolor(hsl);
+      }
+      function spin(color, amount) {
+        var hsl = tinycolor(color).toHsl();
+        var hue = (hsl.h + amount) % 360;
+        hsl.h = hue < 0 ? 360 + hue : hue;
+        return tinycolor(hsl);
+      }
+      function complement(color) {
+        var hsl = tinycolor(color).toHsl();
+        hsl.h = (hsl.h + 180) % 360;
+        return tinycolor(hsl);
+      }
+      function triad(color) {
+        var hsl = tinycolor(color).toHsl();
+        var h = hsl.h;
+        return [
+          tinycolor(color),
+          tinycolor({ h: (h + 120) % 360, s: hsl.s, l: hsl.l }),
+          tinycolor({ h: (h + 240) % 360, s: hsl.s, l: hsl.l })
+        ];
+      }
+      function tetrad(color) {
+        var hsl = tinycolor(color).toHsl();
+        var h = hsl.h;
+        return [
+          tinycolor(color),
+          tinycolor({ h: (h + 90) % 360, s: hsl.s, l: hsl.l }),
+          tinycolor({ h: (h + 180) % 360, s: hsl.s, l: hsl.l }),
+          tinycolor({ h: (h + 270) % 360, s: hsl.s, l: hsl.l })
+        ];
+      }
+      function splitcomplement(color) {
+        var hsl = tinycolor(color).toHsl();
+        var h = hsl.h;
+        return [
+          tinycolor(color),
+          tinycolor({ h: (h + 72) % 360, s: hsl.s, l: hsl.l }),
+          tinycolor({ h: (h + 216) % 360, s: hsl.s, l: hsl.l })
+        ];
+      }
+      function analogous(color, results, slices) {
+        results = results || 6;
+        slices = slices || 30;
+        var hsl = tinycolor(color).toHsl();
+        var part = 360 / slices;
+        var ret = [tinycolor(color)];
+        for (hsl.h = (hsl.h - (part * results >> 1) + 720) % 360; --results; ) {
+          hsl.h = (hsl.h + part) % 360;
+          ret.push(tinycolor(hsl));
+        }
+        return ret;
+      }
+      function monochromatic(color, results) {
+        results = results || 6;
+        var hsv = tinycolor(color).toHsv();
+        var h = hsv.h, s = hsv.s, v = hsv.v;
+        var ret = [];
+        var modification = 1 / results;
+        while (results--) {
+          ret.push(tinycolor({ h, s, v }));
+          v = (v + modification) % 1;
+        }
+        return ret;
+      }
+      tinycolor.mix = function(color1, color2, amount) {
+        amount = amount === 0 ? 0 : amount || 50;
+        var rgb1 = tinycolor(color1).toRgb();
+        var rgb2 = tinycolor(color2).toRgb();
+        var p = amount / 100;
+        var rgba = {
+          r: (rgb2.r - rgb1.r) * p + rgb1.r,
+          g: (rgb2.g - rgb1.g) * p + rgb1.g,
+          b: (rgb2.b - rgb1.b) * p + rgb1.b,
+          a: (rgb2.a - rgb1.a) * p + rgb1.a
+        };
+        return tinycolor(rgba);
+      };
+      tinycolor.readability = function(color1, color2) {
+        var c1 = tinycolor(color1);
+        var c2 = tinycolor(color2);
+        return (Math2.max(c1.getLuminance(), c2.getLuminance()) + 0.05) / (Math2.min(c1.getLuminance(), c2.getLuminance()) + 0.05);
+      };
+      tinycolor.isReadable = function(color1, color2, wcag2) {
+        var readability = tinycolor.readability(color1, color2);
+        var wcag2Parms, out;
+        out = false;
+        wcag2Parms = validateWCAG2Parms(wcag2);
+        switch (wcag2Parms.level + wcag2Parms.size) {
+          case "AAsmall":
+          case "AAAlarge":
+            out = readability >= 4.5;
+            break;
+          case "AAlarge":
+            out = readability >= 3;
+            break;
+          case "AAAsmall":
+            out = readability >= 7;
+            break;
+        }
+        return out;
+      };
+      tinycolor.mostReadable = function(baseColor, colorList, args) {
+        var bestColor = null;
+        var bestScore = 0;
+        var readability;
+        var includeFallbackColors, level, size;
+        args = args || {};
+        includeFallbackColors = args.includeFallbackColors;
+        level = args.level;
+        size = args.size;
+        for (var i2 = 0; i2 < colorList.length; i2++) {
+          readability = tinycolor.readability(baseColor, colorList[i2]);
+          if (readability > bestScore) {
+            bestScore = readability;
+            bestColor = tinycolor(colorList[i2]);
+          }
+        }
+        if (tinycolor.isReadable(baseColor, bestColor, { "level": level, "size": size }) || !includeFallbackColors) {
+          return bestColor;
+        } else {
+          args.includeFallbackColors = false;
+          return tinycolor.mostReadable(baseColor, ["#fff", "#000"], args);
+        }
+      };
+      var names = tinycolor.names = {
+        aliceblue: "f0f8ff",
+        antiquewhite: "faebd7",
+        aqua: "0ff",
+        aquamarine: "7fffd4",
+        azure: "f0ffff",
+        beige: "f5f5dc",
+        bisque: "ffe4c4",
+        black: "000",
+        blanchedalmond: "ffebcd",
+        blue: "00f",
+        blueviolet: "8a2be2",
+        brown: "a52a2a",
+        burlywood: "deb887",
+        burntsienna: "ea7e5d",
+        cadetblue: "5f9ea0",
+        chartreuse: "7fff00",
+        chocolate: "d2691e",
+        coral: "ff7f50",
+        cornflowerblue: "6495ed",
+        cornsilk: "fff8dc",
+        crimson: "dc143c",
+        cyan: "0ff",
+        darkblue: "00008b",
+        darkcyan: "008b8b",
+        darkgoldenrod: "b8860b",
+        darkgray: "a9a9a9",
+        darkgreen: "006400",
+        darkgrey: "a9a9a9",
+        darkkhaki: "bdb76b",
+        darkmagenta: "8b008b",
+        darkolivegreen: "556b2f",
+        darkorange: "ff8c00",
+        darkorchid: "9932cc",
+        darkred: "8b0000",
+        darksalmon: "e9967a",
+        darkseagreen: "8fbc8f",
+        darkslateblue: "483d8b",
+        darkslategray: "2f4f4f",
+        darkslategrey: "2f4f4f",
+        darkturquoise: "00ced1",
+        darkviolet: "9400d3",
+        deeppink: "ff1493",
+        deepskyblue: "00bfff",
+        dimgray: "696969",
+        dimgrey: "696969",
+        dodgerblue: "1e90ff",
+        firebrick: "b22222",
+        floralwhite: "fffaf0",
+        forestgreen: "228b22",
+        fuchsia: "f0f",
+        gainsboro: "dcdcdc",
+        ghostwhite: "f8f8ff",
+        gold: "ffd700",
+        goldenrod: "daa520",
+        gray: "808080",
+        green: "008000",
+        greenyellow: "adff2f",
+        grey: "808080",
+        honeydew: "f0fff0",
+        hotpink: "ff69b4",
+        indianred: "cd5c5c",
+        indigo: "4b0082",
+        ivory: "fffff0",
+        khaki: "f0e68c",
+        lavender: "e6e6fa",
+        lavenderblush: "fff0f5",
+        lawngreen: "7cfc00",
+        lemonchiffon: "fffacd",
+        lightblue: "add8e6",
+        lightcoral: "f08080",
+        lightcyan: "e0ffff",
+        lightgoldenrodyellow: "fafad2",
+        lightgray: "d3d3d3",
+        lightgreen: "90ee90",
+        lightgrey: "d3d3d3",
+        lightpink: "ffb6c1",
+        lightsalmon: "ffa07a",
+        lightseagreen: "20b2aa",
+        lightskyblue: "87cefa",
+        lightslategray: "789",
+        lightslategrey: "789",
+        lightsteelblue: "b0c4de",
+        lightyellow: "ffffe0",
+        lime: "0f0",
+        limegreen: "32cd32",
+        linen: "faf0e6",
+        magenta: "f0f",
+        maroon: "800000",
+        mediumaquamarine: "66cdaa",
+        mediumblue: "0000cd",
+        mediumorchid: "ba55d3",
+        mediumpurple: "9370db",
+        mediumseagreen: "3cb371",
+        mediumslateblue: "7b68ee",
+        mediumspringgreen: "00fa9a",
+        mediumturquoise: "48d1cc",
+        mediumvioletred: "c71585",
+        midnightblue: "191970",
+        mintcream: "f5fffa",
+        mistyrose: "ffe4e1",
+        moccasin: "ffe4b5",
+        navajowhite: "ffdead",
+        navy: "000080",
+        oldlace: "fdf5e6",
+        olive: "808000",
+        olivedrab: "6b8e23",
+        orange: "ffa500",
+        orangered: "ff4500",
+        orchid: "da70d6",
+        palegoldenrod: "eee8aa",
+        palegreen: "98fb98",
+        paleturquoise: "afeeee",
+        palevioletred: "db7093",
+        papayawhip: "ffefd5",
+        peachpuff: "ffdab9",
+        peru: "cd853f",
+        pink: "ffc0cb",
+        plum: "dda0dd",
+        powderblue: "b0e0e6",
+        purple: "800080",
+        rebeccapurple: "663399",
+        red: "f00",
+        rosybrown: "bc8f8f",
+        royalblue: "4169e1",
+        saddlebrown: "8b4513",
+        salmon: "fa8072",
+        sandybrown: "f4a460",
+        seagreen: "2e8b57",
+        seashell: "fff5ee",
+        sienna: "a0522d",
+        silver: "c0c0c0",
+        skyblue: "87ceeb",
+        slateblue: "6a5acd",
+        slategray: "708090",
+        slategrey: "708090",
+        snow: "fffafa",
+        springgreen: "00ff7f",
+        steelblue: "4682b4",
+        tan: "d2b48c",
+        teal: "008080",
+        thistle: "d8bfd8",
+        tomato: "ff6347",
+        turquoise: "40e0d0",
+        violet: "ee82ee",
+        wheat: "f5deb3",
+        white: "fff",
+        whitesmoke: "f5f5f5",
+        yellow: "ff0",
+        yellowgreen: "9acd32"
+      };
+      var hexNames = tinycolor.hexNames = flip(names);
+      function flip(o) {
+        var flipped = {};
+        for (var i2 in o) {
+          if (o.hasOwnProperty(i2)) {
+            flipped[o[i2]] = i2;
+          }
+        }
+        return flipped;
+      }
+      function boundAlpha(a) {
+        a = parseFloat(a);
+        if (isNaN(a) || a < 0 || a > 1) {
+          a = 1;
+        }
+        return a;
+      }
+      function bound01(n, max) {
+        if (isOnePointZero(n)) {
+          n = "100%";
+        }
+        var processPercent = isPercentage(n);
+        n = mathMin(max, mathMax(0, parseFloat(n)));
+        if (processPercent) {
+          n = parseInt(n * max, 10) / 100;
+        }
+        if (Math2.abs(n - max) < 1e-6) {
+          return 1;
+        }
+        return n % max / parseFloat(max);
+      }
+      function clamp01(val) {
+        return mathMin(1, mathMax(0, val));
+      }
+      function parseIntFromHex(val) {
+        return parseInt(val, 16);
+      }
+      function isOnePointZero(n) {
+        return typeof n == "string" && n.indexOf(".") != -1 && parseFloat(n) === 1;
+      }
+      function isPercentage(n) {
+        return typeof n === "string" && n.indexOf("%") != -1;
+      }
+      function pad2(c) {
+        return c.length == 1 ? "0" + c : "" + c;
+      }
+      function convertToPercentage(n) {
+        if (n <= 1) {
+          n = n * 100 + "%";
+        }
+        return n;
+      }
+      function convertDecimalToHex(d) {
+        return Math2.round(parseFloat(d) * 255).toString(16);
+      }
+      function convertHexToDecimal(h) {
+        return parseIntFromHex(h) / 255;
+      }
+      var matchers = function() {
+        var CSS_INTEGER = "[-\\+]?\\d+%?";
+        var CSS_NUMBER = "[-\\+]?\\d*\\.\\d+%?";
+        var CSS_UNIT = "(?:" + CSS_NUMBER + ")|(?:" + CSS_INTEGER + ")";
+        var PERMISSIVE_MATCH3 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
+        var PERMISSIVE_MATCH4 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
+        return {
+          CSS_UNIT: new RegExp(CSS_UNIT),
+          rgb: new RegExp("rgb" + PERMISSIVE_MATCH3),
+          rgba: new RegExp("rgba" + PERMISSIVE_MATCH4),
+          hsl: new RegExp("hsl" + PERMISSIVE_MATCH3),
+          hsla: new RegExp("hsla" + PERMISSIVE_MATCH4),
+          hsv: new RegExp("hsv" + PERMISSIVE_MATCH3),
+          hsva: new RegExp("hsva" + PERMISSIVE_MATCH4),
+          hex3: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+          hex6: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
+          hex4: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+          hex8: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/
+        };
+      }();
+      function isValidCSSUnit(color) {
+        return !!matchers.CSS_UNIT.exec(color);
+      }
+      function stringInputToObject(color) {
+        color = color.replace(trimLeft, "").replace(trimRight, "").toLowerCase();
+        var named = false;
+        if (names[color]) {
+          color = names[color];
+          named = true;
+        } else if (color == "transparent") {
+          return { r: 0, g: 0, b: 0, a: 0, format: "name" };
+        }
+        var match;
+        if (match = matchers.rgb.exec(color)) {
+          return { r: match[1], g: match[2], b: match[3] };
+        }
+        if (match = matchers.rgba.exec(color)) {
+          return { r: match[1], g: match[2], b: match[3], a: match[4] };
+        }
+        if (match = matchers.hsl.exec(color)) {
+          return { h: match[1], s: match[2], l: match[3] };
+        }
+        if (match = matchers.hsla.exec(color)) {
+          return { h: match[1], s: match[2], l: match[3], a: match[4] };
+        }
+        if (match = matchers.hsv.exec(color)) {
+          return { h: match[1], s: match[2], v: match[3] };
+        }
+        if (match = matchers.hsva.exec(color)) {
+          return { h: match[1], s: match[2], v: match[3], a: match[4] };
+        }
+        if (match = matchers.hex8.exec(color)) {
+          return {
+            r: parseIntFromHex(match[1]),
+            g: parseIntFromHex(match[2]),
+            b: parseIntFromHex(match[3]),
+            a: convertHexToDecimal(match[4]),
+            format: named ? "name" : "hex8"
+          };
+        }
+        if (match = matchers.hex6.exec(color)) {
+          return {
+            r: parseIntFromHex(match[1]),
+            g: parseIntFromHex(match[2]),
+            b: parseIntFromHex(match[3]),
+            format: named ? "name" : "hex"
+          };
+        }
+        if (match = matchers.hex4.exec(color)) {
+          return {
+            r: parseIntFromHex(match[1] + "" + match[1]),
+            g: parseIntFromHex(match[2] + "" + match[2]),
+            b: parseIntFromHex(match[3] + "" + match[3]),
+            a: convertHexToDecimal(match[4] + "" + match[4]),
+            format: named ? "name" : "hex8"
+          };
+        }
+        if (match = matchers.hex3.exec(color)) {
+          return {
+            r: parseIntFromHex(match[1] + "" + match[1]),
+            g: parseIntFromHex(match[2] + "" + match[2]),
+            b: parseIntFromHex(match[3] + "" + match[3]),
+            format: named ? "name" : "hex"
+          };
+        }
+        return false;
+      }
+      function validateWCAG2Parms(parms) {
+        var level, size;
+        parms = parms || { "level": "AA", "size": "small" };
+        level = (parms.level || "AA").toUpperCase();
+        size = (parms.size || "small").toLowerCase();
+        if (level !== "AA" && level !== "AAA") {
+          level = "AA";
+        }
+        if (size !== "small" && size !== "large") {
+          size = "small";
+        }
+        return { "level": level, "size": size };
+      }
+      if (typeof module2 !== "undefined" && module2.exports) {
+        module2.exports = tinycolor;
+      } else if (typeof define === "function" && define.amd) {
+        define(function() {
+          return tinycolor;
+        });
+      } else {
+        window.tinycolor = tinycolor;
+      }
+    })(Math);
+  }
+});
+
+// node_modules/tinygradient/tinygradient.js
+var require_tinygradient = __commonJS({
+  "node_modules/tinygradient/tinygradient.js"(exports2, module2) {
+    (function(root, factory) {
+      if (typeof module2 !== "undefined" && module2.exports) {
+        module2.exports = factory(require_tinycolor());
+      } else if (typeof define === "function" && define.amd) {
+        define(["tinycolor2"], factory);
+      } else {
+        root.tinygradient = factory(root.tinycolor);
+      }
+    })(exports2, function(tinycolor) {
+      "use strict";
+      var RGBA_MAX = { r: 256, g: 256, b: 256, a: 1 };
+      var HSVA_MAX = { h: 360, s: 1, v: 1, a: 1 };
+      function stepize(start, end, steps) {
+        var step = {};
+        for (var k in start) {
+          if (start.hasOwnProperty(k)) {
+            step[k] = steps === 0 ? 0 : (end[k] - start[k]) / steps;
+          }
+        }
+        return step;
+      }
+      function interpolate(step, start, i2, max) {
+        var color = {};
+        for (var k in start) {
+          if (start.hasOwnProperty(k)) {
+            color[k] = step[k] * i2 + start[k];
+            color[k] = color[k] < 0 ? color[k] + max[k] : max[k] !== 1 ? color[k] % max[k] : color[k];
+          }
+        }
+        return color;
+      }
+      function interpolateRgb(stop1, stop2, steps) {
+        var start = stop1.color.toRgb(), end = stop2.color.toRgb(), gradient = [stop1.color], step = stepize(start, end, steps), color;
+        for (var i2 = 1; i2 < steps; i2++) {
+          color = interpolate(step, start, i2, RGBA_MAX);
+          gradient.push(tinycolor(color));
+        }
+        return gradient;
+      }
+      function interpolateHsv(stop1, stop2, steps, trigonometric) {
+        var start = stop1.color.toHsv(), end = stop2.color.toHsv(), gradient = [stop1.color], step = stepize(start, end, steps), diff, color;
+        if (start.h <= end.h && !trigonometric || start.h >= end.h && trigonometric) {
+          diff = end.h - start.h;
+        } else if (trigonometric) {
+          diff = 360 - end.h + start.h;
+        } else {
+          diff = 360 - start.h + end.h;
+        }
+        step.h = Math.pow(-1, trigonometric ? 1 : 0) * Math.abs(diff) / steps;
+        for (var i2 = 1; i2 < steps; i2++) {
+          color = interpolate(step, start, i2, HSVA_MAX);
+          gradient.push(tinycolor(color));
+        }
+        return gradient;
+      }
+      function computeSubsteps(stops, steps) {
+        var l = stops.length;
+        steps = parseInt(steps);
+        if (isNaN(steps) || steps < 2) {
+          throw new Error("Invalid number of steps (< 2)");
+        }
+        if (steps < l) {
+          throw new Error("Number of steps cannot be inferior to number of stops");
+        }
+        var substeps = [];
+        for (var i2 = 1; i2 < l; i2++) {
+          var step = (steps - 1) * (stops[i2].pos - stops[i2 - 1].pos);
+          substeps.push(Math.max(1, Math.round(step)));
+        }
+        var totalSubsteps = 1;
+        for (var n = l - 1; n--; )
+          totalSubsteps += substeps[n];
+        while (totalSubsteps !== steps) {
+          if (totalSubsteps < steps) {
+            var min = Math.min.apply(null, substeps);
+            substeps[substeps.indexOf(min)]++;
+            totalSubsteps++;
+          } else {
+            var max = Math.max.apply(null, substeps);
+            substeps[substeps.indexOf(max)]--;
+            totalSubsteps--;
+          }
+        }
+        return substeps;
+      }
+      function computeAt(stops, pos, method, max) {
+        if (pos < 0 || pos > 1) {
+          throw new Error("Position must be between 0 and 1");
+        }
+        var start, end;
+        for (var i2 = 0, l = stops.length; i2 < l - 1; i2++) {
+          if (pos >= stops[i2].pos && pos < stops[i2 + 1].pos) {
+            start = stops[i2];
+            end = stops[i2 + 1];
+            break;
+          }
+        }
+        if (!start) {
+          start = end = stops[stops.length - 1];
+        }
+        var step = stepize(start.color[method](), end.color[method](), (end.pos - start.pos) * 100);
+        var color = interpolate(step, start.color[method](), Math.round((pos - start.pos) * 100), max);
+        return tinycolor(color);
+      }
+      var TinyGradient = function(stops) {
+        if (arguments.length === 1) {
+          if (!(arguments[0] instanceof Array)) {
+            throw new Error('"stops" is not an array');
+          }
+          stops = arguments[0];
+        } else {
+          stops = Array.prototype.slice.call(arguments);
+        }
+        if (!(this instanceof TinyGradient)) {
+          return new TinyGradient(stops);
+        }
+        if (stops.length < 2) {
+          throw new Error("Invalid number of stops (< 2)");
+        }
+        var havingPositions = stops[0].pos !== void 0, l = stops.length, p = -1;
+        this.stops = stops.map(function(stop, i2) {
+          var hasPosition = stop.pos !== void 0;
+          if (havingPositions ^ hasPosition) {
+            throw new Error("Cannot mix positionned and not posionned color stops");
+          }
+          if (hasPosition) {
+            stop = {
+              color: tinycolor(stop.color),
+              pos: stop.pos
+            };
+            if (stop.pos < 0 || stop.pos > 1) {
+              throw new Error("Color stops positions must be between 0 and 1");
+            } else if (stop.pos <= p) {
+              throw new Error("Color stops positions are not ordered");
+            }
+            p = stop.pos;
+          } else {
+            stop = {
+              color: tinycolor(stop),
+              pos: i2 / (l - 1)
+            };
+          }
+          return stop;
+        });
+        if (this.stops[0].pos !== 0) {
+          this.stops.unshift({
+            color: this.stops[0].color,
+            pos: 0
+          });
+        }
+        if (this.stops[this.stops.length - 1].pos !== 1) {
+          this.stops.push({
+            color: this.stops[this.stops.length - 1].color,
+            pos: 1
+          });
+        }
+      };
+      TinyGradient.prototype.reverse = function() {
+        var stops = [];
+        this.stops.forEach(function(stop) {
+          stops.push({
+            color: stop.color,
+            pos: 1 - stop.pos
+          });
+        });
+        return new TinyGradient(stops.reverse());
+      };
+      TinyGradient.prototype.rgb = function(steps) {
+        var substeps = computeSubsteps(this.stops, steps), gradient = [];
+        for (var i2 = 0, l = this.stops.length; i2 < l - 1; i2++) {
+          gradient = gradient.concat(interpolateRgb(this.stops[i2], this.stops[i2 + 1], substeps[i2]));
+        }
+        gradient.push(this.stops[l - 1].color);
+        return gradient;
+      };
+      TinyGradient.prototype.hsv = function(steps, mode) {
+        var substeps = computeSubsteps(this.stops, steps), trigonometric = mode === true, parametrized = typeof mode === "string", gradient = [], start, end, trig;
+        for (var i2 = 0, l = this.stops.length; i2 < l - 1; i2++) {
+          start = this.stops[i2].color.toHsv();
+          end = this.stops[i2 + 1].color.toHsv();
+          if (parametrized) {
+            trig = start.h < end.h && end.h - start.h < 180 || start.h > end.h && start.h - end.h > 180;
+          }
+          if (start.s === 0 || end.s === 0) {
+            gradient = gradient.concat(interpolateRgb(this.stops[i2], this.stops[i2 + 1], substeps[i2]));
+          } else {
+            gradient = gradient.concat(interpolateHsv(
+              this.stops[i2],
+              this.stops[i2 + 1],
+              substeps[i2],
+              mode === "long" && trig || mode === "short" && !trig || !parametrized && trigonometric
+            ));
+          }
+        }
+        gradient.push(this.stops[l - 1].color);
+        return gradient;
+      };
+      TinyGradient.prototype.css = function(mode, direction) {
+        mode = mode || "linear";
+        direction = direction || (mode === "linear" ? "to right" : "ellipse at center");
+        var css = mode + "-gradient(" + direction;
+        this.stops.forEach(function(stop) {
+          css += ", " + stop.color.toRgbString() + " " + stop.pos * 100 + "%";
+        });
+        css += ")";
+        return css;
+      };
+      TinyGradient.prototype.rgbAt = function(pos) {
+        return computeAt(this.stops, pos, "toRgb", RGBA_MAX);
+      };
+      TinyGradient.prototype.hsvAt = function(pos) {
+        return computeAt(this.stops, pos, "toHsv", HSVA_MAX);
+      };
+      var STATIC_FNS = {
+        "rgb": 1,
+        "hsv": 2,
+        "css": 2,
+        "rgbAt": 1,
+        "hsvAt": 1
+      };
+      Object.keys(STATIC_FNS).forEach(function(fn) {
+        TinyGradient[fn] = function() {
+          var colors = Array.prototype.slice.call(arguments);
+          var args = colors.splice(-STATIC_FNS[fn]);
+          var gradient = new TinyGradient(colors);
+          return gradient[fn].apply(gradient, args);
+        };
+      });
+      return TinyGradient;
+    });
+  }
+});
+
+// node_modules/gradient-string/index.js
+var require_gradient_string = __commonJS({
+  "node_modules/gradient-string/index.js"(exports2, module2) {
+    "use strict";
+    var chalk = require_chalk();
+    var tinygradient = require_tinygradient();
+    var forbiddenChars = /\s/g;
+    function InitGradient(...args) {
+      const grad = tinygradient.apply(this, args);
+      const ret = (str, opts) => applyGradient(str ? str.toString() : "", grad, opts);
+      ret.multiline = (str, opts) => multilineGradient(str ? str.toString() : "", grad, opts);
+      return ret;
+    }
+    var getColors = (gradient, options, count) => options.interpolation.toLowerCase() === "hsv" ? gradient.hsv(count, options.hsvSpin.toLowerCase()) : gradient.rgb(count);
+    function applyGradient(str, gradient, opts) {
+      const options = validateOptions(opts);
+      const colorsCount = Math.max(str.replace(forbiddenChars, "").length, gradient.stops.length);
+      const colors = getColors(gradient, options, colorsCount);
+      let result = "";
+      for (const s of str) {
+        result += s.match(forbiddenChars) ? s : chalk.hex(colors.shift().toHex())(s);
+      }
+      return result;
+    }
+    function multilineGradient(str, gradient, opts) {
+      const options = validateOptions(opts);
+      const lines = str.split("\n");
+      const maxLength = Math.max.apply(null, lines.map((l) => l.length).concat([gradient.stops.length]));
+      const colors = getColors(gradient, options, maxLength);
+      const results = [];
+      for (const line of lines) {
+        const lineColors = colors.slice(0);
+        let lineResult = "";
+        for (const l of line) {
+          lineResult += chalk.hex(lineColors.shift().toHex())(l);
+        }
+        results.push(lineResult);
+      }
+      return results.join("\n");
+    }
+    function validateOptions(opts) {
+      const options = Object.assign({ interpolation: "rgb", hsvSpin: "short" }, opts);
+      if (opts !== void 0 && typeof opts !== "object") {
+        throw new TypeError(`Expected \`options\` to be an \`object\`, got \`${typeof opts}\``);
+      }
+      if (typeof options.interpolation !== "string") {
+        throw new TypeError(`Expected \`options.interpolation\` to be a \`string\`, got \`${typeof options.interpolation}\``);
+      }
+      if (options.interpolation.toLowerCase() === "hsv" && typeof options.hsvSpin !== "string") {
+        throw new TypeError(`Expected \`options.hsvSpin\` to be a \`string\`, got \`${typeof options.hsvSpin}\``);
+      }
+      return options;
+    }
+    var aliases = {
+      atlas: { colors: ["#feac5e", "#c779d0", "#4bc0c8"], options: {} },
+      cristal: { colors: ["#bdfff3", "#4ac29a"], options: {} },
+      teen: { colors: ["#77a1d3", "#79cbca", "#e684ae"], options: {} },
+      mind: { colors: ["#473b7b", "#3584a7", "#30d2be"], options: {} },
+      morning: { colors: ["#ff5f6d", "#ffc371"], options: { interpolation: "hsv" } },
+      vice: { colors: ["#5ee7df", "#b490ca"], options: { interpolation: "hsv" } },
+      passion: { colors: ["#f43b47", "#453a94"], options: {} },
+      fruit: { colors: ["#ff4e50", "#f9d423"], options: {} },
+      instagram: { colors: ["#833ab4", "#fd1d1d", "#fcb045"], options: {} },
+      retro: { colors: ["#3f51b1", "#5a55ae", "#7b5fac", "#8f6aae", "#a86aa4", "#cc6b8e", "#f18271", "#f3a469", "#f7c978"], options: {} },
+      summer: { colors: ["#fdbb2d", "#22c1c3"], options: {} },
+      rainbow: { colors: ["#ff0000", "#ff0100"], options: { interpolation: "hsv", hsvSpin: "long" } },
+      pastel: { colors: ["#74ebd5", "#74ecd5"], options: { interpolation: "hsv", hsvSpin: "long" } }
+    };
+    module2.exports = InitGradient;
+    for (const a in aliases) {
+      module2.exports[a] = (str) => new InitGradient(aliases[a].colors)(str, aliases[a].options);
+      module2.exports[a].multiline = (str) => new InitGradient(aliases[a].colors).multiline(str, aliases[a].options);
+    }
+  }
+});
+
+// node_modules/ink-gradient/dist.js
+var require_dist = __commonJS({
+  "node_modules/ink-gradient/dist.js"(exports2, module2) {
+    "use strict";
+    var _react = _interopRequireDefault(require_react());
+    var _ink = require_build2();
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _gradientString = _interopRequireDefault(require_gradient_string());
+    var _stripAnsi = _interopRequireDefault(require_strip_ansi());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var Gradient2 = (props) => {
+      if (props.name && props.colors) {
+        throw new Error("The `name` and `colors` props are mutually exclusive");
+      }
+      const gradient = props.name ? _gradientString.default[props.name] : (0, _gradientString.default)(props.colors);
+      const applyGradient = (text) => gradient.multiline((0, _stripAnsi.default)(text));
+      return /* @__PURE__ */ _react.default.createElement(_ink.Transform, {
+        transform: applyGradient
+      }, props.children);
+    };
+    Gradient2.propTypes = {
+      children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]).isRequired,
+      name: _propTypes.default.oneOf(["cristal", "teen", "mind", "morning", "vice", "passion", "fruit", "instagram", "atlas", "retro", "summer", "pastel", "rainbow"]),
+      colors: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))
+    };
+    module2.exports = Gradient2;
+  }
+});
+
+// node_modules/cfonts/lib/Chalk.js
+var require_Chalk = __commonJS({
+  "node_modules/cfonts/lib/Chalk.js"(exports2, module2) {
+    "use strict";
+    var chalkOriginal = require_source();
+    var level = {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3
+    };
+    var Chalk = new chalkOriginal.Instance({
+      ...process.env.FORCE_COLOR ? {
+        level: level[process.env.FORCE_COLOR]
+      } : null
+    });
+    module2.exports = exports2 = {
+      Chalk
+    };
+  }
+});
+
+// node_modules/cfonts/package.json
+var require_package = __commonJS({
+  "node_modules/cfonts/package.json"(exports2, module2) {
+    module2.exports = {
+      name: "cfonts",
+      description: "Sexy fonts for the console",
+      version: "2.10.1",
+      homepage: "https://github.com/dominikwilkowski/cfonts",
+      author: {
+        name: "Dominik Wilkowski",
+        email: "Hi@Dominik-Wilkowski.com",
+        url: "http://dominik-wilkowski.com/"
+      },
+      contributors: {
+        name: "Dominik Wilkowski",
+        email: "Hi@Dominik-Wilkowski.com",
+        url: "http://dominik-wilkowski.com/"
+      },
+      repository: {
+        type: "git",
+        url: "git://github.com/dominikwilkowski/cfonts.git"
+      },
+      bugs: {
+        url: "https://github.com/dominikwilkowski/cfonts/issues"
+      },
+      licenses: [
+        {
+          type: "GPL-2.0",
+          url: "https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE"
+        }
+      ],
+      engines: {
+        node: ">=10"
+      },
+      scripts: {
+        prepublish: "yarn build && yarn test",
+        test: "yarn build && yarn test:unit && yarn test:lint && yarn test:types && yarn test:fonts",
+        "test:fonts": "node ./test/fonttest.js",
+        "test:watch": "jest --watchAll --coverage",
+        "test:unit": "npx cross-env FORCE_COLOR=3 jest",
+        "test:types": "yarn types:clean && tsc -p tsconfig.json",
+        "test:lint": "eslint src/",
+        build: "yarn build:lib && yarn build:bin",
+        "build:bin": "npx mkdirp bin && mv lib/bin.js bin/index.js",
+        "build:lib": "npx mkdirp lib && babel src --out-dir lib",
+        "types:clean": "find lib/ -type f -name '*.d.ts' -exec rm {} +",
+        watch: "yarn build:lib && onchange 'src/**/*' -- yarn build:lib",
+        coveralls: "jest --coverage --coverageReporters=text-lcov | coveralls",
+        nuke: "rm -rf lib && rm -rf node_modules && rm yarn.lock"
+      },
+      devDependencies: {
+        "@babel/cli": "^7.17.6",
+        "@babel/core": "^7.17.8",
+        "@babel/preset-env": "^7.16.11",
+        "@types/node": "latest",
+        coveralls: "^3.1.1",
+        eslint: "^8.12.0",
+        "jest-cli": "^27.5.1",
+        onchange: "^7.1.0",
+        typescript: "^4.6.3"
+      },
+      peerDependencies: {},
+      dependencies: {
+        chalk: "^4",
+        "window-size": "^1.1.1"
+      },
+      jest: {
+        displayName: "CFonts",
+        testEnvironment: "node",
+        testRegex: "\\.spec.js$",
+        collectCoverageFrom: [
+          "src/*.js"
+        ],
+        setupFiles: [
+          "<rootDir>/test/env.js"
+        ],
+        coverageThreshold: {
+          global: {
+            branches: 95,
+            functions: 100,
+            lines: 95,
+            statements: 95
+          }
+        }
+      },
+      eslintConfig: {
+        env: {
+          node: true,
+          commonjs: true,
+          es6: true
+        },
+        extends: "eslint:recommended",
+        globals: {
+          Atomics: "readonly",
+          SharedArrayBuffer: "readonly"
+        },
+        parserOptions: {
+          ecmaVersion: 2018
+        },
+        rules: {
+          "no-async-promise-executor": "off",
+          "no-console": "off",
+          "no-unused-vars": [
+            "error",
+            {
+              argsIgnorePattern: "_"
+            }
+          ]
+        }
+      },
+      browserslist: [
+        "node >= 10"
+      ],
+      keywords: [
+        "font",
+        "banner",
+        "logo",
+        "CLI",
+        "console",
+        "ascii",
+        "pretty"
+      ],
+      files: [
+        "lib/*.js",
+        "bin/*",
+        "fonts/*"
+      ],
+      main: "lib/index.js",
+      bin: {
+        cfonts: "./bin/index.js"
+      },
+      license: "GPL-2.0"
+    };
+  }
+});
+
+// node_modules/cfonts/lib/constants.js
+var require_constants2 = __commonJS({
+  "node_modules/cfonts/lib/constants.js"(exports2, module2) {
+    "use strict";
+    var {
+      Chalk
+    } = require_Chalk();
+    var CHARS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "|", "!", "?", ".", "+", "-", "_", "=", "@", "#", "$", "%", "&", "(", ")", "/", ":", ";", ",", " ", "'", '"'];
+    var COLORS = {
+      system: "system",
+      black: "black",
+      red: "red",
+      green: "green",
+      yellow: "yellow",
+      blue: "blue",
+      magenta: "magenta",
+      cyan: "cyan",
+      white: "white",
+      gray: "gray",
+      redbright: "redBright",
+      greenbright: "greenBright",
+      yellowbright: "yellowBright",
+      bluebright: "blueBright",
+      magentabright: "magentaBright",
+      cyanbright: "cyanBright",
+      whitebright: "whiteBright"
+    };
+    var BGCOLORS = {
+      transparent: "transparent",
+      black: "black",
+      red: "red",
+      green: "green",
+      yellow: "yellow",
+      blue: "blue",
+      magenta: "magenta",
+      cyan: "cyan",
+      white: "white",
+      blackbright: "blackBright",
+      redbright: "redBright",
+      greenbright: "greenBright",
+      yellowbright: "yellowBright",
+      bluebright: "blueBright",
+      magentabright: "magentaBright",
+      cyanbright: "cyanBright",
+      whitebright: "whiteBright"
+    };
+    var GRADIENTCOLORS = {
+      transparent: "transparent",
+      black: "black",
+      red: "red",
+      green: "green",
+      yellow: "yellow",
+      blue: "blue",
+      magenta: "magenta",
+      cyan: "cyan",
+      white: "white"
+    };
+    var GRADIENTS = {
+      lgbt: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
+      lgbtq: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
+      pride: ["#750787", "#004dff", "#008026", "#ffed00", "#ff8c00", "#e40303"],
+      agender: ["#000000", "#b9b9b9", "#ffffff", "#b8f483", "#ffffff", "#b9b9b9", "#000000"],
+      aromantic: ["#3da542", "#a7d379", "#ffffff", "#a9a9a9", "#000000"],
+      asexual: ["#000000", "#a3a3a3", "#ffffff", "#800080"],
+      bisexual: ["#d60270", "#d60270", "#9b4f96", "#0038a8", "#0038a8"],
+      genderfluid: ["#ff75a2", "#ffffff", "#be18d6", "#000000", "#333ebd"],
+      genderqueer: ["#b57edc", "#ffffff", "#4a8123"],
+      intersex: ["#ffd800", "#ffd800", "#7902aa", "#ffd800", "#ffd800"],
+      lesbian: ["#d52d00", "#ff9a56", "#ffffff", "#d362a4", "#a30262"],
+      nonbinary: ["#fcf434", "#ffffff", "#9c5cd4", "#2c2c2c"],
+      pansexual: ["#ff218c", "#ffd800", "#21b1ff"],
+      polysexual: ["#f61cb9", "#07d569", "#1c92f6"],
+      transgender: ["#5bcefa", "#f5a9b8", "#ffffff", "#f5a9b8", "#5bcefa"]
+    };
+    var ALIGNMENT = ["left", "center", "right", "top", "bottom"];
+    var FONTFACES = {
+      console: "console",
+      block: "block",
+      simpleblock: "simpleBlock",
+      simple: "simple",
+      "3d": "3d",
+      simple3d: "simple3d",
+      chrome: "chrome",
+      huge: "huge",
+      shade: "shade",
+      slick: "slick",
+      grid: "grid",
+      pallet: "pallet",
+      tiny: "tiny"
+    };
+    var CLIOPTIONS = {
+      "--version": {
+        description: "Use to display the version of cfonts",
+        example: "--version",
+        short: "-v",
+        default: false
+      },
+      "--help": {
+        description: "Use to display this help",
+        example: "--help",
+        short: "-h",
+        default: false
+      },
+      "--font": {
+        description: "Use to define the font face",
+        example: `--font block ${Chalk.green(`( ${Object.keys(FONTFACES).map((font) => FONTFACES[font]).join(", ")} )`)}`,
+        short: "-f",
+        options: Object.keys(FONTFACES).map((color) => FONTFACES[color]),
+        default: "block"
+      },
+      "--colors": {
+        description: "Use to define the font color",
+        example: `--colors red ${Chalk.green(`( ${Object.keys(COLORS).map((color) => COLORS[color]).join(", ")}, #ff8800, hex-colors etc... )`)}`,
+        short: "-c",
+        options: true,
+        default: "system"
+      },
+      "--background": {
+        description: "Use to define background color",
+        example: `--background blue ${Chalk.green(`( ${Object.keys(BGCOLORS).map((bgcolor) => BGCOLORS[bgcolor]).join(", ")} )`)}`,
+        short: "-b",
+        options: Object.keys(BGCOLORS).map((color) => BGCOLORS[color]),
+        default: "transparent"
+      },
+      "--align": {
+        description: "Use to align your text output",
+        example: `--align ${Chalk.green(`( ${ALIGNMENT.join(", ")} )`)}`,
+        short: "-a",
+        options: ALIGNMENT,
+        default: "left"
+      },
+      "--letter-spacing": {
+        description: "Use to define your letter spacing",
+        example: "--letter-spacing 2",
+        short: "-l",
+        options: true,
+        default: void 0
+      },
+      "--line-height": {
+        description: "Use to define your line height",
+        example: "--line-height 5",
+        short: "-z",
+        options: true,
+        default: void 0
+      },
+      "--spaceless": {
+        description: "Use to disable the padding around your output",
+        example: "--spaceless",
+        short: "-s",
+        default: false
+      },
+      "--max-length": {
+        description: "Use to define the amount of maximum characters per line",
+        example: "--max-length 10",
+        short: "-m",
+        options: true,
+        default: 0
+      },
+      "--gradient": {
+        description: "Use to define a start and end color of a gradient",
+        example: "--gradient red,blue",
+        short: "-g",
+        options: true,
+        default: false
+      },
+      "--independent-gradient": {
+        description: "Use to define that a gradient is applied independently for each line",
+        example: "--gradient red,blue --independent-gradient",
+        short: "-i",
+        default: false
+      },
+      "--transition-gradient": {
+        description: "Use to define that a gradient is a transition between the colors",
+        example: "--gradient red,blue,green --transition-gradient",
+        short: "-t",
+        default: false
+      },
+      "--env": {
+        description: "Use to define what environment you run CFonts in.",
+        example: `--env ${Chalk.green('"node", "browser"')}`,
+        short: "-e",
+        options: true,
+        default: "node"
+      },
+      "--debug": {
+        description: "Use to enable debug mode",
+        example: "--debug",
+        short: "-d",
+        default: false
+      },
+      "--debug-level": {
+        description: "Use to define the debug level. The higher, the less debug infos",
+        example: "--debug-level 2",
+        short: "-x",
+        options: true,
+        default: 1
+      }
+    };
+    var PACKAGE = require_package();
+    var HEXTEST = RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
+    module2.exports = exports2 = {
+      CHARS,
+      COLORS,
+      BGCOLORS,
+      GRADIENTCOLORS,
+      GRADIENTS,
+      ALIGNMENT,
+      FONTFACES,
+      CLIOPTIONS,
+      PACKAGE,
+      HEXTEST
+    };
+  }
+});
+
+// node_modules/cfonts/lib/DisplayVersion.js
+var require_DisplayVersion = __commonJS({
+  "node_modules/cfonts/lib/DisplayVersion.js"(exports2, module2) {
+    "use strict";
+    var {
+      PACKAGE
+    } = require_constants2();
+    var DisplayVersion = () => {
+      console.log(PACKAGE.version);
+    };
+    module2.exports = exports2 = {
+      DisplayVersion
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Debugging.js
+var require_Debugging = __commonJS({
+  "node_modules/cfonts/lib/Debugging.js"(exports2, module2) {
+    "use strict";
+    var {
+      Chalk
+    } = require_Chalk();
+    var DEBUG = {
+      store: {
+        enabled: false,
+        level: 2
+      },
+      set enabled(value) {
+        this.store.enabled = value;
+      },
+      get enabled() {
+        return this.store.enabled;
+      },
+      set level(value) {
+        this.store.level = value;
+      },
+      get level() {
+        return this.store.level;
+      }
+    };
+    var Debugging = {
+      headline: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
+        if (debug && level >= debuglevel) {
+          console.log(Chalk.bgWhite(`
+${Chalk.bold(" \u2611  ")} ${text}`));
+        }
+      },
+      report: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
+        if (debug && level >= debuglevel) {
+          console.log(Chalk.bgWhite(`
+${Chalk.bold.green(" \u2611  ")} ${Chalk.black(`${text} `)}`));
+        }
+      },
+      error: (text, level = 99, debug = DEBUG.enabled, debuglevel = DEBUG.level) => {
+        if (debug && level >= debuglevel) {
+          console.error(Chalk.bgWhite(`
+${Chalk.red(" \u2612  ")} ${Chalk.black(`${text} `)}`));
+        }
+      }
+    };
+    module2.exports = exports2 = {
+      DEBUG,
+      Debugging
+    };
+  }
+});
+
+// node_modules/cfonts/lib/UpperCaseFirst.js
+var require_UpperCaseFirst = __commonJS({
+  "node_modules/cfonts/lib/UpperCaseFirst.js"(exports2, module2) {
+    "use strict";
+    var UpperCaseFirst = (input) => typeof input === "string" ? input.charAt(0).toUpperCase() + input.substr(1) : input;
+    module2.exports = exports2 = {
+      UpperCaseFirst
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Options.js
+var require_Options = __commonJS({
+  "node_modules/cfonts/lib/Options.js"(exports2, module2) {
+    "use strict";
+    var {
+      COLORS,
+      BGCOLORS,
+      FONTFACES
+    } = require_constants2();
+    var Options = {
+      store: {},
+      reset() {
+        const defaults = {
+          font: "block",
+          align: "left",
+          colors: [],
+          background: "transparent",
+          letterSpacing: 1,
+          lineHeight: 1,
+          space: true,
+          maxLength: 0,
+          gradient: false,
+          independentGradient: false,
+          transitionGradient: false,
+          env: "node"
+        };
+        this.store = {
+          ...defaults
+        };
+      },
+      get get() {
+        return this.store;
+      },
+      set set({
+        font = "",
+        align,
+        colors,
+        background,
+        backgroundColor,
+        letterSpacing,
+        lineHeight,
+        space,
+        maxLength,
+        gradient,
+        independentGradient,
+        transitionGradient,
+        env,
+        allowedColors = COLORS,
+        allowedBG = BGCOLORS,
+        allowedFont = FONTFACES
+      }) {
+        this.store.font = font !== "" ? allowedFont[font.toLowerCase()] || font : this.store.font;
+        this.store.align = align !== void 0 ? align.toLowerCase() : this.store.align;
+        this.store.colors = Array.isArray(colors) ? colors.map((color) => allowedColors[color.toLowerCase()] || color) : this.store.colors;
+        const bg = backgroundColor || background;
+        this.store.background = bg !== void 0 ? allowedBG[bg.toLowerCase()] || bg : this.store.background;
+        this.store.letterSpacing = letterSpacing !== void 0 ? parseInt(letterSpacing.toString()) : font.toLowerCase() === "console" ? 0 : this.store.letterSpacing;
+        this.store.lineHeight = lineHeight !== void 0 ? parseInt(lineHeight.toString()) : font.toLowerCase() === "console" ? 0 : this.store.lineHeight;
+        this.store.space = typeof space === "boolean" ? space : this.store.space;
+        this.store.maxLength = maxLength !== void 0 ? maxLength : this.store.maxLength;
+        this.store.gradient = gradient !== void 0 && typeof gradient !== "boolean" ? Array.isArray(gradient) ? gradient : gradient.split(",") : gradient === false ? false : this.store.gradient;
+        this.store.independentGradient = independentGradient !== void 0 ? independentGradient : this.store.independentGradient;
+        this.store.transitionGradient = transitionGradient !== void 0 ? transitionGradient : this.store.transitionGradient;
+        this.store.env = env !== void 0 ? env : this.store.env;
+      }
+    };
+    module2.exports = exports2 = {
+      Options
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Color.js
+var require_Color = __commonJS({
+  "node_modules/cfonts/lib/Color.js"(exports2, module2) {
+    "use strict";
+    var {
+      UpperCaseFirst
+    } = require_UpperCaseFirst();
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      HEXTEST
+    } = require_constants2();
+    var {
+      Options
+    } = require_Options();
+    var {
+      Chalk
+    } = require_Chalk();
+    var Color = (color, bg = false) => {
+      if (color === "system" || process.env.FORCE_COLOR == "0") {
+        return {
+          open: "",
+          close: ""
+        };
+      }
+      const OPTIONS = Options.get;
+      if (OPTIONS.env === "node") {
+        if (color.includes("Bright")) {
+          if (bg) {
+            color = `bg${UpperCaseFirst(color)}`;
+          }
+          return {
+            open: Chalk[color]._styler.open,
+            close: Chalk[color]._styler.close
+          };
+        }
+        const kind = HEXTEST.test(color) ? "hex" : `${bg ? "bgK" : "k"}eyword`;
+        let styles;
+        try {
+          styles = Chalk[kind](color)._styler;
+        } catch (error) {
+          Debugging.error(`The color ${Chalk.yellow(color)} could not be found. Sorry about this.`);
+          return {
+            open: "",
+            close: ""
+          };
+        }
+        return {
+          open: styles.open,
+          close: styles.close
+        };
+      } else {
+        const COLORS = {
+          black: "#000",
+          red: "#ea3223",
+          green: "#377d22",
+          yellow: "#fffd54",
+          blue: "#0020f5",
+          magenta: "#ea3df7",
+          cyan: "#74fbfd",
+          white: "#fff",
+          gray: "#808080",
+          redbright: "#ee776d",
+          greenbright: "#8cf57b",
+          yellowbright: "#fffb7f",
+          bluebright: "#6974f6",
+          magentabright: "#ee82f8",
+          cyanbright: "#8dfafd",
+          whitebright: "#fff"
+        };
+        if (!HEXTEST.test(color)) {
+          color = COLORS[color.toLowerCase()];
+        }
+        if (bg) {
+          return {
+            open: color,
+            close: ""
+          };
+        }
+        return {
+          open: `<span style="color:${color}">`,
+          close: "</span>"
+        };
+      }
+    };
+    module2.exports = exports2 = {
+      Color
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Colorize.js
+var require_Colorize = __commonJS({
+  "node_modules/cfonts/lib/Colorize.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      Color
+    } = require_Color();
+    var Colorize = (character, fontColors, optionColors) => {
+      Debugging.report(`Running Colorize`, 1);
+      let candyColors = [
+        "red",
+        "green",
+        "yellow",
+        "magenta",
+        "cyan",
+        "redBright",
+        "greenBright",
+        "yellowBright",
+        "blueBright",
+        "magentaBright",
+        "cyanBright"
+      ];
+      if (character !== void 0) {
+        if (fontColors > 1) {
+          for (let i2 = 0; i2 < fontColors; i2++) {
+            const color = optionColors[i2] === "candy" ? candyColors[Math.floor(Math.random() * candyColors.length)] : optionColors[i2] || "system";
+            const {
+              open: openNew,
+              close: closeNew
+            } = Color(color);
+            const open = new RegExp(`<c${i2 + 1}>`, "g");
+            const close = new RegExp(`</c${i2 + 1}>`, "g");
+            character = character.replace(open, openNew);
+            character = character.replace(close, closeNew);
+          }
+        }
+        if (fontColors === 1) {
+          const color = optionColors[0] === "candy" ? candyColors[Math.floor(Math.random() * candyColors.length)] : optionColors[0] || "system";
+          const {
+            open: openNew,
+            close: closeNew
+          } = Color(color);
+          character = openNew + character + closeNew;
+        }
+      }
+      return character;
+    };
+    module2.exports = exports2 = {
+      Colorize
+    };
+  }
+});
+
+// node_modules/cfonts/lib/AddLetterSpacing.js
+var require_AddLetterSpacing = __commonJS({
+  "node_modules/cfonts/lib/AddLetterSpacing.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      Colorize
+    } = require_Colorize();
+    var AddLetterSpacing = (output, fontLines, fontLetterspace, fontColors, colors, letterSpacing) => {
+      Debugging.report(`Running AddLetterSpacing`, 1);
+      let lines = output.length - fontLines;
+      for (let i2 = lines; i2 < output.length; i2++) {
+        let index = i2 - lines;
+        let space = Colorize(fontLetterspace[index], fontColors, colors);
+        if (space.length === 0 && letterSpacing > 0) {
+          Debugging.report(`AddLetterSpacing: Adding space to letter spacing`, 1);
+          space = " ";
+        }
+        output[i2] += space.repeat(letterSpacing);
+      }
+      return output;
+    };
+    module2.exports = exports2 = {
+      AddLetterSpacing
+    };
+  }
+});
+
+// node_modules/kind-of/index.js
+var require_kind_of = __commonJS({
+  "node_modules/kind-of/index.js"(exports2, module2) {
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type2 = typeof val;
+      if (type2 === "boolean")
+        return "boolean";
+      if (type2 === "string")
+        return "string";
+      if (type2 === "number")
+        return "number";
+      if (type2 === "symbol")
+        return "symbol";
+      if (type2 === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type2 = toString.call(val);
+      switch (type2) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type2.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err2) {
+        if (err2.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
+// node_modules/is-accessor-descriptor/index.js
+var require_is_accessor_descriptor = __commonJS({
+  "node_modules/is-accessor-descriptor/index.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var accessor = {
+      get: "function",
+      set: "function",
+      configurable: "boolean",
+      enumerable: "boolean"
+    };
+    function isAccessorDescriptor(obj, prop) {
+      if (typeof prop === "string") {
+        var val = Object.getOwnPropertyDescriptor(obj, prop);
+        return typeof val !== "undefined";
+      }
+      if (typeOf(obj) !== "object") {
+        return false;
+      }
+      if (has(obj, "value") || has(obj, "writable")) {
+        return false;
+      }
+      if (!has(obj, "get") || typeof obj.get !== "function") {
+        return false;
+      }
+      if (has(obj, "set") && typeof obj[key2] !== "function" && typeof obj[key2] !== "undefined") {
+        return false;
+      }
+      for (var key2 in obj) {
+        if (!accessor.hasOwnProperty(key2)) {
+          continue;
+        }
+        if (typeOf(obj[key2]) === accessor[key2]) {
+          continue;
+        }
+        if (typeof obj[key2] !== "undefined") {
+          return false;
+        }
+      }
+      return true;
+    }
+    function has(obj, key2) {
+      return {}.hasOwnProperty.call(obj, key2);
+    }
+    module2.exports = isAccessorDescriptor;
+  }
+});
+
+// node_modules/is-data-descriptor/index.js
+var require_is_data_descriptor = __commonJS({
+  "node_modules/is-data-descriptor/index.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    module2.exports = function isDataDescriptor(obj, prop) {
+      var data = {
+        configurable: "boolean",
+        enumerable: "boolean",
+        writable: "boolean"
+      };
+      if (typeOf(obj) !== "object") {
+        return false;
+      }
+      if (typeof prop === "string") {
+        var val = Object.getOwnPropertyDescriptor(obj, prop);
+        return typeof val !== "undefined";
+      }
+      if (!("value" in obj) && !("writable" in obj)) {
+        return false;
+      }
+      for (var key2 in obj) {
+        if (key2 === "value")
+          continue;
+        if (!data.hasOwnProperty(key2)) {
+          continue;
+        }
+        if (typeOf(obj[key2]) === data[key2]) {
+          continue;
+        }
+        if (typeof obj[key2] !== "undefined") {
+          return false;
+        }
+      }
+      return true;
+    };
+  }
+});
+
+// node_modules/is-descriptor/index.js
+var require_is_descriptor = __commonJS({
+  "node_modules/is-descriptor/index.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var isAccessor = require_is_accessor_descriptor();
+    var isData = require_is_data_descriptor();
+    module2.exports = function isDescriptor(obj, key2) {
+      if (typeOf(obj) !== "object") {
+        return false;
+      }
+      if ("get" in obj) {
+        return isAccessor(obj, key2);
+      }
+      return isData(obj, key2);
+    };
+  }
+});
+
+// node_modules/define-property/index.js
+var require_define_property = __commonJS({
+  "node_modules/define-property/index.js"(exports2, module2) {
+    "use strict";
+    var isDescriptor = require_is_descriptor();
+    module2.exports = function defineProperty(obj, prop, val) {
+      if (typeof obj !== "object" && typeof obj !== "function") {
+        throw new TypeError("expected an object or function.");
+      }
+      if (typeof prop !== "string") {
+        throw new TypeError("expected `prop` to be a string.");
+      }
+      if (isDescriptor(val) && ("set" in val || "get" in val)) {
+        return Object.defineProperty(obj, prop, val);
+      }
+      return Object.defineProperty(obj, prop, {
+        configurable: true,
+        enumerable: false,
+        writable: true,
+        value: val
+      });
+    };
+  }
+});
+
+// node_modules/is-buffer/index.js
+var require_is_buffer = __commonJS({
+  "node_modules/is-buffer/index.js"(exports2, module2) {
+    module2.exports = function(obj) {
+      return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
+    };
+    function isBuffer(obj) {
+      return !!obj.constructor && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
+    }
+    function isSlowBuffer(obj) {
+      return typeof obj.readFloatLE === "function" && typeof obj.slice === "function" && isBuffer(obj.slice(0, 0));
+    }
+  }
+});
+
+// node_modules/is-number/node_modules/kind-of/index.js
+var require_kind_of2 = __commonJS({
+  "node_modules/is-number/node_modules/kind-of/index.js"(exports2, module2) {
+    var isBuffer = require_is_buffer();
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (typeof val === "undefined") {
+        return "undefined";
+      }
+      if (val === null) {
+        return "null";
+      }
+      if (val === true || val === false || val instanceof Boolean) {
+        return "boolean";
+      }
+      if (typeof val === "string" || val instanceof String) {
+        return "string";
+      }
+      if (typeof val === "number" || val instanceof Number) {
+        return "number";
+      }
+      if (typeof val === "function" || val instanceof Function) {
+        return "function";
+      }
+      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
+        return "array";
+      }
+      if (val instanceof RegExp) {
+        return "regexp";
+      }
+      if (val instanceof Date) {
+        return "date";
+      }
+      var type2 = toString.call(val);
+      if (type2 === "[object RegExp]") {
+        return "regexp";
+      }
+      if (type2 === "[object Date]") {
+        return "date";
+      }
+      if (type2 === "[object Arguments]") {
+        return "arguments";
+      }
+      if (type2 === "[object Error]") {
+        return "error";
+      }
+      if (isBuffer(val)) {
+        return "buffer";
+      }
+      if (type2 === "[object Set]") {
+        return "set";
+      }
+      if (type2 === "[object WeakSet]") {
+        return "weakset";
+      }
+      if (type2 === "[object Map]") {
+        return "map";
+      }
+      if (type2 === "[object WeakMap]") {
+        return "weakmap";
+      }
+      if (type2 === "[object Symbol]") {
+        return "symbol";
+      }
+      if (type2 === "[object Int8Array]") {
+        return "int8array";
+      }
+      if (type2 === "[object Uint8Array]") {
+        return "uint8array";
+      }
+      if (type2 === "[object Uint8ClampedArray]") {
+        return "uint8clampedarray";
+      }
+      if (type2 === "[object Int16Array]") {
+        return "int16array";
+      }
+      if (type2 === "[object Uint16Array]") {
+        return "uint16array";
+      }
+      if (type2 === "[object Int32Array]") {
+        return "int32array";
+      }
+      if (type2 === "[object Uint32Array]") {
+        return "uint32array";
+      }
+      if (type2 === "[object Float32Array]") {
+        return "float32array";
+      }
+      if (type2 === "[object Float64Array]") {
+        return "float64array";
+      }
+      return "object";
+    };
+  }
+});
+
+// node_modules/is-number/index.js
+var require_is_number = __commonJS({
+  "node_modules/is-number/index.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of2();
+    module2.exports = function isNumber(num2) {
+      var type2 = typeOf(num2);
+      if (type2 === "string") {
+        if (!num2.trim())
+          return false;
+      } else if (type2 !== "number") {
+        return false;
+      }
+      return num2 - num2 + 1 >= 0;
+    };
+  }
+});
+
+// node_modules/window-size/utils.js
+var require_utils = __commonJS({
+  "node_modules/window-size/utils.js"(exports2, module2) {
+    "use strict";
+    var os = require("os");
+    var isNumber = require_is_number();
+    var cp = require("child_process");
+    function windowSize(options) {
+      options = options || {};
+      return streamSize(options, "stdout") || streamSize(options, "stderr") || envSize() || ttySize(options);
+    }
+    function streamSize(options, name) {
+      var stream = process && process[name] || options[name];
+      var size;
+      if (!stream)
+        return;
+      if (typeof stream.getWindowSize === "function") {
+        size = stream.getWindowSize();
+        if (isSize(size)) {
+          return {
+            width: size[0],
+            height: size[1],
+            type: name
+          };
+        }
+      }
+      size = [stream.columns, stream.rows];
+      if (isSize(size)) {
+        return {
+          width: Number(size[0]),
+          height: Number(size[1]),
+          type: name
+        };
+      }
+    }
+    function envSize() {
+      if (process && process.env) {
+        var size = [process.env.COLUMNS, process.env.ROWS];
+        if (isSize(size)) {
+          return {
+            width: Number(size[0]),
+            height: Number(size[1]),
+            type: "process.env"
+          };
+        }
+      }
+    }
+    function ttySize(options, stdout) {
+      var tty = options.tty || require("tty");
+      if (tty && typeof tty.getWindowSize === "function") {
+        var size = tty.getWindowSize(stdout);
+        if (isSize(size)) {
+          return {
+            width: Number(size[1]),
+            height: Number(size[0]),
+            type: "tty"
+          };
+        }
+      }
+    }
+    function winSize() {
+      if (os.release().startsWith("10")) {
+        var cmd = "wmic path Win32_VideoController get CurrentHorizontalResolution,CurrentVerticalResolution";
+        var numberPattern = /\d+/g;
+        var code = cp.execSync(cmd).toString();
+        var size = code.match(numberPattern);
+        if (isSize(size)) {
+          return {
+            width: Number(size[0]),
+            height: Number(size[1]),
+            type: "windows"
+          };
+        }
+      }
+    }
+    function tputSize() {
+      try {
+        var buf = cp.execSync("tput cols && tput lines", { stdio: ["ignore", "pipe", process.stderr] });
+        var size = buf.toString().trim().split("\n");
+        if (isSize(size)) {
+          return {
+            width: Number(size[0]),
+            height: Number(size[1]),
+            type: "tput"
+          };
+        }
+      } catch (err2) {
+      }
+    }
+    function isSize(size) {
+      return Array.isArray(size) && isNumber(size[0]) && isNumber(size[1]);
+    }
+    module2.exports = {
+      get: windowSize,
+      env: envSize,
+      tty: ttySize,
+      tput: tputSize,
+      win: winSize
+    };
+  }
+});
+
+// node_modules/window-size/index.js
+var require_window_size = __commonJS({
+  "node_modules/window-size/index.js"(exports2, module2) {
+    "use strict";
+    var define2 = require_define_property();
+    var utils = require_utils();
+    module2.exports = utils.get();
+    if (module2.exports) {
+      define2(module2.exports, "get", utils.get);
+      define2(module2.exports, "env", utils.env);
+      define2(module2.exports, "tty", utils.tty);
+      define2(module2.exports, "tput", utils.tput);
+      define2(module2.exports, "win", utils.win);
+    }
+  }
+});
+
+// node_modules/cfonts/lib/Size.js
+var require_Size = __commonJS({
+  "node_modules/cfonts/lib/Size.js"(exports2, module2) {
+    "use strict";
+    var WinSize = require_window_size();
+    var Size = {
+      width: WinSize ? WinSize.width > 0 ? WinSize.width : 80 : 80,
+      height: WinSize ? WinSize.height > 0 ? WinSize.height : 24 : 24
+    };
+    module2.exports = exports2 = {
+      Size
+    };
+  }
+});
+
+// node_modules/cfonts/lib/AlignText.js
+var require_AlignText = __commonJS({
+  "node_modules/cfonts/lib/AlignText.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      Size
+    } = require_Size();
+    var AlignText = (output, lineLength, characterLines, align, size = Size) => {
+      Debugging.report(`Running AlignText`, 1);
+      let space = 0;
+      if (align === "center") {
+        space = Math.floor((size.width - lineLength) / 2);
+        Debugging.report(`AlignText: Center lineLength: ${lineLength}, size.width: ${size.width}, space: ${space}`, 2);
+      }
+      if (align === "right") {
+        space = size.width - lineLength;
+        Debugging.report(`AlignText: Right lineLength: ${lineLength}, size.width: ${size.width}, space: ${space}`, 2);
+      }
+      if (space > 0) {
+        let lines = output.length - characterLines;
+        const spaces = " ".repeat(space);
+        for (let i2 = lines; i2 < output.length; i2++) {
+          output[i2] = spaces + output[i2];
+        }
+      }
+      return output;
+    };
+    module2.exports = exports2 = {
+      AlignText
+    };
+  }
+});
+
+// node_modules/cfonts/lib/RenderConsole.js
+var require_RenderConsole = __commonJS({
+  "node_modules/cfonts/lib/RenderConsole.js"(exports2, module2) {
+    "use strict";
+    var {
+      AlignText
+    } = require_AlignText();
+    var {
+      Colorize
+    } = require_Colorize();
+    var {
+      Size
+    } = require_Size();
+    var RenderConsole = (INPUT, OPTIONS, size = Size) => {
+      const width = OPTIONS.maxLength < size.width && OPTIONS.maxLength !== 0 ? OPTIONS.maxLength : size.width;
+      let lines = 0;
+      let output = [];
+      let i2 = 0;
+      let space = "";
+      if (OPTIONS.letterSpacing > 0) {
+        space = " ".repeat(OPTIONS.letterSpacing);
+      }
+      const outputLines = INPUT.replace(/(?:\r\n|\r|\n)/g, "|").split("|").map((line) => line.split("").join(space));
+      while (i2 < outputLines.length) {
+        let line = outputLines[i2];
+        if (line.length > width) {
+          outputLines[i2] = line.slice(0, width);
+          outputLines.splice(i2 + 1, 0, line.slice(width));
+          line = outputLines[i2];
+        }
+        if (OPTIONS.colors[0] === "candy") {
+          output.push(line.split("").map((character) => Colorize(character, 1, OPTIONS.colors)).join(""));
+        } else {
+          output.push(Colorize(line, 1, OPTIONS.colors));
+        }
+        if (OPTIONS.env !== "browser") {
+          output = AlignText(output, line.length, 1, OPTIONS.align, size);
+        }
+        if (i2 !== outputLines.length - 1) {
+          output = [...output, ...Array(OPTIONS.lineHeight).fill("")];
+        }
+        lines++;
+        i2++;
+      }
+      return {
+        output,
+        lines
+      };
+    };
+    module2.exports = exports2 = {
+      RenderConsole
+    };
+  }
+});
+
+// node_modules/cfonts/lib/GetFirstCharacterPosition.js
+var require_GetFirstCharacterPosition = __commonJS({
+  "node_modules/cfonts/lib/GetFirstCharacterPosition.js"(exports2, module2) {
+    "use strict";
+    function GetFirstCharacterPosition(lines) {
+      const earliest = lines.reduce((prevLine, line) => line.length - line.trimStart().length < prevLine.length - prevLine.trimStart().length && line !== "" ? line : prevLine, lines[0]);
+      return earliest.length - earliest.trimStart().length;
+    }
+    module2.exports = exports2 = {
+      GetFirstCharacterPosition
+    };
+  }
+});
+
+// node_modules/cfonts/lib/GetLongestLine.js
+var require_GetLongestLine = __commonJS({
+  "node_modules/cfonts/lib/GetLongestLine.js"(exports2, module2) {
+    "use strict";
+    var GetLongestLine = (lines) => lines.reduce((longestLine, line) => line.length > longestLine.length && line.length !== 0 ? line : longestLine, "");
+    module2.exports = exports2 = {
+      GetLongestLine
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Gradient.js
+var require_Gradient = __commonJS({
+  "node_modules/cfonts/lib/Gradient.js"(exports2, module2) {
+    "use strict";
+    var {
+      GetFirstCharacterPosition
+    } = require_GetFirstCharacterPosition();
+    var {
+      GetLongestLine
+    } = require_GetLongestLine();
+    var {
+      GRADIENTS
+    } = require_constants2();
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      Color
+    } = require_Color();
+    function Rgb2hsv({
+      r,
+      g,
+      b
+    }) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const diff = max - min;
+      let h = 0;
+      let v = max;
+      let s = max === 0 ? 0 : diff / max;
+      if (max === min) {
+        h = 0;
+      } else if (max === r && g >= b) {
+        h = 60 * ((g - b) / diff);
+      } else if (max === r && g < b) {
+        h = 60 * ((g - b) / diff) + 360;
+      } else if (max === g) {
+        h = 60 * ((b - r) / diff) + 120;
+      } else {
+        h = 60 * ((r - g) / diff) + 240;
+      }
+      return [h, s * 100, v * 100];
+    }
+    function Hsv2rgb(h, s, v) {
+      h /= 60;
+      s /= 100;
+      v /= 100;
+      const hi = Math.floor(h) % 6;
+      const f = h - Math.floor(h);
+      const p = 255 * v * (1 - s);
+      const q = 255 * v * (1 - s * f);
+      const t = 255 * v * (1 - s * (1 - f));
+      v *= 255;
+      switch (hi) {
+        case 0:
+          return {
+            r: v,
+            g: t,
+            b: p
+          };
+        case 1:
+          return {
+            r: q,
+            g: v,
+            b: p
+          };
+        case 2:
+          return {
+            r: p,
+            g: v,
+            b: t
+          };
+        case 3:
+          return {
+            r: p,
+            g: q,
+            b: v
+          };
+        case 4:
+          return {
+            r: t,
+            g: p,
+            b: v
+          };
+        case 5:
+          return {
+            r: v,
+            g: p,
+            b: q
+          };
+      }
+    }
+    function Rgb2hex(r, g, b) {
+      const val = (b | g << 8 | r << 16 | 1 << 24).toString(16).slice(1);
+      return "#" + val.toLowerCase();
+    }
+    function Hex2rgb(hex) {
+      hex = hex.replace(/^#/, "");
+      if (hex.length > 6) {
+        hex = hex.slice(0, 6);
+      }
+      if (hex.length === 4) {
+        hex = hex.slice(0, 3);
+      }
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      const num2 = parseInt(hex, 16);
+      const r = num2 >> 16;
+      const g = num2 >> 8 & 255;
+      const b = num2 & 255;
+      const rgb = [r, g, b];
+      return rgb;
+    }
+    function Hsv2hsvRad([h, s, v]) {
+      return [h * Math.PI / 180, s, v];
+    }
+    function HsvRad2hsv(hRad, s, v) {
+      return [hRad * 180 / Math.PI, s, v];
+    }
+    function Hex2hsvRad(hex) {
+      const [r, g, b] = Hex2rgb(hex);
+      const hsv = Rgb2hsv({
+        r,
+        g,
+        b
+      });
+      const hsvRad = Hsv2hsvRad(hsv);
+      return hsvRad;
+    }
+    function HsvRad2hex(hRad, s, v) {
+      const [h] = HsvRad2hsv(hRad, s, v);
+      const {
+        r,
+        g,
+        b
+      } = Hsv2rgb(h, s, v);
+      const hex = Rgb2hex(r, g, b);
+      return hex;
+    }
+    function GetLinear(pointA, pointB, n, steps) {
+      if (steps === 0) {
+        return pointB;
+      }
+      return pointA + n * ((pointB - pointA) / steps);
+    }
+    function GetTheta(fromTheta, toTheta, n, steps) {
+      const TAU = 2 * Math.PI;
+      let longDistance;
+      if (steps === 0) {
+        return toTheta;
+      }
+      if (fromTheta > toTheta) {
+        if (fromTheta - toTheta < Math.PI) {
+          longDistance = TAU - (fromTheta - toTheta);
+        } else {
+          longDistance = toTheta - fromTheta;
+        }
+      } else {
+        if (toTheta - fromTheta < Math.PI) {
+          longDistance = toTheta - fromTheta - TAU;
+        } else {
+          longDistance = -1 * (fromTheta - toTheta);
+        }
+      }
+      let result = fromTheta + n * (longDistance / steps);
+      if (result < 0) {
+        result += TAU;
+      }
+      if (result > TAU) {
+        result -= TAU;
+      }
+      return result;
+    }
+    function GetGradientColors(fromColor, toColor, steps) {
+      const [fromHRad, fromS, fromV] = Hex2hsvRad(fromColor);
+      const [toHRad, toS, toV] = Hex2hsvRad(toColor);
+      const hexColors = [];
+      for (let n = 0; n < steps; n++) {
+        const hRad = GetTheta(fromHRad, toHRad, n, steps - 1);
+        const s = GetLinear(fromS, toS, n, steps - 1);
+        const v = GetLinear(fromV, toV, n, steps - 1);
+        hexColors.push(HsvRad2hex(hRad, s, v));
+      }
+      return hexColors;
+    }
+    function PaintLines(lines, colors, firstCharacterPosition) {
+      Debugging.report(`Running PaintLines`, 1);
+      Debugging.report(colors, 2);
+      const space = " ".repeat(firstCharacterPosition);
+      return lines.map((line) => {
+        const coloredLine = line.slice(firstCharacterPosition).split("").map((char, i2) => {
+          const {
+            open,
+            close
+          } = Color(colors[i2]);
+          return `${open}${char}${close}`;
+        }).join("");
+        return `${space}${coloredLine}`;
+      });
+    }
+    function Color2hex(color) {
+      const colorMap = {
+        black: "#000000",
+        red: "#ff0000",
+        green: "#00ff00",
+        yellow: "#ffff00",
+        blue: "#0000ff",
+        magenta: "#ff00ff",
+        cyan: "#00ffff",
+        white: "#ffffff",
+        gray: "#808080",
+        grey: "#808080"
+      };
+      return colorMap[color] || color;
+    }
+    function GetGaps(points, steps) {
+      const gapSteps = Math.floor((steps - points.length) / (points.length - 1));
+      const rest = steps - (points.length + gapSteps * (points.length - 1));
+      const gaps = Array(points.length - 1).fill(gapSteps);
+      for (let i2 = 0; i2 < rest; i2++) {
+        gaps[gaps.length - 1 - i2]++;
+      }
+      return gaps;
+    }
+    function TransitionBetweenHex(fromHex, toHex, steps) {
+      const fromRgb = Hex2rgb(fromHex);
+      const toRgb = Hex2rgb(toHex);
+      const hexColors = [];
+      steps++;
+      for (let n = 1; n < steps; n++) {
+        const red = GetLinear(fromRgb[0], toRgb[0], n, steps);
+        const green = GetLinear(fromRgb[1], toRgb[1], n, steps);
+        const blue = GetLinear(fromRgb[2], toRgb[2], n, steps);
+        hexColors.push(Rgb2hex(red, green, blue));
+      }
+      return hexColors;
+    }
+    function Transition(colors, steps, gradients = GRADIENTS) {
+      let hexColors = [];
+      if (colors.length === 1) {
+        colors = gradients[colors[0].toLowerCase()];
+      } else {
+        colors = colors.map((color) => Color2hex(color));
+      }
+      const gaps = GetGaps(colors, steps);
+      if (steps <= 1) {
+        return [colors[colors.length - 1]];
+      }
+      for (let i2 = 0; i2 < colors.length; i2++) {
+        const gap = gaps[i2 - 1];
+        if (colors[i2 - 1]) {
+          const gapColors = TransitionBetweenHex(colors[i2 - 1], colors[i2], gap);
+          hexColors = [...hexColors, ...gapColors];
+        }
+        if (gap !== -1) {
+          hexColors.push(colors[i2]);
+        }
+      }
+      return hexColors;
+    }
+    function PaintGradient({
+      output,
+      gradient,
+      lines,
+      lineHeight,
+      fontLines,
+      independentGradient,
+      transitionGradient
+    }) {
+      Debugging.report(`Running PaintGradient`, 1);
+      let newOutput = [];
+      if (transitionGradient) {
+        Debugging.report(`Gradient transition with colors: ${JSON.stringify(gradient)}`, 2);
+      } else {
+        Debugging.report(`Gradient start: ${gradient[0]} | Gradient end: ${gradient[1]}`, 2);
+      }
+      let firstCharacterPosition;
+      let longestLine;
+      if (!independentGradient) {
+        firstCharacterPosition = GetFirstCharacterPosition(output);
+        longestLine = GetLongestLine(output).length;
+      }
+      for (let i2 = 0; i2 < lines; i2++) {
+        const start = i2 * (fontLines + lineHeight);
+        const end = fontLines + start;
+        const thisLine = output.slice(start, end);
+        if (independentGradient) {
+          firstCharacterPosition = GetFirstCharacterPosition(thisLine);
+          longestLine = GetLongestLine(thisLine).length;
+        }
+        const colorsNeeded = longestLine - firstCharacterPosition;
+        const linesInbetween = i2 === 0 ? [] : Array(lineHeight).fill("");
+        Debugging.report(`longestLine: ${longestLine} | firstCharacterPosition: ${firstCharacterPosition}`, 2);
+        const colors = transitionGradient ? Transition(gradient, colorsNeeded) : GetGradientColors(Color2hex(gradient[0]), Color2hex(gradient[1]), colorsNeeded);
+        newOutput = [...newOutput, ...linesInbetween, ...PaintLines(thisLine, colors, firstCharacterPosition)];
+      }
+      return newOutput;
+    }
+    module2.exports = exports2 = {
+      Rgb2hsv,
+      Hsv2rgb,
+      Rgb2hex,
+      Hex2rgb,
+      Hsv2hsvRad,
+      HsvRad2hsv,
+      Hex2hsvRad,
+      HsvRad2hex,
+      GetLinear,
+      GetTheta,
+      GetGradientColors,
+      PaintLines,
+      Color2hex,
+      GetGaps,
+      TransitionBetweenHex,
+      Transition,
+      PaintGradient
+    };
+  }
+});
+
+// node_modules/cfonts/lib/CharLength.js
+var require_CharLength = __commonJS({
+  "node_modules/cfonts/lib/CharLength.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var CharLength = (character, fontLines, letterSpacing) => {
+      Debugging.report(`Running CharLength`, 1);
+      let charWidth = 0;
+      for (let i2 = 0; i2 < fontLines; i2++) {
+        let char = character[i2].replace(/(<([^>]+)>)/ig, "");
+        if (char.length > charWidth) {
+          charWidth = char.length;
+        }
+      }
+      if (charWidth === 0 && letterSpacing > 0) {
+        Debugging.report(`CharLength: Adding space to letter spacing`, 1);
+        charWidth = 1;
+      }
+      return charWidth;
+    };
+    module2.exports = exports2 = {
+      CharLength
+    };
+  }
+});
+
+// node_modules/cfonts/lib/CheckInput.js
+var require_CheckInput = __commonJS({
+  "node_modules/cfonts/lib/CheckInput.js"(exports2, module2) {
+    "use strict";
+    var {
+      Chalk
+    } = require_Chalk();
+    var {
+      COLORS,
+      BGCOLORS,
+      GRADIENTCOLORS,
+      GRADIENTS,
+      ALIGNMENT,
+      FONTFACES,
+      HEXTEST
+    } = require_constants2();
+    var CheckInput = (INPUT, userFont, userColors, userBackground, userAlign, userGradient, userTransitionGradient, userEnv, fontfaces = FONTFACES, colors = COLORS, bgcolors = BGCOLORS, gradientcolors = GRADIENTCOLORS, gradients = GRADIENTS, alignment = ALIGNMENT) => {
+      let result = {
+        message: "",
+        pass: true
+      };
+      if (INPUT === void 0 || INPUT === "") {
+        return {
+          message: "Please provide text to convert",
+          pass: false
+        };
+      }
+      if (Object.keys(fontfaces).indexOf(userFont.toLowerCase()) === -1) {
+        return {
+          message: `"${Chalk.red(userFont)}" is not a valid font option.
+Please use a font from the supported stack:
+${Chalk.green(Object.keys(fontfaces).map((font) => fontfaces[font]).join(", "))}`,
+          pass: false
+        };
+      }
+      userColors.forEach((color) => {
+        if (Object.keys(colors).indexOf(color.toLowerCase()) === -1 && color !== "candy" && !HEXTEST.test(color)) {
+          result = {
+            message: `"${Chalk.red(color)}" is not a valid font color option.
+Please use a color from the supported stack or any valid hex color:
+${Chalk.green(`${Object.keys(colors).map((color2) => colors[color2]).join(", ")}, candy, "#3456ff", "#f80", etc...`)}`,
+            pass: false
+          };
+        }
+      });
+      if (Object.keys(bgcolors).indexOf(userBackground.toLowerCase()) === -1) {
+        return {
+          message: `"${Chalk.red(userBackground)}" is not a valid background option.
+Please use a color from the supported stack:
+${Chalk.green(Object.keys(bgcolors).map((bgcolor) => bgcolors[bgcolor]).join(", "))}`,
+          pass: false
+        };
+      }
+      if (alignment.indexOf(userAlign.toLowerCase()) === -1) {
+        return {
+          message: `"${Chalk.red(userAlign)}" is not a valid alignment option.
+Please use an alignment option from the supported stack:
+${Chalk.green(alignment.join(" | "))}`,
+          pass: false
+        };
+      }
+      if (userGradient) {
+        if (userGradient.length === 1 && Object.keys(gradients).indexOf(userGradient[0].toLowerCase()) !== -1 && userTransitionGradient) {
+          return result;
+        } else {
+          if (userGradient.length < 2) {
+            return {
+              message: `"${Chalk.red(userGradient)}" is not a valid gradient option.
+Please pass in${userTransitionGradient ? " at least" : ""} two colors.`,
+              pass: false
+            };
+          }
+          if (userGradient.length !== 2 && !userTransitionGradient) {
+            return {
+              message: `"${Chalk.red(userGradient)}" is not a valid gradient option.
+Please pass in two colors.`,
+              pass: false
+            };
+          }
+          userGradient.forEach((color) => {
+            if (Object.keys(gradientcolors).indexOf(color.toLowerCase()) === -1 && !HEXTEST.test(color)) {
+              result = {
+                message: `"${Chalk.red(color)}" is not a valid gradient color option.
+Please use a color from the supported stack or any valid hex color:
+${Chalk.green(`${Object.keys(gradientcolors).map((color2) => colors[color2]).join(", ")}, "#3456ff", "#f80", etc...`)}`,
+                pass: false
+              };
+            }
+          });
+        }
+      }
+      if (userEnv !== "node" && userEnv !== "browser") {
+        return {
+          message: `"${Chalk.red(userEnv)}" is not a valid environment option.
+Please use onlythe supported options:
+${Chalk.green("node | browser")}`,
+          pass: false
+        };
+      }
+      return result;
+    };
+    module2.exports = exports2 = {
+      CheckInput
+    };
+  }
+});
+
+// node_modules/cfonts/lib/CleanInput.js
+var require_CleanInput = __commonJS({
+  "node_modules/cfonts/lib/CleanInput.js"(exports2, module2) {
+    "use strict";
+    var {
+      CHARS
+    } = require_constants2();
+    var CleanInput = (INPUT, chars = CHARS) => {
+      if (typeof INPUT === "string") {
+        const clean = INPUT.replace(/(?:\r\n|\r|\n)/g, "|").split("").filter((char) => chars.includes(char.toUpperCase())).join("");
+        return clean;
+      } else {
+        return "";
+      }
+    };
+    module2.exports = exports2 = {
+      CleanInput
+    };
+  }
+});
+
+// node_modules/cfonts/lib/AddLine.js
+var require_AddLine = __commonJS({
+  "node_modules/cfonts/lib/AddLine.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var AddLine = (output, fontLines, FontBuffer, lineHeight) => {
+      Debugging.report(`Running AddLine`, 1);
+      if (output.length === 0) {
+        lineHeight = 0;
+      }
+      let lines = fontLines + output.length + lineHeight;
+      let length = output.length;
+      for (let i2 = length; i2 < lines; i2++) {
+        let index = i2 - length;
+        if (index > lineHeight) {
+          output[i2] = FontBuffer[index - lineHeight];
+        } else {
+          output[i2] = "";
+        }
+      }
+      return output;
+    };
+    module2.exports = exports2 = {
+      AddLine
+    };
+  }
+});
+
+// node_modules/cfonts/lib/AddChar.js
+var require_AddChar = __commonJS({
+  "node_modules/cfonts/lib/AddChar.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      Colorize
+    } = require_Colorize();
+    var AddChar = (CHAR, output, fontLines, fontChars, fontColors, colors) => {
+      Debugging.report(`Running AddChar with "${CHAR}"`, 1);
+      let lines = output.length - fontLines;
+      for (let i2 = lines; i2 < output.length; i2++) {
+        let index = i2 - lines;
+        output[i2] += Colorize(fontChars[CHAR][index], fontColors, colors);
+      }
+      return output;
+    };
+    module2.exports = exports2 = {
+      AddChar
+    };
+  }
+});
+
+// node_modules/cfonts/lib/GetFont.js
+var require_GetFont = __commonJS({
+  "node_modules/cfonts/lib/GetFont.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging
+    } = require_Debugging();
+    var GetFont = (font) => {
+      Debugging.report(`Running GetFont`, 1);
+      try {
+        let FONTFACE = require(`../fonts/${font}.json`);
+        Debugging.report(`GetFont: Fontface path selected: "${font}.json"`, 2);
+        return FONTFACE;
+      } catch (error) {
+        Debugging.error(`Font file for "${font}" errored out: ${error}`, 2);
+        return false;
+      }
+    };
+    module2.exports = exports2 = {
+      GetFont
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Log.js
+var require_Log = __commonJS({
+  "node_modules/cfonts/lib/Log.js"(exports2, module2) {
+    "use strict";
+    var {
+      Chalk
+    } = require_Chalk();
+    var Log = {
+      error: (text) => {
+        text = text.replace(/(?:\r\n|\r|\n)/g, "\n       ");
+        console.error(`
+ ${Chalk.bold.red("Ouch:")} ${text}
+`);
+      }
+    };
+    module2.exports = exports2 = {
+      Log
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Render.js
+var require_Render = __commonJS({
+  "node_modules/cfonts/lib/Render.js"(exports2, module2) {
+    "use strict";
+    var {
+      AddLetterSpacing
+    } = require_AddLetterSpacing();
+    var {
+      RenderConsole
+    } = require_RenderConsole();
+    var {
+      Debugging,
+      DEBUG
+    } = require_Debugging();
+    var {
+      PaintGradient
+    } = require_Gradient();
+    var {
+      CharLength
+    } = require_CharLength();
+    var {
+      CheckInput
+    } = require_CheckInput();
+    var {
+      CleanInput
+    } = require_CleanInput();
+    var {
+      AlignText
+    } = require_AlignText();
+    var {
+      AddLine
+    } = require_AddLine();
+    var {
+      AddChar
+    } = require_AddChar();
+    var {
+      Options
+    } = require_Options();
+    var {
+      GetFont
+    } = require_GetFont();
+    var {
+      CHARS
+    } = require_constants2();
+    var {
+      Color
+    } = require_Color();
+    var {
+      Size
+    } = require_Size();
+    var {
+      Log
+    } = require_Log();
+    var Render = (input, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.level, size = Size) => {
+      Debugging.report(`Running render`, 1);
+      DEBUG.enabled = debug;
+      DEBUG.level = debuglevel;
+      const INPUT = CleanInput(input, CHARS);
+      Options.reset();
+      Options.set = SETTINGS;
+      const OPTIONS = Options.get;
+      let output = [];
+      let lines = 0;
+      let FONTFACE = {};
+      const _isGoodHuman = CheckInput(INPUT, OPTIONS.font, OPTIONS.colors, OPTIONS.background, OPTIONS.align, OPTIONS.gradient, OPTIONS.transitionGradient, OPTIONS.env);
+      if (!_isGoodHuman.pass) {
+        Log.error(_isGoodHuman.message);
+        return false;
+      }
+      if (OPTIONS.gradient) {
+        OPTIONS.colors = [];
+      }
+      if (DEBUG.enabled) {
+        let outOption = `OPTIONS:
+  Text: ${INPUT}`;
+        for (let key2 in OPTIONS) {
+          outOption += `
+  Options.${key2}: ${OPTIONS[key2]}`;
+        }
+        Debugging.report(outOption, 3);
+      }
+      if (OPTIONS.env === "browser") {
+        size = {
+          ...size
+        };
+        size.width = OPTIONS.maxLength === 0 ? 999999999999 : OPTIONS.maxLength;
+      }
+      if (OPTIONS.font === "console") {
+        FONTFACE = {
+          colors: 1,
+          lines: 1
+        };
+        const consoleOutput = RenderConsole(INPUT, OPTIONS, size);
+        output = consoleOutput.output;
+        lines = consoleOutput.lines;
+      } else {
+        FONTFACE = GetFont(OPTIONS.font);
+        if (!FONTFACE) {
+          Log.error(`Font file for the font "${OPTIONS.font}" could not be found.
+Try reinstalling this package.`);
+          return false;
+        }
+        if (SETTINGS.letterSpacing === void 0) {
+          Debugging.report(`Looking up letter spacing from font face`, 1);
+          let width = 0;
+          FONTFACE.letterspace.forEach((item) => {
+            let char = item.replace(/(<([^>]+)>)/ig, "");
+            if (width < char.length) {
+              width = char.length;
+            }
+          });
+          Debugging.report(`Letter spacing set to font face default: "${width}"`, 2);
+          OPTIONS.letterSpacing = width;
+        }
+        let lineLength = CharLength(FONTFACE.buffer, FONTFACE.lines, OPTIONS);
+        let maxChars = 0;
+        output = AddLine([], FONTFACE.lines, FONTFACE.buffer, OPTIONS.lineHeight);
+        lines++;
+        output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
+        lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
+        for (let i2 = 0; i2 < INPUT.length; i2++) {
+          let CHAR = INPUT.charAt(i2).toUpperCase();
+          let lastLineLength = lineLength;
+          Debugging.report(`Character found in font: "${CHAR}"`, 2);
+          if (CHAR !== `|`) {
+            lineLength += CharLength(FONTFACE.chars[CHAR], FONTFACE.lines, OPTIONS);
+            lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
+          }
+          if (maxChars >= OPTIONS.maxLength && OPTIONS.maxLength != 0 || CHAR === `|` || lineLength > size.width) {
+            lines++;
+            Debugging.report(`NEWLINE: maxChars: ${maxChars}, OPTIONS.maxLength: ${OPTIONS.maxLength}, CHAR: ${CHAR}, lineLength: ${lineLength}, Size.width: ${size.width} `, 2);
+            if (OPTIONS.env === "node") {
+              output = AlignText(output, lastLineLength, FONTFACE.lines, OPTIONS.align, size);
+            }
+            lineLength = CharLength(FONTFACE.buffer, FONTFACE.lines, OPTIONS);
+            lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
+            if (CHAR !== `|`) {
+              lineLength += CharLength(FONTFACE.chars[CHAR], FONTFACE.lines, OPTIONS);
+              lineLength += CharLength(FONTFACE.letterspace, FONTFACE.lines, OPTIONS) * OPTIONS.letterSpacing;
+            }
+            maxChars = 0;
+            output = AddLine(output, FONTFACE.lines, FONTFACE.buffer, OPTIONS.lineHeight);
+            output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
+          }
+          Debugging.report(`lineLength at: "${lineLength}"`, 2);
+          if (CHAR !== `|`) {
+            maxChars++;
+            output = AddChar(CHAR, output, FONTFACE.lines, FONTFACE.chars, FONTFACE.colors, OPTIONS.colors);
+            output = AddLetterSpacing(output, FONTFACE.lines, FONTFACE.letterspace, FONTFACE.colors, OPTIONS.colors, OPTIONS.letterSpacing);
+          }
+        }
+        if (OPTIONS.env === "node") {
+          output = AlignText(output, lineLength, FONTFACE.lines, OPTIONS.align, size);
+        }
+      }
+      if (OPTIONS.gradient) {
+        output = PaintGradient({
+          output,
+          gradient: OPTIONS.gradient,
+          lines,
+          lineHeight: OPTIONS.lineHeight,
+          fontLines: FONTFACE.lines,
+          independentGradient: OPTIONS.independentGradient,
+          transitionGradient: OPTIONS.transitionGradient
+        });
+      }
+      if (OPTIONS.space) {
+        if (OPTIONS.align === "top") {
+          output[output.length - 1] = `${output[output.length - 1]}
+
+
+
+`;
+        } else if (OPTIONS.align === "bottom") {
+          output[0] = `
+
+
+
+${output[0]}`;
+        } else {
+          output[0] = `
+
+${output[0]}`;
+          output[output.length - 1] = `${output[output.length - 1]}
+
+`;
+        }
+      }
+      if (OPTIONS.background !== "transparent" && OPTIONS.env === "node") {
+        const {
+          open: openNew,
+          close: closeNew
+        } = Color(OPTIONS.background, true);
+        output[0] = `${openNew}
+${output[0]}`;
+        output[output.length - 1] = `${output[output.length - 1]}${closeNew}`;
+      }
+      let write = output.join(OPTIONS.env === "node" ? `
+` : "<br>");
+      if (OPTIONS.env === "browser") {
+        const {
+          open: bgColor
+        } = Color(OPTIONS.background, true);
+        write = `<div style="font-family:monospace;white-space:pre;text-align:${OPTIONS.align};max-width:100%;overflow:scroll;background:${bgColor ? bgColor : "transparent"}">${write}</div>`;
+      }
+      return {
+        string: write,
+        array: output,
+        lines,
+        options: OPTIONS
+      };
+    };
+    module2.exports = exports2 = {
+      Render
+    };
+  }
+});
+
+// node_modules/cfonts/lib/DisplayHelp.js
+var require_DisplayHelp = __commonJS({
+  "node_modules/cfonts/lib/DisplayHelp.js"(exports2, module2) {
+    "use strict";
+    var {
+      CLIOPTIONS
+    } = require_constants2();
+    var {
+      Render
+    } = require_Render();
+    var {
+      Chalk
+    } = require_Chalk();
+    var DisplayHelp = () => {
+      const {
+        string: headline
+      } = Render("cfonts", {
+        align: "left",
+        gradient: ["red", "green"]
+      });
+      console.log(` ${headline}This is a tool for sexy fonts in the console. Give your cli some love.
+
+Usage: cfonts "<value>" [option1] <input1> [option2] <input1>,<input2> [option3]
+Example: ${Chalk.bold('$ cfonts "sexy font" -f chrome -a center -c red,green,gray')}
+
+Options:
+`);
+      Object.keys(CLIOPTIONS).forEach((option) => {
+        console.log(Chalk.bold(`${option}, ${CLIOPTIONS[option].short}`));
+        console.log(CLIOPTIONS[option].description);
+        console.log(`${Chalk.bold("$")} cfonts ${CLIOPTIONS[option].example}
+`);
+      });
+    };
+    module2.exports = exports2 = {
+      DisplayHelp
+    };
+  }
+});
+
+// node_modules/cfonts/lib/AddShortcuts.js
+var require_AddShortcuts = __commonJS({
+  "node_modules/cfonts/lib/AddShortcuts.js"(exports2, module2) {
+    "use strict";
+    var AddShortcuts = (options) => {
+      const flatOptions = Object.assign({}, options);
+      Object.keys(flatOptions).forEach((option) => {
+        flatOptions[option]._name = option;
+        flatOptions[flatOptions[option].short] = flatOptions[option];
+      });
+      return flatOptions;
+    };
+    module2.exports = exports2 = {
+      AddShortcuts
+    };
+  }
+});
+
+// node_modules/cfonts/lib/ParseArgs.js
+var require_ParseArgs = __commonJS({
+  "node_modules/cfonts/lib/ParseArgs.js"(exports2, module2) {
+    "use strict";
+    var {
+      AddShortcuts
+    } = require_AddShortcuts();
+    var {
+      CLIOPTIONS
+    } = require_constants2();
+    var {
+      Debugging
+    } = require_Debugging();
+    var ParseArgs = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
+      const parsedArgs = {
+        text: inputArgs[2]
+      };
+      Object.keys(inputOptions).forEach((option) => {
+        const name = option.replace("--", "");
+        parsedArgs[name] = inputOptions[option].default;
+      });
+      if (inputArgs[2] === "--help" || inputArgs[2] === "-h") {
+        parsedArgs.help = true;
+      }
+      if (inputArgs[2] === "--version" || inputArgs[2] === "-v") {
+        parsedArgs.version = true;
+      }
+      const args = inputArgs.splice(3);
+      const options = AddShortcuts(inputOptions);
+      for (let index = 0; args.length > index; index++) {
+        const option = options[args[index]];
+        if (option) {
+          const name = option._name.replace("--", "");
+          if (option.options !== void 0) {
+            index++;
+            const value = args[index];
+            parsedArgs[name] = value;
+          } else {
+            parsedArgs[name] = true;
+          }
+        } else {
+          Debugging.report(`The cli argument ${args[index]} was not found and ignored`, 2);
+        }
+      }
+      return parsedArgs;
+    };
+    module2.exports = exports2 = {
+      ParseArgs
+    };
+  }
+});
+
+// node_modules/cfonts/lib/Say.js
+var require_Say = __commonJS({
+  "node_modules/cfonts/lib/Say.js"(exports2, module2) {
+    "use strict";
+    var {
+      Debugging,
+      DEBUG
+    } = require_Debugging();
+    var {
+      Render
+    } = require_Render();
+    var {
+      Size
+    } = require_Size();
+    var Say = (INPUT, SETTINGS = {}, debug = DEBUG.enabled, debuglevel = DEBUG.level, size = Size) => {
+      Debugging.report(`Running say`, 1);
+      DEBUG.enabled = debug;
+      DEBUG.level = debuglevel;
+      const write = Render(INPUT, SETTINGS, debug, debuglevel, size);
+      if (write) {
+        console.log(write.string);
+      }
+    };
+    module2.exports = exports2 = {
+      Say
+    };
+  }
+});
+
+// node_modules/cfonts/lib/index.js
+var require_lib = __commonJS({
+  "node_modules/cfonts/lib/index.js"(exports2, module2) {
+    "use strict";
+    var {
+      DisplayVersion
+    } = require_DisplayVersion();
+    var {
+      DisplayHelp
+    } = require_DisplayHelp();
+    var {
+      CLIOPTIONS
+    } = require_constants2();
+    var {
+      Debugging
+    } = require_Debugging();
+    var {
+      ParseArgs
+    } = require_ParseArgs();
+    var {
+      Render
+    } = require_Render();
+    var {
+      Chalk
+    } = require_Chalk();
+    var {
+      Log
+    } = require_Log();
+    var {
+      Say
+    } = require_Say();
+    var Cli = (inputOptions = CLIOPTIONS, inputArgs = process.argv) => {
+      const args = ParseArgs(inputOptions, inputArgs);
+      Debugging.report(`OPTIONS:
+  CFonts.say("${args.text}", {
+    font: "${args.font}",
+    align: "${args.align}",
+    colors: ${args.colors ? JSON.stringify(args.colors.split(",")) : []},
+    background: "${args.background}",
+    letterSpacing: ${args["letter-spacing"]},
+    lineHeight: ${args["line-height"]},
+    space: ${!args.spaceless},
+    maxLength: ${args["max-length"]},
+    gradient: ${args.gradient},
+    independentGradient: ${args["independent-gradient"]},
+    transitionGradient: ${args["transition-gradient"]},
+    env: ${args.env},
+  }, ${args.debug}, ${args.debugLevel} );`, 3, args.debug, args.debugLevel);
+      if (args.help) {
+        DisplayHelp();
+        return;
+      }
+      if (args.version) {
+        DisplayVersion();
+        return;
+      }
+      if (!args.text) {
+        Log.error(`Please provide text to convert with ${Chalk.green(`cfonts "Text"`)}
+Run ${Chalk.green(`cfonts --help`)} for more infos`);
+        return;
+      }
+      Say(args.text, {
+        font: args.font,
+        align: args.align,
+        colors: args.colors ? args.colors.split(",") : [],
+        background: args.background,
+        letterSpacing: args["letter-spacing"],
+        lineHeight: args["line-height"],
+        space: !args.spaceless,
+        maxLength: args["max-length"],
+        gradient: args.gradient,
+        independentGradient: args["independent-gradient"],
+        transitionGradient: args["transition-gradient"],
+        env: args.env
+      }, args.debug, args.debugLevel);
+    };
+    module2.exports = exports2 = {
+      render: Render,
+      say: Say,
+      Cli
+    };
+  }
+});
+
+// node_modules/ink-big-text/dist.js
+var require_dist2 = __commonJS({
+  "node_modules/ink-big-text/dist.js"(exports2, module2) {
+    "use strict";
+    var _react = _interopRequireDefault(require_react());
+    var _ink = require_build2();
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _cfonts = _interopRequireDefault(require_lib());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var BigText2 = ({
+      text,
+      ...props
+    }) => /* @__PURE__ */ _react.default.createElement(_ink.Text, null, _cfonts.default.render(text, props).string);
+    BigText2.defaultProps = {
+      font: "block",
+      align: "left",
+      colors: ["system"],
+      backgroundColor: "transparent",
+      letterSpacing: 1,
+      lineHeight: 1,
+      space: true,
+      maxLength: 0
+    };
+    BigText2.propTypes = {
+      text: _propTypes.default.string.isRequired,
+      font: _propTypes.default.oneOf(["block", "slick", "tiny", "grid", "pallet", "shade", "simple", "simpleBlock", "3d", "simple3d", "chrome", "huge"]),
+      align: _propTypes.default.oneOf(["left", "center", "right"]),
+      colors: _propTypes.default.arrayOf(_propTypes.default.string),
+      backgroundColor: _propTypes.default.oneOf(["transparent", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]),
+      letterSpacing: _propTypes.default.number,
+      lineHeight: _propTypes.default.number,
+      space: _propTypes.default.bool,
+      maxLength: _propTypes.default.number
+    };
+    module2.exports = BigText2;
+  }
+});
+
 // src/app.jsx
+var import_react2 = __toESM(require_react());
+var import_ink2 = __toESM(require_build2());
+var import_react_router = __toESM(require_main());
+
+// src/MainMenu.jsx
 var import_react = __toESM(require_react());
 var import_ink = __toESM(require_build2());
-var App = () => {
-  const [counter, setCounter] = (0, import_react.useState)(0);
-  (0, import_react.useEffect)(() => {
-    const timer = setInterval(() => {
-      setCounter((previousCounter) => previousCounter + 1);
-    }, 100);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-  return /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { color: "green" }, counter, " tests passed");
+var import_ink_select_input = __toESM(require_build3());
+var import_ink_gradient = __toESM(require_dist());
+var import_ink_big_text = __toESM(require_dist2());
+
+// src/logo.txt
+var logo_default = " \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u2584 \u2584\u2588\u2588\u2588\u2593\n \u2588\u2588 \u2580\u2588   \u2588  \u2588\u2588 \u2580\u2588   \u2588 \u2593\u2588\u2588\u2592\u2580\u2588\u2580 \u2588\u2588\u2592\n\u2593\u2588\u2588  \u2580\u2588 \u2588\u2588\u2592\u2593\u2588\u2588  \u2580\u2588 \u2588\u2588\u2592\u2593\u2588\u2588    \u2593\u2588\u2588\u2591\n\u2593\u2588\u2588\u2592  \u2590\u258C\u2588\u2588\u2592\u2593\u2588\u2588\u2592  \u2590\u258C\u2588\u2588\u2592\u2592\u2588\u2588    \u2592\u2588\u2588 \n\u2592\u2588\u2588\u2591   \u2593\u2588\u2588\u2591\u2592\u2588\u2588\u2591   \u2593\u2588\u2588\u2591\u2592\u2588\u2588\u2592   \u2591\u2588\u2588\u2592\n\u2591 \u2592\u2591   \u2592 \u2592 \u2591 \u2592\u2591   \u2592 \u2592 \u2591 \u2592\u2591   \u2591  \u2591\n\u2591 \u2591\u2591   \u2591 \u2592\u2591\u2591 \u2591\u2591   \u2591 \u2592\u2591\u2591  \u2591      \u2591\n   \u2591   \u2591 \u2591    \u2591   \u2591 \u2591 \u2591      \u2591   \n         \u2591          \u2591        \u2591   \n                                 \n";
+
+// package.json
+var package_default = {
+  name: "nnm",
+  version: "1.0.0",
+  description: "",
+  main: "index.js",
+  scripts: {
+    "test:eslint": "eslint --ext .jsx,.js src/",
+    "fix:eslint": "npm run test:eslint -- --fix",
+    build: "esbuild src/app.jsx --loader:.txt=text --bundle --platform=node --outfile=dist/app.js",
+    start: "node ./dist/app.js",
+    dev: "npm run build && npm run start",
+    test: 'echo "Error: no test specified" && exit 1'
+  },
+  author: "",
+  license: "ISC",
+  dependencies: {
+    ink: "^3.2.0",
+    "ink-big-text": "^1.2.0",
+    "ink-gradient": "^2.0.0",
+    "ink-multi-select": "^2.0.0",
+    "ink-select-input": "^4.2.1",
+    react: "^17.0.2",
+    "react-router": "^6.6.1"
+  },
+  devDependencies: {
+    esbuild: "^0.16.12",
+    eslint: "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
 };
-(0, import_ink.render)(/* @__PURE__ */ import_react.default.createElement(App, null));
+
+// src/MainMenu.jsx
+function MainMenu() {
+  const handleSelect = (item) => {
+  };
+  const items = [
+    {
+      label: "1/Install Arch Linux",
+      value: "/1"
+    },
+    {
+      label: "3/Install and Configure Applications",
+      value: "/2"
+    },
+    {
+      label: "3/Set-Up Coding Environment",
+      value: "/3"
+    }
+  ];
+  return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, { flexDirection: "column", padding: "4" }, /* @__PURE__ */ import_react.default.createElement(import_ink_gradient.default, { name: "passion" }, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, logo_default)), /* @__PURE__ */ import_react.default.createElement(import_ink.Box, { width: "30", alignItems: "center", justifyContent: "center" }, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, `Version ${package_default.version}`)), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " "), /* @__PURE__ */ import_react.default.createElement(import_ink_select_input.default, { items, onSelect: handleSelect }));
+}
+var MainMenu_default = MainMenu;
+
+// src/app.jsx
+function App() {
+  return /* @__PURE__ */ import_react2.default.createElement(import_react_router.MemoryRouter, null, /* @__PURE__ */ import_react2.default.createElement(import_react_router.Routes, null, /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/1", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/2", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react2.default.createElement(import_react_router.Route, { path: "/3", element: /* @__PURE__ */ import_react2.default.createElement(MainMenu_default, null) })));
+}
+(0, import_ink2.render)(/* @__PURE__ */ import_react2.default.createElement(App, null));
 /*! Bundled license information:
 
 object-assign/index.js:
@@ -76178,4 +87324,614 @@ react-devtools-core/dist/backend.js:
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    *)
+
+@remix-run/router/dist/router.cjs.js:
+  (**
+   * @remix-run/router v1.2.1
+   *
+   * Copyright (c) Remix Software Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.md file in the root directory of this source tree.
+   *
+   * @license MIT
+   *)
+
+react-router/dist/umd/react-router.production.min.js:
+  (**
+   * React Router v6.6.1
+   *
+   * Copyright (c) Remix Software Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.md file in the root directory of this source tree.
+   *
+   * @license MIT
+   *)
+
+react-router/dist/umd/react-router.development.js:
+  (**
+   * React Router v6.6.1
+   *
+   * Copyright (c) Remix Software Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.md file in the root directory of this source tree.
+   *
+   * @license MIT
+   *)
+
+react-router/dist/main.js:
+  (**
+   * React Router v6.6.1
+   *
+   * Copyright (c) Remix Software Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.md file in the root directory of this source tree.
+   *
+   * @license MIT
+   *)
+
+react-is/cjs/react-is.production.min.js:
+  (** @license React v16.13.1
+   * react-is.production.min.js
+   *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+react-is/cjs/react-is.development.js:
+  (** @license React v16.13.1
+   * react-is.development.js
+   *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+tinygradient/tinygradient.js:
+  (*!
+   * TinyGradient 0.4.3
+   * Copyright 2014-2018 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
+   * Licensed under MIT (http://opensource.org/licenses/MIT)
+   *)
+
+cfonts/lib/Chalk.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Chalk
+   *   We pass on the FORCE_COLOR env var to chalk so we can force it in ci
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/constants.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Constants
+   *   CHARS
+   *   COLORS
+   *   BGCOLORS
+   *   GRADIENTCOLORS
+   *   ALIGNMENT
+   *   FONTFACES
+   *   CLIOPTIONS
+   *   PACKAGE
+   *   HEXTEST
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/DisplayVersion.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * DisplayVersion
+   *   Display the version of this package
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Debugging.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Debugging
+   *   Debugging prettiness
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/UpperCaseFirst.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * UpperCaseFirst
+   *   Upper case the first character of an input string
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Options.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Options
+   *   Merge user settings with default options
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Color.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Color
+   *   Abstraction for coloring hex-, keyword- and background-colors
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Colorize.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Colorize
+   *   Replace placeholders with color information
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/AddLetterSpacing.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * AddLetterSpacing
+   *   Add letter spacing for the next character
+   *
+   **************************************************************************************************************************************************************)
+
+is-accessor-descriptor/index.js:
+  (*!
+   * is-accessor-descriptor <https://github.com/jonschlinkert/is-accessor-descriptor>
+   *
+   * Copyright (c) 2015-2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+is-data-descriptor/index.js:
+  (*!
+   * is-data-descriptor <https://github.com/jonschlinkert/is-data-descriptor>
+   *
+   * Copyright (c) 2015-2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+is-descriptor/index.js:
+  (*!
+   * is-descriptor <https://github.com/jonschlinkert/is-descriptor>
+   *
+   * Copyright (c) 2015-2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+define-property/index.js:
+  (*!
+   * define-property <https://github.com/jonschlinkert/define-property>
+   *
+   * Copyright (c) 2015, 2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+is-buffer/index.js:
+  (*!
+   * Determine if an object is a Buffer
+   *
+   * @author   Feross Aboukhadijeh <https://feross.org>
+   * @license  MIT
+   *)
+
+is-number/index.js:
+  (*!
+   * is-number <https://github.com/jonschlinkert/is-number>
+   *
+   * Copyright (c) 2014-2015, Jon Schlinkert.
+   * Licensed under the MIT License.
+   *)
+
+window-size/utils.js:
+  (*!
+   * window-size <https://github.com/jonschlinkert/window-size>
+   *
+   * Copyright (c) 2014-2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+window-size/index.js:
+  (*!
+   * window-size <https://github.com/jonschlinkert/window-size>
+   *
+   * Copyright (c) 2014-2017, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+cfonts/lib/Size.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Size
+   *   Abstraction for windows size
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/AlignText.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * AlignText
+   *   Calculate the spaces to be added to the left of each line to align them either center or right
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/RenderConsole.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * RenderConsole
+   *   Render our input with the console font
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/GetFirstCharacterPosition.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * GetFirstCharacterPosition
+   *   Get the position of the first character out of all strings inside an array
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/GetLongestLine.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * GetLongestLine
+   *   Return the longest line of an Array
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Gradient.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Rgb2hsv              - Converts an RGB color value to HSV
+   * Hsv2rgb              - Converts an HSV color value to RGB
+   * Rgb2hex              - Converts RGB to HEX
+   * Hex2rgb              - Convert HEX to RGB
+   * Hsv2hsvRad           - Convert HSV coordinate to HSVrad (degree to radian)
+   * HsvRad2hsv           - Convert HSVrad color to HSV (radian to degree)
+   * Hex2hsvRad           - Convert HEX to HSVrad
+   * HsvRad2hex           - Convert HSVrad to HEX
+   * GetLinear            - Interpolate a linear path from a number to another number
+   * GetTheta             - Interpolate a radial path from a number to another number
+   * GetGradientColors    - Generate the most colorful delta between two colors
+   * PaintLines           - Take a bunch of lines and color them in the colors provided
+   * Color2hex            - Make sure a color is hex
+   * GetGaps              - Calculate the gaps between an array of points
+   * TransitionBetweenHex - Generate colors between two given colors
+   * Transition           - Generate n colors between x colors
+   * PaintGradient        - Paint finished output in a gradient
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/CharLength.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * CharLength
+   *   Return the max width of a character by looking at its longest line
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/CheckInput.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * CheckInput
+   *   Check input for human errors
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/CleanInput.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * CleanInput
+   *   Filter only allowed character
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/AddLine.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * AddLine
+   *   Add a new line to the output array
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/AddChar.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * AddChar
+   *   Add a new character to the output array
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/GetFont.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * GetFont
+   *   Get a selected JSON font-file object
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Log.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Log
+   *   Logging prettiness
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Render.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Render
+   *   Main method to get the ANSI output for a string
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/DisplayHelp.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * DisplayHelp
+   *   Display the help generated from our CLIOPTIONS
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/AddShortcuts.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * AddShortcuts
+   *   Flatten the shortcuts in our cli options object
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/ParseArgs.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * ParseArgs
+   *   Parse cli arguments into a nice object
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/Say.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Say
+   *   Print to console
+   *
+   **************************************************************************************************************************************************************)
+
+cfonts/lib/index.js:
+  (***************************************************************************************************************************************************************
+   *
+   * cfonts
+   *
+   * Sexy fonts for the console. (CLI output)
+   *
+   * @license     https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE  GNU GPLv2
+   * @author      Dominik Wilkowski  hi@dominik-wilkowski.com
+   * @repository  https://github.com/dominikwilkowski/cfonts
+   *
+   * Cli
+   *   Run cli commands
+   *
+   **************************************************************************************************************************************************************)
 */
