@@ -31,7 +31,7 @@ vgcreate archlvm /dev/mapper/cryptlvm
   
 # Swap is a bit bigger than ram to enable hibernation
 lvcreate -L "$(get_swap_size)" archlvm -n swap
-lvcreate -L "$(root_partition_size)" archlvm -n root
+lvcreate -L "${root_partition_size}" archlvm -n root
 lvcreate -l 100%FREE archlvm -n home
   
 #mkfs.ext4 /dev/archlvm/root
