@@ -1,0 +1,234 @@
+#!/bin/bash
+# install with LVM on LUKS
+# Windows needs to be installed prior to this, using Secure Boot
+# Shrink Windows partition to desired size then run arch script
+# References :
+# - https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268
+# - https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/
+# - https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
+#loadkeys fr
+iwctl
+
+# station wlan0 scan
+# station wlan0 get-networks
+# station wlan0 connect "Nice Phone"
+
+timedatectl set-ntp true
+timedatectl status
+
+#create linux partition on free space
+cfdisk
+o
+
+# check created partitions
+fdisk -l
+
+# Encrypt partition
+cryptsetup luksFormat /dev/nvme0n1p5
+cryptsetup open /dev/nvme0n1p5 cryptlvm
+
+pvcreate /dev/mapper/cryptlvm
+vgcreate archlvm /dev/mapper/cryptlvm
+# vgchange -a n archlvm
+# vgremove archlvm
+
+# Swap is a bit bigger than ram to enable hibernation
+lvcreate -L 38G archlvm -n swap
+lvcreate -L 51G archlvm -n root
+lvcreate -l 100%FREE archlvm -n home
+
+mkfs.ext4 /dev/archlvm/root
+mkfs.ext4 /dev/archlvm/home
+mkswap /dev/archlvm/swap
+
+# Mount the filesystem
+mount /dev/archlvm/root /mnt
+mount --mkdir /dev/archlvm/home /mnt/home
+mount --mkdir /dev/nvme0n1p1 /mnt/boot #id of the EFI partition
+swapon /dev/archlvm/swap
+
+# Install linux
+# in case of bug run pacman -Sy archlinux-keyring
+pacstrap /mnt base linux linux-firmware
+pacstrap /mnt sudo vim iwd dhcpcd lvm2
+pacstrap /mnt git tree
+pacstrap /mnt base-devel
+
+# Generate fstab 
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Enter chroot
+arch-chroot /mnt
+lsblk #check disk structure
+
+# setup localtime
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc #Sync hardware clock
+
+# set up language
+vim /etc/locale.gen
+# uncomment en_US.UTF-8 UTF-8
+locale-gen
+#locale > /etc/locale.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+# Optimize mirrors
+pacman -Sy reflector
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.back
+reflector --verbose --country "Germany" -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist
+
+# Hostname and hosts
+echo nayarit > /etc/hostname
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "127.0.1.1 nayarit.localdomain nayarit" >> /etc/hosts
+
+# Update mkinitcpio hooks /etc/mkinitcpio.conf
+# HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems fsck)
+pacman -S intel-ucode
+# /etc/kernel/cmdline cryptdevice=UUID=00224c31-2835-4b93-a7dd-ec8363e17476:cryptlvm root=/dev/archlvm/root quiet rw resume=/dev/archlvm/swap
+mkinitcpio -p linux
+
+# User
+useradd -G wheel -m adrian
+passwd adrian
+# in /etc/sudoers uncomment
+#  %wheel ALL=(ALL) ALL
+
+# Create bootloader. Edit /boot/loader/loader.conf. Replace the file's contents with:
+
+default arch
+timeout 3
+editor 0
+# The editor 0 ensures the configuration can't be changed on boot.
+
+# Next create a bootloader entry in /boot/loader/entries/arch.conf
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options cryptdevice=UUID={UUID}:cryptlvm root=/dev/volume/root quiet rw
+# Alternatively /etc/kernel/cmdline cryptdevice=UUID={UUID}:cryptlvm root=/dev/volume/root quiet rw resume=/dev/archlvm/swap
+# Replace {UUID} with the UUID of /dev/sda2. In order to get the UUID run the following command:
+
+# blkid
+# Or, while stil in vim, run the following command (replacing /dev/sda2 with the relevant partition):
+# :read ! blkid /dev/sda2
+
+
+systemctl enable dhcpcd.service
+systemctl enable iwd.service
+
+
+# Full secureboot tutorail here https://saligrama.io/blog/post/upgrading-personal-security-evil-maid/
+# First is needed to create a full efi image
+# Install secure boot. 
+# Boot into efi configuration and pass secureboot into setup mode
+
+pacman -S sbctl
+
+# 3. Create a keypair
+#    The private key in this keypair is used to sign all
+#    EFI code loaded at boot, which means that without the
+#    signature, you will not be able to boot into Linux.
+#    MAKE SURE YOU DO NOT LOSE THE PRIVATE KEY.
+sbctl create-keys
+
+# 4. Enroll your keys while keeping Microsoft's keys.
+#    Experimentally, Option ROM devices can be supported
+#    using `sbctl enroll-keys --tpm-eventlog`, but I have
+#    not tested this and IT COULD LEAD TO EQUIPMENT LOSS.
+sbctl enroll-keys --microsoft
+
+# 5. Sign each of the EFI files that may appear somewhere
+#    in the boot chain. The following files are specific
+#    to my configuration, double check that you sign everything
+#    you need to for your setup.
+sbctl sign -s /boot/EFI/Linux/linux.efi
+sbctl sign -s /boot/EFI/Linux/fallback.efi
+sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
+sbctl sign -s /boot/EFI/Boot/bootx64.efi
+sbctl sign -s /boot/EFI/Microsoft/bootmgfw.efi
+sbctl sign -s /boot/EFI/Microsoft/bootmgr.efi
+sbctl sign -s /boot/EFI/Microsoft/memtest.efi
+
+# 6. Verify that all the files you need are signed
+sbctl list-files
+
+# 7. Verify that the sbctl pacman hook works on a kernel upgrade.
+#    Ensure that the string "Signing EFI binaries..." appears.
+pacman -S linux
+
+
+
+# Sway
+pacman -S sway foot waybar swaybg
+yay -S tofi
+systemctl enable seatd.service
+usermod -a -G seat adrian
+# Enable pam_systemd.so in /etc/pam.d/system-login
+mkdir -p ~/.config/sway
+cp -r /etc/sway/config ~/.config/sway/config
+
+
+#Sound
+pacman -S alsa-utils sof-firmware
+pacman -S pipewire pipewire-pulse
+
+# Screen sharing
+pacman -S pipewire xdg-desktop-portal-wlr
+
+# Display manager
+yay -S wdisplays
+
+# Brightness 
+yay -S light
+
+# Other
+pacman -S htop font-manager thunar man unzip openssl the_silver_searcher
+yay -S cozette-otb
+
+
+#Gestures
+yay -S gestures ydotool wtype
+sudo usermod -aG input adrian
+systemctl --user enable --now libinput-gestures.service
+
+# Chrome
+yay -S google-chrome
+google-chrome --enable-features=UseOzonePlatform --ozone-platform=wayland
+# Go to chrome://flags
+# Search "Preferred Ozone platform"
+# Set it to "Wayland"
+# chrome://flags/#enable-webrtc-pipewire-capturer
+
+
+# Terminal
+pacman -S zsh
+chsh -s /usr/bin/zsh #do it for root as well
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Hibernation
+mkinitcpio.conf HOOKS=( base udev **resume** autodetect modconf block filesystems keyboard fsck )
+sudo vim /etc/systemd/logind.conf
+Find the line that starts with #HandleLidSwitch=, remove the comment and make sure it’s being set to hibernate:
+
+HandleLidSwitch=hibernate
+
+#bluetooth
+pacman -S blueman
+systemctl enable --now bluetooth.service
+
+#razer drivers
+yay -S openrazer-meta
+sudo gpasswd -a $USER plugdev
+
+#finally
+pacman -S openssl mosh
+ssh-keygen -t ed25519 #change username to adrian_villa
+
+cp /usr/share/applications/signal-desktop.desktop ~/.local/share/applications #And modify to add --enable-features=UseOzonePlatform --ozone-platform=wayland -- %u
+
+
+
