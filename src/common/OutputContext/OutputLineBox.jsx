@@ -33,7 +33,7 @@ function OutputLineBox({
   content,
   separator,
 }) {
-  const splitContent = content.split('~')
+  const splitContent = content.split(separator)
   const isSplitContent = splitContent.length > 1
   return (
     <Box>

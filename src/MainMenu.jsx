@@ -7,6 +7,13 @@ import Logo from './logo.txt'
 import packageConf from '../package.json'
 import { useOutput } from './common'
 
+const items = [
+  {
+    label:'EI Environment',
+    value:'/environment',
+  },
+]
+
 function MainMenu() {
   const navigate = useNavigate()
   const {
@@ -26,6 +33,12 @@ function MainMenu() {
     error('error doing such')
   }, [])
 
+  const handleSelect = ({
+    value,
+  }) => {
+    navigate(value)
+  }
+
   return (
     <Box flexDirection="column" padding="4">
       <Gradient name="passion">
@@ -41,9 +54,7 @@ function MainMenu() {
       <Text>
         {' '}
       </Text>
-      {/*
       <SelectInput items={items} onSelect={handleSelect} />
-      */}
     </Box>
 
   )
