@@ -7,6 +7,8 @@
 # - https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/
 # - https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
 #loadkeys fr
+#loadkeys mac-fr
+#pacman -Syu nodejs npm
 iwctl
 
 # station wlan0 scan
@@ -22,6 +24,11 @@ o
 
 # check created partitions
 fdisk -l
+
+
+# (Optional - no dual boot)
+# Formatting the efi partition
+mkfs.fat -F 32 /dev/sda1 
 
 # Encrypt partition
 cryptsetup luksFormat /dev/nvme0n1p5
@@ -230,5 +237,15 @@ ssh-keygen -t ed25519 #change username to adrian_villa
 
 cp /usr/share/applications/signal-desktop.desktop ~/.local/share/applications #And modify to add --enable-features=UseOzonePlatform --ozone-platform=wayland -- %u
 
+
+
+# TODO Clock sync 
+# Reference https://tecadmin.net/synchronizing-a-linux-system-clock-with-ntp-servr
+
+#sudo timedatectl set-local-rtc 1  // gives a warning
+# Need to enable time sync service 
+
+# TODO
+# Color cat 
 
 

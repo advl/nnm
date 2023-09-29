@@ -1124,7 +1124,7 @@ var require_react_development = __commonJS({
           }
           return children;
         }
-        function createContext(defaultValue, calculateChangedBits) {
+        function createContext2(defaultValue, calculateChangedBits) {
           if (calculateChangedBits === void 0) {
             calculateChangedBits = null;
           } else {
@@ -1404,7 +1404,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher;
         }
-        function useContext(Context, unstable_observedBits) {
+        function useContext2(Context, unstable_observedBits) {
           var dispatcher = resolveDispatcher();
           {
             if (unstable_observedBits !== void 0) {
@@ -1421,7 +1421,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState2(initialState) {
+        function useState3(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1433,7 +1433,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect(create, deps) {
+        function useEffect2(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -1441,7 +1441,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useLayoutEffect(create, deps);
         }
-        function useCallback(callback, deps) {
+        function useCallback2(callback, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useCallback(callback, deps);
         }
@@ -1994,7 +1994,7 @@ var require_react_development = __commonJS({
         exports2.PureComponent = PureComponent;
         exports2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
         exports2.cloneElement = cloneElement$1;
-        exports2.createContext = createContext;
+        exports2.createContext = createContext2;
         exports2.createElement = createElement$1;
         exports2.createFactory = createFactory;
         exports2.createRef = createRef;
@@ -2002,16 +2002,16 @@ var require_react_development = __commonJS({
         exports2.isValidElement = isValidElement;
         exports2.lazy = lazy;
         exports2.memo = memo;
-        exports2.useCallback = useCallback;
-        exports2.useContext = useContext;
+        exports2.useCallback = useCallback2;
+        exports2.useContext = useContext2;
         exports2.useDebugValue = useDebugValue;
-        exports2.useEffect = useEffect;
+        exports2.useEffect = useEffect2;
         exports2.useImperativeHandle = useImperativeHandle;
         exports2.useLayoutEffect = useLayoutEffect;
         exports2.useMemo = useMemo;
         exports2.useReducer = useReducer;
         exports2.useRef = useRef;
-        exports2.useState = useState2;
+        exports2.useState = useState3;
         exports2.version = ReactVersion;
       })();
     }
@@ -14019,11 +14019,11 @@ var require_react_reconciler_development = __commonJS({
       module2.exports = function $$$reconciler($$$hostConfig) {
         var exports3 = {};
         "use strict";
-        var React5 = require_react();
+        var React6 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var tracing = require_tracing();
-        var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function warn(format) {
           {
             for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -16733,7 +16733,7 @@ var require_react_reconciler_development = __commonJS({
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React5.Component().refs;
+        var emptyRefsObject = new React6.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -56554,7 +56554,7 @@ var require_wrap_ansi = __commonJS({
       }
       return words.slice(0, last).join(" ") + words.slice(last).join("");
     };
-    var exec2 = (string, columns, options = {}) => {
+    var exec = (string, columns, options = {}) => {
       if (options.trim !== false && string.trim() === "") {
         return "";
       }
@@ -56623,7 +56623,7 @@ var require_wrap_ansi = __commonJS({
       return ret;
     };
     module2.exports = (string, columns, options) => {
-      return String(string).normalize().replace(/\r\n/g, "\n").split("\n").map((line) => exec2(line, columns, options)).join("\n");
+      return String(string).normalize().replace(/\r\n/g, "\n").split("\n").map((line) => exec(line, columns, options)).join("\n");
     };
   }
 });
@@ -60338,7 +60338,7 @@ var require_backend = __commonJS({
                     return function() {
                     };
                   },
-                  useCallback: function useCallback(a) {
+                  useCallback: function useCallback2(a) {
                     var b = C();
                     x.push({
                       primitive: "Callback",
@@ -60347,7 +60347,7 @@ var require_backend = __commonJS({
                     });
                     return a;
                   },
-                  useContext: function useContext(a) {
+                  useContext: function useContext2(a) {
                     x.push({
                       primitive: "Context",
                       stackError: Error(),
@@ -60355,7 +60355,7 @@ var require_backend = __commonJS({
                     });
                     return a._currentValue;
                   },
-                  useEffect: function useEffect(a) {
+                  useEffect: function useEffect2(a) {
                     C();
                     x.push({
                       primitive: "Effect",
@@ -60450,7 +60450,7 @@ var require_backend = __commonJS({
                     });
                     return a;
                   },
-                  useState: function useState2(a) {
+                  useState: function useState3(a) {
                     var b = C();
                     a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
                     x.push({
@@ -75027,18 +75027,18 @@ var require_Box = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Box4 = react_1.forwardRef((_a2, ref) => {
+    var Box3 = react_1.forwardRef((_a2, ref) => {
       var { children } = _a2, style = __rest(_a2, ["children"]);
       const transformedStyle = Object.assign(Object.assign({}, style), { marginLeft: style.marginLeft || style.marginX || style.margin || 0, marginRight: style.marginRight || style.marginX || style.margin || 0, marginTop: style.marginTop || style.marginY || style.margin || 0, marginBottom: style.marginBottom || style.marginY || style.margin || 0, paddingLeft: style.paddingLeft || style.paddingX || style.padding || 0, paddingRight: style.paddingRight || style.paddingX || style.padding || 0, paddingTop: style.paddingTop || style.paddingY || style.padding || 0, paddingBottom: style.paddingBottom || style.paddingY || style.padding || 0 });
       return react_1.default.createElement("ink-box", { ref, style: transformedStyle }, children);
     });
-    Box4.displayName = "Box";
-    Box4.defaultProps = {
+    Box3.displayName = "Box";
+    Box3.defaultProps = {
       flexDirection: "row",
       flexGrow: 0,
       flexShrink: 1
     };
-    exports2.default = Box4;
+    exports2.default = Box3;
   }
 });
 
@@ -75053,7 +75053,7 @@ var require_Text = __commonJS({
     var react_1 = __importDefault(require_react());
     var chalk_1 = __importDefault(require_source());
     var colorize_1 = __importDefault(require_colorize());
-    var Text3 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
+    var Text4 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
       if (children === void 0 || children === null) {
         return null;
       }
@@ -75086,8 +75086,8 @@ var require_Text = __commonJS({
       };
       return react_1.default.createElement("ink-text", { style: { flexGrow: 0, flexShrink: 1, flexDirection: "row", textWrap: wrap }, internal_transform: transform }, children);
     };
-    Text3.displayName = "Text";
-    Text3.defaultProps = {
+    Text4.displayName = "Text";
+    Text4.defaultProps = {
       dimColor: false,
       bold: false,
       italic: false,
@@ -75095,7 +75095,7 @@ var require_Text = __commonJS({
       strikethrough: false,
       wrap: "wrap"
     };
-    exports2.default = Text3;
+    exports2.default = Text4;
   }
 });
 
@@ -75857,7 +75857,7 @@ var require_Static = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Static2 = (props) => {
+    var Static3 = (props) => {
       const { items, children: render2, style: customStyle } = props;
       const [index, setIndex] = react_1.useState(0);
       const itemsToRender = react_1.useMemo(() => {
@@ -75876,8 +75876,8 @@ var require_Static = __commonJS({
         style
       }, children);
     };
-    Static2.displayName = "Static";
-    exports2.default = Static2;
+    Static3.displayName = "Static";
+    exports2.default = Static3;
   }
 });
 
@@ -75957,7 +75957,7 @@ var require_use_input = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = require_react();
     var use_stdin_1 = __importDefault(require_use_stdin());
-    var useInput2 = (inputHandler, options = {}) => {
+    var useInput = (inputHandler, options = {}) => {
       const { stdin, setRawMode, internal_exitOnCtrlC } = use_stdin_1.default();
       react_1.useEffect(() => {
         if (options.isActive === false) {
@@ -76019,7 +76019,7 @@ var require_use_input = __commonJS({
         };
       }, [options.isActive, stdin, internal_exitOnCtrlC, inputHandler]);
     };
-    exports2.default = useInput2;
+    exports2.default = useInput;
   }
 });
 
@@ -79935,7 +79935,7 @@ var require_react_router_development = __commonJS({
   "node_modules/react-router/dist/umd/react-router.development.js"(exports2, module2) {
     (function(global2, factory) {
       typeof exports2 === "object" && typeof module2 !== "undefined" ? factory(exports2, require_react(), require_router_cjs()) : typeof define === "function" && define.amd ? define(["exports", "react", "@remix-run/router"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.ReactRouter = {}, global2.React, global2.RemixRouter));
-    })(exports2, function(exports3, React5, router) {
+    })(exports2, function(exports3, React6, router) {
       "use strict";
       function _interopNamespace(e) {
         if (e && e.__esModule)
@@ -79957,7 +79957,7 @@ var require_react_router_development = __commonJS({
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React5);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React6);
       function _extends() {
         _extends = Object.assign ? Object.assign.bind() : function(target) {
           for (var i2 = 1; i2 < arguments.length; i2++) {
@@ -80069,7 +80069,7 @@ var require_react_router_development = __commonJS({
           React__namespace.useLayoutEffect(cb2);
         }
       }
-      function useNavigate3() {
+      function useNavigate2() {
         let {
           isDataRoute
         } = React__namespace.useContext(RouteContext);
@@ -80680,7 +80680,7 @@ var require_react_router_development = __commonJS({
         let {
           pathname: locationPathname
         } = useLocation();
-        let navigate = useNavigate3();
+        let navigate = useNavigate2();
         let path = router.resolveTo(to, router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase), locationPathname, relative === "path");
         let jsonPath = JSON.stringify(path);
         React__namespace.useEffect(() => navigate(JSON.parse(jsonPath), {
@@ -81056,7 +81056,7 @@ var require_react_router_development = __commonJS({
       exports3.useLocation = useLocation;
       exports3.useMatch = useMatch;
       exports3.useMatches = useMatches;
-      exports3.useNavigate = useNavigate3;
+      exports3.useNavigate = useNavigate2;
       exports3.useNavigation = useNavigation;
       exports3.useNavigationType = useNavigationType;
       exports3.useOutlet = useOutlet;
@@ -81965,10 +81965,10 @@ var require_Indicator = __commonJS({
   "node_modules/ink-select-input/build/Indicator.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React5 = require_react();
+    var React6 = require_react();
     var ink_1 = require_build2();
     var figures = require_figures();
-    var Indicator = ({ isSelected = false }) => React5.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React5.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React5.createElement(ink_1.Text, null, " "));
+    var Indicator = ({ isSelected = false }) => React6.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React6.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React6.createElement(ink_1.Text, null, " "));
     exports2.default = Indicator;
   }
 });
@@ -81978,9 +81978,9 @@ var require_Item = __commonJS({
   "node_modules/ink-select-input/build/Item.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React5 = require_react();
+    var React6 = require_react();
     var ink_1 = require_build2();
-    var Item = ({ isSelected = false, label }) => React5.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
+    var Item = ({ isSelected = false, label }) => React6.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
     exports2.default = Item;
   }
 });
@@ -81990,7 +81990,7 @@ var require_SelectInput = __commonJS({
   "node_modules/ink-select-input/build/SelectInput.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React5 = require_react();
+    var React6 = require_react();
     var react_1 = require_react();
     var isEqual = require_lodash2();
     var arrayRotate = require_arr_rotate();
@@ -82053,14 +82053,14 @@ var require_SelectInput = __commonJS({
         onHighlight
       ]), { isActive: isFocused });
       const slicedItems = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
-      return React5.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
+      return React6.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
         var _a2;
         const isSelected = index === selectedIndex;
-        return React5.createElement(
+        return React6.createElement(
           ink_1.Box,
           { key: (_a2 = item.key) !== null && _a2 !== void 0 ? _a2 : item.value },
-          React5.createElement(indicatorComponent, { isSelected }),
-          React5.createElement(itemComponent, { ...item, isSelected })
+          React6.createElement(indicatorComponent, { isSelected }),
+          React6.createElement(itemComponent, { ...item, isSelected })
         );
       }));
     }
@@ -85840,714 +85840,14 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/figures/node_modules/escape-string-regexp/index.js
-var require_escape_string_regexp4 = __commonJS({
-  "node_modules/figures/node_modules/escape-string-regexp/index.js"(exports2, module2) {
-    "use strict";
-    var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
-    module2.exports = function(str) {
-      if (typeof str !== "string") {
-        throw new TypeError("Expected a string");
-      }
-      return str.replace(matchOperatorsRe, "\\$&");
-    };
-  }
-});
-
-// node_modules/figures/index.js
-var require_figures2 = __commonJS({
-  "node_modules/figures/index.js"(exports2, module2) {
-    "use strict";
-    var escapeStringRegexp = require_escape_string_regexp4();
-    var platform = process.platform;
-    var main = {
-      tick: "\u2714",
-      cross: "\u2716",
-      star: "\u2605",
-      square: "\u2587",
-      squareSmall: "\u25FB",
-      squareSmallFilled: "\u25FC",
-      play: "\u25B6",
-      circle: "\u25EF",
-      circleFilled: "\u25C9",
-      circleDotted: "\u25CC",
-      circleDouble: "\u25CE",
-      circleCircle: "\u24DE",
-      circleCross: "\u24E7",
-      circlePipe: "\u24BE",
-      circleQuestionMark: "?\u20DD",
-      bullet: "\u25CF",
-      dot: "\u2024",
-      line: "\u2500",
-      ellipsis: "\u2026",
-      pointer: "\u276F",
-      pointerSmall: "\u203A",
-      info: "\u2139",
-      warning: "\u26A0",
-      hamburger: "\u2630",
-      smiley: "\u32E1",
-      mustache: "\u0DF4",
-      heart: "\u2665",
-      arrowUp: "\u2191",
-      arrowDown: "\u2193",
-      arrowLeft: "\u2190",
-      arrowRight: "\u2192",
-      radioOn: "\u25C9",
-      radioOff: "\u25EF",
-      checkboxOn: "\u2612",
-      checkboxOff: "\u2610",
-      checkboxCircleOn: "\u24E7",
-      checkboxCircleOff: "\u24BE",
-      questionMarkPrefix: "?\u20DD",
-      oneHalf: "\xBD",
-      oneThird: "\u2153",
-      oneQuarter: "\xBC",
-      oneFifth: "\u2155",
-      oneSixth: "\u2159",
-      oneSeventh: "\u2150",
-      oneEighth: "\u215B",
-      oneNinth: "\u2151",
-      oneTenth: "\u2152",
-      twoThirds: "\u2154",
-      twoFifths: "\u2156",
-      threeQuarters: "\xBE",
-      threeFifths: "\u2157",
-      threeEighths: "\u215C",
-      fourFifths: "\u2158",
-      fiveSixths: "\u215A",
-      fiveEighths: "\u215D",
-      sevenEighths: "\u215E"
-    };
-    var win = {
-      tick: "\u221A",
-      cross: "\xD7",
-      star: "*",
-      square: "\u2588",
-      squareSmall: "[ ]",
-      squareSmallFilled: "[\u2588]",
-      play: "\u25BA",
-      circle: "( )",
-      circleFilled: "(*)",
-      circleDotted: "( )",
-      circleDouble: "( )",
-      circleCircle: "(\u25CB)",
-      circleCross: "(\xD7)",
-      circlePipe: "(\u2502)",
-      circleQuestionMark: "(?)",
-      bullet: "*",
-      dot: ".",
-      line: "\u2500",
-      ellipsis: "...",
-      pointer: ">",
-      pointerSmall: "\xBB",
-      info: "i",
-      warning: "\u203C",
-      hamburger: "\u2261",
-      smiley: "\u263A",
-      mustache: "\u250C\u2500\u2510",
-      heart: main.heart,
-      arrowUp: main.arrowUp,
-      arrowDown: main.arrowDown,
-      arrowLeft: main.arrowLeft,
-      arrowRight: main.arrowRight,
-      radioOn: "(*)",
-      radioOff: "( )",
-      checkboxOn: "[\xD7]",
-      checkboxOff: "[ ]",
-      checkboxCircleOn: "(\xD7)",
-      checkboxCircleOff: "( )",
-      questionMarkPrefix: "\uFF1F",
-      oneHalf: "1/2",
-      oneThird: "1/3",
-      oneQuarter: "1/4",
-      oneFifth: "1/5",
-      oneSixth: "1/6",
-      oneSeventh: "1/7",
-      oneEighth: "1/8",
-      oneNinth: "1/9",
-      oneTenth: "1/10",
-      twoThirds: "2/3",
-      twoFifths: "2/5",
-      threeQuarters: "3/4",
-      threeFifths: "3/5",
-      threeEighths: "3/8",
-      fourFifths: "4/5",
-      fiveSixths: "5/6",
-      fiveEighths: "5/8",
-      sevenEighths: "7/8"
-    };
-    if (platform === "linux") {
-      main.questionMarkPrefix = "?";
-    }
-    var figures = platform === "win32" ? win : main;
-    var fn = (str) => {
-      if (figures === main) {
-        return str;
-      }
-      Object.keys(main).forEach((key2) => {
-        if (main[key2] === figures[key2]) {
-          return;
-        }
-        str = str.replace(new RegExp(escapeStringRegexp(main[key2]), "g"), figures[key2]);
-      });
-      return str;
-    };
-    module2.exports = Object.assign(fn, figures);
-  }
-});
-
-// node_modules/ink-multi-select/build/indicator.js
-var require_indicator = __commonJS({
-  "node_modules/ink-multi-select/build/indicator.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = void 0;
-    var _react = _interopRequireDefault(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _ink = require_build2();
-    var _figures = _interopRequireDefault(require_figures2());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var Indicator = ({
-      isHighlighted
-    }) => _react.default.createElement(_ink.Box, {
-      marginRight: 1
-    }, _react.default.createElement(_ink.Text, {
-      color: isHighlighted ? "blue" : void 0
-    }, isHighlighted ? _figures.default.pointer : " "));
-    Indicator.propTypes = {
-      isHighlighted: _propTypes.default.bool
-    };
-    Indicator.defaultProps = {
-      isHighlighted: false
-    };
-    var _default = Indicator;
-    exports2.default = _default;
-  }
-});
-
-// node_modules/ink-multi-select/build/item.js
-var require_item = __commonJS({
-  "node_modules/ink-multi-select/build/item.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = void 0;
-    var _react = _interopRequireDefault(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _ink = require_build2();
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var Item = ({
-      isHighlighted,
-      label
-    }) => _react.default.createElement(_ink.Text, {
-      color: isHighlighted ? "blue" : void 0
-    }, label);
-    Item.propTypes = {
-      isHighlighted: _propTypes.default.bool,
-      label: _propTypes.default.string.isRequired
-    };
-    Item.defaultProps = {
-      isHighlighted: false
-    };
-    var _default = Item;
-    exports2.default = _default;
-  }
-});
-
-// node_modules/ink-multi-select/build/checkbox.js
-var require_checkbox = __commonJS({
-  "node_modules/ink-multi-select/build/checkbox.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = void 0;
-    var _react = _interopRequireDefault(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _ink = require_build2();
-    var _figures = _interopRequireDefault(require_figures2());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var CheckBox = ({
-      isSelected
-    }) => _react.default.createElement(_ink.Box, {
-      marginRight: 1
-    }, _react.default.createElement(_ink.Text, {
-      color: "green"
-    }, isSelected ? _figures.default.circleFilled : _figures.default.circle));
-    CheckBox.propTypes = {
-      isSelected: _propTypes.default.bool
-    };
-    CheckBox.defaultProps = {
-      isSelected: false
-    };
-    var _default = CheckBox;
-    exports2.default = _default;
-  }
-});
-
-// node_modules/ink-multi-select/build/multi-select.js
-var require_multi_select = __commonJS({
-  "node_modules/ink-multi-select/build/multi-select.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    Object.defineProperty(exports2, "Indicator", {
-      enumerable: true,
-      get: function() {
-        return _indicator.default;
-      }
-    });
-    Object.defineProperty(exports2, "Item", {
-      enumerable: true,
-      get: function() {
-        return _item.default;
-      }
-    });
-    Object.defineProperty(exports2, "CheckBox", {
-      enumerable: true,
-      get: function() {
-        return _checkbox.default;
-      }
-    });
-    exports2.default = void 0;
-    var _react = _interopRequireWildcard(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _lodash = _interopRequireDefault(require_lodash2());
-    var _arrRotate = _interopRequireDefault(require_arr_rotate());
-    var _ink = require_build2();
-    var _indicator = _interopRequireDefault(require_indicator());
-    var _item = _interopRequireDefault(require_item());
-    var _checkbox = _interopRequireDefault(require_checkbox());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function _getRequireWildcardCache() {
-      if (typeof WeakMap !== "function")
-        return null;
-      var cache = /* @__PURE__ */ new WeakMap();
-      _getRequireWildcardCache = function() {
-        return cache;
-      };
-      return cache;
-    }
-    function _interopRequireWildcard(obj) {
-      if (obj && obj.__esModule) {
-        return obj;
-      }
-      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
-        return { default: obj };
-      }
-      var cache = _getRequireWildcardCache();
-      if (cache && cache.has(obj)) {
-        return cache.get(obj);
-      }
-      var newObj = {};
-      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-      for (var key2 in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
-          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
-          if (desc && (desc.get || desc.set)) {
-            Object.defineProperty(newObj, key2, desc);
-          } else {
-            newObj[key2] = obj[key2];
-          }
-        }
-      }
-      newObj.default = obj;
-      if (cache) {
-        cache.set(obj, newObj);
-      }
-      return newObj;
-    }
-    function _extends() {
-      _extends = Object.assign || function(target) {
-        for (var i2 = 1; i2 < arguments.length; i2++) {
-          var source = arguments[i2];
-          for (var key2 in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key2)) {
-              target[key2] = source[key2];
-            }
-          }
-        }
-        return target;
-      };
-      return _extends.apply(this, arguments);
-    }
-    function _defineProperty(obj, key2, value) {
-      if (key2 in obj) {
-        Object.defineProperty(obj, key2, { value, enumerable: true, configurable: true, writable: true });
-      } else {
-        obj[key2] = value;
-      }
-      return obj;
-    }
-    var ARROW_UP = "\x1B[A";
-    var ARROW_DOWN = "\x1B[B";
-    var ENTER = "\r";
-    var SPACE = " ";
-    var MultiSelect2 = class extends _react.PureComponent {
-      constructor(...args) {
-        super(...args);
-        _defineProperty(this, "state", {
-          rotateIndex: 0,
-          highlightedIndex: this.props.initialIndex,
-          selected: this.props.selected || this.props.defaultSelected
-        });
-        _defineProperty(this, "handleInput", (data) => {
-          const {
-            items,
-            focus,
-            onHighlight,
-            onSubmit
-          } = this.props;
-          const {
-            rotateIndex,
-            highlightedIndex
-          } = this.state;
-          const selected = this.props.selected || this.state.selected;
-          const {
-            limit,
-            hasLimit
-          } = this;
-          if (focus === false) {
-            return;
-          }
-          const s = String(data);
-          if (s === ARROW_UP || s === "k") {
-            const lastIndex = (hasLimit ? limit : items.length) - 1;
-            const atFirstIndex = highlightedIndex === 0;
-            const nextIndex = hasLimit ? highlightedIndex : lastIndex;
-            const nextRotateIndex = atFirstIndex ? rotateIndex + 1 : rotateIndex;
-            const nextHighlightedIndex = atFirstIndex ? nextIndex : highlightedIndex - 1;
-            this.setState({
-              rotateIndex: nextRotateIndex,
-              highlightedIndex: nextHighlightedIndex
-            });
-            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, nextRotateIndex).slice(0, limit) : items;
-            onHighlight(slicedItems[nextHighlightedIndex]);
-          }
-          if (s === ARROW_DOWN || s === "j") {
-            const atLastIndex = highlightedIndex === (hasLimit ? limit : items.length) - 1;
-            const nextIndex = hasLimit ? highlightedIndex : 0;
-            const nextRotateIndex = atLastIndex ? rotateIndex - 1 : rotateIndex;
-            const nextHighlightedIndex = atLastIndex ? nextIndex : highlightedIndex + 1;
-            this.setState({
-              rotateIndex: nextRotateIndex,
-              highlightedIndex: nextHighlightedIndex
-            });
-            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, nextRotateIndex).slice(0, limit) : items;
-            onHighlight(slicedItems[nextHighlightedIndex]);
-          }
-          if (s === SPACE) {
-            const slicedItems = hasLimit ? (0, _arrRotate.default)(items, rotateIndex).slice(0, limit) : items;
-            const selectedItem = slicedItems[highlightedIndex];
-            this.setSelectedState(this.selectItem(selectedItem));
-          }
-          if (s === ENTER) {
-            onSubmit(selected);
-          }
-        });
-      }
-      render() {
-        const {
-          items,
-          indicatorComponent,
-          itemComponent,
-          checkboxComponent
-        } = this.props;
-        const {
-          rotateIndex,
-          highlightedIndex
-        } = this.state;
-        const {
-          limit,
-          hasLimit
-        } = this;
-        const slicedItems = hasLimit ? (0, _arrRotate.default)(items, rotateIndex).slice(0, limit) : items;
-        return _react.default.createElement(_ink.Box, {
-          flexDirection: "column"
-        }, slicedItems.map((item, index) => {
-          const key2 = item.key || item.value;
-          const isHighlighted = index === highlightedIndex;
-          const isSelected = this.isSelected(item.value);
-          return _react.default.createElement(_ink.Box, {
-            key: key2
-          }, _react.default.createElement(indicatorComponent, {
-            isHighlighted
-          }), _react.default.createElement(checkboxComponent, {
-            isSelected
-          }), _react.default.createElement(itemComponent, {
-            ...item,
-            isHighlighted
-          }));
-        }));
-      }
-      componentDidMount() {
-        const {
-          stdin,
-          setRawMode
-        } = this.props;
-        setRawMode(true);
-        stdin.on("data", this.handleInput);
-      }
-      componentWillUnmount() {
-        const {
-          stdin,
-          setRawMode
-        } = this.props;
-        stdin.removeListener("data", this.handleInput);
-        setRawMode(false);
-      }
-      componentDidUpdate(prevProps) {
-        if (!(0, _lodash.default)(prevProps.items, this.props.items)) {
-          this.setState({
-            // eslint-disable-line react/no-did-update-set-state
-            rotateIndex: 0,
-            highlightedIndex: 0
-          });
-        }
-      }
-      isSelected(value) {
-        const selected = this.props.selected || this.state.selected;
-        return selected.map(({
-          value: value2
-        }) => value2).includes(value);
-      }
-      selectItem(item) {
-        const {
-          onSelect,
-          onUnselect
-        } = this.props;
-        const selected = this.props.selected || this.state.selected;
-        if (this.isSelected(item.value)) {
-          onUnselect(item);
-          return selected.filter(({
-            value
-          }) => {
-            return value !== item.value;
-          });
-        }
-        onSelect(item);
-        return [...selected, item];
-      }
-      setSelectedState(selected) {
-        this.setState({
-          selected
-        });
-      }
-      get hasLimit() {
-        const {
-          limit,
-          items
-        } = this.props;
-        return typeof limit === "number" && items.length > limit;
-      }
-      get limit() {
-        const {
-          limit,
-          items
-        } = this.props;
-        if (this.hasLimit) {
-          return Math.min(limit, items.length);
-        }
-        return items.length;
-      }
-    };
-    _defineProperty(MultiSelect2, "propTypes", {
-      items: _propTypes.default.array,
-      selected: _propTypes.default.array,
-      defaultSelected: _propTypes.default.array,
-      focus: _propTypes.default.bool,
-      initialIndex: _propTypes.default.number,
-      indicatorComponent: _propTypes.default.func,
-      checkboxComponent: _propTypes.default.func,
-      itemComponent: _propTypes.default.func,
-      limit: _propTypes.default.number,
-      onSelect: _propTypes.default.func,
-      onUnselect: _propTypes.default.func,
-      onSubmit: _propTypes.default.func,
-      onHighlight: _propTypes.default.func,
-      stdin: _propTypes.default.any.isRequired,
-      setRawMode: _propTypes.default.func.isRequired
-    });
-    _defineProperty(MultiSelect2, "defaultProps", {
-      items: [],
-      selected: void 0,
-      defaultSelected: [],
-      focus: true,
-      initialIndex: 0,
-      indicatorComponent: _indicator.default,
-      checkboxComponent: _checkbox.default,
-      itemComponent: _item.default,
-      limit: null,
-      onSelect() {
-      },
-      onUnselect() {
-      },
-      onSubmit() {
-      },
-      onHighlight() {
-      }
-    });
-    var _default = (props) => {
-      const {
-        stdin,
-        setRawMode
-      } = (0, _ink.useStdin)();
-      return _react.default.createElement(MultiSelect2, _extends({}, props, {
-        stdin,
-        setRawMode
-      }));
-    };
-    exports2.default = _default;
-  }
-});
-
-// node_modules/ink-multi-select/build/index.js
-var require_build4 = __commonJS({
-  "node_modules/ink-multi-select/build/index.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    Object.defineProperty(exports2, "default", {
-      enumerable: true,
-      get: function() {
-        return _multiSelect.default;
-      }
-    });
-    Object.defineProperty(exports2, "Item", {
-      enumerable: true,
-      get: function() {
-        return _multiSelect.Item;
-      }
-    });
-    Object.defineProperty(exports2, "Indicator", {
-      enumerable: true,
-      get: function() {
-        return _multiSelect.Indicator;
-      }
-    });
-    Object.defineProperty(exports2, "CheckBox", {
-      enumerable: true,
-      get: function() {
-        return _multiSelect.CheckBox;
-      }
-    });
-    var _multiSelect = _interopRequireWildcard(require_multi_select());
-    function _getRequireWildcardCache() {
-      if (typeof WeakMap !== "function")
-        return null;
-      var cache = /* @__PURE__ */ new WeakMap();
-      _getRequireWildcardCache = function() {
-        return cache;
-      };
-      return cache;
-    }
-    function _interopRequireWildcard(obj) {
-      if (obj && obj.__esModule) {
-        return obj;
-      }
-      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
-        return { default: obj };
-      }
-      var cache = _getRequireWildcardCache();
-      if (cache && cache.has(obj)) {
-        return cache.get(obj);
-      }
-      var newObj = {};
-      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-      for (var key2 in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
-          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
-          if (desc && (desc.get || desc.set)) {
-            Object.defineProperty(newObj, key2, desc);
-          } else {
-            newObj[key2] = obj[key2];
-          }
-        }
-      }
-      newObj.default = obj;
-      if (cache) {
-        cache.set(obj, newObj);
-      }
-      return newObj;
-    }
-  }
-});
-
-// src/1/tasks/create_logical_volume.sh
-var require_create_logical_volume = __commonJS({
-  "src/1/tasks/create_logical_volume.sh"(exports2, module2) {
-    module2.exports = `#!/bin/bash
-swap_power=1.2
-root_partition_size='51G'
-
-function get_memtotal {
-  local a=\`grep MemTotal /proc/meminfo | sed 's/[^0-9]*//g'\`
-  echo $a
-  exit 0
-}
-
-function convert_kb_to_gb {
-  echo $1 | awk '{$1=$1/(1024^2); print $1}'
-}
-
-function get_memtotal_gb {
-  echo "$(convert_kb_to_gb $(get_memtotal))"
-}
-
-function get_swap_size {
-  #echo $(get_memtotal_gb)
-  #echo '$(get_memtotal_gb)'
-  #echo $((2 + $swap_power))
-  local s=\`get_memtotal_gb | awk -v p="$swap_power" '{$1=$1^p; printf "%3.0f", $1}'\`
-  s=\`echo $s | sed "s/ //"\`
-  echo "\${s}G" 
-}
-
-pvcreate /dev/mapper/cryptlvm                         
-vgcreate archlvm /dev/mapper/cryptlvm
-# vgchange -a n archlvm
-# vgremove archlvm
-  
-# Swap is a bit bigger than ram to enable hibernation
-lvcreate -L "$(get_swap_size)d" archlvm -n swap
-lvcreate -L "\${root_partition_size}" archlvm -n root
-lvcreate -l 100%FREE archlvm -n home
-  
-mkfs.ext4 /dev/archlvm/root
-mkfs.ext4 /dev/archlvm/home
-mkswap /dev/archlvm/swap
-`;
-  }
-});
-
-// src/1/tasks/test.txt
-var require_test = __commonJS({
-  "src/1/tasks/test.txt"(exports2, module2) {
-    module2.exports = "some test goes here\n";
-  }
-});
-
 // src/app.jsx
-var import_react4 = __toESM(require_react());
+var import_react5 = __toESM(require_react());
 var import_ink4 = __toESM(require_build2());
-var import_react_router3 = __toESM(require_main());
+var import_react_router2 = __toESM(require_main());
 
 // src/MainMenu.jsx
-var import_react = __toESM(require_react());
-var import_ink = __toESM(require_build2());
+var import_react4 = __toESM(require_react());
+var import_ink3 = __toESM(require_build2());
 var import_ink_select_input = __toESM(require_build3());
 var import_react_router = __toESM(require_main());
 var import_ink_gradient = __toESM(require_dist());
@@ -86558,7 +85858,7 @@ var logo_default = " \u2588\u2588\u2588\u2584    \u2588  \u2588\u2588\u2588\u258
 // package.json
 var package_default = {
   name: "nnm",
-  version: "0.0.1",
+  version: "0.0.2",
   description: "",
   main: "index.js",
   scripts: {
@@ -86591,143 +85891,139 @@ var package_default = {
   }
 };
 
+// src/common/OutputContext/Context.js
+var React = __toESM(require_react());
+var Context_default = React.createContext({});
+
+// src/common/OutputContext/ContextProvider.jsx
+var import_react2 = __toESM(require_react());
+var import_ink2 = __toESM(require_build2());
+
+// src/common/OutputContext/OutputLineBox.jsx
+var import_react = __toESM(require_react());
+var import_ink = __toESM(require_build2());
+var configMap = {
+  trace: {
+    color: "black",
+    label: "T"
+  },
+  debug: {
+    color: "magenta",
+    label: "D"
+  },
+  info: {
+    color: "green",
+    label: "I"
+  },
+  warn: {
+    color: "yellow",
+    label: "W"
+  },
+  error: {
+    color: "red",
+    label: "E"
+  }
+};
+function OutputLineBox({
+  level,
+  timestamp,
+  content
+}) {
+  return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: "white", color: "black" }, ` ${timestamp.toLocaleTimeString("it-IT")} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: configMap[level].color }, ` ${configMap[level].label} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", content, " "));
+}
+var OutputLineBox_default = OutputLineBox;
+
+// src/common/OutputContext/ContextProvider.jsx
+function OutputContextProvider({
+  children
+  // ...otherProps
+}) {
+  const [output, setOutput] = (0, import_react2.useState)([]);
+  const log = (0, import_react2.useCallback)((payload) => setOutput((currentOutput) => [
+    ...currentOutput,
+    {
+      timestamp: new Date(),
+      ...payload
+    }
+  ]), [setOutput]);
+  const trace = (0, import_react2.useCallback)((content) => log(
+    {
+      level: "trace",
+      content
+    }
+  ), [log]);
+  const debug = (0, import_react2.useCallback)((content) => log(
+    {
+      level: "debug",
+      content
+    }
+  ), [log]);
+  const info = (0, import_react2.useCallback)((content) => log(
+    {
+      level: "info",
+      content
+    }
+  ), [log]);
+  const warn = (0, import_react2.useCallback)((content) => log(
+    {
+      level: "warn",
+      content
+    }
+  ), [log]);
+  const error = (0, import_react2.useCallback)((content) => log(
+    {
+      level: "error",
+      content
+    }
+  ), [log]);
+  return /* @__PURE__ */ import_react2.default.createElement(
+    Context_default.Provider,
+    {
+      value: {
+        output,
+        trace,
+        debug,
+        info,
+        warn,
+        error
+      }
+    },
+    /* @__PURE__ */ import_react2.default.createElement(import_ink2.Static, { items: output }, (line) => /* @__PURE__ */ import_react2.default.createElement(OutputLineBox_default, { ...line, key: line.timestamp + line.content })),
+    children
+  );
+}
+var ContextProvider_default = OutputContextProvider;
+
+// src/common/OutputContext/useOutput.js
+var import_react3 = __toESM(require_react());
+var useOutput_default = () => (0, import_react3.useContext)(Context_default);
+
 // src/MainMenu.jsx
 function MainMenu() {
   const navigate = (0, import_react_router.useNavigate)();
-  const handleSelect = (item) => {
-    navigate(item.value);
-  };
-  const items = [
-    {
-      label: "1/Install Arch Linux",
-      value: "/1"
-    },
-    {
-      label: "3/Install and Configure Applications",
-      value: "/2"
-    },
-    {
-      label: "3/Set-Up Coding Environment",
-      value: "/3"
-    }
-  ];
-  return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, { flexDirection: "column", padding: "4" }, /* @__PURE__ */ import_react.default.createElement(import_ink_gradient.default, { name: "passion" }, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, logo_default)), /* @__PURE__ */ import_react.default.createElement(import_ink.Box, { width: "30", alignItems: "center", justifyContent: "center" }, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, `Version ${package_default.version}`)), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " "), /* @__PURE__ */ import_react.default.createElement(import_ink_select_input.default, { items, onSelect: handleSelect }));
+  const {
+    trace,
+    debug,
+    info,
+    warn,
+    error
+  } = useOutput_default();
+  (0, import_react4.useEffect)(() => {
+    debug("DEBUG MSG");
+    trace("trace msg");
+    info("Starting payload X");
+    warn("missing variable X");
+    error("error doing such");
+  }, []);
+  return /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { flexDirection: "column", padding: "4" }, /* @__PURE__ */ import_react4.default.createElement(import_ink_gradient.default, { name: "passion" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, logo_default)), /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { width: "30", alignItems: "center", justifyContent: "center" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, `Version ${package_default.version}`)), /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, " "));
 }
 var MainMenu_default = MainMenu;
 
-// src/1/Menu.jsx
-var import_react3 = __toESM(require_react());
-var import_ink3 = __toESM(require_build2());
-
-// src/MultipleChoiceMenu.jsx
-var import_react2 = __toESM(require_react());
-var import_prop_types = __toESM(require_prop_types());
-var import_ink2 = __toESM(require_build2());
-var import_react_router2 = __toESM(require_main());
-var import_ink_multi_select = __toESM(require_build4());
-
-// src/runPayload.js
-var import_child_process = require("child_process");
-var runPayload = async (promisedImport, log) => {
-  const { default: script } = await promisedImport;
-  const proc = (0, import_child_process.exec)(`set -e; ${script}`, { shell: "/bin/bash" });
-  if (log) {
-    proc.stdout.on("data", (data) => {
-      log("OK", data);
-    });
-    proc.stderr.on("data", (data) => {
-      log("ERR", data.replace("/bin/bash: ", "").replace("\n", ""));
-    });
-    proc.on("error", (err2) => {
-      log("ERR", err2);
-    });
-    proc.on("exit", (code) => {
-      log(code, `Process exited with code ${code}`);
-    });
-  }
-  log("OK", "run successfully");
-  log(0, "run successfully");
-};
-var runPayload_default = runPayload;
-
-// src/getStatusColor.js
-var getStatusColor_default = (status) => {
-  if (status === "ERR")
-    return "red";
-  if (status === "OK")
-    return "green";
-  if (status === "0")
-    return "blue";
-  return "red";
-};
-
-// src/MultipleChoiceMenu.jsx
-function MultipleChoiceMenu({
-  escapeToReturn,
-  items
-}) {
-  const navigate = (0, import_react_router2.useNavigate)();
-  (0, import_ink2.useInput)((input, key2) => {
-    if (escapeToReturn) {
-      if (key2.escape) {
-        navigate(-1);
-      }
-    }
-  });
-  const [outputLines, setOutputLines] = (0, import_react2.useState)([]);
-  const appendOutputForScript = (scriptName) => (status, payload) => {
-    setOutputLines((state) => [
-      ...state,
-      {
-        scriptName,
-        status,
-        payload,
-        timestamp: Date.now()
-      }
-    ]);
-  };
-  const handleSubmit = async (submittedItems) => {
-    for (const item of submittedItems) {
-      const appendOutput = appendOutputForScript(item.label);
-      await runPayload_default(item.payload, appendOutput);
-    }
-  };
-  return /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Static, { items: outputLines }, (line) => /* @__PURE__ */ import_react2.default.createElement(import_ink2.Box, { key: line.timestamp }, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { backgroundColor: getStatusColor_default(line.status) }, ` ${String(line.status)}${" ".repeat(4 - String(line.status).length)}`), " ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { dimColor: true }, line.scriptName, ": "), line.payload))), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " Press ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "blue" }, "Space"), " to select, ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "green" }, "Enter"), " to submit or ", /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, { color: "yellow" }, "Escape"), " to return to the previous menu."), /* @__PURE__ */ import_react2.default.createElement(import_ink2.Text, null, " "), /* @__PURE__ */ import_react2.default.createElement(import_ink_multi_select.default, { items, onSubmit: handleSubmit }));
-}
-MultipleChoiceMenu.propTypes = {
-  escapeToReturn: import_prop_types.default.bool,
-  items: import_prop_types.default.arrayOf(import_prop_types.default.object).isRequired
-};
-MultipleChoiceMenu.defaultProps = {
-  escapeToReturn: true
-};
-var MultipleChoiceMenu_default = MultipleChoiceMenu;
-
-// src/1/tasks/index.jsx
-var tasks_default = [
-  {
-    label: "create_logical_volume.sh",
-    value: "1",
-    payload: Promise.resolve().then(() => __toESM(require_create_logical_volume()))
-  },
-  {
-    label: "Set Up Disk partitions",
-    value: "2",
-    payload: Promise.resolve().then(() => __toESM(require_test()))
-  }
-];
-
-// src/1/Menu.jsx
-function Menu() {
-  return /* @__PURE__ */ import_react3.default.createElement(import_ink3.Box, { padding: "4" }, /* @__PURE__ */ import_react3.default.createElement(MultipleChoiceMenu_default, { items: tasks_default }));
-}
-var Menu_default = Menu;
-
 // src/app.jsx
 function App() {
-  return /* @__PURE__ */ import_react4.default.createElement(import_react_router3.MemoryRouter, null, /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Routes, null, /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/1", element: /* @__PURE__ */ import_react4.default.createElement(Menu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/2", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react4.default.createElement(import_react_router3.Route, { path: "/3", element: /* @__PURE__ */ import_react4.default.createElement(MainMenu_default, null) })));
+  return /* @__PURE__ */ import_react5.default.createElement(ContextProvider_default, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.MemoryRouter, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.Routes, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(MainMenu_default, null) }))));
 }
-(0, import_ink4.render)(/* @__PURE__ */ import_react4.default.createElement(App, null));
+(0, import_ink4.render)(/* @__PURE__ */ import_react5.default.createElement(App, null));
 /*! Bundled license information:
 
 object-assign/index.js:

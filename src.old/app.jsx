@@ -2,22 +2,20 @@ import React from 'react'
 import { render } from 'ink'
 import { MemoryRouter, Routes, Route } from 'react-router'
 import MainMenu from './MainMenu'
-import { OutputContextProvider } from './common'
+import Menu1 from './1/Menu'
 
 function App() {
   return (
-    <OutputContextProvider>
-      <MemoryRouter>
-        <Routes>
-          <Route path="/" element={<MainMenu />} />
-          {/*
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<MainMenu />} />
+        {/*
         <Route path="/1" element={<Menu1 />} />
         <Route path="/2" element={<MainMenu />} />
         <Route path="/3" element={<MainMenu />} />
         */}
-        </Routes>
-      </MemoryRouter>
-    </OutputContextProvider>
+      </Routes>
+    </MemoryRouter>
   )
 }
 
