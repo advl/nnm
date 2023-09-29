@@ -21,6 +21,7 @@ function MainMenu() {
     debug('DEBUG MSG')
     trace('trace msg')
     info('Starting payload X')
+    info('ScriptName.sh~Starting payload X')
     warn('missing variable X')
     error('error doing such')
   }, [])

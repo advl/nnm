@@ -85927,10 +85927,16 @@ var configMap = {
 function OutputLineBox({
   level,
   timestamp,
-  content
+  content,
+  separator
 }) {
-  return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: "white", color: "black" }, ` ${timestamp.toLocaleTimeString("it-IT")} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: configMap[level].color }, ` ${configMap[level].label} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", content, " "));
+  const splitContent = content.split("~");
+  const isSplitContent = splitContent.length > 1;
+  return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: "white", color: "black" }, ` ${timestamp.toLocaleTimeString("it-IT")} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: configMap[level].color }, ` ${configMap[level].label} `), isSplitContent ? /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { bold: true }, " ", splitContent[0], " ~"), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", splitContent[1], " ")) : /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", content, " "));
 }
+OutputLineBox.defaultProps = {
+  separator: "~"
+};
 var OutputLineBox_default = OutputLineBox;
 
 // src/common/OutputContext/ContextProvider.jsx
@@ -86012,6 +86018,7 @@ function MainMenu() {
     debug("DEBUG MSG");
     trace("trace msg");
     info("Starting payload X");
+    info("ScriptName.sh~Starting payload X");
     warn("missing variable X");
     error("error doing such");
   }, []);

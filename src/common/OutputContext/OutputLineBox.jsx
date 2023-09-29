@@ -31,7 +31,10 @@ function OutputLineBox({
   level,
   timestamp,
   content,
+  separator,
 }) {
+  const splitContent = content.split('~')
+  const isSplitContent = splitContent.length > 1
   return (
     <Box>
       <Text backgroundColor="white" color="black">
@@ -40,13 +43,34 @@ function OutputLineBox({
       <Text backgroundColor={configMap[level].color}>
         { ` ${configMap[level].label} ` }
       </Text>
-      <Text>
-        {' '}
-        { content }
-        {' '}
-      </Text>
+      { isSplitContent
+        ? (
+          <>
+            <Text bold>
+              {' '}
+              { splitContent[0] }
+              {' ~'}
+            </Text>
+            <Text>
+              {' '}
+              { splitContent[1] }
+              {' '}
+            </Text>
+          </>
+        )
+        : (
+          <Text>
+            {' '}
+            { content }
+            {' '}
+          </Text>
+        )}
     </Box>
   )
+}
+
+OutputLineBox.defaultProps = {
+  separator:'~',
 }
 
 export default OutputLineBox
