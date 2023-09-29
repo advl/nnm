@@ -1421,7 +1421,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState3(initialState) {
+        function useState4(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1433,7 +1433,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect2(create, deps) {
+        function useEffect3(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -1441,11 +1441,11 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useLayoutEffect(create, deps);
         }
-        function useCallback2(callback, deps) {
+        function useCallback3(callback, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useCallback(callback, deps);
         }
-        function useMemo(create, deps) {
+        function useMemo2(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useMemo(create, deps);
         }
@@ -2002,16 +2002,16 @@ var require_react_development = __commonJS({
         exports2.isValidElement = isValidElement;
         exports2.lazy = lazy;
         exports2.memo = memo;
-        exports2.useCallback = useCallback2;
+        exports2.useCallback = useCallback3;
         exports2.useContext = useContext2;
         exports2.useDebugValue = useDebugValue;
-        exports2.useEffect = useEffect2;
+        exports2.useEffect = useEffect3;
         exports2.useImperativeHandle = useImperativeHandle;
         exports2.useLayoutEffect = useLayoutEffect;
-        exports2.useMemo = useMemo;
+        exports2.useMemo = useMemo2;
         exports2.useReducer = useReducer;
         exports2.useRef = useRef;
-        exports2.useState = useState3;
+        exports2.useState = useState4;
         exports2.version = ReactVersion;
       })();
     }
@@ -14019,11 +14019,11 @@ var require_react_reconciler_development = __commonJS({
       module2.exports = function $$$reconciler($$$hostConfig) {
         var exports3 = {};
         "use strict";
-        var React6 = require_react();
+        var React7 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var tracing = require_tracing();
-        var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function warn(format) {
           {
             for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -16733,7 +16733,7 @@ var require_react_reconciler_development = __commonJS({
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React6.Component().refs;
+        var emptyRefsObject = new React7.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -60338,7 +60338,7 @@ var require_backend = __commonJS({
                     return function() {
                     };
                   },
-                  useCallback: function useCallback2(a) {
+                  useCallback: function useCallback3(a) {
                     var b = C();
                     x.push({
                       primitive: "Callback",
@@ -60355,7 +60355,7 @@ var require_backend = __commonJS({
                     });
                     return a._currentValue;
                   },
-                  useEffect: function useEffect2(a) {
+                  useEffect: function useEffect3(a) {
                     C();
                     x.push({
                       primitive: "Effect",
@@ -60396,7 +60396,7 @@ var require_backend = __commonJS({
                       value: a
                     });
                   },
-                  useMemo: function useMemo(a) {
+                  useMemo: function useMemo2(a) {
                     var b = C();
                     a = null !== b ? b.memoizedState[0] : a();
                     x.push({
@@ -60450,7 +60450,7 @@ var require_backend = __commonJS({
                     });
                     return a;
                   },
-                  useState: function useState3(a) {
+                  useState: function useState4(a) {
                     var b = C();
                     a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
                     x.push({
@@ -75027,18 +75027,18 @@ var require_Box = __commonJS({
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
-    var Box3 = react_1.forwardRef((_a2, ref) => {
+    var Box4 = react_1.forwardRef((_a2, ref) => {
       var { children } = _a2, style = __rest(_a2, ["children"]);
       const transformedStyle = Object.assign(Object.assign({}, style), { marginLeft: style.marginLeft || style.marginX || style.margin || 0, marginRight: style.marginRight || style.marginX || style.margin || 0, marginTop: style.marginTop || style.marginY || style.margin || 0, marginBottom: style.marginBottom || style.marginY || style.margin || 0, paddingLeft: style.paddingLeft || style.paddingX || style.padding || 0, paddingRight: style.paddingRight || style.paddingX || style.padding || 0, paddingTop: style.paddingTop || style.paddingY || style.padding || 0, paddingBottom: style.paddingBottom || style.paddingY || style.padding || 0 });
       return react_1.default.createElement("ink-box", { ref, style: transformedStyle }, children);
     });
-    Box3.displayName = "Box";
-    Box3.defaultProps = {
+    Box4.displayName = "Box";
+    Box4.defaultProps = {
       flexDirection: "row",
       flexGrow: 0,
       flexShrink: 1
     };
-    exports2.default = Box3;
+    exports2.default = Box4;
   }
 });
 
@@ -75053,7 +75053,7 @@ var require_Text = __commonJS({
     var react_1 = __importDefault(require_react());
     var chalk_1 = __importDefault(require_source());
     var colorize_1 = __importDefault(require_colorize());
-    var Text4 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
+    var Text5 = ({ color, backgroundColor, dimColor, bold, italic, underline, strikethrough, inverse, wrap, children }) => {
       if (children === void 0 || children === null) {
         return null;
       }
@@ -75086,8 +75086,8 @@ var require_Text = __commonJS({
       };
       return react_1.default.createElement("ink-text", { style: { flexGrow: 0, flexShrink: 1, flexDirection: "row", textWrap: wrap }, internal_transform: transform }, children);
     };
-    Text4.displayName = "Text";
-    Text4.defaultProps = {
+    Text5.displayName = "Text";
+    Text5.defaultProps = {
       dimColor: false,
       bold: false,
       italic: false,
@@ -75095,7 +75095,7 @@ var require_Text = __commonJS({
       strikethrough: false,
       wrap: "wrap"
     };
-    exports2.default = Text4;
+    exports2.default = Text5;
   }
 });
 
@@ -75858,14 +75858,14 @@ var require_Static = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var react_1 = __importStar(require_react());
     var Static3 = (props) => {
-      const { items, children: render2, style: customStyle } = props;
+      const { items: items2, children: render2, style: customStyle } = props;
       const [index, setIndex] = react_1.useState(0);
       const itemsToRender = react_1.useMemo(() => {
-        return items.slice(index);
-      }, [items, index]);
+        return items2.slice(index);
+      }, [items2, index]);
       react_1.useLayoutEffect(() => {
-        setIndex(items.length);
-      }, [items.length]);
+        setIndex(items2.length);
+      }, [items2.length]);
       const children = itemsToRender.map((item, itemIndex) => {
         return render2(item, index + itemIndex);
       });
@@ -79935,7 +79935,7 @@ var require_react_router_development = __commonJS({
   "node_modules/react-router/dist/umd/react-router.development.js"(exports2, module2) {
     (function(global2, factory) {
       typeof exports2 === "object" && typeof module2 !== "undefined" ? factory(exports2, require_react(), require_router_cjs()) : typeof define === "function" && define.amd ? define(["exports", "react", "@remix-run/router"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.ReactRouter = {}, global2.React, global2.RemixRouter));
-    })(exports2, function(exports3, React6, router) {
+    })(exports2, function(exports3, React7, router) {
       "use strict";
       function _interopNamespace(e) {
         if (e && e.__esModule)
@@ -79957,7 +79957,7 @@ var require_react_router_development = __commonJS({
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React6);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React7);
       function _extends() {
         _extends = Object.assign ? Object.assign.bind() : function(target) {
           for (var i2 = 1; i2 < arguments.length; i2++) {
@@ -80038,7 +80038,7 @@ var require_react_router_development = __commonJS({
       function useInRouterContext() {
         return React__namespace.useContext(LocationContext) != null;
       }
-      function useLocation() {
+      function useLocation2() {
         !useInRouterContext() ? router.UNSAFE_invariant(
           false,
           // TODO: This error is probably because they somehow have 2 versions of the
@@ -80059,7 +80059,7 @@ var require_react_router_development = __commonJS({
         ) : void 0;
         let {
           pathname
-        } = useLocation();
+        } = useLocation2();
         return React__namespace.useMemo(() => router.matchPath(pattern, pathname), [pathname, pattern]);
       }
       const navigateEffectWarning = "You should call navigate() in a React.useEffect(), not when your component is first rendered.";
@@ -80069,7 +80069,7 @@ var require_react_router_development = __commonJS({
           React__namespace.useLayoutEffect(cb2);
         }
       }
-      function useNavigate2() {
+      function useNavigate3() {
         let {
           isDataRoute
         } = React__namespace.useContext(RouteContext);
@@ -80092,7 +80092,7 @@ var require_react_router_development = __commonJS({
         } = React__namespace.useContext(RouteContext);
         let {
           pathname: locationPathname
-        } = useLocation();
+        } = useLocation2();
         let routePathnamesJson = JSON.stringify(router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase));
         let activeRef = React__namespace.useRef(false);
         useIsomorphicLayoutEffect(() => {
@@ -80146,7 +80146,7 @@ var require_react_router_development = __commonJS({
         } = React__namespace.useContext(RouteContext);
         let {
           pathname: locationPathname
-        } = useLocation();
+        } = useLocation2();
         let routePathnamesJson = JSON.stringify(router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase));
         return React__namespace.useMemo(() => router.resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
       }
@@ -80177,7 +80177,7 @@ var require_react_router_development = __commonJS({
 
 ` + ('Please change the parent <Route path="' + parentPath + '"> to <Route ') + ('path="' + (parentPath === "/" ? "*" : parentPath + "/*") + '">.'));
         }
-        let locationFromContext = useLocation();
+        let locationFromContext = useLocation2();
         let location;
         if (locationArg) {
           var _parsedLocationArg$pa;
@@ -80679,8 +80679,8 @@ var require_react_router_development = __commonJS({
         } = React__namespace.useContext(RouteContext);
         let {
           pathname: locationPathname
-        } = useLocation();
-        let navigate = useNavigate2();
+        } = useLocation2();
+        let navigate = useNavigate3();
         let path = router.resolveTo(to, router.UNSAFE_getPathContributingMatches(matches).map((match) => match.pathnameBase), locationPathname, relative === "path");
         let jsonPath = JSON.stringify(path);
         React__namespace.useEffect(() => navigate(JSON.parse(jsonPath), {
@@ -80693,7 +80693,7 @@ var require_react_router_development = __commonJS({
       function Outlet(props) {
         return useOutlet(props.context);
       }
-      function Route2(_props) {
+      function Route3(_props) {
         router.UNSAFE_invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.");
       }
       function Router(_ref5) {
@@ -80749,7 +80749,7 @@ var require_react_router_development = __commonJS({
           value: locationContext
         }));
       }
-      function Routes2(_ref6) {
+      function Routes3(_ref6) {
         let {
           children,
           location
@@ -80875,7 +80875,7 @@ var require_react_router_development = __commonJS({
             routes.push.apply(routes, createRoutesFromChildren(element.props.children, treePath));
             return;
           }
-          !(element.type === Route2) ? router.UNSAFE_invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : void 0;
+          !(element.type === Route3) ? router.UNSAFE_invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : void 0;
           !(!element.props.index || !element.props.children) ? router.UNSAFE_invariant(false, "An index route cannot have child routes.") : void 0;
           let route = {
             id: element.props.id || treePath.join("-"),
@@ -81030,10 +81030,10 @@ var require_react_router_development = __commonJS({
       exports3.MemoryRouter = MemoryRouter2;
       exports3.Navigate = Navigate;
       exports3.Outlet = Outlet;
-      exports3.Route = Route2;
+      exports3.Route = Route3;
       exports3.Router = Router;
       exports3.RouterProvider = RouterProvider;
-      exports3.Routes = Routes2;
+      exports3.Routes = Routes3;
       exports3.UNSAFE_DataRouterContext = DataRouterContext;
       exports3.UNSAFE_DataRouterStateContext = DataRouterStateContext;
       exports3.UNSAFE_LocationContext = LocationContext;
@@ -81053,10 +81053,10 @@ var require_react_router_development = __commonJS({
       exports3.useHref = useHref;
       exports3.useInRouterContext = useInRouterContext;
       exports3.useLoaderData = useLoaderData;
-      exports3.useLocation = useLocation;
+      exports3.useLocation = useLocation2;
       exports3.useMatch = useMatch;
       exports3.useMatches = useMatches;
-      exports3.useNavigate = useNavigate2;
+      exports3.useNavigate = useNavigate3;
       exports3.useNavigation = useNavigation;
       exports3.useNavigationType = useNavigationType;
       exports3.useOutlet = useOutlet;
@@ -81965,10 +81965,10 @@ var require_Indicator = __commonJS({
   "node_modules/ink-select-input/build/Indicator.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React6 = require_react();
+    var React7 = require_react();
     var ink_1 = require_build2();
     var figures = require_figures();
-    var Indicator = ({ isSelected = false }) => React6.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React6.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React6.createElement(ink_1.Text, null, " "));
+    var Indicator = ({ isSelected = false }) => React7.createElement(ink_1.Box, { marginRight: 1 }, isSelected ? React7.createElement(ink_1.Text, { color: "blue" }, figures.pointer) : React7.createElement(ink_1.Text, null, " "));
     exports2.default = Indicator;
   }
 });
@@ -81978,9 +81978,9 @@ var require_Item = __commonJS({
   "node_modules/ink-select-input/build/Item.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React6 = require_react();
+    var React7 = require_react();
     var ink_1 = require_build2();
-    var Item = ({ isSelected = false, label }) => React6.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
+    var Item = ({ isSelected = false, label }) => React7.createElement(ink_1.Text, { color: isSelected ? "blue" : void 0 }, label);
     exports2.default = Item;
   }
 });
@@ -81990,55 +81990,55 @@ var require_SelectInput = __commonJS({
   "node_modules/ink-select-input/build/SelectInput.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    var React6 = require_react();
+    var React7 = require_react();
     var react_1 = require_react();
     var isEqual = require_lodash2();
     var arrayRotate = require_arr_rotate();
     var ink_1 = require_build2();
     var Indicator_1 = require_Indicator();
     var Item_1 = require_Item();
-    function SelectInput2({ items = [], isFocused = true, initialIndex = 0, indicatorComponent = Indicator_1.default, itemComponent = Item_1.default, limit: customLimit, onSelect, onHighlight }) {
-      const hasLimit = typeof customLimit === "number" && items.length > customLimit;
-      const limit = hasLimit ? Math.min(customLimit, items.length) : items.length;
+    function SelectInput2({ items: items2 = [], isFocused = true, initialIndex = 0, indicatorComponent = Indicator_1.default, itemComponent = Item_1.default, limit: customLimit, onSelect, onHighlight }) {
+      const hasLimit = typeof customLimit === "number" && items2.length > customLimit;
+      const limit = hasLimit ? Math.min(customLimit, items2.length) : items2.length;
       const lastIndex = limit - 1;
       const [rotateIndex, setRotateIndex] = (0, react_1.useState)(initialIndex > lastIndex ? lastIndex - initialIndex : 0);
       const [selectedIndex, setSelectedIndex] = (0, react_1.useState)(initialIndex ? initialIndex > lastIndex ? lastIndex : initialIndex : 0);
-      const previousItems = (0, react_1.useRef)(items);
+      const previousItems = (0, react_1.useRef)(items2);
       (0, react_1.useEffect)(() => {
-        if (!isEqual(previousItems.current.map((item) => item.value), items.map((item) => item.value))) {
+        if (!isEqual(previousItems.current.map((item) => item.value), items2.map((item) => item.value))) {
           setRotateIndex(0);
           setSelectedIndex(0);
         }
-        previousItems.current = items;
-      }, [items]);
+        previousItems.current = items2;
+      }, [items2]);
       (0, ink_1.useInput)((0, react_1.useCallback)((input, key2) => {
         if (input === "k" || key2.upArrow) {
-          const lastIndex2 = (hasLimit ? limit : items.length) - 1;
+          const lastIndex2 = (hasLimit ? limit : items2.length) - 1;
           const atFirstIndex = selectedIndex === 0;
           const nextIndex = hasLimit ? selectedIndex : lastIndex2;
           const nextRotateIndex = atFirstIndex ? rotateIndex + 1 : rotateIndex;
           const nextSelectedIndex = atFirstIndex ? nextIndex : selectedIndex - 1;
           setRotateIndex(nextRotateIndex);
           setSelectedIndex(nextSelectedIndex);
-          const slicedItems2 = hasLimit ? arrayRotate(items, nextRotateIndex).slice(0, limit) : items;
+          const slicedItems2 = hasLimit ? arrayRotate(items2, nextRotateIndex).slice(0, limit) : items2;
           if (typeof onHighlight === "function") {
             onHighlight(slicedItems2[nextSelectedIndex]);
           }
         }
         if (input === "j" || key2.downArrow) {
-          const atLastIndex = selectedIndex === (hasLimit ? limit : items.length) - 1;
+          const atLastIndex = selectedIndex === (hasLimit ? limit : items2.length) - 1;
           const nextIndex = hasLimit ? selectedIndex : 0;
           const nextRotateIndex = atLastIndex ? rotateIndex - 1 : rotateIndex;
           const nextSelectedIndex = atLastIndex ? nextIndex : selectedIndex + 1;
           setRotateIndex(nextRotateIndex);
           setSelectedIndex(nextSelectedIndex);
-          const slicedItems2 = hasLimit ? arrayRotate(items, nextRotateIndex).slice(0, limit) : items;
+          const slicedItems2 = hasLimit ? arrayRotate(items2, nextRotateIndex).slice(0, limit) : items2;
           if (typeof onHighlight === "function") {
             onHighlight(slicedItems2[nextSelectedIndex]);
           }
         }
         if (key2.return) {
-          const slicedItems2 = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
+          const slicedItems2 = hasLimit ? arrayRotate(items2, rotateIndex).slice(0, limit) : items2;
           if (typeof onSelect === "function") {
             onSelect(slicedItems2[selectedIndex]);
           }
@@ -82048,19 +82048,19 @@ var require_SelectInput = __commonJS({
         limit,
         rotateIndex,
         selectedIndex,
-        items,
+        items2,
         onSelect,
         onHighlight
       ]), { isActive: isFocused });
-      const slicedItems = hasLimit ? arrayRotate(items, rotateIndex).slice(0, limit) : items;
-      return React6.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
+      const slicedItems = hasLimit ? arrayRotate(items2, rotateIndex).slice(0, limit) : items2;
+      return React7.createElement(ink_1.Box, { flexDirection: "column" }, slicedItems.map((item, index) => {
         var _a2;
         const isSelected = index === selectedIndex;
-        return React6.createElement(
+        return React7.createElement(
           ink_1.Box,
           { key: (_a2 = item.key) !== null && _a2 !== void 0 ? _a2 : item.value },
-          React6.createElement(indicatorComponent, { isSelected }),
-          React6.createElement(itemComponent, { ...item, isSelected })
+          React7.createElement(indicatorComponent, { isSelected }),
+          React7.createElement(itemComponent, { ...item, isSelected })
         );
       }));
     }
@@ -85840,16 +85840,662 @@ var require_dist = __commonJS({
   }
 });
 
+// node_modules/figures/node_modules/escape-string-regexp/index.js
+var require_escape_string_regexp4 = __commonJS({
+  "node_modules/figures/node_modules/escape-string-regexp/index.js"(exports2, module2) {
+    "use strict";
+    var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+    module2.exports = function(str) {
+      if (typeof str !== "string") {
+        throw new TypeError("Expected a string");
+      }
+      return str.replace(matchOperatorsRe, "\\$&");
+    };
+  }
+});
+
+// node_modules/figures/index.js
+var require_figures2 = __commonJS({
+  "node_modules/figures/index.js"(exports2, module2) {
+    "use strict";
+    var escapeStringRegexp = require_escape_string_regexp4();
+    var platform = process.platform;
+    var main = {
+      tick: "\u2714",
+      cross: "\u2716",
+      star: "\u2605",
+      square: "\u2587",
+      squareSmall: "\u25FB",
+      squareSmallFilled: "\u25FC",
+      play: "\u25B6",
+      circle: "\u25EF",
+      circleFilled: "\u25C9",
+      circleDotted: "\u25CC",
+      circleDouble: "\u25CE",
+      circleCircle: "\u24DE",
+      circleCross: "\u24E7",
+      circlePipe: "\u24BE",
+      circleQuestionMark: "?\u20DD",
+      bullet: "\u25CF",
+      dot: "\u2024",
+      line: "\u2500",
+      ellipsis: "\u2026",
+      pointer: "\u276F",
+      pointerSmall: "\u203A",
+      info: "\u2139",
+      warning: "\u26A0",
+      hamburger: "\u2630",
+      smiley: "\u32E1",
+      mustache: "\u0DF4",
+      heart: "\u2665",
+      arrowUp: "\u2191",
+      arrowDown: "\u2193",
+      arrowLeft: "\u2190",
+      arrowRight: "\u2192",
+      radioOn: "\u25C9",
+      radioOff: "\u25EF",
+      checkboxOn: "\u2612",
+      checkboxOff: "\u2610",
+      checkboxCircleOn: "\u24E7",
+      checkboxCircleOff: "\u24BE",
+      questionMarkPrefix: "?\u20DD",
+      oneHalf: "\xBD",
+      oneThird: "\u2153",
+      oneQuarter: "\xBC",
+      oneFifth: "\u2155",
+      oneSixth: "\u2159",
+      oneSeventh: "\u2150",
+      oneEighth: "\u215B",
+      oneNinth: "\u2151",
+      oneTenth: "\u2152",
+      twoThirds: "\u2154",
+      twoFifths: "\u2156",
+      threeQuarters: "\xBE",
+      threeFifths: "\u2157",
+      threeEighths: "\u215C",
+      fourFifths: "\u2158",
+      fiveSixths: "\u215A",
+      fiveEighths: "\u215D",
+      sevenEighths: "\u215E"
+    };
+    var win = {
+      tick: "\u221A",
+      cross: "\xD7",
+      star: "*",
+      square: "\u2588",
+      squareSmall: "[ ]",
+      squareSmallFilled: "[\u2588]",
+      play: "\u25BA",
+      circle: "( )",
+      circleFilled: "(*)",
+      circleDotted: "( )",
+      circleDouble: "( )",
+      circleCircle: "(\u25CB)",
+      circleCross: "(\xD7)",
+      circlePipe: "(\u2502)",
+      circleQuestionMark: "(?)",
+      bullet: "*",
+      dot: ".",
+      line: "\u2500",
+      ellipsis: "...",
+      pointer: ">",
+      pointerSmall: "\xBB",
+      info: "i",
+      warning: "\u203C",
+      hamburger: "\u2261",
+      smiley: "\u263A",
+      mustache: "\u250C\u2500\u2510",
+      heart: main.heart,
+      arrowUp: main.arrowUp,
+      arrowDown: main.arrowDown,
+      arrowLeft: main.arrowLeft,
+      arrowRight: main.arrowRight,
+      radioOn: "(*)",
+      radioOff: "( )",
+      checkboxOn: "[\xD7]",
+      checkboxOff: "[ ]",
+      checkboxCircleOn: "(\xD7)",
+      checkboxCircleOff: "( )",
+      questionMarkPrefix: "\uFF1F",
+      oneHalf: "1/2",
+      oneThird: "1/3",
+      oneQuarter: "1/4",
+      oneFifth: "1/5",
+      oneSixth: "1/6",
+      oneSeventh: "1/7",
+      oneEighth: "1/8",
+      oneNinth: "1/9",
+      oneTenth: "1/10",
+      twoThirds: "2/3",
+      twoFifths: "2/5",
+      threeQuarters: "3/4",
+      threeFifths: "3/5",
+      threeEighths: "3/8",
+      fourFifths: "4/5",
+      fiveSixths: "5/6",
+      fiveEighths: "5/8",
+      sevenEighths: "7/8"
+    };
+    if (platform === "linux") {
+      main.questionMarkPrefix = "?";
+    }
+    var figures = platform === "win32" ? win : main;
+    var fn = (str) => {
+      if (figures === main) {
+        return str;
+      }
+      Object.keys(main).forEach((key2) => {
+        if (main[key2] === figures[key2]) {
+          return;
+        }
+        str = str.replace(new RegExp(escapeStringRegexp(main[key2]), "g"), figures[key2]);
+      });
+      return str;
+    };
+    module2.exports = Object.assign(fn, figures);
+  }
+});
+
+// node_modules/ink-multi-select/build/indicator.js
+var require_indicator = __commonJS({
+  "node_modules/ink-multi-select/build/indicator.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _ink = require_build2();
+    var _figures = _interopRequireDefault(require_figures2());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var Indicator = ({
+      isHighlighted
+    }) => _react.default.createElement(_ink.Box, {
+      marginRight: 1
+    }, _react.default.createElement(_ink.Text, {
+      color: isHighlighted ? "blue" : void 0
+    }, isHighlighted ? _figures.default.pointer : " "));
+    Indicator.propTypes = {
+      isHighlighted: _propTypes.default.bool
+    };
+    Indicator.defaultProps = {
+      isHighlighted: false
+    };
+    var _default = Indicator;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/item.js
+var require_item = __commonJS({
+  "node_modules/ink-multi-select/build/item.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _ink = require_build2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var Item = ({
+      isHighlighted,
+      label
+    }) => _react.default.createElement(_ink.Text, {
+      color: isHighlighted ? "blue" : void 0
+    }, label);
+    Item.propTypes = {
+      isHighlighted: _propTypes.default.bool,
+      label: _propTypes.default.string.isRequired
+    };
+    Item.defaultProps = {
+      isHighlighted: false
+    };
+    var _default = Item;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/checkbox.js
+var require_checkbox = __commonJS({
+  "node_modules/ink-multi-select/build/checkbox.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _ink = require_build2();
+    var _figures = _interopRequireDefault(require_figures2());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var CheckBox = ({
+      isSelected
+    }) => _react.default.createElement(_ink.Box, {
+      marginRight: 1
+    }, _react.default.createElement(_ink.Text, {
+      color: "green"
+    }, isSelected ? _figures.default.circleFilled : _figures.default.circle));
+    CheckBox.propTypes = {
+      isSelected: _propTypes.default.bool
+    };
+    CheckBox.defaultProps = {
+      isSelected: false
+    };
+    var _default = CheckBox;
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/multi-select.js
+var require_multi_select = __commonJS({
+  "node_modules/ink-multi-select/build/multi-select.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports2, "Indicator", {
+      enumerable: true,
+      get: function() {
+        return _indicator.default;
+      }
+    });
+    Object.defineProperty(exports2, "Item", {
+      enumerable: true,
+      get: function() {
+        return _item.default;
+      }
+    });
+    Object.defineProperty(exports2, "CheckBox", {
+      enumerable: true,
+      get: function() {
+        return _checkbox.default;
+      }
+    });
+    exports2.default = void 0;
+    var _react = _interopRequireWildcard(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _lodash = _interopRequireDefault(require_lodash2());
+    var _arrRotate = _interopRequireDefault(require_arr_rotate());
+    var _ink = require_build2();
+    var _indicator = _interopRequireDefault(require_indicator());
+    var _item = _interopRequireDefault(require_item());
+    var _checkbox = _interopRequireDefault(require_checkbox());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    function _getRequireWildcardCache() {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cache = /* @__PURE__ */ new WeakMap();
+      _getRequireWildcardCache = function() {
+        return cache;
+      };
+      return cache;
+    }
+    function _interopRequireWildcard(obj) {
+      if (obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return { default: obj };
+      }
+      var cache = _getRequireWildcardCache();
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key2 in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key2, desc);
+          } else {
+            newObj[key2] = obj[key2];
+          }
+        }
+      }
+      newObj.default = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _extends() {
+      _extends = Object.assign || function(target) {
+        for (var i2 = 1; i2 < arguments.length; i2++) {
+          var source = arguments[i2];
+          for (var key2 in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key2)) {
+              target[key2] = source[key2];
+            }
+          }
+        }
+        return target;
+      };
+      return _extends.apply(this, arguments);
+    }
+    function _defineProperty(obj, key2, value) {
+      if (key2 in obj) {
+        Object.defineProperty(obj, key2, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key2] = value;
+      }
+      return obj;
+    }
+    var ARROW_UP = "\x1B[A";
+    var ARROW_DOWN = "\x1B[B";
+    var ENTER = "\r";
+    var SPACE = " ";
+    var MultiSelect2 = class extends _react.PureComponent {
+      constructor(...args) {
+        super(...args);
+        _defineProperty(this, "state", {
+          rotateIndex: 0,
+          highlightedIndex: this.props.initialIndex,
+          selected: this.props.selected || this.props.defaultSelected
+        });
+        _defineProperty(this, "handleInput", (data) => {
+          const {
+            items: items2,
+            focus,
+            onHighlight,
+            onSubmit
+          } = this.props;
+          const {
+            rotateIndex,
+            highlightedIndex
+          } = this.state;
+          const selected = this.props.selected || this.state.selected;
+          const {
+            limit,
+            hasLimit
+          } = this;
+          if (focus === false) {
+            return;
+          }
+          const s = String(data);
+          if (s === ARROW_UP || s === "k") {
+            const lastIndex = (hasLimit ? limit : items2.length) - 1;
+            const atFirstIndex = highlightedIndex === 0;
+            const nextIndex = hasLimit ? highlightedIndex : lastIndex;
+            const nextRotateIndex = atFirstIndex ? rotateIndex + 1 : rotateIndex;
+            const nextHighlightedIndex = atFirstIndex ? nextIndex : highlightedIndex - 1;
+            this.setState({
+              rotateIndex: nextRotateIndex,
+              highlightedIndex: nextHighlightedIndex
+            });
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items2, nextRotateIndex).slice(0, limit) : items2;
+            onHighlight(slicedItems[nextHighlightedIndex]);
+          }
+          if (s === ARROW_DOWN || s === "j") {
+            const atLastIndex = highlightedIndex === (hasLimit ? limit : items2.length) - 1;
+            const nextIndex = hasLimit ? highlightedIndex : 0;
+            const nextRotateIndex = atLastIndex ? rotateIndex - 1 : rotateIndex;
+            const nextHighlightedIndex = atLastIndex ? nextIndex : highlightedIndex + 1;
+            this.setState({
+              rotateIndex: nextRotateIndex,
+              highlightedIndex: nextHighlightedIndex
+            });
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items2, nextRotateIndex).slice(0, limit) : items2;
+            onHighlight(slicedItems[nextHighlightedIndex]);
+          }
+          if (s === SPACE) {
+            const slicedItems = hasLimit ? (0, _arrRotate.default)(items2, rotateIndex).slice(0, limit) : items2;
+            const selectedItem = slicedItems[highlightedIndex];
+            this.setSelectedState(this.selectItem(selectedItem));
+          }
+          if (s === ENTER) {
+            onSubmit(selected);
+          }
+        });
+      }
+      render() {
+        const {
+          items: items2,
+          indicatorComponent,
+          itemComponent,
+          checkboxComponent
+        } = this.props;
+        const {
+          rotateIndex,
+          highlightedIndex
+        } = this.state;
+        const {
+          limit,
+          hasLimit
+        } = this;
+        const slicedItems = hasLimit ? (0, _arrRotate.default)(items2, rotateIndex).slice(0, limit) : items2;
+        return _react.default.createElement(_ink.Box, {
+          flexDirection: "column"
+        }, slicedItems.map((item, index) => {
+          const key2 = item.key || item.value;
+          const isHighlighted = index === highlightedIndex;
+          const isSelected = this.isSelected(item.value);
+          return _react.default.createElement(_ink.Box, {
+            key: key2
+          }, _react.default.createElement(indicatorComponent, {
+            isHighlighted
+          }), _react.default.createElement(checkboxComponent, {
+            isSelected
+          }), _react.default.createElement(itemComponent, {
+            ...item,
+            isHighlighted
+          }));
+        }));
+      }
+      componentDidMount() {
+        const {
+          stdin,
+          setRawMode
+        } = this.props;
+        setRawMode(true);
+        stdin.on("data", this.handleInput);
+      }
+      componentWillUnmount() {
+        const {
+          stdin,
+          setRawMode
+        } = this.props;
+        stdin.removeListener("data", this.handleInput);
+        setRawMode(false);
+      }
+      componentDidUpdate(prevProps) {
+        if (!(0, _lodash.default)(prevProps.items, this.props.items)) {
+          this.setState({
+            // eslint-disable-line react/no-did-update-set-state
+            rotateIndex: 0,
+            highlightedIndex: 0
+          });
+        }
+      }
+      isSelected(value) {
+        const selected = this.props.selected || this.state.selected;
+        return selected.map(({
+          value: value2
+        }) => value2).includes(value);
+      }
+      selectItem(item) {
+        const {
+          onSelect,
+          onUnselect
+        } = this.props;
+        const selected = this.props.selected || this.state.selected;
+        if (this.isSelected(item.value)) {
+          onUnselect(item);
+          return selected.filter(({
+            value
+          }) => {
+            return value !== item.value;
+          });
+        }
+        onSelect(item);
+        return [...selected, item];
+      }
+      setSelectedState(selected) {
+        this.setState({
+          selected
+        });
+      }
+      get hasLimit() {
+        const {
+          limit,
+          items: items2
+        } = this.props;
+        return typeof limit === "number" && items2.length > limit;
+      }
+      get limit() {
+        const {
+          limit,
+          items: items2
+        } = this.props;
+        if (this.hasLimit) {
+          return Math.min(limit, items2.length);
+        }
+        return items2.length;
+      }
+    };
+    _defineProperty(MultiSelect2, "propTypes", {
+      items: _propTypes.default.array,
+      selected: _propTypes.default.array,
+      defaultSelected: _propTypes.default.array,
+      focus: _propTypes.default.bool,
+      initialIndex: _propTypes.default.number,
+      indicatorComponent: _propTypes.default.func,
+      checkboxComponent: _propTypes.default.func,
+      itemComponent: _propTypes.default.func,
+      limit: _propTypes.default.number,
+      onSelect: _propTypes.default.func,
+      onUnselect: _propTypes.default.func,
+      onSubmit: _propTypes.default.func,
+      onHighlight: _propTypes.default.func,
+      stdin: _propTypes.default.any.isRequired,
+      setRawMode: _propTypes.default.func.isRequired
+    });
+    _defineProperty(MultiSelect2, "defaultProps", {
+      items: [],
+      selected: void 0,
+      defaultSelected: [],
+      focus: true,
+      initialIndex: 0,
+      indicatorComponent: _indicator.default,
+      checkboxComponent: _checkbox.default,
+      itemComponent: _item.default,
+      limit: null,
+      onSelect() {
+      },
+      onUnselect() {
+      },
+      onSubmit() {
+      },
+      onHighlight() {
+      }
+    });
+    var _default = (props) => {
+      const {
+        stdin,
+        setRawMode
+      } = (0, _ink.useStdin)();
+      return _react.default.createElement(MultiSelect2, _extends({}, props, {
+        stdin,
+        setRawMode
+      }));
+    };
+    exports2.default = _default;
+  }
+});
+
+// node_modules/ink-multi-select/build/index.js
+var require_build4 = __commonJS({
+  "node_modules/ink-multi-select/build/index.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports2, "default", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.default;
+      }
+    });
+    Object.defineProperty(exports2, "Item", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.Item;
+      }
+    });
+    Object.defineProperty(exports2, "Indicator", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.Indicator;
+      }
+    });
+    Object.defineProperty(exports2, "CheckBox", {
+      enumerable: true,
+      get: function() {
+        return _multiSelect.CheckBox;
+      }
+    });
+    var _multiSelect = _interopRequireWildcard(require_multi_select());
+    function _getRequireWildcardCache() {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cache = /* @__PURE__ */ new WeakMap();
+      _getRequireWildcardCache = function() {
+        return cache;
+      };
+      return cache;
+    }
+    function _interopRequireWildcard(obj) {
+      if (obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return { default: obj };
+      }
+      var cache = _getRequireWildcardCache();
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key2 in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key2)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key2) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key2, desc);
+          } else {
+            newObj[key2] = obj[key2];
+          }
+        }
+      }
+      newObj.default = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+  }
+});
+
 // src/app.jsx
-var import_react5 = __toESM(require_react());
-var import_ink4 = __toESM(require_build2());
-var import_react_router2 = __toESM(require_main());
+var import_react6 = __toESM(require_react());
+var import_ink5 = __toESM(require_build2());
+var import_react_router3 = __toESM(require_main());
 
 // src/MainMenu.jsx
-var import_react4 = __toESM(require_react());
-var import_ink3 = __toESM(require_build2());
+var import_react5 = __toESM(require_react());
+var import_ink4 = __toESM(require_build2());
 var import_ink_select_input = __toESM(require_build3());
-var import_react_router = __toESM(require_main());
+var import_react_router2 = __toESM(require_main());
 var import_ink_gradient = __toESM(require_dist());
 
 // src/logo.txt
@@ -85930,7 +86576,7 @@ function OutputLineBox({
   content,
   separator
 }) {
-  const splitContent = content.split("~");
+  const splitContent = content.split(separator);
   const isSplitContent = splitContent.length > 1;
   return /* @__PURE__ */ import_react.default.createElement(import_ink.Box, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: "white", color: "black" }, ` ${timestamp.toLocaleTimeString("it-IT")} `), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { backgroundColor: configMap[level].color }, ` ${configMap[level].label} `), isSplitContent ? /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement(import_ink.Text, { bold: true }, " ", splitContent[0], " ~"), /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", splitContent[1], " ")) : /* @__PURE__ */ import_react.default.createElement(import_ink.Text, null, " ", content, " "));
 }
@@ -86004,9 +86650,31 @@ var ContextProvider_default = OutputContextProvider;
 var import_react3 = __toESM(require_react());
 var useOutput_default = () => (0, import_react3.useContext)(Context_default);
 
-// src/MainMenu.jsx
-function MainMenu() {
-  const navigate = (0, import_react_router.useNavigate)();
+// src/common/ExecutionInterface/ExecutionInterface.jsx
+var import_react4 = __toESM(require_react());
+var import_ink3 = __toESM(require_build2());
+var import_ink_multi_select = __toESM(require_build4());
+var import_react_router = __toESM(require_main());
+var configMap2 = {
+  uri: {
+    variables: "variables",
+    execute: "execute"
+  }
+};
+function VariablesInputManager({
+  selectedItems
+}) {
+  const variablesMap = selectedItems.reduce(
+    (a, item) => {
+      item.variables.forEach((variableName) => {
+        variableArray = a[variableName] || [];
+        variableArray.push(item.id);
+        a[variableName] = variableArray;
+      });
+      return a;
+    },
+    {}
+  );
   const {
     trace,
     debug,
@@ -86015,6 +86683,79 @@ function MainMenu() {
     error
   } = useOutput_default();
   (0, import_react4.useEffect)(() => {
+    if (selectedItems.length) {
+      info("Will now proceed to collect following variables :");
+      {
+        Object.keys(variablesMap).forEach((variableName) => info(`${variableName} required by ${JSON.stringify(variablesMap[variableName])}`));
+      }
+    }
+  }, [selectedItems]);
+  return /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, "Following variables needed"));
+}
+function ExecutionManager() {
+  return /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, "Execution");
+}
+function ExecutionInterface({
+  text,
+  items: items2
+}) {
+  const {
+    trace,
+    debug,
+    info,
+    warn,
+    error
+  } = useOutput_default();
+  const [selectedItems, setSelectedItems] = (0, import_react4.useState)([]);
+  const transformedItems = (0, import_react4.useMemo)(() => items2.map((item) => ({
+    ...item,
+    label: item.id,
+    value: item.id
+  })), [items2]);
+  const navigate = (0, import_react_router.useNavigate)();
+  const location = (0, import_react_router.useLocation)();
+  const handleSubmit = (0, import_react4.useCallback)(
+    (submittedItems) => {
+      submittedItems.forEach((submittedItem) => info(
+        `Selected ${submittedItem.label}`
+      ));
+      setSelectedItems(submittedItems);
+      navigate(configMap2.uri.variables);
+    },
+    [setSelectedItems]
+  );
+  return /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { flexDirection: "column" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, "This is the executionInterface at path", location.pathname), /* @__PURE__ */ import_react4.default.createElement(import_react_router.Routes, null, /* @__PURE__ */ import_react4.default.createElement(
+    import_react_router.Route,
+    {
+      path: configMap2.uri.variables,
+      element: /* @__PURE__ */ import_react4.default.createElement(
+        VariablesInputManager,
+        {
+          selectedItems
+        }
+      )
+    }
+  ), /* @__PURE__ */ import_react4.default.createElement(import_react_router.Route, { path: "execution", element: /* @__PURE__ */ import_react4.default.createElement(ExecutionManager, null) })), /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, " Press ", /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, { color: "blue" }, "Space"), " to select, ", /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, { color: "green" }, "Enter"), " to submit or "), /* @__PURE__ */ import_react4.default.createElement(import_ink_multi_select.default, { items: transformedItems, onSubmit: handleSubmit }));
+}
+var ExecutionInterface_default = ExecutionInterface;
+
+// src/MainMenu.jsx
+var items = [
+  {
+    label: "EI Environment",
+    value: "/environment"
+  }
+];
+function MainMenu() {
+  const navigate = (0, import_react_router2.useNavigate)();
+  const {
+    trace,
+    debug,
+    info,
+    warn,
+    error
+  } = useOutput_default();
+  (0, import_react5.useEffect)(() => {
     debug("DEBUG MSG");
     trace("trace msg");
     info("Starting payload X");
@@ -86022,15 +86763,41 @@ function MainMenu() {
     warn("missing variable X");
     error("error doing such");
   }, []);
-  return /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { flexDirection: "column", padding: "4" }, /* @__PURE__ */ import_react4.default.createElement(import_ink_gradient.default, { name: "passion" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, logo_default)), /* @__PURE__ */ import_react4.default.createElement(import_ink3.Box, { width: "30", alignItems: "center", justifyContent: "center" }, /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, `Version ${package_default.version}`)), /* @__PURE__ */ import_react4.default.createElement(import_ink3.Text, null, " "));
+  const handleSelect = ({
+    value
+  }) => {
+    navigate(value);
+  };
+  return /* @__PURE__ */ import_react5.default.createElement(import_ink4.Box, { flexDirection: "column", padding: "4" }, /* @__PURE__ */ import_react5.default.createElement(import_ink_gradient.default, { name: "passion" }, /* @__PURE__ */ import_react5.default.createElement(import_ink4.Text, null, logo_default)), /* @__PURE__ */ import_react5.default.createElement(import_ink4.Box, { width: "30", alignItems: "center", justifyContent: "center" }, /* @__PURE__ */ import_react5.default.createElement(import_ink4.Text, null, `Version ${package_default.version}`)), /* @__PURE__ */ import_react5.default.createElement(import_ink4.Text, null, " "), /* @__PURE__ */ import_react5.default.createElement(import_ink_select_input.default, { items, onSelect: handleSelect }));
 }
 var MainMenu_default = MainMenu;
 
+// src/tasks/index.js
+var tasks = [
+  {
+    id: "live.create_lvm",
+    variables: ["luks_mount_name", "lvm_name"],
+    payload: 'echo "creating lvm"'
+  },
+  {
+    id: "live.pacstrap",
+    variables: ["lvm_name", "locale", "hostname"],
+    payload: 'echo "pacstrapping /mnt"'
+  }
+];
+var tasks_default = tasks;
+
 // src/app.jsx
 function App() {
-  return /* @__PURE__ */ import_react5.default.createElement(ContextProvider_default, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.MemoryRouter, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.Routes, null, /* @__PURE__ */ import_react5.default.createElement(import_react_router2.Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(MainMenu_default, null) }))));
+  return /* @__PURE__ */ import_react6.default.createElement(ContextProvider_default, null, /* @__PURE__ */ import_react6.default.createElement(import_react_router3.MemoryRouter, null, /* @__PURE__ */ import_react6.default.createElement(import_react_router3.Routes, null, /* @__PURE__ */ import_react6.default.createElement(import_react_router3.Route, { path: "/", element: /* @__PURE__ */ import_react6.default.createElement(MainMenu_default, null) }), /* @__PURE__ */ import_react6.default.createElement(
+    import_react_router3.Route,
+    {
+      path: "/environment/*",
+      element: /* @__PURE__ */ import_react6.default.createElement(ExecutionInterface_default, { items: tasks_default })
+    }
+  ))));
 }
-(0, import_ink4.render)(/* @__PURE__ */ import_react5.default.createElement(App, null));
+(0, import_ink5.render)(/* @__PURE__ */ import_react6.default.createElement(App, null));
 /*! Bundled license information:
 
 object-assign/index.js:

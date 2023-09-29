@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'ink'
 import { MemoryRouter, Routes, Route } from 'react-router'
 import MainMenu from './MainMenu'
+import allTasks from './tasks'
 import {
   ExecutionInterface,
   OutputContextProvider,
@@ -15,7 +16,7 @@ function App() {
           <Route path="/" element={<MainMenu />} />
           <Route
             path="/environment/*"
-            element={<ExecutionInterface items={[1, 2, 3]} />}
+            element={<ExecutionInterface items={allTasks} />}
           />
           {/*
         <Route path="/1" element={<Menu1 />} />

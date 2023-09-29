@@ -1,9 +1,12 @@
-import React, { useCallback } from 'react'
+import React, {
+  useMemo, useCallback, useState, useEffect,
+} from 'react'
 import { Box, Text } from 'ink'
-import SelectInput from 'ink-select-input'
+import MultiSelect from 'ink-multi-select'
 import {
   useNavigate, useLocation, Routes, Route,
 } from 'react-router'
+import { useOutput } from '../OutputContext'
 
 // For colors, look at docs here
 // https://github.com/chalk/chalk
@@ -15,8 +18,42 @@ const configMap = {
   },
 }
 
-function VariablesInputManager() {
-  return (<Text>Variables Input Here</Text>)
+function VariablesInputManager({
+  selectedItems,
+}) {
+  const variablesMap = selectedItems.reduce(
+    (a, item) => {
+      item.variables.forEach((variableName) => {
+        variableArray = a[variableName] || []
+        variableArray.push(item.id)
+        a[variableName] = variableArray
+      })
+      return a
+    },
+    {},
+  )
+
+  const {
+    trace,
+    debug,
+    info,
+    warn,
+    error,
+  } = useOutput()
+
+  useEffect(() => {
+    if (selectedItems.length) {
+      info('Will now proceed to collect following variables :')
+      { Object.keys(variablesMap).forEach((variableName) => info(`${variableName} required by ${JSON.stringify(variablesMap[variableName])}`)) }
+    }
+  }, [selectedItems])
+
+  return (
+    <Box flexDirection="column">
+      <Text>Following variables needed</Text>
+
+    </Box>
+  )
 }
 
 function ExecutionManager() {
@@ -27,29 +64,35 @@ function ExecutionInterface({
   text,
   items,
 }) {
+  const {
+    trace,
+    debug,
+    info,
+    warn,
+    error,
+  } = useOutput()
+
+  const [selectedItems, setSelectedItems] = useState([])
+
+  const transformedItems = useMemo(() => items.map((item) => ({
+    ...item,
+    label:item.id,
+    value:item.id,
+  })), [items])
+
   const navigate = useNavigate()
   const location = useLocation()
 
-  const it = [
-    {
-      label:'VariablesInputManager',
-      value:configMap.uri.variables,
+  const handleSubmit = useCallback(
+    (submittedItems) => {
+      submittedItems.forEach((submittedItem) => info(
+        `Selected ${submittedItem.label}`,
+      ))
+      setSelectedItems(submittedItems)
+      navigate(configMap.uri.variables)
     },
-    {
-      label:'Execution',
-      value:configMap.uri.execute,
-    },
-  ]
-
-  const displayVariablesReview = useCallback(() => navigate(configMap.uri.variables))
-
-  const displayExecutionStatus = useCallback(() => navigate(configMap.uri.execute))
-
-  const handleSelect = ({
-    value,
-  }) => {
-    navigate(value)
-  }
+    [setSelectedItems],
+  )
 
   return (
     <Box flexDirection="column">
@@ -58,10 +101,34 @@ function ExecutionInterface({
         {location.pathname}
       </Text>
       <Routes>
-        <Route path="vars" element={<VariablesInputManager />} />
+        <Route
+          path={configMap.uri.variables}
+          element={(
+            <VariablesInputManager
+              selectedItems={selectedItems}
+            />
+)}
+        />
         <Route path="execution" element={<ExecutionManager />} />
       </Routes>
-      <SelectInput items={it} onSelect={handleSelect} />
+      <Text>
+        {' Press '}
+        <Text color="blue">
+          Space
+        </Text>
+        {' to select, '}
+        <Text color="green">
+          Enter
+        </Text>
+        {' to submit or '}
+        {/*
+        <Text color="yellow">
+          Escape
+        </Text>
+        {' to return to the previous menu.'}
+        */}
+      </Text>
+      <MultiSelect items={transformedItems} onSubmit={handleSubmit} />
     </Box>
   )
 }
